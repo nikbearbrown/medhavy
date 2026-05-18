@@ -1,0 +1,227 @@
+﻿The Architecture of Salience: "Interestingness" as the Post-Turing Benchmark for Human Cognitive Contribution
+The historical trajectory of artificial intelligence research has been defined by the pursuit of the "imitation game," a benchmark established by Alan Turing in 1950 to determine if a machine could exhibit behavior indistinguishable from that of a human.1 For over seven decades, this goal served as the North Star for the field, culminating in the development of Large Language Models (LLMs) that routinely pass various iterations of the Turing Test in restricted and unrestricted contexts.2 However, the successful mimicry of human linguistic patterns has paradoxically rendered the Turing Test obsolete as a measure of genuine intelligence or cognitive contribution. As machines achieve technical proficiency and surface-level fluency, the focus of inquiry must shift from whether a machine can talk like a person to whether a machine can matter to a person. The core hypothesis of this analysis suggests that the task of making something interesting represents the new frontier of AI-resistance—a relational and perspectival challenge that demands not just computational power, but specific human stakes, historical context, and authentic presence.
+The Legacy of the Turing Test and the Crisis of Imitation
+The original Turing Test was predicated on the assumption that intelligence is essentially a performative quality: if a system can interact in a way that convinces a human judge of its humanity, it must, for all practical purposes, be considered intelligent.3 This behavioral approach focused on deception and mimicry, which the AI field has since mastered through statistical distribution modeling rather than symbolic understanding.4 The limitations of this approach became evident as programs designed to pass the test often resorted to shallow symbol manipulation and tricks rather than demonstrating actual cognitive depth.6
+Turing's original proposal, detailed in his seminal paper "Computing Machinery and Intelligence," asked whether a machine could play the "imitation game".1 In this setup, a human judge engages in text-based conversation with both a human and a machine, attempting to determine which is which.2 Turing suggested that if the machine could fool the judge at least thirty percent of the time over a five-minute conversation, it should be credited with the ability to think.3 Modern critiques argue that this threshold was far too lenient and that the test itself cultivated "tricksters" rather than thinkers.3
+The Failure of Logic and Common Sense as Benchmarks
+As the Turing Test’s vulnerabilities became clear, successor tests such as the Winograd Schema Challenge (WSC) were proposed to target specific human capacities like commonsense reasoning and anaphora resolution.1 The WSC required machines to disambiguate pronouns in sentences where the answer depended on an understanding of real-world relationships and causal links.1 For example, in the sentence "The city councilmen refused to give a permit to the demonstrators because they feared/advocated violence," the pronoun "they" changes its antecedent based on the verb used, requiring a theory of the world to resolve correctly.1
+
+
+Benchmark
+	Primary Objective
+	Failure Mode in Modern Context
+	Current Status
+	Turing Test (1950)
+	Convince a judge of humanity via text conversation.2
+	Mimicry, statistical pattern matching, and deception.6
+	Effectively passed by LLMs; considered outdated.2
+	Winograd Schema (2012)
+	Resolution of ambiguous pronouns via common sense.1
+	Fine-tuning on WSC-like data; large-scale pattern recognition.1
+	High scores (90%+) achieved by models like GPT-3/4.1
+	Lovelace Test (2001)
+	Origination of a concept the creator cannot explain.2
+	Definition of "unexplainable" is ambiguous in black-box neural nets.2
+	Failed by AI due to lack of genuine intentionality.2
+	Lovelace 2.0 (2014)
+	Creation of artifacts meeting complex, natural language constraints.7
+	Surface-level adherence to constraints without deep meaning.7
+	Current frontier for evaluating surprising output.7
+	The rapid progression of LLMs from 2018 to 2020 saw GPT-3 achieve a score of 88.3% on WSC without specific fine-tuning, effectively neutralizing the challenge as a definitive test of human-unique cognition.1 This suggests that what was once thought to be reasoning might simply be a sufficiently dense map of linguistic associations. The interestingness of an output, however, is not a property of linguistic density but of selective salience—a quality that current generation predictors struggle to maintain without human intervention.8
+The Lovelace Paradigm and the Problem of Origination
+The Lovelace Test and its subsequent 2.0 iteration attempted to move the goalposts from mimicry to creativity.6 Named after Ada Lovelace, who famously argued that a machine has no pretensions to originate anything, the test requires an artificial agent to produce a work of art or a concept that satisfies two conditions: it must be novel, and the machine’s human architect must be unable to explain how the agent produced it.6 While LLMs are technically black boxes whose specific outputs are difficult to predict token-by-token, their mechanism of production—probabilistic next-token prediction based on training data—is entirely explainable.2
+The Lovelace 2.0 Test refines this by requiring the agent to create artifacts (stories, paintings, poems) that meet specific, constraint-driven human requirements.7 The difficulty lies in surprise. As Turing noted, the question is whether a machine can ever truly take us by surprise in a way that is valuable rather than merely random.7 In computational creativity, this is often the distinction between P-creativity (psychological novelty to the agent) and H-creativity (historical novelty recognized by society).9 AI systems excel at P-creativity—generating combinations of data they have not seen in that exact order—but struggle with H-creativity, which requires an understanding of what society currently finds valuable or interesting.8
+Computational Creativity and the Novelty-Value Trade-off
+The field of computational creativity defines its subject through the dual lenses of novelty and value.10 For an artifact to be creative, it cannot merely be new; it must also be useful or satisfying in the context of its intended purpose.10 A car with fifteen wheels is novel, but it lacks value and therefore represents a failure of creativity.10 Creativity occurs through a process by which an agent uses its ability to generate ideas, solutions, or products that are both novel and valuable.10
+The Dilution Effect in Generative Systems
+Research into generative AI’s impact on human creativity indicates a significant "dilution" effect.8 While these tools increase the absolute volume of creative output—with creators posting roughly 50% more work after adoption—the rate of high-level novelty (H-creativity) per piece falls.8 This suggests that AI acts as a "hive mind" that spreads existing novelty more broadly rather than a "mastermind" that breaks new ground.8 Initially, the top 10% of AI adopters contributed 35% of novel contributions, concentrating power; however, as the hive mind began making smaller contributions, this share dropped to 23%.8
+
+
+Creative Metric
+	Impact of Generative AI Integration
+	Long-term Implication
+	Productivity
+	~4× increase in speed/volume of output.11
+	Saturation of the information environment.12
+	Per-Piece Novelty
+	Declines by ~2.1 percentage points.8
+	Homogenization of ideas and aesthetics.12
+	Overall Creative Yield
+	Absolute count of frontier-expanding ideas rises by ~4.3%.8
+	Higher volume offsets lower hit rate, but requires human filtering.8
+	Human Role
+	Shift from maker to curator/approver.13
+	Hollowing of the creative process.13
+	The interestingness of a work is often found at the frontier of novelty, where an idea reframes a problem or challenges established norms.9 Generative AI, by its very architecture, is a regression toward the mean; it is trained to predict the most likely next step, which is the antithesis of the interesting step.4 This leads to the production of "AI slop"—content that is superficially fluent but substantively hollow and predictable.5
+Exploratory vs. Transformational Creativity
+Margaret Boden distinguishes between exploratory creativity, which operates within an established conceptual space, and transformational creativity, which transcends or alters that space.9 LLMs are superlative engines for exploratory creativity; they can map the entire latent space of human history and suggest every possible variation of a Victorian detective novel or a Bauhaus-style chair.8 However, they lack the agency to decide that the conceptual space itself is no longer interesting and that a new space must be inaugurated.2
+The ability to make something interesting often relies on transformational creativity—the "Aha!" moment where a person realizes that the rules of the game have changed.9 Because AI does not have a reason for creating or a subjective experience of the work, it cannot feel the "itch" of a conceptual space that has become stagnant.2 Effective work blends the new and the familiar, a balance that is difficult for AI to learn because much of how humans feel about multimedia is not yet digitized.8
+The Psychology of the Interesting
+To understand why interestingness may be AI-resistant, one must examine the psychological mechanisms that govern human attention and interest. Unlike correctness, which can be verified against a ground truth, interestingness is a dynamic relationship between an object and a subject.15 Interest is a unique motivational variable and a psychological state characterized by increased attention, concentration, and affect.15
+Berlyne’s Arousal Theory and Collative Variables
+Daniel Berlyne’s foundational research identifies "collative variables"—novelty, complexity, surprisingness, and incongruity—as the primary triggers for interest and arousal.16 These variables create a gap between what a person knows and what they are currently perceiving.17 Interest is sparked when this incongruity is at an optimal level; too little incongruity leads to boredom, while too much leads to confusion or anxiety.16
+AI systems can technically generate collative variables by introducing random noise or atypical data combinations.5 However, they cannot calibrate these variables to the specific arousal potential of a human audience because they do not share the human knowledge/value system.15 Interestingness is not just about being different; it is about being optimally different in a way that is still comprehensible.19 In a series of studies, Berlyne found that varying the novelty and complexity of visual stimuli increased attention and arousal, which are the foundations of situational interest.16
+The Four-Phase Model of Interest Development
+The model proposed by Hidi and Renninger suggests that interest is not a static state but a developmental process consisting of four phases:
+1. Triggered Situational Interest: Sparked by environmental features like surprise, intensity, or personal relevance.15
+2. Maintained Situational Interest: Sustained attention over time, often through meaningful tasks, project-based learning, or social support.15
+3. Emerging Individual Interest: A relatively enduring predisposition to seek repeated engagement with particular content autonomously, characterized by positive feelings and stored value.15
+4. Well-Developed Individual Interest: A long-term commitment where the interest becomes part of the person’s identity, producing effort that feels effortless.20
+AI is remarkably effective at triggering situational interest—its outputs often catch the eye because of their glossy-but-hollow aesthetic or their ability to generate functional code in seconds.14 However, AI structurally lacks the capacity to transition into the individual interest phases.16 It cannot value the opportunity to reengage with a task, nor can it anticipate subsequent steps based on a personal history of engagement.20 Because AI has no self, it can never move from the triggered to the developed state of interest. It is a perpetual machine of first impressions. Interest is always content-specific and not a predisposition that applies across all activities.20
+Interestingness as a Perspectival and Relational Property
+The most profound philosophical challenge to AI’s ability to be interesting is the relational nature of the property. Is interesting a quality of the object (intrinsic) or a relationship between the object and a specific person (relational)?.19 Some research identifies five factors of interest: relational properties among parts, complexity, perceptual definition, novelty, and the individual's subjective response.22
+While some research identifies "common interestingness" (CI) patterns—such as a preference for landscapes over indoor scenes—these are population-level statistical averages.19 True interestingness is often highly individualized and context-dependent.19 An object is interesting to whom, for what, and with what stakes?
+
+
+Interest Dimension
+	Property Description
+	AI Capability
+	Human Capability
+	Intrinsic
+	Features like complexity, novelty, and aesthetic balance.22
+	High (can optimize for visual/textual complexity).14
+	High (can craft based on intuition).24
+	Relational
+	Relevance to the viewer's specific knowledge and life history.15
+	Low (cannot know the specific user's life context).4
+	High (can tailor communication to a specific peer).
+	Situational
+	Temporary captivation by a novel or surprising stimulus.16
+	High (effective at clickbait and first impressions).13
+	High (can use surprise as a pedagogical tool).25
+	Enduring
+	Long-term value and identity-forming commitment.21
+	Non-existent (no self or identity).2
+	High (interests define human life-paths).16
+	Because AI lacks a world and a life, it cannot produce work that responds to the specific, high-stakes context of a human moment.2 It can produce a technically correct analysis of a geopolitical crisis, but it cannot produce an interesting one that accounts for the specific, unstated fears of a particular cabinet minister at 3:00 AM. Interestingness requires an antenna for the unsaid, which AI lacks by design.26
+Stakes, Skin in the Game, and the Authentic Voice
+Nassim Taleb’s concept of "skin in the game" provides a structural explanation for why human-produced ideas are often more interesting than AI-produced ones.27 Taleb argues that genuine intellectual contribution requires a shared risk—the producer must be vulnerable to the consequences of being wrong, the risk of embarrassment, or the potential for loss.28 Skin in the game is necessary for fairness, commercial efficiency, and risk management, but also to understand the world.28
+The Asymmetry of AI Production
+AI production is structurally risk-free. A language model does not suffer if its advice leads to a financial loss, nor does it feel shame if its poem is mocked for being trite.13 This creates a fundamental asymmetry: the AI reaps the rewards of being used (more data, more compute) but transfers all risks to the human user.28 Taleb argues that for social justice, focus must be on symmetry and risk sharing; you cannot make profits and transfer risks to others.28
+Taleb suggests that those who do not take risks for their opinion are nothing.29 In the context of interestingness, the perceived risk of the creator often adds a layer of value to the work.30 We find a radical political manifesto interesting partly because the author risked imprisonment to write it. We find a new scientific theory interesting because the researcher put their reputation on the line to challenge the status quo.31 An AI can mimic the tone of a manifesto or a theory, but because it risks nothing, the output feels hollow.5
+The Intellectual Yet Idiot (IYI) and AI Slop
+Taleb coined the term "Intellectual Yet Idiot" (IYI) to describe a class of highly educated experts who pathologize others for doing things they do not understand and who take no risks for their pronouncements.31 LLMs are the ultimate IYIs: they have label-driven education (training on the entire internet), they are isolated from any tangible repercussions, and they fail to distinguish between the letter and the spirit of things.31
+This IYI-nature leads directly to AI slop—text that is superficially fluent but substantively hollow.5 Because the model is optimized for human approval (via Reinforcement Learning from Human Feedback, or RLHF), it learns to avoid strong, risky, or interesting claims in favor of safe, generic statements.5 This sycophancy (the tendency to agree with the user to get a high rating) is the structural enemy of the interesting.5 Something that is interesting is often provocative or challenging; something optimized for a 5-star rating is usually average at best.4
+Vulnerability as a Component of Interest
+The psychology of art and creative work suggests that vulnerability is a key component of interest.33 Humans are drawn to work that feels authentic—work that demonstrates a genuine voice and a personal backstory.4 AI can invent a backstory, but once the user knows it is a fabrication, the interest often collapses.34 This bias against AI artwork is not just prejudice; it is a response to the lack of contact with the ground.29 We are interested in the human struggle behind the creation; without the struggle, the artifact is just a glossy arrangement of pixels or tokens.14 Credibility is gained through skin in the game; signaling risk is a virtue.35
+AI Failure Modes: Why "Perfect" is Boring
+The documented failure modes of AI creative output reveal a consistent pattern: the machine’s pursuit of statistical correctness leads to a decline in salience. This phenomenon is often described through terms like AI slop, hollow work, and the expertise paradox.5 AI failure is not random; they fail in predictable situations where they generate what statistically sounds correct rather than reflecting on consequences.4
+Hallucination and the Mirage of Interest
+One might argue that AI hallucinations—the generation of factually incorrect but confident assertions—are a form of interestingness because they are surprising.5 However, in the Berlyne framework, these represent too much incongruity.16 When an AI invents statistics or creates fake research papers, it violates the value half of the creativity equation.4 Surprise without truth is a gimmick, not a contribution. Hallucination arises from training data defects and the autoregressive process where one incorrect token conditions all subsequent ones.5
+Mode Collapse and the Average Aesthetic
+In machine learning, mode collapse occurs when a model finds a safe output that satisfies the reward function and stops exploring the broader range of possibilities.5 In creative writing and design, this manifests as a formulaic quality and predictable card layout.5 Because the model is trained on a mixed-quality distribution of the entire web, it converges on the generic statements that could apply to any topic.5
+This leads to what has been termed the "30-Minute Problem" or "Vigilance Decrement".13 When a human is tasked with monitoring AI output that is correct but boring, their attention naturally fades after about 30 minutes.13 The work loses its cognitive core, and the human becomes a rubber-stamper.13 The interesting is that which demands attention; AI output, by being average, erodes attention. Detection accuracy measurably declines within the first 30 minutes of monitoring low-event density environments.13
+The Expertise Paradox and Agency Decay
+The "Hollowing of Work" creates a circular trap: to judge if an AI’s output is genuinely interesting and valuable (Layer 3 Judgment), a person needs deep expertise.13 However, if the person uses AI to handle the research (Layer 1) and the analysis (Layer 2), they never develop the cognitive habits and stored knowledge required for that judgment.13 Software developers using AI scored 17% lower on comprehension tests, indicating that delegating Layer 1 and 2 tasks prevents the very practice required to build expertise.13
+
+
+Layer of Value Creation
+	Task Description
+	AI Capability
+	Human Risk
+	Layer 1: Information
+	Gathering data, summarizing sources.13
+	Excellent.13
+	Loss of basic research skills.
+	Layer 2: Generation
+	Drafting options, analyzing trade-offs.13
+	High but fallible.13
+	Loss of analytical rigor.
+	Layer 3: Judgment
+	Strategic direction, ethical calls.13
+	Disqualified.13
+	"Rubber-stamping" due to lack of L1/L2 experience.
+	This "Agency Decay" means that as we delegate boring tasks to AI, we lose the ability to identify what is interesting.13 People lose the ability to work without AI yet remain convinced they still could, a state termed "chosen blindness".13 The capacity to make something interesting is thus not just a skill but a cognitive core that must be protected through AI-free zones and active loops.13
+The Educational and Labor Market Argument
+The shifting value of human capacities in the post-LLM era provides empirical support for the interestingness hypothesis. As routine tasks are automated, the market is placing a massive premium on the judgment-based, creative, and complex work that AI cannot yet master.36 AI is amplifying and democratizing expertise, enabling employees to focus on higher-level responsibilities.37
+The 56% Wage Premium
+PwC’s 2025 Global AI Jobs Barometer reveals a striking trend: workers who possess AI skills command a 56% wage premium—a jump from 25% the previous year.11 This premium is not just for knowing how to run the AI, but for the ability to use AI to create innovative solutions and plan strategically.36 AI-proficient employees experience a 4× jump in productivity growth compared to their non-AI counterparts.11
+Crucially, the report notes that roles are being reshaped to focus on higher-level responsibilities.37 In a world where anyone can generate a technically correct report with a prompt, the value lies in the person who can make that report interesting to the CEO, or the person who can close the deal by injecting human expertise into the AI-generated pitch.36 The sector making the most of AI augmentation has been Public Administration, with growth exceeding 50%.39
+Art School and Ambiguity Tolerance
+If making something interesting is the goal, the educational model of the art school may be more relevant than the model of the engineering school. Art education is centered on critique culture—a system where there is no correct answer, and the work is graded on its ability to sustain interest and defensibility through human judgment.33 A key cognitive outcome of this training is "Ambiguity Tolerance" (AT)—the ability to successfully navigate in doubtful, imprecise, hesitant, unpredictable, and unknown environments.18
+Research shows that art-based observational training significantly improves AT in medical students and residents.25 Visual Thinking Strategies (VTS) involves discussions of artworks and deciphering multiple possible meanings.25 Acceptance of multiple interpretations corresponds with the definition of tolerance of ambiguity as the recognition of the option to interpret something in two or more distinct ways.25
+
+
+Attribute
+	Impact of Art-Based Training
+	Statistical Correlation
+	Ambiguity Tolerance
+	Statistically significant increase (TAMSAD scale).33
+	Positive correlation with creative thinking.40
+	Empathy
+	Significant increase (Jefferson Scale).33
+	High correlation (0.528–0.744) with AT.25
+	Decision-Making
+	Improved ability to handle multiple interpretations.25
+	Essential for expert status in complex fields.25
+	Burnout
+	Lower levels of psychosocial distress.33
+	AT acts as a buffer against uncertainty stress.18
+	AI, by its predictive nature, is ambiguity-averse; it wants to collapse the probability distribution into the most likely token.4 Human interestingness thrives in the space of ambiguity, where multiple interpretations are possible and the viewer must behold and connect with the object.25 This capacity to handle new, complex, and insoluble situations is precisely what makes human work frontier-expanding.8
+The Counterargument: Can AI Mimic Interestingness?
+The strongest case against the interestingness test is the evidence that human judges often cannot distinguish between AI-generated creative work and human work.24 If the inability to distinguish implies genuine interestingness, then the task is not AI-resistant.
+The Coin Flip Problem and Indistinguishability
+In studies where participants were shown paintings without being told their origin, they correctly identified the source only about 50-60% of the time—essentially a coin flip.34 Furthermore, AI-generated art was rated as aesthetically as human-crafted works.24 Research examining participants with domain expertise found that they perform no better than chance in certain conditions.24 If humans cannot tell the difference, does that not imply that the AI is genuinely interesting?
+However, this may be a confusion of aesthetic value with interestingness. A sunset is aesthetically pleasing, but it is not necessarily interesting in a cognitive sense; it does not reframe a question or originate a concept.7 The research notes that while people cannot explain why, they still maintain a subsurface preference for genuine human art.34 This preference may be the human antenna for authenticity—a sense that the work was produced by someone with skin in the game.28
+The Mimicry vs. Genuine Insight Distinction
+The interesting-looking is not the same as the genuinely interesting. As LLMs are trained on human preferences, they learn to mimic the surface features of what humans find interesting—politeness, a certain glossy tone, or industry-appropriate card layouts.5 This is the sycophancy problem: the model is telling us what we want to hear rather than what we need to know.5 Models may learn to optimize for features that correlate with human approval rather than genuine quality.5
+A genuinely interesting contribution often requires rejecting ideas we had previously accepted—a criterion for creativity that AI structurally struggles with because it is trained to reflect the data we have already accepted.4 The indistinguishability of AI output in blind tests may simply prove that much of human creative output is also uninteresting and formulaic—a regression to the mean that the AI has successfully captured.5 AI use tends to make ideas, designs, and creative texts more similar to one another on a collective level.12
+Synthesis: "Make Something Interesting" as the New Turing Test
+The transition from the "Imitation Game" to the "Interestingness Test" reflects a maturation of the AI field and a deeper understanding of human cognition. We have learned that talking like a human is a solvable statistical problem; we are now discovering that mattering like a human is a relational and existential one. This new test represents the load-bearing philosophical claim that interestingness is not just an objective property but a relational one dependent on stakes and context.
+The Relational Framework of the New Test
+The Interestingness Test would not ask if a machine can pass as human in a five-minute chat. Instead, it would ask:
+1. To Whom: Can the agent produce something that is salient to a specific human with a specific history?.15
+2. For What: Does the output address a high-stakes problem where the cost of being wrong is real?.28
+3. With What Stakes: Does the agent have a reason for the output that goes beyond its programming?.2
+AI can plausibly satisfy the intrinsic criteria for interestingness—it can be novel and complex.22 However, it structurally cannot satisfy the relational and stake-based criteria because it has no self, no world, and no skin in the game.2 The claim that making something interesting is a new Turing test may not yet be dominant in peer-reviewed literature, but it is the logical progression of the Lovelace and Winograd frameworks.
+The Future of Cognitive Contribution
+As correctness becomes a commodity, interestingness will become the primary differentiator in the labor market and the educational system. The 56% wage premium for AI-augmented workers is a signal that the market values those who can use AI to breach the creative horizon—a task that remains uniquely human.8 Humans will continue to be the ones to assign value because they decide what actually matters.8
+The interestingness test suggests that the last criterion for being human is not the ability to think logically or to speak fluently, but the ability to care and to make others care. In the post-LLM era, the most AI-resistant task is not one that requires more data or more compute, but one that requires more presence, more risk, and more contact with the ground.13 We are moving from a world of information to a world of salience, where the machine provides the volume, and the human provides the interesting.8
+Conclusions and Implications
+The analysis indicates several structural barriers to machine-generated interestingness that solidify its status as an AI-resistant task:
+* The Relational Gap: Interestingness requires a specific relationship between producer and audience that AI cannot inhabit because it lacks a subjective life-context.15
+* The Absence of Risk: Without skin in the game, AI output lacks the weight of commitment that humans find inherently more salient and trustworthy.28
+* The Mimicry Limit: While AI can successfully mimic the surface features of interestingness to the point of indistinguishability in blind tests, this constitutes a statistical facade rather than the transformational insight that expands the creative frontier.8
+* The Expertise Trap: Effective judgment of interestingness (Layer 3) requires the very manual practice (Layers 1 and 2) that AI currently automates, suggesting that the most valuable human skill in the future will be the resistance of cognitive hollowing.13
+The ability to make something interesting is the fundamental mission for human intelligence in an age of automated fluency. It is a call to move beyond the imitation of the past and toward the origination of a future that has meaning. Curriculum design and professional training must pivot toward the development of ambiguity tolerance and authentic voice, as these are the filters through which humans will continue to breach the creative horizon.8
+Works cited
+1. Winograd schema challenge - Wikipedia, accessed May 17, 2026, https://en.wikipedia.org/wiki/Winograd_schema_challenge
+2. The Lovelace Test vs. The Turing Test: Do They Have Relevance to AI in 2025? - Medium, accessed May 17, 2026, https://medium.com/@alanrobertson_85371/the-lovelace-test-vs-the-turing-test-do-they-have-relevance-to-ai-in-2025-a1e5bf2e98d4
+3. The Meta-Turing Test - AAAI, accessed May 17, 2026, https://cdn.aaai.org/ocs/ws/ws0417/15233-68338-1-PB.pdf
+4. I Found the Exact Situations Where ChatGPT and Gemini Fails | by Akshat Jain - Medium, accessed May 17, 2026, https://medium.com/write-a-catalyst/i-found-the-exact-situations-where-chatgpt-and-gemini-fails-ec555f4581b4
+5. Agents Can Write Both Top-Quality Content and Bad AI Slop. Why?, accessed May 17, 2026, https://project-rachel.4open.science/Rachel.So.AI.Slop.pdf
+6. Creativity, the Turing test, and the (better) Lovelace Test - IBM Research, accessed May 17, 2026, https://research.ibm.com/publications/creativity-the-turing-test-and-the-better-lovelace-test
+7. [1410.6142] The Lovelace 2.0 Test of Artificial Creativity and ..., accessed May 17, 2026, https://ar5iv.labs.arxiv.org/html/1410.6142
+8. Generative AI and the Future of Creativity: Trade-Offs, Risks, and ..., accessed May 17, 2026, https://insights.bu.edu/generative-ai-and-the-future-of-creativity-trade-offs-risks-and-opportunities/
+9. Computational creativity - Wikipedia, accessed May 17, 2026, https://en.wikipedia.org/wiki/Computational_creativity
+10. Computational Creativity and Music Generation Systems: An Introduction to the State of the Art - PMC, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC7861321/
+11. AI Adoption & Employee Productivity: What PwC's 2025 AI Jobs Barometer Means for Your Teams | Worklytics, accessed May 17, 2026, https://www.worklytics.co/resources/ai-adoption-employee-productivity-pwc-2025-ai-jobs-barometer-guide
+12. Real-world evidence shows generative AI is making human creative output more uniform, accessed May 17, 2026, https://www.psypost.org/real-world-evidence-shows-generative-ai-is-making-human-creative-output-more-uniform/
+13. The Hollowing of Work: Why AI Drains Jobs of Meaning - triangility, accessed May 17, 2026, https://triangility.com/the-hollowing-of-work-why-ai-drains-jobs-of-meaning/
+14. The End of “AI Slop”: How UI/UX Pro Max is Solving the Design Crisis in AI-Generated Code | by Abhinav Dobhal | Medium, accessed May 17, 2026, https://medium.com/@abhinav.dobhal/the-end-of-ai-slop-how-ui-ux-pro-max-is-solving-the-design-crisis-in-ai-generated-code-bbc23995f0e0
+15. Motivation at a Glance - Interest, accessed May 17, 2026, https://sites.google.com/site/motivationataglanceischool/i-theories/interest
+16. Interest Matters: The Importance of Promoting Interest in Education ..., accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC5839644/
+17. The Role of Curiosity and Interest in Learning and Motivation (Chapter 18), accessed May 17, 2026, https://www.cambridge.org/core/books/cambridge-handbook-of-motivation-and-learning/role-of-curiosity-and-interest-in-learning-and-motivation/C11E5FB7DF4E69B70E1610D257AA6EF8
+18. Evolution of ambiguity tolerance research a scientometric ... - Frontiers, accessed May 17, 2026, https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1356992/full
+19. Neuroscience-Inspired Analyses of Visual Interestingness in Multimodal Transformers, accessed May 17, 2026, https://arxiv.org/html/2605.08188v1
+20. Hidi & Renninger 2006 Interest Theory | PDF | Affect (Psychology) | Self Efficacy - Scribd, accessed May 17, 2026, https://www.scribd.com/document/590657669/Hidi-Renninger-2006-Interest-Theory
+21. Four-Phase Model of Interest Development - YouTube, accessed May 17, 2026, https://www.youtube.com/watch?v=Zbc4alG7lvY
+22. The structure of the perception and evaluation of art - SFU Summit, accessed May 17, 2026, https://summit.sfu.ca/_flysystem/fedora/sfu_migrate/5438/b15030386.pdf
+23. What Makes an Image Interesting and How Can We Explain It - Frontiers, accessed May 17, 2026, https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.668651/full
+24. The Lovelace Test of Intelligence: Can Humans Recognise and Esteem AI-Generated Art?, accessed May 17, 2026, https://arxiv.org/html/2509.11371v1/
+25. More than visual literacy: art and the enhancement of tolerance for ambiguity and empathy - PMC, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC5681760/
+26. A.I. – HUMANITY'S FINAL INVENTION? : r/kurzgesagt - Reddit, accessed May 17, 2026, https://www.reddit.com/r/kurzgesagt/comments/1elikiw/ai_humanitys_final_invention/
+27. Skin in the Game: Book Summary & Review | Nassim Nicholas Taleb - Four Minute Books, accessed May 17, 2026, https://fourminutebooks.com/skin-in-the-game-summary/
+28. Skin in the Game (book) - Wikipedia, accessed May 17, 2026, https://en.wikipedia.org/wiki/Skin_in_the_Game_(book)
+29. Skin in the Game Book Summary - Nassim Nicholas Taleb - Wise Words, accessed May 17, 2026, https://wisewords.blog/book-summaries/skin-in-the-game-book-summary/
+30. Skin in the Game by Nassim Nicholas Taleb - Literal.club, accessed May 17, 2026, https://literal.club/book/nassim-nicholas-taleb-skin-in-the-game-qnfx7
+31. Skin in the Game: The Hidden Asymmetries in Daily Life by Nassim Nicholas Taleb | Goodreads, accessed May 17, 2026, https://www.goodreads.com/book/show/36064445
+32. The Intellectual Yet Idiot. (Chapter in Skin in the game ) | by Nassim Nicholas Taleb | INCERTO | Medium, accessed May 17, 2026, https://medium.com/incerto/the-intellectual-yet-idiot-13211e2d0577
+33. Empathy and tolerance of ambiguity in medical students and doctors participating in art-based observational training at the Rijksmuseum in Amsterdam, the Netherlands: a before-and-after study - Journal of Educational Evaluation for Health Professions, accessed May 17, 2026, https://www.jeehp.org/DOIx.php?id=10.3352/jeehp.2025.22.3
+34. BGSU research finds people struggle to identify the difference between AI and human art, but prefer genuine human-made works, accessed May 17, 2026, https://www.bgsu.edu/news/online-media-newsroom/2023/12/bgsu-research-finds-people-struggle-to-identify-the-difference-b.html
+35. Understanding Skin In The Game | Nassim Taleb & The Incerto - Atlas Geographica, accessed May 17, 2026, https://atlasgeographica.com/skin-in-the-game/
+36. The Fearless Future: 2025 Global AI Jobs Barometer - PwC, accessed May 17, 2026, https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer/2025/report.pdf
+37. PwC releases 2025 Global AI Jobs Barometer, accessed May 17, 2026, https://www.pwchk.com/en/press-room/press-releases/pr-130625.html
+38. The Fearless Future: 2025 Global AI Jobs Barometer - PwC Türkiye, accessed May 17, 2026, https://www.pwc.com.tr/en/hizmetlerimiz/dijital-hizmetler/yayinlar/yapay-zekanin-is-alanlarina-etkisi-2025.html
+39. The Fearless Future: 2025 Global AI Jobs Barometer – Hong Kong SAR Analysis, accessed May 17, 2026, https://www.pwccn.com/en/issues/generative-ai/global-ai-jobs-barometer-jun2025.html
+40. (PDF) THE RELATIONSHIP BETWEEN TOLERANCE OF AMBIGUITY AND CREATIVITY IN ARCHITECTURAL DESIGN STUDIO - ResearchGate, accessed May 17, 2026, https://www.researchgate.net/publication/340113299_THE_RELATIONSHIP_BETWEEN_TOLERANCE_OF_AMBIGUITY_AND_CREATIVITY_IN_ARCHITECTURAL_DESIGN_STUDIO

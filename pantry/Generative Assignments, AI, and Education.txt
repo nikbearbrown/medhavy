@@ -1,0 +1,299 @@
+﻿Generative Learning Architectures: Mitigating AI-Driven Task Displacement in STEM and Medical Education
+The rapid advancement and deployment of generative artificial intelligence have fundamentally disrupted traditional educational paradigms. In an era where any cognitive task that can be fully specified in advance can be executed by machine capital at near-zero marginal cost, the educational value of closed, procedural tasks is declining rapidly.1 Consequently, the primary objective of higher education must pivot toward cultivating high-order human capabilities that remain resilient to automation: complex judgment, tolerance for genuine ambiguity, and novel problem framing.2
+This report provides an in-depth, academic analysis of these dynamics, contrasting the divergent pedagogies of art and engineering, evaluating the macroeconomic implications of task displacement, and establishing the cognitive and structural design principles for "The Glimmer"—an instructional architecture specifically engineered to cultivate defensible judgment in highly procedural STEM and medical curricula.
+________________
+The Field Divide: Epistemological Foundations of Art and STEM
+To understand why STEM and medical students struggle with open-ended tasks, it is necessary to examine the deep epistemological divide in how different disciplines approach problem-solving and assessment. Art, design, and architecture education have long operated under a "studio-critique" model that embraces divergent thinking, whereas traditional STEM fields have historically prioritized convergent, procedural compliance.4
+Divergent vs. Convergent Pedagogies
+Art and design degrees focus heavily on divergent skills, encouraging students to explore a single concept from multiple, competing vantage points.4 The studio critique model does not seek a single "correct" answer; instead, it uses continuous peer and expert feedback to evaluate the coherence, originality, and execution of a student’s work. Research indicates that integrating these artistic, divergent principles into STEM curricula (STEAM) yields substantial cognitive gains. Specifically, students exposed to integrated design challenges show a marked increase in their "flexibility and fluidity in thinking" and a significantly higher belief in their ability to tackle complex problems without first knowing the correct answer.5
+Conversely, traditional STEM degrees focus almost exclusively on convergent skills, reinforcing the application of a limited number of pre-defined rules, formulas, and principles to arrive at a single, mathematically or procedurally correct solution.4 While this builds high operational efficiency within well-defined parameters, it leaves students ill-equipped to handle real-world challenges that lack clean documentation or predefined outcomes.6
+
+
+Pedagogical Dimension
+	Closed STEM / Procedural Paradigms
+	Studio Art and Design Critiques
+	Cognitive Orientation
+	Convergent thinking; rule-based execution.4
+	Divergent thinking; aesthetic and functional innovation.4
+	Problem Architecture
+	Well-structured; predefined parameters and single solutions.6
+	Ill-structured; vague goals, multiple pathways, no single solution.9
+	Assessment Model
+	Objective-driven; explicit, quantitative grading rubrics.4
+	Subjective, expert judgment-based; iterative peer and faculty critique.11
+	Epistemic Beliefs
+	Prereflective; assumption that absolute, certain answers exist.12
+	Reflective; knowledge is constructed, contextual, and evidence-based.12
+	Failure Tolerance
+	Low; errors result in immediate grade penalties and performance anxiety.15
+	High; iterative failure is framed as a mandatory step in the design process.16
+	STEM Novices and the Encounter with Ill-Structured Problems
+When engineering or medical students encounter ill-structured problems—characterized by vague goals, unstated constraints, and competing evaluation criteria—for the first time, they routinely experience systemic cognitive and emotional failure modes.6
+Because these students have been heavily enculturated into what has been termed a "meritocracy of difficulty" and a "culture of stress" 18, they associate academic success with procedural execution and grade preservation.15 Faced with the genuine ambiguity of an open-ended problem, students display high levels of grade anxiety, test anxiety, and physical exhaustion.15
+Rather than engaging in deep exploration, they often experience cognitive paralysis or default to superficial execution, sometimes even violating academic honor codes to secure a predictable grade.15 This discomfort is directly attributable to their lack of exposure to ambiguity in standard coursework; they are trained to "solve" problems rather than to "formulate" them.6
+The Legacy of Closed Training on Novel Problem Transfer
+Empirical evidence confirms that students trained predominantly on closed, well-specified problems perform significantly worse when confronted with novel, ambiguous scenarios than those trained on open-ended, ill-structured tasks.7 Traditional procedural training fails to transfer to complex, everyday problems because it does not require the student to construct their own mental models, assess competing evidence, or defend their decisions under uncertainty.17
+Without this active cognitive engagement, students develop fragile, domain-bound knowledge that cannot adapt to rapid technological or clinical shifts.2
+________________
+The Macroeconomic Imperative: The AI Displacement Argument
+The educational necessity of shifting toward open-ended, judgment-based assignments is driven by a profound macroeconomic shift. As artificial intelligence advances from task-specific automation to agentic, multi-turn execution, the labor market value of human labor is being rapidly redistributed.3
+Task Displacement vs. Reinstatement in the Post-AI Economy
+To model this transition, one can look to the task-based framework developed by Daron Acemoglu and Pascual Restrepo.1 Under this model, the production of a final output is conceptualized as a continuous spectrum of tasks, represented mathematically by a Constant Elasticity of Substitution (CES) aggregator:
+  
+
+Where    represents the mass of tasks,    are individual tasks performed by unskilled labor, skilled labor, or capital, and    is the elasticity of substitution between tasks.26
+When AI can execute a task previously performed by human labor at a comparable or higher quality and lower cost, firms reallocate that task to machine capital.1 This is the displacement effect, which reduces the demand for labor and decouples wages from output growth in those specific, automated tasks.1
+Crucially, this displacement is counteracted by two forces: the productivity effect (cost savings that expand overall industry scale and raise labor demand in non-automated tasks) and the reinstatement effect (the creation of new, highly complex tasks that require human judgment and skill).1
+If educational institutions continue to train students on tasks that can be fully specified in advance, they are preparing them for roles that are rapidly being automated. Reinstatement occurs precisely in domains requiring high-level synthesis, cross-functional execution, and contextual judgment—tasks that cannot be easily codified.1
+The Commoditization of the Specifiable: Single-Task vs. "Messy" Jobs
+The labor market is bifurcating into two distinct job architectures 2:
+1. Single-Task Jobs: Vulnerable, procedural roles where the workflow is fully defined, predictable, and single-layered. AI excels at automating these tasks, and as its error rates decline, human oversight in these domains is rapidly being phased out.2
+2. Messy Jobs: Highly resilient, multi-task roles that combine technical execution, local contextual knowledge, relational empathy, political navigation, and adaptive reasoning.2 These tasks are too complex and context-dependent for unsupervised machine execution; instead, they are augmented by AI, allowing the human worker to gain significant leverage.2
+According to the PwC 2025 Global AI Jobs Barometer, jobs that are highly exposed to AI augmentation are experiencing massive transformations, with wages growing twice as fast in exposed versus non-exposed industries, and highly exposed employees commanding an average 56% wage premium.24
+Critically, the skills sought by employers in these highly exposed occupations are changing 66% faster than in low-exposure roles.24 This rate of skills depreciation demonstrates that procedural execution is no longer a viable foundation for long-term career resilience; rather, the premium is placed on the uniquely human attributes of creativity, adaptability, and defensible judgment.2
+The Empirical Lag in Educational Research
+A profound gap exists between current macroeconomic realities and peer-reviewed educational literature. While macroeconomic reports such as the PwC 2025 Barometer and task-based economic models clearly demonstrate that specifiable cognitive execution has already been commoditized 1, the majority of peer-reviewed educational research remains focused on incremental, low-stakes integrations of AI.
+Traditional educational studies continue to measure AI’s utility in terms of standardized quiz generation, automated grading of closed-ended questions, and short-term factual retention.30
+This creates a structural "cognitive debt" in higher education, where universities are using advanced AI tools to optimize obsolete, procedural assessment paradigms rather than fundamentally transforming curricula to cultivate high-order, ambiguous problem-solving capabilities.2
+________________
+Theoretical Foundations of "The Glimmer"
+To design an effective intervention for procedurally heavy STEM and medical curricula, we must ground the assignment architecture in established learning sciences. "The Glimmer" is designed to address this challenge by mapping directly to Ill-Structured Problem Solving (ISPS) as its primary task architecture, and leveraging Generative Learning Theory (GLT) and Elaborative Interrogation as its core cognitive mechanisms.
+
+
+
+
+
+
++-------------------------------------------------------------------------+
+|                  TASK ARCHITECTURE: Jonassen's ISPS                     |
+|  - No correct solution   - Unstated constraints   - Competing criteria |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                COGNITIVE DRIVER: Generative Learning                    |
+|             - Active selection, organization, integration               |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|               OPERATIONAL TOOL: Elaborative Interrogation               |
+|            - Deep semantic processing via "Why" & "How" prompts         |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                  EPISTEMIC ENDPOINT: Reflective Judgment                |
+|      - Defense of context-specific, probabilistic knowledge claims      |
++-------------------------------------------------------------------------+
+
+Construct Mapping
+* Ill-Structured Problem Solving (ISPS): Formulated by David Jonassen, ISPS serves as the structural model for The Glimmer.9 Unlike well-structured textbook problems, ill-structured problems possess unstated constraints, multiple potential solution paths, and competing criteria for evaluating success.9 Solving these problems requires students to utilize epistemic cognitive learning—evaluating not just what they know, but the certainty and limits of that knowledge.22
+* Generative Learning Theory (GLT): Wittrock’s GLT, expanded by Fiorella and Mayer’s Selection-Organization-Integration (SOI) model, provides the cognitive explanation for why The Glimmer facilitates superior learning transfer.23 GLT asserts that deep comprehension occurs only when learners actively select relevant incoming stimuli, organize them into a coherent mental representation, and integrate them with their long-term memory structures.23 This mental effort transforms passive information into personal, highly transferable knowledge.33
+* Elaborative Interrogation: Popularized by Dunlosky, Pressley, and colleagues, this strategy prompts students to explicitly answer "why" and "how" questions about the concepts they are exploring.37 It introduces a "desirable difficulty" that forces deep semantic processing and distinctive encoding, integrating new knowledge tightly into existing cognitive schemas.37
+The Mechanics of Knowledge Transfer
+The primary objective of combining ISPS with GLT is to foster high-road transfer—the ability to abstract mindful, rule-governed behaviors from one context and apply them to structurally diverse, novel situations.23
+When students engage in standard, closed assessments, they practice simple associative retrieval, which has low utility and fails to transfer to new domains.39 By forcing students to construct a novel proposal, explain its mechanisms (elaborative interrogation), and defend its validity under conditions of genuine ambiguity, The Glimmer builds robust, flexible mental models.22
+The Reflective Judgment Model (RJM) developed by King and Kitchener confirms that as students progress from prereflective thinking (believing all questions have absolute, correct answers held by authority figures) to reflective thinking (recognizing that knowledge is constructed, contextual, and must be defended probabilistically), they become highly capable of resolving complex, real-world dilemmas.12
+________________
+The Pseudocode Problem and Scaffolding Withdrawal
+In engineering and technical education, there is a widely documented failure mode known as the pseudocode problem. When students are provided with highly detailed, step-by-step instructions (akin to pseudocode), they can execute complex tasks with high mechanical accuracy.21 However, when given only the final goal and stripped of procedural steps, these same students are often completely unable to formulate a viable approach.21
+The Novice-Expert Schema Gap
+This gap is explained by research into novice-expert cognitive architectures. Experts possess highly integrated, domain-specific schemas in their long-term memory, allowing them to instantly "chunk" complex, ambiguous scenarios and identify underlying functional structures.21
+Novices, conversely, possess fragmented, superficial knowledge.21 When faced with an open-ended goal, their working memory is immediately overwhelmed by the high cognitive load of sorting through unrelated facts.21
+If they are given step-by-step "pseudocode," their working memory is artificially supported, but because they do not have to perform the effortful cognitive processing of problem formulation, they build no permanent, integrated schemas.21
+Scaffolding and the Fading Model
+To transition novices to independent, expert-level problem-solvers, curricula must implement distributed scaffolding paired with systematic fading.21 Scaffolding provides temporary cognitive supports within Vygotsky’s Zone of Proximal Development.21 However, static scaffolding (such as fixed guidelines or static templates) often acts as a permanent crutch.41
+Therefore, educators must use a dynamic, responsive fading model to systematically withdraw support as the student's competence grows.21
+
+
+Fading Step
+	Support Mechanism
+	Student Cognitive Responsibility
+	Step 1: Worked Example 21
+	Fully solved, expert-modeled case with explicit, verbalized rationale.21
+	Observation and passive mapping of the task's structural logic.21
+	Step 2: Guided Process Representation 21
+	High-level conceptual flowcharts, visual process maps, or video walkthroughs.21
+	Execution of structured, modular steps under direct instructional guidance.21
+	Step 3: Case Study / Problem Pair 21
+	Side-by-side comparative analysis; students active in finding solution paths.21
+	Active analysis and identification of analogous structures across context boundaries.21
+	Step 4: Independent Practice 21
+	Total withdrawal of procedural cues; only the ambiguous goal remains.21
+	Full problem formulation, mechanism design, and defensive justification.21
+	If this fading process is not calibrated carefully, students are either "thrown into the deep end" too quickly (inducing severe anxiety and cognitive freeze) or kept "in the shallows" too long (preventing schema development and fostering dependence).21
+________________
+Design Principles for "The Glimmer"
+To deploy "The Glimmer" successfully within a competitive, procedurally oriented curriculum (such as medical or engineering education), the assignment must be explicitly engineered to resist AI shortcuts, scaffold genuine cognitive effort, and manage the psychological friction of transitioning from closed to open-ended learning.
+Generative Design vs. Disguised Summarization
+Many instructors mistakenly believe they are assigning creative work when they ask for a literature review, a summary of existing technologies, or a comparative essay. In the age of generative AI, these tasks have lost their educational value; they are highly structured, rely on retrieval and synthesis of existing databases, and can be executed by standard LLMs with high proficiency.32
+To be genuinely generative, an assignment must be designed to make AI "shortcuts" highly visible or ineffective:
+* Context-Specific Prompts: Assignments must require students to connect core theoretical concepts to highly specific, localized parameters, personal physical observations, or ongoing, real-time classroom events.44
+* Process-Based Grading: Evaluation must focus on the messy, iterative development of the idea (e.g., documenting ideation failures, peer feedback loops, and revision histories) rather than just the final, polished artifact.44
+* Mandatory Divergent Ideation: The prompt must require the student to propose a novel, highly specific mechanism that does not exist in the published literature, forcing them to synthesize and defend a highly customized hypothesis.17
+Rubric Architecture for "The Glimmer"
+To guide expert grading and provide transparent expectations, The Glimmer utilizes a highly structured, analytic rubric across five core dimensions: WHY, Usefulness, Mechanism, Defensibility, and Specificity.
+
+
+Rubric Dimension
+	Evaluation Focus
+	High-Performance Indicator (Exceeds Expectations)
+	Low-Performance Indicator (Below Expectations)
+	WHY (Motivation) 46
+	The underlying rationale; the urgency and framing of the ambiguous problem.10
+	Formulates a compelling, context-specific problem statement based on a nuanced critique of existing gaps.10
+	Restates generic, widely accepted problem definitions without local contextualization.10
+	USEFULNESS (Application) 47
+	The real-world viability and pragmatic impact of the proposed design.47
+	Clearly demonstrates substantial utility and outlines practical execution pathways and ethical limits.22
+	Proposes highly speculative or superficial utility with no regard for real-world execution constraints.9
+	MECHANISM (Operation) 21
+	The causal, logical, or physical steps through which the solution functions.17
+	Synthesizes a highly precise, step-by-step causal mechanism that is scientifically and logically coherent.17
+	Relies on vague, non-functional descriptions or "black-box" magic explanations.10
+	DEFENSIBILITY (Justification) 44
+	The ability to defend the design choices using rigorous, context-specific evidence.14
+	Evaluates and defends the proposal against competing ideas, openly acknowledging limitations and edge cases.14
+	Presents dogmatic, unexamined beliefs, relying on personal opinions or unvouched sources.12
+	SPECIFICITY (Detail) 10
+	The concrete, observable, and measurable attributes of the proposed work.10
+	Employs precise, highly granular technical terminology, quantitative targets, and clear physical parameters.10
+	Uses vague, generic adjectives (e.g., "efficient," "good") and non-measurable goals.50
+	The Novice-Anxiety Failure Mode: Implementation Risks and Mitigations
+Transitioning students from highly structured, procedural environments to The Glimmer’s ambiguous, generative architecture introduces a significant implementation risk: novice-anxiety failure mode.6
+When engineering or medical students encounter an assignment with no predefined right answer, they routinely experience intense test anxiety, feelings of hopelessness, and cognitive paralysis.15
+Because they are terrified of grade penalties, they may react with apathy, avoidance, or attempt to use AI to bypass cognitive engagement entirely.15
+To mitigate this risk, educators must deploy targeted pedagogical interventions:
+1. "Think-Aloud" Expert Modeling: Faculty must openly model their own cognitive processes when navigating professional uncertainty.21 Narrating decision points, false starts, and how one manages personal discomfort during diagnosis or design helps demystify expert execution.21
+2. Social and Peer Co-creation: Students should work in informal, collaborative groups to co-create evaluation criteria and share divergent concepts early.22 Social interaction and joint decision-making dramatically lower individual isolation and distribute the cognitive load.19
+3. Integrative Self-Regulation and Mindfulness: Integrating explicit, low-stakes stress-reduction techniques—such as progressive muscle relaxation, autogenic training, or simple cognitive shuffling—directly into the course timeline significantly lowers clinical and state anxiety.55 Fostering a supportive, psychologically safe environment where help-seeking is actively normalized is critical to sustaining academic resilience.18
+________________
+AI-Enabled Formative Assessment: The Pre-Grading Reviewer
+To scale personalized, high-stakes feedback on open-ended creative work without overwhelming instructional staff, The Glimmer integrates an innovative Human-AI assessment workflow.57 Specifically, it deploys AI as a "pre-grading reviewer" to interrogate student reasoning before final evaluation.44
+
+
+
+
+
+
++-------------------------------------------------------------------------+
+|                  Step 1: Draft Proposal Submission                      |
+|                  Student submits draft Glimmer project                  |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                Step 2: AI Pre-Grading Reviewer Analysis                 |
+|    - Evaluates structural alignment against Glimmer rubric dimensions   |
+|    - Identifies weakest logical link, vague claims, unstated limits     |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                  Step 3: Automated Interrogation Prompt                 |
+|  "Your weakest claim is X. Explain the precise causal mechanism of Y,  |
+|   and defend X against alternative Z. Walk through your thinking."     |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                    Step 4: Active Student Revision                      |
+|            Student refines draft & submits a detailed revision          |
++------------------------------------+------------------------------------+
+                                    |
+                                    v
++-------------------------------------------------------------------------+
+|                     Step 5: Final Human Evaluation                      |
+|   Instructor reviews final work, grading process & student reasoning    |
++-------------------------------------------------------------------------+
+
+This model is operationalized through structured formative AI feedback loops:
+1. Process-Based AI Interrogation: Prior to grading, the student’s draft proposal is evaluated by a customized AI agent.44 Rather than correcting errors or providing the "ideal" answer, the AI is prompted to locate the weakest, most ambiguous, or least-supported claim in the student’s work.30 The AI then generates a targeted, critical prompt: "In Section 3, your proposal relies on the assumption that patient compliance will exceed 90%, yet you offer no specific mechanism to ensure this. Explain the precise causal steps you would take to achieve this, and defend your choice against the alternative of utilizing a passive digital tracking system.".30
+2. The Mandatory "Explain Your Thinking" Step: The student is required to respond to this AI-generated critique, revising their proposal and explicitly writing out their reasoning.30 This "doer effect" (learning by active, effortful doing rather than passive reading) has been shown to be six times more effective for long-term retention and conceptual mastery.58
+3. Formative Feedback vs. Direct Disclosure: Because the AI acts as a scaffold rather than a shortcut, it guides the student toward refining their own mental models without ever directly disclosing a correct solution.30 Once the student's response meets the required standards of specificity and defensibility, the revised draft and the complete revision history are forwarded to the instructor for final summative grading.30 This process-based approach makes AI-assisted cheating highly transparent and significantly elevates the intellectual rigor of the assignment.44
+________________
+Curricular Emergence: Evolving the Term Project
+A final, crucial design feature of The Glimmer is its emergent portfolio architecture.60 Under standard instructional designs, students are given a massive, high-stakes final project assignment in Week 1 of the semester. In procedurally focused disciplines, this immediately triggers profound, long-term anxiety and paralysis, leading students to experience grade panic, seek pre-structured shortcuts, or outsource early brainstorming to generative AI.15
+To bypass this systemic failure mode, The Glimmer operates as a "dark" project: students do not know they are building a comprehensive final project until Weeks 10 or 11 of the semester.
+This architecture mirrors the computer science and artificial life principles of Emergent Design—a decentralized, bottom-up style of thinking where complex, global organizations evolve dynamically from simple, local decisions over time.60
+  
+
+* Weeks 1–9 (Local Decisions): Each week, students are assigned highly localized, low-stakes, and deeply contextualized generative tasks.60 For example, in Week 2, they may be asked to observe a single physical mechanism in a lab or a clinical interaction and explain why it fails under a specific, unusual parameter.43 In Week 5, they may design a highly specialized diagnostic question.30 These tasks are graded strictly on localized criteria (e.g., Specificity and Defensibility) and are framed as simple, independent weekly exercises to lower grade anxiety.15
+* Weeks 10–11 (Global Synthesis): In Week 10, the instructor "reveals" the overarching term project.60 The students are instructed to compile, sequence, and synthesize their previous weekly tasks into a cohesive, comprehensive, and highly structured portfolio.47 They must write an integrative, overarching narrative that establishes the causal and theoretical connections among all of their previous, localized designs.47
+By focusing student attention on small, highly specific, and manageable weekly goals, The Glimmer successfully bypasses early-semester grade panic and cognitive paralysis.15
+When the final project is finally "revealed," students find they have already completed 80% of the cognitive and creative work.62
+The final phase of the course shifts away from stressful content creation toward high-order reflection, systemic integration, and the defense of their personal, emergent portfolio.44
+________________
+Conclusions and Actionable Curricular Recommendations
+Higher education must evolve to meet the challenges of an AI-augmented economy. By transitioning assessment designs away from specifiable, procedural execution and toward ill-structured, generative architectures, universities can ensure that human labor continues to command a premium in the workplace.1
+Based on the synthesis of this report, the following actionable recommendations are offered for engineering and clinical faculties implementing "The Glimmer":
+1. Adopt Jonassen's ISPS Framework: Redesign course assessments so that final grades are determined by the student's ability to frame, analyze, and defend solutions to ill-structured problems that contain unstated constraints and have no single, correct answer.9
+2. Implement Systematic Scaffolding Fading: Utilize the Neelen and Kirschner four-step model to ensure that procedural templates, worked examples, and guideposts are systematically and responsively withdrawn as students transition from novices to autonomous, reflective practitioners.21
+3. Deploy AI as a Formative Pre-Grading Reviewer: Integrate customized AI agents to interrogate student reasoning and drafts before human evaluation.44 Require students to defend their weakest logical links and document their revision processes to combat cognitive debt and ensure task authenticity.30
+4. Transition to Emergent Curricular Design: Restructure long-term assignments as emergent portfolios, utilizing localized, low-stakes weekly exercises that are compiled and synthesized in the final weeks of the semester.47 This bottom-up approach mitigates early-semester grade anxiety while cultivating high-level, systemic synthesis.15
+5. Normalize Ambiguity and Proactively Manage Anxiety: Acknowledge the intense stress and imposter syndrome experienced by STEM and medical students transitioning to open-ended paradigms.18 Integrate active expert "think-aloud" modeling, peer co-creation, and clinical self-regulation techniques to build cognitive flexibility and psychological resilience.21
+Works cited
+1. AI and the Future of Work: Policy Lessons from Acemoglu and Restrepo | Cicero Institute, accessed May 17, 2026, https://ciceroinstitute.org/blog/ai-and-the-future-of-work-policy-lessons-from-acemoglu-and-restrepo/
+2. AI in Education: Why We Need Transformation, Not Just Improvement - IDB, accessed May 17, 2026, https://www.iadb.org/en/blog/education/ai-education-why-we-need-transformation-not-just-improvement
+3. The Fearless Future: 2025 Global AI Jobs Barometer - YouTube, accessed May 17, 2026, https://www.youtube.com/watch?v=RNQGtteGY2I
+4. Full STEAM Ahead: The Benefits of Integrating the Arts Into STEM, accessed May 17, 2026, https://career.ucsf.edu/sites/g/files/tkssra15591/files/Article%20SEJC%20September%202016.pdf
+5. Investigating STEAM: Integrating Art and STEM to Spark Innovation - ScholarWorks@UARK, accessed May 17, 2026, https://scholarworks.uark.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1016&context=cieduht
+6. Engineering Faculty's Beliefs about Teaching and Solving Ill-structured Problems - NSF PAR, accessed May 17, 2026, https://par.nsf.gov/servlets/purl/10322646
+7. Instructional Design Models for Well-Structured and Ill-Structured Problem-Solving Learning Outcomes - SciSpace, accessed May 17, 2026, https://scispace.com/pdf/instructional-design-models-for-well-structured-and-ill-1hjtyfvlbr.pdf
+8. Why STEAM Education Matters: Connecting STEM with Creativity - Kid Spark Education, accessed May 17, 2026, https://kidsparkeducation.org/blog/why-steam-education-matters-connecting-stem-with-creativity
+9. 10 Design i ng Constructivist Learning Environments1 - David Lewis, PhD, accessed May 17, 2026, https://www.davidlewisphd.com/courses/EDD8121/readings/1999-Jonassen.pdf
+10. Assessment Rubric Design | Engineering Lab Report Instruction Modules - WSU Labs, accessed May 17, 2026, https://labs.wsu.edu/engineering-lab-report-writing/sample-page/assessment-rubric-design/
+11. Rubrics - Learning and Teaching Hub - Arizona State University, accessed May 17, 2026, https://lth.engineering.asu.edu/reference-guide/rubrics/
+12. Educational Psychologist Reflective Judgment: Theory and Research on the Development of Epistemic Assumptions Through Adulthood - University of Iowa Pressbooks, accessed May 17, 2026, https://pressbooks.uiowa.edu/app/uploads/sites/215/2021/06/KingKitchener-Reflective-Judgement.pdf
+13. Reflective Judgment Model - umich.edu, accessed May 17, 2026, https://websites.umich.edu/~refjudg/reflectivejudgmentmodel.html
+14. King & Kitchener's Reflective Judgment Model Terminology • Well-structured problem - WordPress.com, accessed May 17, 2026, https://sashaneyoung.files.wordpress.com/2015/07/shane-young-reflective-judgment-handout.pdf
+15. Exploring the Academic Pressures Faced by Engineering Students to Attain High Grades and The - ScholarWorks @ UTRGV, accessed May 17, 2026, https://scholarworks.utrgv.edu/cgi/viewcontent.cgi?article=1203&context=me_fac
+16. Combining Design Thinking and Generative AI Technologies in The Classroom: A Project-Based Learning Approach | Manifold @CUNY, accessed May 17, 2026, https://cuny.manifoldapp.org/read/combining-design-thinking-and-generative-ai-technologies-in-the-classroom
+17. Supporting Problem Solving in PBL - Purdue e-Pubs, accessed May 17, 2026, https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1256&context=ijpbl
+18. When Performance Takes Priority: Beliefs That Shape Engineering Students' Mental Health Help-Seeking - MDPI, accessed May 17, 2026, https://www.mdpi.com/2227-7102/15/11/1553
+19. Undergraduate student perceptions of stress and mental health in engineering culture, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC10123580/
+20. 3 modes of failure in engineering students : r/EngineeringStudents - Reddit, accessed May 17, 2026, https://www.reddit.com/r/EngineeringStudents/comments/1r8r863/3_modes_of_failure_in_engineering_students/
+21. Modelling, Fading, and Scaffolding in Education and Learning Design - insendi, accessed May 17, 2026, https://insights.insendi.com/read/scaffolding-modelling-and-fading-in-learning-design
+22. Enhancing the Learning Effectiveness of Ill‐structured Problem Solving with Online Co‐creation - Nanyang Technological University, accessed May 17, 2026, https://personal.ntu.edu.sg/peelg/publications/Enhancing%20the%20Learning%20Effectiveness%20of%20Ill-structured%20Problem%20Solving.pdf
+23. What is Generative Learning? The Key to Deep Understanding - Teachfloor, accessed May 17, 2026, https://www.teachfloor.com/elearning-glossary/generative-learning
+24. PwC releases 2025 Global AI Jobs Barometer, accessed May 17, 2026, https://www.pwchk.com/en/press-room/press-releases/pr-130625.html
+25. Artificial Intelligence, Automation and Work - NBER, accessed May 17, 2026, https://www.nber.org/system/files/working_papers/w24196/w24196.pdf?ref=blog.autessa.com
+26. Unpacking Skill Bias: Automation and New Tasks Daron Acemoglu and Pascual Restrepo Working Paper 26681 - NBER, accessed May 17, 2026, https://www.nber.org/system/files/working_papers/w26681/w26681.pdf
+27. task-based approach to inequality | Oxford Open Economics, accessed May 17, 2026, https://academic.oup.com/ooec/article/3/Supplement_1/i906/7708121
+28. AI-fuels fourfold productivity gains with job growth bucking expectations: PwC's 2025 Global AI Jobs Barometer - PwC Australia, accessed May 17, 2026, https://www.pwc.com.au/media/2025/pwc-2025-global-ai-jobs-barometer.html
+29. AI Adoption & Employee Productivity: What PwC's 2025 AI Jobs Barometer Means for Your Teams | Worklytics, accessed May 17, 2026, https://www.worklytics.co/resources/ai-adoption-employee-productivity-pwc-2025-ai-jobs-barometer-guide
+30. AI-assisted Formative Feedback - KlickerUZH, accessed May 17, 2026, https://www.klicker.uzh.ch/use_cases/ai_formative_feedback/
+31. The Impact of Artificial Intelligence (AI) on Students' Academic Development - MDPI, accessed May 17, 2026, https://www.mdpi.com/2227-7102/15/3/343
+32. The Real Education Challenge Exposed By AI - Forbes, accessed May 17, 2026, https://www.forbes.com/councils/forbesbusinesscouncil/2026/05/13/the-real-education-challenge-exposed-by-ai/
+33. Learning as a Generative Activity: Eight Learning Strategies that Promote Understanding Logan - Assets - Cambridge University Press, accessed May 17, 2026, https://assets.cambridge.org/97811070/69916/frontmatter/9781107069916_frontmatter.pdf
+34. EJ1120458 - Eight Ways to Promote Generative Learning, Educational Psychology Review, 2016-Dec - ERIC, accessed May 17, 2026, https://eric.ed.gov/?id=EJ1120458
+35. Instructional Design Models: Generative Learning Theory - eLearning Industry, accessed May 17, 2026, https://elearningindustry.com/generative-learning-theory
+36. Introduction to Learning as a Generative Activity (Chapter 1) - Cambridge University Press & Assessment, accessed May 17, 2026, https://www.cambridge.org/core/books/learning-as-a-generative-activity/introduction-to-learning-as-a-generative-activity/CE6115045790F0DD1F19242E557CFADF
+37. Elaborative Interrogation - Structural Learning, accessed May 17, 2026, https://www.structural-learning.com/post/elaborative-interrogation-teachers-guide
+38. Elaboration and Elaborative Interrogation - LITFL, accessed May 17, 2026, https://litfl.com/elaboration-and-elaborative-interrogation/
+39. Strengthening the Student Toolbox: Study Strategies to Boost Learning, By John Dunlosky, American Educator, Vol. 37, No. 3, Fall, accessed May 17, 2026, https://files.eric.ed.gov/fulltext/EJ1021069.pdf
+40. Improving Students' Learning With Effective Learning Techniques: Promising Directions From Cognitive and Educational Psychology, accessed May 17, 2026, https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf
+41. Fading distributed scaffolds: the importance of complementarity between teacher and material scaffolds - PMC, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC6519686/
+42. Adaptive guidance for uncertainty: how teachers use scaffolding in ..., accessed May 17, 2026, https://www.tandfonline.com/doi/full/10.1080/07294360.2025.2514513
+43. Twelve Tips to Train Medical Students to Manage Their Uncertainty and to Provide Reassurance to Patients and Their Caregivers - PMC, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC12532501/
+44. In the age of AI, how can educators design assessment and evaluation strategies that are both effective and authentic? | ResearchGate, accessed May 17, 2026, https://www.researchgate.net/post/How_should_teachers_manage_assessment_and_evaluation_processes_that_prioritize_originality_and_reliability_in_AI-supported_learning_environments
+45. Design Strategies for Assessing Learning with AI | FIU Center for the Advancement of Teaching, accessed May 17, 2026, https://cat.fiu.edu/resources/teaching-with-ai/design-strategies-for-assessing-learning-with-ai/
+46. Full article: Design of a simple rubric to peer-evaluate the teamwork skills of engineering students - Taylor & Francis, accessed May 17, 2026, https://www.tandfonline.com/doi/full/10.1080/03043797.2024.2338239
+47. How to Turn Your Assignments Into Portfolio Pieces - FocusQuest®, accessed May 17, 2026, https://www.focusquest.com/how-to-turn-your-assignments-into-portfolio-pieces/
+48. Reflective Judgment Stages, accessed May 17, 2026, https://websites.umich.edu/~refjudg/reflectivejudgmentstages.html
+49. Assessment and Feedback of Engineering Writing - Purdue OWL, accessed May 17, 2026, https://owl.purdue.edu/owl/subject_specific_writing/writing_in_engineering/writing_in_the_engineering_classroom/assessment_and_feedback_of_engineering_writing.html
+50. Rubric Best Practices, Examples, and Templates - Teaching Resources, accessed May 17, 2026, https://teaching-resources.delta.ncsu.edu/rubric_best-practices-examples-templates/
+51. View of Engineering Students Suffer From the Top Mental Health Problems & Challenges, accessed May 17, 2026, https://ignited.in/index.php/jasrae/article/view/6942/13687
+52. The Complexities of Academic Stress among Engineering Students: A Theoretical Examination, accessed May 17, 2026, https://ndpublisher.in/admin/issues/IJASEv13n1g.pdf
+53. Theory into Practice: Applying David Jonassen's Work in Instructional Design to Instruction Programs in Academic Libraries, accessed May 17, 2026, https://crl.acrl.org/index.php/crl/article/viewFile/15629/17075
+54. Social relations and mental health among engineering students - PMC - NIH, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC12491146/
+55. Steps to handle STEP | College of Medicine | Penn State, accessed May 17, 2026, https://med.psu.edu/education/academic-resources/step-prep
+56. Strategies against Burnout and Anxiety in Medical Education – Implementation and Evaluation of a New Course on Relaxation Techniques (Relacs) for Medical Students - PMC, accessed May 17, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC4269409/
+57. Full article: Using generative artificial intelligence to reimagine feedback in higher education: a collaborative autoethnography - Taylor & Francis, accessed May 17, 2026, https://www.tandfonline.com/doi/full/10.1080/02602938.2026.2653889
+58. AI-Generated Formative Practice and Feedback: Performance Benchmarks and Applications in Higher Education - ACL Anthology, accessed May 17, 2026, https://aclanthology.org/2025.aimecon-main.36.pdf
+59. AI-generated formative practice and feedback: Performance benchmarks and applications in higher education - VitalSource Research, accessed May 17, 2026, https://research.vitalsource.com/publications/ai-generated-formative-practice-and-feedback-performance-benchmarks-and-applications-in-higher-education
+60. Emergent Design: a crosscutting research program and design curriculum integrating architecture and artificial intelligence - MIT, accessed May 17, 2026, https://web.mit.edu/edgsrc/www/E&PB_200107_vol28.pdf
+61. Task Design and Assessment Strategies for AI-Influenced Education - CEUR-WS.org, accessed May 17, 2026, https://ceur-ws.org/Vol-4048/paper02.pdf
+62. UX Portfolio Website Builder - Emergent, accessed May 17, 2026, https://emergent.sh/build/ux-portfolio-website-builder
+63. Portfolio Website Builder - Emergent, accessed May 17, 2026, https://emergent.sh/build/portfolio-website-builder

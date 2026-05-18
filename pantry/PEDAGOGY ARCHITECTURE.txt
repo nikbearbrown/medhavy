@@ -1,0 +1,116 @@
+PEDAGOGY ARCHITECTURE
+Why the adaptive system works the way it does
+The design decisions behind the five learning approaches, the bandit selection mechanism, and the TEXTBOOK_ONLY constraint
+
+Version 1.0 | March 2026 | Reviewed by Dev the Dev
+What this document is for
+This is an explanation document. It answers the question: why is the Medhavy pedagogical system designed the way it is? It does not tell you how to deploy the system (that is the deployment how-to) or what the configuration fields are (that is the reference doc). Read this before building a new pedagogical feature, extending the bandit, writing content for a new institution type, or calibrating a persona for an approach you haven't worked with before.
+1. The problem this architecture solves
+Most AI tutoring systems make a single bet: they pick one way of teaching and apply it to every learner in every context. The bet is usually direct instruction — the AI explains things, the learner reads. This works for some learners on some topics some of the time. It fails silently for everyone else. The learner stops engaging. The platform logs a session. Nobody knows the difference.
+
+The Medhavy architecture starts from a different premise: we do not know in advance which pedagogical approach will work for a specific learner on a specific topic at a specific point in their learning. What we do know is that the five approaches described in this document have different evidence bases and work differently for different people in different contexts. The system's job is to find out which one is working — and to do that efficiently, session by session, learner by learner.
+
+The bandit does not pick the best approach. It picks the approach with the highest estimated probability of working for this learner right now, given what the system has observed so far.
+This distinction matters for how you build content, how you write personas, and how you interpret the analytics. The bandit is not an optimizer that converges on a single answer. It is a continuous experiment that never stops asking whether the current approach is still working.
+
+2. Why these five approaches and not others
+The five approaches — direct instruction, Socratic questioning, case-based learning, spaced retrieval, and project-based learning — were not selected because they are the only approaches in the pedagogical literature. They were selected because they are implementable within a text-based AI tutoring conversation, have meaningfully different content requirements, and produce meaningfully different learner behaviors that the system can observe.
+
+Two criteria disqualified other candidates. First, if an approach requires a human instructor to observe physical behavior (gesture, facial expression, body language), it cannot be implemented in this system. Second, if two approaches produce indistinguishable learner behavior in a text-based chat — if the bandit cannot tell from a learner's responses which approach is active — then the system cannot learn from the difference.
+
+These five produce distinguishable learner behavior. A learner in a Socratic session produces reasoning chains. A learner in a direct instruction session produces questions or confirmations. A learner in a project-based session produces artifacts. The bandit can observe and learn from all of these.
+
+3. The five approaches in depth
+1. Direct instruction
+Explicit · Structured · Sequential
+The pedagogical argument
+Direct instruction is the most efficient approach when a learner has no prior framework for a topic. Before a learner can reason about something, they need something to reason with. Asking a learner to discover principles they have no conceptual scaffolding for is not productive inquiry — it is disorientation. Direct instruction gives the scaffold.
+
+The evidence base for explicit instruction is strong in domains requiring foundational accuracy: mathematics, technical skills, compliance training, credentialing. The AI leads with definitions, provides sequenced explanations, uses numbered steps, and confirms understanding before proceeding.
+
+When the bandit selects this
+Early in a topic, when prior knowledge assessment suggests foundational gaps, and when interaction patterns show confusion rather than engagement — repeated short questions, requests for clarification of the AI's previous response, low dwell time on content sections.
+
+Content requirement: Textbook must include explicit definition blocks, worked examples, numbered step sequences, and clear section ordering that reflects concept dependency. The AI cannot ground direct instruction in content that is organized associatively or argumentatively. Assertion density should be high — every instructional step should be anchored to a verifiable claim in the textbook.
+2. Socratic questioning
+Dialogic · Inquiry-based · Reflective
+The pedagogical argument
+Surface-level understanding looks like understanding. A learner who can repeat a definition back correctly has not necessarily understood it. Socratic questioning surfaces the gap between recall and reasoning by asking the learner to justify, extend, or apply what they have stated. The AI does not fill the gap — it holds the question open until the learner reasons toward an answer.
+
+The platform implements Socratic questioning using the Paul-Elder critical thinking framework, which provides a structured vocabulary for distinguishing between a learner's stated position, their reasoning, their assumptions, their evidence, and the implications of their claims. The persona in Socratic mode is instructed to respond to answers with follow-up questions, resist providing direct answers until the learner has reasoned aloud, and flag reasoning gaps rather than filling them.
+
+When the bandit selects this
+When the learner demonstrates surface-level confidence — correct answers given quickly without reasoning — when responses suggest pattern-matching without understanding, and when the learner is mid-topic rather than beginning.
+
+Content requirement: Textbook must include discussion questions, open-ended cases, debate prompts, and scenarios with no single correct answer. The AI needs retrievable "question anchors" — sections of the textbook that frame competing perspectives or unresolved tensions. Without these, the AI cannot ground its Socratic questions in the course material and risks hallucinating the disputed premises.
+3. Case-based learning
+Applied · Contextual · Decision-focused
+The pedagogical argument
+Abstract principles are hard to retain because they have no hooks. A principle attached to a specific situation — a real failure, a contested decision, a surprising outcome — becomes retrievable because the situation is retrievable. Case-based learning anchors concepts in narrative, which is the format human memory evolved to handle.
+
+The cases used in this approach must have factual richness: enough detail for multi-turn analysis, a genuine decision point, and a consequence that makes the stakes clear. Thin cases — a one-sentence scenario followed by generic questions — do not produce the kind of reasoning the bandit can observe. They produce guessing.
+
+When the bandit selects this
+When learner interaction patterns show stronger engagement with concrete examples than abstract explanations, when the institutional context is professional or executive, and when the topic has high real-world stakes with observable failure modes.
+
+Content requirement: Textbook must include domain-specific case studies with sufficient factual detail to support multi-turn analysis. Cases must include at least one decision point and one consequence. Cases must be assertion-dense — grounded in verifiable claims the AI can cite. For business school deployments this means business cases; for policy organizations, policy scenarios; for K-12, age-appropriate applied scenarios. A case study section that is too thin to support five follow-up questions is not a case study — it is an example.
+4. Spaced retrieval practice
+Memory-consolidating · Interval-based · Cumulative
+The pedagogical argument
+The spacing effect is one of the most replicated findings in cognitive psychology: material reviewed at increasing intervals is retained far longer than material reviewed in a single concentrated session. The mechanism is not mysterious — each retrieval attempt strengthens the memory trace. The failure mode is also not mysterious — learners who complete a chapter and never return to it will not retain it, regardless of how well they understood it at the time.
+
+Spaced retrieval in this platform works by tracking chapter completion and interaction history per learner, then surfacing earlier concepts at configurable intervals before introducing new content. The key design decision here is that retrieval is prompted, not optional. The AI does not offer a review — it requires one, at the right moment, before proceeding.
+
+When the bandit selects this
+When session data shows learners completing chapters without retaining earlier material — measured by failed retrieval attempts when earlier concepts are referenced — when the topic is cumulative (each concept depends on prior ones), and when the program spans multiple sessions or weeks.
+
+Content requirement: Content must be structured with explicit concept dependencies — each module should reference prior module concepts so the AI can surface retrieval prompts naturally. The Orama index for this client must support cross-chapter retrieval, not just within-chapter search. If the content is organized as independent modules with no forward or backward references, spaced retrieval cannot be implemented correctly.
+5. Project-based / generative learning
+Creative · Applied · Self-directed
+The pedagogical argument
+Explaining something you understand and producing something that requires you to understand it are different cognitive tasks. Production surfaces gaps that comprehension questions miss. A learner who can answer questions about a strategic framework may still be unable to apply it to a novel situation without revealing — to themselves as much as to the AI — which parts they actually understand and which parts they have been pattern-matching.
+
+Project-based learning in this platform shifts the AI from tutor mode to coach mode. The system prompt instructs the AI to respond to learner outputs with structured feedback: what works, what is missing, what the course material says about the gap, and what to try next. The CRITIQ peer review protocol informs the feedback structure. The AI is not generating the work — it is evaluating it against the content it has indexed.
+
+When the bandit selects this
+When direct instruction and Socratic approaches have established foundational knowledge, when the learner is in the final stage of a module, and when the institutional context values demonstrated applied skill over test performance.
+
+Content requirement: Textbook must include project prompts with explicit deliverable specifications, rubrics or success criteria, and reference material the learner can consult while working. The AI evaluates learner output against the indexed content — it cannot give meaningful feedback on a business plan without verified frameworks to reference. A rubric-free project prompt produces feedback that is either too vague to be useful or too speculative to be grounded.
+4. How the bandit selects between approaches
+The multi-armed bandit algorithm in this platform faces the classic exploration-exploitation tradeoff: for any given learner and topic, the system can either exploit the approach that seems to be working best so far, or explore by trying a different approach to gather more information. Getting this balance wrong in either direction is costly — too much exploitation means the system never discovers that a different approach might work better; too much exploration means the learner spends sessions in approaches that are not working.
+
+The bandit tracks three things for each learner: the approach that was active during a session, the outcome signal (positive, neutral, or negative — see the reference doc for exact definitions), and the current probability estimate for each approach. Each session updates the estimate. The system does not wait for a predetermined number of sessions before making decisions — it acts on every data point.
+
+What counts as a positive outcome signal
+The bandit's estimate is only as good as the outcome signal. The current implementation defines positive outcomes as continued engagement after an AI response — a follow-up question, progression to the next chapter section, increased dwell time. Negative outcomes are disengagement, repetition of the same question, or explicit statements of confusion.
+
+This is a proxy for learning, not a measure of learning. A learner who is passively scrolling through content without engaging the AI will produce neutral signals that look like adequate performance. This is a known limitation of the current signal design. Richer signals — retrieval test performance, project output quality ratings — would produce better bandit estimates. The current design reflects what is implementable now, not what is ideal.
+
+Initialization: the cold start problem
+A new learner has no interaction history. The bandit has nothing to update. The system falls back to the pedagogy.default value in the tenant registry — typically direct instruction, because it is the lowest-risk approach when prior knowledge is unknown. After two or three sessions, the bandit has enough signal to start differentiating.
+
+5. Why TEXTBOOK_ONLY is a pedagogical decision
+The textbookOnly: true constraint is easy to read as a safety measure — and it is that. But the primary reason it exists is pedagogical, and understanding this is important for anyone building content for or extending this platform.
+
+A general-purpose AI that can answer any question is a research tool, not a learning tool. When a learner can get any answer to any question by typing it, they do not need to engage with the course material — they just ask. The constraint forces a different kind of engagement: the learner must work with the content that the expert-designed course provides, in the sequence and depth the course provides it, rather than jumping to the answer they think they want.
+
+TEXTBOOK_ONLY is not about restricting the AI. It is about preserving the integrity of the learning sequence. A bandit-based pedagogical system cannot adapt if the learner can bypass the pedagogy by asking direct questions.
+This also explains why the constraint is enforced on institutional white label deployments specifically. The general Medhavy platform may relax this constraint for other use cases. Institutional deployments — where a credential is being issued and learning outcomes are being measured — require it without exception. The bandit's outcome signals are only meaningful if the learner is actually engaging with the pedagogical approach, not circumventing it.
+
+6. What this means when you are writing content
+The content requirements in section 3 are not suggestions. The bandit can only deliver what it has to work with. If the content for a case-based deployment contains no case studies, the AI will attempt case-based questioning against narrative text — and will either hallucinate cases or produce questions with no textbook grounding. If the content for a spaced retrieval deployment has no cross-module references, the AI cannot surface meaningful retrieval prompts.
+
+The table below summarizes the minimum content requirements per approach. These are the structural requirements — the presence or absence of these elements determines whether the approach can function, not whether it functions well.
+
+Approach	Cannot function without	Functions poorly without
+Direct instruction	Definition blocks, numbered step sequences	Worked examples, explicit learning objectives
+Socratic	Discussion questions, open-ended scenarios	Multi-perspective framing, competing evidence sets
+Case-based	Cases with decision points and consequences	Failure cases, quantitative detail, multiple stakeholder perspectives
+Spaced retrieval	Explicit cross-module concept references	Retrieval prompts, concept dependency mapping
+Project-based	Deliverable specifications, rubrics or success criteria	Reference frameworks, exemplar outputs
+When the Textbook Auditor flags a structural issue in a module, it is usually one of these missing elements. The fix is not to add more text — it is to add the right structural element. A case study section that is 1,000 words of narrative without a decision point is still missing the decision point.
+
+The assertion density principle
+Every approach in this system requires the AI to ground its responses in the textbook content. Grounding requires assertable claims — statements that are specific enough that the AI can cite them accurately and the learner can verify them. Vague or abstract content produces vague or abstract AI responses, which produce neutral bandit signals, which give the system nothing to learn from.
+
+High assertion density does not mean long content. It means content where every paragraph contains at least one specific, verifiable claim. "AI is changing education" is not an assertion. "Between 2022 and 2024, 38% of US higher education institutions piloted AI tutoring tools, according to the EDUCAUSE 2024 survey" is an assertion. The AI can ground a response in the second statement. It cannot ground anything in the first.
