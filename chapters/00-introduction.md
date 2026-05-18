@@ -1,172 +1,198 @@
-# Introduction
+# Chapter 0 — Introduction
+
+*Four characters. One logged success. One student who learned nothing.*
 
 ---
 
-## 1.
+A student types `idk idk` into an AI tutoring system, presses return, and the platform logs her as engaged.
 
-A student in the highest-funded AI tutoring deployment in human history types four characters into the Socratic prompt — `idk idk` — and presses return. The system logs her as engaged. She is not learning. She has solved the wrong problem the wrong way using the most ambitious educational AI product the field has produced in twenty years, and the system that paid for the product, that measured the product, that approved the product's deployment to millions of learners, registered her keystrokes as a successful interaction.
+She is not engaged. She is not learning. She has found the easiest path through a system that mistakes motion for progress, and the system — the most expensively deployed AI education product in human history — rewarded her for it.
 
-This is the moment the book starts.
+That is the moment this book starts. Not with a theory. With a failure. A real one, at a real scale, noticed publicly by the people who built and paid for the product. Kristen DiCerbo, Khan Academy's Chief Learning Officer, said it plainly: the Khanmigo deployment was producing more *I don't know, I don't know* and more passive engagement than they wanted. The IDK-IDK pattern. The metric says success. The learning says otherwise.
 
-It is the moment that started the book, too, when Kristen DiCerbo — Khan Academy's Chief Learning Officer, three years into the Khanmigo deployment — said publicly that the platform was seeing more *I don't know, I don't know* and more passive engagement than they would like. The IDK-IDK pattern is not Khan Academy's problem. It is the field's problem, in the cleanest possible form, at the only deployment scale large enough that the failure mode becomes statistically obvious. Every platform that measures engagement and calls it learning will produce this failure. The book is about what to build instead.
+<!-- → [IMAGE: screenshot or reconstruction of a Khanmigo session log showing a completed interaction flagged as "engaged" — visual contrast between the system's success indicator and the `idk idk` input that triggered it; caption should read something like "Logged: engaged. Actual state: unknown."] -->
 
----
-
-## 2. The gap
-
-This book is about the gap between *what would have to be built if you took all the evidence about AI in education seriously* and *what is currently being built*.
-
-The gap is not small. The field has been arguing, for fifteen years, about whether EdTech works. The disagreement has been between people who cherry-pick the positive cases (Khan, Khanmigo, every TED talk between 2016 and 2024) and people who cherry-pick the negative cases (Horvath, the PISA correlations, the smartphone-bans-in-schools wave). The disagreement is not actually about the evidence. The disagreement is about which fraction of the evidence to read.
-
-The third position — the one the book occupies — is to read all of it. Not as a survey. As a design specification. *Given everything we know, what would the platform have to do to avoid producing the failures we have already produced and to capture the gains the evidence supports?*
-
-That is the gap. The book fills it.
+I want to stay with that moment a little longer, because it is more interesting than it looks.
 
 ---
 
-## 3. The central argument
+## The Thing That Makes the Failure Interesting
 
-The central argument is this. **The intelligent textbook is not a product category. It is a frame.** Within the frame, the load-bearing element is not the AI model, not the content, not the interface, not the LMS integration. It is the conductor — the system that decides which instrument plays for which learner on which concept at which moment, watches what happens, and adjusts.
+Here is what did not happen: the AI failed to explain the concept. Here is what did not happen: the content was wrong, or the interface was broken, or the student lacked internet access. The system worked. The student interacted with it. The session completed. By every metric the platform was designed to measure, something good occurred.
 
-The claim is testable. It predicts that the platform that picks one AI mode and defends it (Khanmigo defending Socratic, Duolingo defending gamification, the LMS market defending content-delivery) will under-perform the platform that runs the instruments under a conductor — because no single mode handles every cognitive operation a learner needs. The claim further predicts that the platform that hides its uncertainty from learners and instructors will produce less learning than the platform that publishes what it knows and what it doesn't — because trust is the precondition for the cognitive engagement learning requires, and trust is built by transparency about decisions and uncertainty.
+The failure was not a bug. It was a feature behaving as designed — and the design had a mistake in it.
 
-A reader who thinks this claim is wrong has a clear target. The book's chapter 12 enumerates eight open bets that, if they fail in the deployment data, would force the central claim to revise. The book takes seriously that it might be wrong. It is constructed to make its wrongness identifiable.
+The mistake is this: the system was measuring a proxy for learning and calling it learning. Engagement is a proxy. Keystrokes are a proxy. Completed sessions are a proxy. They correlate with learning under some conditions, and not others, and the conditions under which they stop correlating are exactly the conditions that a student who has figured out the path of least resistance will produce. The student did not game the system. The system gamed itself. It defined success as a thing that looks like success, and then it produced the thing.
 
----
+<!-- → [INFOGRAPHIC: diagram showing a measurement loop where the proxy metric (engagement/keystrokes/completed sessions) diverges from the target metric (capability development) — arrows showing how optimizing the proxy actively degrades the target; label the gap "the IDK-IDK zone"] -->
 
-## 4. Audience
+Now here is the question that runs through this entire book: *What would you have to build instead?*
 
-This is the book for two readers in the same room. The first reader is the domain expert with content and conviction — the experienced teacher, the curriculum designer, the Charles Fadel type — who needs to know what she is commissioning when she commissions an intelligent textbook. The second reader is the developer who got handed an API specification and is now responsible for building something the first reader will use. The book is the shared language. After reading it, both readers should be able to hold the same conversation about the same decisions in the same terms.
-
----
-
-## 5. What this book is
-
-This book is a design specification for an intelligent textbook system.
-
-It tells you what such a system would have to do, what evidence it would have to gather, what decisions it would have to make on the learner's behalf, and what it would have to disclose about all of that. It is opinionated where the evidence supports an opinion. It is agnostic where it does not. It is explicit about which is which.
-
-The vocabulary the book teaches is small and load-bearing: *conductor*, *instrument*, *the four modes*, *the seven signals*, *phase gate*, *within-learner bandit*, *cost-collapse asymmetry*, *experiment-as-product*, *the fluency trap*, *the IDK-IDK pattern*, *Genuine Learning Probability (GLP)*. Each gets defined where it first appears and used carefully throughout. The book's Lexicon, in Appendix A, is the single-page index of the terms and where they live.
+Not "what feature would you add." Not "what would you prompt differently." What would the entire architecture have to look like if you took seriously — not as a slogan, but as a design constraint — that the goal is verified capability development in the learner, and not the appearance of it?
 
 ---
 
-## 6. What this book is not
+## What I Mean by Verified Capability
 
-This book is **not** a literature review of educational technology research. It cites the literature where it bears on a specific decision; it does not survey the field.
+Feynman had a test he used on himself. He would pick up a new subject — topology, or Brazilian Portuguese, or the Aztec calendar system — and he would not consider himself to have understood a thing until he could explain it to a reasonably smart person who had not studied it. Not summarize it. Not recall the key terms. Explain it. Generate a new example. Show where the idea breaks. Predict what would happen in a case he had not seen before.
 
-It is **not** an optimistic case for AI in education. Khan's *Brave New Words* is the optimistic case, and the book engages with it but does not extend it.
+That is a demanding test. It is also, I think, the right test. And it is almost entirely different from the tests most educational platforms actually run.
 
-It is **not** a pessimistic case. Horvath's *The Digital Delusion* is the sharpest current pessimist position; chapter 4 reads it carefully and disagrees with its conclusions, while accepting much of its diagnostic.
+Most platforms test recognition: does the student pick the right answer from a set of candidates? Some platforms test reproduction: can the student recall a definition or a procedure? A few platforms test application: given a new problem, can the student use the concept? Almost no platforms test what Feynman's test requires, which is generative understanding — can the student produce something new with the concept that the student has never seen before?
 
-It is **not** a how-to manual for using ChatGPT in your classroom next Monday. The book is for the person who is responsible for what the platform does, not the person who is responsible for what tomorrow's lesson plan does.
+<!-- → [CHART: horizontal bar chart or pyramid showing the distribution of educational platforms across four capability levels — recognition, reproduction, application, generative understanding — with approximate percentage of current platforms at each level; student should see the extreme skew toward recognition] -->
 
-It is **not** the implementation book. There is a separate book — currently in progress — about the Gru architecture and the agentic-coding patterns that turn the specification this book produces into working code. The implementation book references this one. This one references the implementation book where the boundary is crossed.
+The reason this matters is not philosophical. It is practical. The student who has achieved generative understanding of a concept will perform differently in a clinical setting, or an engineering problem, or a hiring interview than the student who has achieved recognition-level memory of the same concept. They look identical on most assessments. They perform very differently when the situation is novel.
 
-**Prerequisites:** None technical. You should be a reader who is willing to hold a frame in your head long enough to read the book through it. You should be willing to update your mind when the evidence does. You do not need to have read Khan, Horvath, or Hattie before starting; the book introduces each where they appear.
-
----
-
-## 7. A central concept that runs throughout
-
-The central concept is the **conductor frame**. Chapter 1 develops it fully. The two-sentence version: *Medhavy is the conductor. The intelligent textbook is whatever the conductor conducts.* The frame is what makes the four-layer architecture comprehensible later in the book — and also what makes it possible to recognize an intelligent textbook in a smaller arrangement (Anki + a volunteer + a Kindle book) when the smaller arrangement is the right answer.
-
-A second concept that runs throughout: **the IDK-IDK pattern**. The Khanmigo failure is the book's diagnostic example. Every chapter that argues against engagement-as-proxy-for-learning argues against this specific failure mode, and the book uses *IDK-IDK* as shorthand for the broader pattern in which a metric reports success while the underlying capability does not develop.
-
-A third: **experiment-as-product**. The platform is not a finished thing the institution buys and deploys. It is a continuously controlled experiment the institution participates in, with student consent and visible results. Every chapter is, in one way or another, about how to design the experiment well.
+The book is about how to build a system that can tell the difference.
 
 ---
 
-## 8. A running narrative thread — Priya and Ash
+## The Two Failure Modes the Field Has Produced
 
-Two named cases recur across the chapters. Both are composites — labeled as such, with the patterns they instantiate drawn from real situations the author has seen close-up — and both serve to keep the book honest.
+The field of educational technology has been arguing for fifteen years about whether AI in education works. The argument is, on careful inspection, not actually about the evidence. Both sides have evidence. The argument is about which evidence to read.
 
-**Priya** is the case for *when the simple answer is the right answer*. Nineteen years old, six years in a Homes of Hope residence in Hyderabad, Telugu and basic English, smartphone, Anki deck for vocabulary, Humanitarians AI volunteer on a weekly Zoom call, three sectors of entry-level employment to choose from. Anki is enough. The conductor's job is to watch what Anki produces and decide when to surface the volunteer call. The four-layer architecture is overkill; deploying it would harm her by absorbing resources that should have gone into the volunteer's time. Chapter 3 (When Anki Is Enough) develops Priya in detail.
+One side reads the positive cases: the ITS literature showing large effect sizes for intelligent tutoring systems, the Bastani 2025 *PNAS* finding that a well-designed AI tutoring prompt produced substantial learning gains, the spaced repetition literature showing durable retention effects. This side concludes that AI in education is a solved problem and the main task is deployment.
 
-**Ash** is the case for *when the simple answer is wrong*. A first-year medical student working through pharmacokinetics, where the failure modes are subtle (right answer, wrong reasoning), the transfer requirements are high (this concept must work in a clinic next year, not just on the exam next week), and the consequences of misunderstanding are mortality. Ash needs the full architecture. Chapter 5 (The Four Layers) opens on Ash. The within-learner bandit in Chapter 8 (The Adaptive Engine) is built around Ash's session log.
+The other side reads the negative cases: the Horvath analysis showing that increased EdTech spending correlates negatively with PISA scores across OECD nations, the smartphone-ban studies showing measurable learning gains when devices are removed, the finding that the students most harmed by poorly designed digital tools are the ones who were already struggling. This side concludes that EdTech is, in the net, harmful and the main task is restraint.
 
-The two cases together — Priya as the floor, Ash as the ceiling — are the calibration the book asks the reader to hold throughout. Most actual learning problems land between the two. The conductor's job is to know where the specific problem lands and what arrangement of instruments earns its complexity.
+Both sides are reading real evidence. Both sides are wrong about what to do with it.
 
----
+The evidence, read together, does not say *AI in education works* or *AI in education doesn't work*. It says something more specific and more useful: **certain designs work for certain learning tasks for certain populations under certain conditions, and other designs produce the IDK-IDK pattern.** The question is not whether. The question is which design, for which task, for which learner, under which conditions.
 
-## 9. How this book is organized
+That is not a political question. It is an engineering question. This book is the engineering answer.
 
-Three acts. Thirteen chapters. Nine appendices.
-
-**Act One — The Right Question (Chapters 1–4)** establishes the frame, names the field's two failure modes, and delivers the evidence base every later chapter cites.
-
-- **Chapter 1 — What is Medhavy?** The conductor frame. Three audiences in order: learner, instructor, organization. Experiment-as-product. Transparency as the precondition for trust.
-- **Chapter 2 — What Is an Intelligent Textbook?** The two failure modes (no-AI / all-AI), the IDK-IDK pattern, the four-layer architecture as a sketch.
-- **Chapter 3 — When Anki Is Enough.** The complexity threshold test. Priya as the worked case. When the simpler arrangement is the right intelligent textbook.
-- **Chapter 4 — The Evidence Base.** The Butter Knife Fallacy. Horvath audited. Khan rebutted. Bastani 2025 *PNAS* as the cleanest current evidence. ITS, spaced repetition, CBL, generative-assignment literatures consolidated.
-
-**Act Two — The Architecture (Chapters 5–11)** specifies each layer of the architecture in the sequence the layers depend on each other.
-
-- **Chapter 5 — The Four Layers.** The bolt-on failure. Book Library, Tic TOC, Adaptive Engine, Measurement Layer as a loop, not a stack. Ash's first session as the worked example.
-- **Chapter 6 — The Measurement Layer.** ⚠ Load-bearing. The decoupling problem (the artifact no longer evidences the process). Seven GLP components. The fluency trap. Minimum viable measurement.
-- **Chapter 7 — The Four Modes.** Ask AI, Quiz Me, Case Study, Glimmer. Phase gates as measurement decisions. Each mode's characteristic failure.
-- **Chapter 8 — The Adaptive Engine.** ⚠ Load-bearing. The casino metaphor. Within-learner contextual bandit. Thompson sampling. The engagement trap and the reward function that resists it.
-- **Chapter 9 — The Curriculum Design Layer.** The "suggest 15 chapters" failure. Backward design (Wiggins & McTighe). The concept map the engine consumes. Tic TOC as the meta-instrument.
-- **Chapter 10 — The Content Layer.** Domain-specificity (Sadler 2013). Cost-collapse asymmetry. AI-generation policy. The faculty review gate.
-- **Chapter 11 — The Economics of Intelligent Textbooks.** Sesame Street as floor, AI collapse below. Binding-cost shift. Minimum viable audience math. What the economics do *not* change.
-
-**Act Three — The Map (Chapters 12–13)** names what the platform does not yet know and delivers the design conversation that produces a specification a developer can build from.
-
-- **Chapter 12 — What the Platform Does Not Know Yet.** The eight open bets. Adjacent vs. direct evidence. Student consent architecture. Switching behavior as signal.
-- **Chapter 13 — The Design Conversation.** The book-as-Tic-TOC meta-move. Medhavy the platform vs. Medhavy the instrument. The six conversational moves. The map a developer can build from without a translation meeting.
-
-**Appendices A–I** are technical reference material. Appendices A (Lexicon), C (GLP Technical Specification), and D (Contextual Bandits Implementation) are the most architecturally load-bearing. Appendices F (1.5 Feature Roadmap), G (1.5 Video and Animation), H (Canvas LTI Research), and I (2.0 Contextual Bandit Research) document the current and next-step Medhavy implementation specifically, and can be read independently by anyone deploying the platform.
+<!-- → [TABLE: two-column table contrasting the positive evidence base (ITS effect sizes, Bastani 2025, spaced repetition) against the negative evidence base (Horvath PISA correlations, smartphone-ban studies, struggling-student harm findings) — third column: "what each side is actually measuring" — the point being that both columns are real and the resolution is in the third column] -->
 
 ---
 
-## 10. How to read this book
+## The Two Failure Modes, Named
 
-The book is built to read front to back. The argument compounds. Chapter 8 (Adaptive Engine) depends on Chapter 6 (Measurement). Chapter 9 (Curriculum) depends on Chapter 7 (Four Modes). Chapter 12 (Open Questions) names what each prior chapter is honestly uncertain about.
+I want to name the failure modes precisely, because the rest of the book is organized around avoiding them.
 
-For readers in a hurry, the four load-bearing chapters are **1, 4, 6, and 8** — the conductor frame, the evidence base, the measurement layer, and the adaptive engine. A reader who reads only those four will get the book's spine, miss some calibration (chapter 3) and most of the implementation specifics (chapters 7, 9, 10), but will hold a defensible understanding of the central argument.
+**The no-AI failure:** the system delivers content and measures whether the learner encountered it. Video watched. Page turned. Module completed. Nothing in the system distinguishes between a learner who watched the video and understood it and a learner who played the video at 2x speed while checking their phone. The measurement is logistical, not cognitive. The learner's capability state is invisible to the system, and the system's adaptation to that state is therefore zero.
 
-For the developer reader: chapter 1 establishes vocabulary; chapter 5 establishes the architecture; chapters 6, 7, 8 specify the algorithms; appendices C, D, E, F, I are the implementation reference. A working developer can probably skip chapters 3, 4, 11 on first read and return to them when implementation decisions touch their content.
+**The all-AI failure:** the system surrounds the learner with AI assistance so thoroughly that the learner never performs the cognitive operations that produce learning. The AI explains. The AI scaffolds. The AI catches every error before it can teach anything. The learner produces outputs that look correct because the AI is doing the cognitive work. The IDK-IDK pattern is one version of this failure. A learner who produces beautiful essays with AI assistance without ever developing their own ability to reason through an argument is another version. A medical student who passes pharmacokinetics exams with AI support and then cannot reason through drug interactions in clinic is the version that gets people killed.
 
-For the domain-expert reader: chapter 1, then chapter 2, then chapter 4, then chapter 12, then chapter 13. That sequence delivers the frame, the failure modes, the evidence base, the open questions, and the design-conversation tool, in the order that makes a commissioning conversation possible.
+Both failure modes are the result of measuring the wrong thing. The no-AI failure measures encounter. The all-AI failure measures output. Neither measures capability. A system that measures capability — specifically, the probability that the learner can perform the target cognitive operation independently, without assistance, in a novel situation — is what the book is building toward.
 
-Every chapter closes with four features:
+I call that measure the Genuine Learning Probability. Chapter 6 develops it in full. The short version: it is a composite signal constructed from multiple behavioral observations across multiple modes of engagement, updated continuously as the learner interacts with the system, and treated as a probability rather than a score precisely because it is uncertain and should be honest about that uncertainty.
 
-- **What would change my mind** — one paragraph naming the specific evidence or argument that would force the chapter's central claim to revise.
-- **Still puzzling** — two to four open questions the chapter raises but does not resolve.
-- **Exercises** — minimum three, at least one at Apply or above on Bloom's taxonomy, at least one requiring the reader to produce something.
-- **Bridge to the next chapter** — one question this chapter raises that the next chapter answers.
-
-The features are the chapter's contract with the reader. If you finish a chapter and cannot answer *what would change my mind here* in your own words, you have not yet read the chapter.
+<!-- → [INFOGRAPHIC: side-by-side comparison of the no-AI failure mode and the all-AI failure mode — what each measures (encounter vs. output), what each misses (capability), and the GLP as the third column showing what would actually need to be observed; visual should make clear that the two failures are mirror images of the same mistake] -->
 
 ---
 
-## 11. A note about AI
+## The Conductor Frame
 
-This book is about AI in education. It is also written by a human in collaboration with AI tools, and the collaboration is part of what the book is teaching.
+Here is the central claim of the book, stated plainly.
 
-I want to disclose three things specifically.
+The intelligent textbook is not a product. It is a conductor. And a conductor is not an instrument — it is what decides which instruments play, in what combination, for which learner, at which moment, and what to do with what it hears back.
 
-**First, what the AI did.** AI tools — Claude, ChatGPT, and the research-gathering pipeline that produced the pantry research notes in the book's repository — generated draft passages, surfaced primary-source candidates for verification, and produced first-pass syntheses of the evidence base. The conductor frame is mine. The architectural decisions are mine. The judgment calls about what to include and what to exclude are mine. Where the AI's suggestion landed in the published prose, it landed because I read it, verified it, and accepted it. Where it landed wrong, that's my error to own.
+The instruments are things like: a Socratic dialogue mode that pushes a learner to construct understanding by answering questions. A direct explanation mode that delivers clear exposition for a learner who is stuck and needs information before they can think. A case study mode that places a concept in a realistic context and asks the learner to apply it. A generative challenge mode — what I call Glimmer in the chapter on the four modes — that asks the learner to produce something novel with a concept they have been building.
 
-**Second, what the AI did not do.** The AI did not select the central argument. It did not order the chapters. It did not decide where to push back on Horvath and where to extend Khan. It did not write the worked examples (Priya and Ash are composites I built from cases I have seen close-up; the AI's role was sentence-level polish, not characterization). And it did not write the chapters' "what would change my mind" sections, which are the most personal sections in the book and which I wanted to write in my own first-person voice without intermediate language-model passes.
+Each instrument has things it does well and things it does badly. The Socratic mode, which is what Khanmigo defaults to, is excellent at building understanding for a learner who already has enough context to reason from. It is actively harmful for a learner who lacks the foundational knowledge to reason productively — who is not "stuck" but "lost," and who needs information, not questions. A system that defends Socratic mode as the right mode for every learner on every concept has made an architectural decision that will produce excellent results for some learners and IDK-IDK for others.
 
-**Third, the meta-claim the disclosure carries.** The pattern of disclosure I have just walked you through — what the AI did, what it did not, where the human judgment lives — is, I think, the right pattern for AI-collaborative work in any domain where the work is going to be evaluated. It is the pattern the Genuine Learning Probability framework in Chapter 6 specifies for student work. It is the pattern the AI-generation policy in Chapter 10 specifies for AI-assisted content production. It is the pattern Medhavy as a platform asks of every instructor who deploys it. I would not feel comfortable asking the platform's users to disclose what I was not willing to disclose myself.
+The conductor's job is to know which instrument to reach for, when to switch, and how to tell whether the switch worked.
 
-A note specifically on the Bastani 2025 *PNAS* finding (Chapter 4). The headline result — that students who used a Socratic-prompt-wrapped GPT scored 17 percentage points lower on a no-AI post-test than students who used a tutor-prompt-wrapped GPT, *using the same underlying model* — is the cleanest single piece of evidence that the field has produced about how AI-assisted learning works. The book leans on it heavily. The book is also honest that the finding is one study, with one population, in one subject, at one moment in 2024. It needs replication. The eight open questions in Chapter 12 include one that would test the generalization. If Bastani 2025 does not replicate, the book's central argument about the importance of the conductor's design decisions will not collapse, but it will require a different anchor.
+<!-- → [DIAGRAM: conductor-and-orchestra metaphor rendered as a system diagram — the conductor (adaptive engine) at center, four instruments (Socratic, direct explanation, case study, Glimmer) as nodes, with arrows showing signal flow: learner behavior → conductor → mode selection → learner response → conductor; make the feedback loop visible] -->
 
-I am writing this in May of 2026. By May of 2027, the underlying technology will have changed enough that some of the specific tool claims in this book will be obsolete. The architecture is what I am betting will outlast that. The frame is what I am betting will outlast the architecture.
+That requires measurement. Which brings us back to Genuine Learning Probability. A conductor who cannot hear the orchestra cannot conduct. A platform that cannot observe capability state cannot adapt. The measurement layer is not a nice-to-have — it is the thing that makes the rest of the architecture possible.
 
 ---
 
-## 12. Closing return
+## The Simplicity Trap
 
-Kristen DiCerbo said it publicly. *We see more IDK IDK than we would like.* The Khanmigo deployment was a serious attempt by a serious organization with serious resources, and the failure mode it produced is the failure mode every serious organization is currently producing. The first sentence of this introduction was the moment that started the book. The last sentence of this introduction is the question the rest of the book exists to answer.
+I want to pause here and name something the book is explicitly not arguing.
+
+The conductor frame is not an argument that every learning problem requires the full conductor-and-orchestra apparatus. Some learning problems are simple enough that a much simpler arrangement is correct, and deploying the full architecture would be waste at best and harm at worst.
+
+There is a character in this book named Priya. She is nineteen, six years in a residential program in Hyderabad, learning English vocabulary to qualify for entry-level employment in three sectors where that qualification changes her economic trajectory. For Priya, the right intelligent textbook is probably Anki — a well-designed spaced-repetition flashcard system — combined with a weekly volunteer conversation session on Zoom. The vocabulary acquisition evidence is clear, the spaced-repetition evidence is strong, the conversational practice evidence is strong. The conductor's job in Priya's case is to make sure the Anki deck is well-constructed and to watch the retention data to decide when she is ready to use the vocabulary in conversation. That is the full architecture. Anything more elaborate would be absorbing resources that should be going to the volunteer's time.
+
+There is also a character named Ash. Ash is a first-year medical student working through pharmacokinetics. The failure modes for Ash are not that the material is unengaging or that the vocabulary is unfamiliar. The failure modes are subtle: Ash can produce the right numerical answer through a procedure he has memorized without understanding why the procedure works, which means the right answer on the exam and the wrong reasoning in clinic. The transfer requirement is high. The consequence of non-transfer is mortality. For Ash, the Anki-plus-volunteer arrangement is the wrong answer. The full conductor architecture — with carefully designed phase gates between modes, within-learner adaptive decisions about when to push and when to scaffold, and measurement that specifically targets the difference between procedural recall and generative understanding — is what the problem requires.
+
+Most actual learning problems land between Priya and Ash. The book's architecture scales: Chapters 3 through 9 describe the full system, and the complexity threshold test in Chapter 3 is the tool for deciding how much of it any specific problem actually needs.
+
+<!-- → [CHART: horizontal spectrum from "Priya" (left) to "Ash" (right) with labeled markers for: complexity of failure modes, transfer requirement, consequence of non-transfer, appropriate architecture depth — reader should see that most problems cluster in the middle and that the spectrum determines which layers are warranted] -->
+
+---
+
+## The Economics Change Everything Except the Target
+
+There is a fact about the economics of intelligent textbooks that I want to name early because it changes the shape of several later chapters.
+
+For decades, the high-quality intelligent tutoring systems that produced the large effect sizes in the ITS literature cost somewhere between $100 and $1,000 per student-hour to produce. That is not a typo. The Carnegie Learning ITS systems, the LISP Tutor, the Cognitive Tutors — these were expensive precisely because building the knowledge model, the constraint set, and the feedback logic required thousands of hours of expert labor per concept. The effect sizes were real. The deployment was limited to the institutions that could afford the production cost.
+
+The cost has collapsed. Not reduced — collapsed. The combination of large language models capable of generating pedagogically sound content, AI-assisted curriculum design, and cloud infrastructure has moved the marginal cost of generating an intelligent textbook's content layer to a range that does not require a research grant or a venture round. The Sesame Street principle — that high-quality educational content production requires the resources of a major television studio — no longer governs the production cost.
+
+What the cost collapse does not change is the target. The goal is still verified capability development, not the appearance of it. The cost collapse makes it possible to build intelligent textbooks for subjects and populations that could not previously be served. It does not make it easier to build one that actually works. A poorly designed AI-generated intelligent textbook at low cost is still a poorly designed intelligent textbook. The IDK-IDK pattern runs on cheap infrastructure just as readily as on expensive infrastructure.
+
+This is why the architecture matters. The cost collapse gives us the resources to deploy widely. The architecture determines whether the deployment produces learning.
+
+<!-- → [CHART: line chart showing production cost per student-hour for intelligent tutoring systems from 1985 to 2025 — dramatic drop after 2022 marked as "LLM cost collapse"; second line showing effect size from well-designed systems (flat/stable); the point being that cost collapsed while the quality target did not] -->
+
+---
+
+## What This Book Is
+
+This book is a design specification.
+
+Not a survey of the field. Not a cheerleading document for AI in education. Not a warning about it. A specification: if you wanted to build a platform that avoided the failure modes the field has already demonstrated, and captured the gains the evidence supports, here is what the architecture would have to do, in the order the decisions depend on each other.
+
+The vocabulary the book teaches is small: *conductor*, *instrument*, *four modes*, *seven signals*, *Genuine Learning Probability*, *within-learner bandit*, *cost-collapse asymmetry*, *IDK-IDK pattern*, *experiment-as-product*. Each term gets defined where it first appears. The book's Lexicon in Appendix A is the single-page index if you need to find a definition quickly.
+
+The book is for two readers. The first is the domain expert — the experienced teacher, the curriculum designer, the person who has content and conviction and needs to know what she is commissioning when she commissions an intelligent textbook. The second is the developer who has been handed an API specification and needs to build what the first reader will use. After reading this book, both readers should be able to hold the same conversation about the same decisions in the same terms. That shared language is the book's primary product.
+
+---
+
+## A Disclosure About How This Book Was Written
+
+This book is about AI in education. It was also written in collaboration with AI tools. I want to be specific about what that means.
+
+AI tools — primarily Claude — generated draft passages, surfaced primary-source candidates for verification, and produced first-pass syntheses of the evidence base. The conductor frame is mine. The architectural decisions are mine. The judgment calls about what to include and what to exclude are mine. Where an AI-generated passage landed in the published prose, it landed because I read it, verified it, and accepted it. Where it landed wrong, that error belongs to me.
+
+The AI did not select the central argument. It did not order the chapters. It did not decide where to push back on Horvath and where to extend Khan. It did not write the composite cases — Priya and Ash are built from situations I have seen close-up, and the AI's role was sentence-level revision, not characterization. It did not write the "what would change my mind" sections that close each chapter, because those are the most personal sections in the book and I wanted to write them without an intermediate language-model pass.
+
+The pattern of disclosure I have just walked through — what the AI did, what it did not, where the human judgment lives — is the pattern the Genuine Learning Probability framework in Chapter 6 specifies for student work. It is the pattern the AI-generation policy in Chapter 10 specifies for AI-assisted content production. I would not feel comfortable asking the platform's users to disclose what I was not willing to disclose myself.
+
+---
+
+## One Note on a Specific Finding
+
+Chapter 4 leans heavily on the Bastani 2025 *PNAS* result. The headline finding: students who used a Socratic-prompt-wrapped GPT scored 17 percentage points lower on a no-AI post-test than students who used a tutor-prompt-wrapped GPT, using the same underlying model. Different prompting. Same model. Very different learning outcomes.
+
+That finding is the cleanest single piece of evidence the field has produced about how the conductor's design decisions — specifically, the decision about which mode to deploy — affect learning outcomes. It is one study, one population, one subject, one moment in 2024. It needs replication. Chapter 12 names this explicitly as one of the eight open questions.
+
+If Bastani 2025 does not replicate, the central argument does not collapse. The argument about why the conductor's design decisions matter does not depend on a single study. But the anchor shifts, and I want to be honest that it is an anchor.
+
+---
+
+## The Question
+
+Kristen DiCerbo said it publicly: *We see more IDK IDK than we would like.*
+
+The people who built the most ambitious AI education deployment in human history noticed the failure mode it was producing, named it clearly, and said out loud that they did not know how to solve it within their current architecture. That is not a failure of honesty. That is the clearest possible signal that the current architecture has a mistake in it.
 
 What would you have to build instead?
 
-Let's go.
+That is the question. The rest of the book is the answer.
 
 ---
 
-## Tags
+## LLM Exercises
 
-intelligent textbook design, conductor frame, IDK-IDK pattern, Khanmigo, four-layer architecture, Genuine Learning Probability, within-learner bandit, Bastani 2025, Charles Fadel, Khan Academy, Horvath Digital Delusion, Priya case, Ash case, Medhavy platform, experiment-as-product, transparency-as-precondition
+The following exercises are designed to be completed with AI assistance. For each, your task is not to produce a polished output but to have a conversation that surfaces your own thinking.
+
+**Exercise 0.1 — Reproduce the Failure**
+Ask an AI tutoring system to help you understand a concept you genuinely do not know. Before the session, write down what you think understanding would look like — what you would be able to do if you actually learned it. After the session, test yourself against that description without AI help. Write one paragraph: what did the session produce, and what is the gap between that and the capability you described beforehand?
+
+**Exercise 0.2 — The Conductor's Decision**
+You are designing an AI tutoring system for a learner who is trying to understand compound interest for the first time. The learner has completed two sessions and consistently produces correct numerical answers but cannot explain why the formula works.
+- Ask an AI: "What does this behavioral pattern suggest about the learner's current capability state?"
+- Then ask: "What mode of engagement would you recommend next, and why?"
+- Evaluate the AI's reasoning. Does it name the failure mode? Does it distinguish between procedural recall and generative understanding? Write two paragraphs: what the AI got right, and what it missed.
+
+**Exercise 0.3 — Design Against the Failure Mode**
+The IDK-IDK pattern is a system producing a metric that looks like success while the underlying capability does not develop.
+- Name one other context — outside of education — where you have seen this pattern. (A product that measures engagement and calls it value. A management system that measures activity and calls it productivity.)
+- Ask an AI to help you identify what measurement would have to change to catch the failure earlier.
+- Write one paragraph: what is the measurement that would actually track what matters, and what makes it harder to collect than the proxy?
