@@ -4,7 +4,7 @@
 
 ---
 
-Here is a mistake I have watched the EdTech field make in both directions, for fifteen years, with remarkable consistency.
+Here is a mistake I have watched the EdTech field make in both directions with remarkable consistency.
 
 A researcher publishes a paper concluding that kitchen knives cause finger lacerations. The data are real — 10,000 households, cuts reported in the last year, confidence intervals, the works. The recommendation: eliminate kitchen knives from households. The reasoning error is obvious the moment you name it. The data describe the average outcome of *all* knife use — untrained use, intoxicated use, child use, use on inappropriate surfaces. The data say nothing about what a trained chef using a properly sharpened knife on a cutting board produces, because the survey never separated those cases. The researcher judged the scalpel's potential by observing the butter knife's average misuse.
 
