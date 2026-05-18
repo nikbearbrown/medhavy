@@ -1,437 +1,259 @@
 # Chapter 13 — The Design Conversation
 
----
-
-## Learning Objectives
-
-By the end of this chapter, you will be able to:
-
-1. **(Understand)** Explain why a "suggest 15 chapters" prompt produces unusable output — and what the tool requires from the human before it can produce a specification worth building from.
-2. **(Apply)** Conduct the design conversation — the question-by-question process this book has modeled — that produces the inputs Medhavy needs.
-3. **(Create)** Use Medhavy the instrument to produce a design map — complete specification of layers, modes, phase gates, measurement signals, and curriculum architecture — that can be handed to a developer without a translation meeting.
-4. **(Evaluate)** Assess a Medhavy-generated specification for completeness: which layers are underspecified, which phase gates are missing, which measurement commitments are absent.
-
-**Prerequisites:** Chapters 1–11. Everything before this.
-
-**Skippable?** No. This is the chapter that converts everything you have read into something you can hand to a developer.
+*The tool amplifies the thinking. It does not replace it.*
 
 ---
 
-## Where this fits the conductor frame
+Here is what happens when someone opens a design tool and types the wrong first sentence.
 
-This chapter primarily serves the instructor — the second of the three questions, in order — because the design conversation is what the instructor conducts with the tool to produce a specification a developer can build from. The learner is the eventual beneficiary; the organization is the eventual funder. But the chapter's load is on the instructor as the human who has to do the thinking the tool cannot do.
+They type: *"Suggest 15 chapters for a medical school pharmacology textbook."*
 
-What this chapter specifies for the conductor is how the human conducts the conducting. Medhavy-the-instrument — the AI-and-domain-expert conversation — produces the specification that Medhavy-the-platform — the AI-and-student conversation — will then conduct against. Same shape of conversation, different domain. The instructor is conducting the design conversation in the way the conductor will later conduct the modes. The methodology compounds.
+The tool produces 15 plausible-sounding chapter titles. The author accepts them. The adaptive engine now has a concept map with no prerequisite dependencies — chapter 7 may require chapter 12 for any given concept. No learning-outcome statements — the chapters are topics, not capabilities. No phase-gate logic — the modes have nothing to gate on. No mode-appropriateness flags — whether a concept warrants Quiz Me or Glimmer or Case Study has no answer.
 
-The chapter runs the experiment by making the design conversation itself the deliverable. The book has been operating with the methodology since Chapter 1; this chapter names it. The transparency move is structural: the same intake-before-architecture, evidence-before-specification, honest-inventory-before-the-map discipline that produced the four-layer architecture is the discipline the reader is now equipped to run on their own learning problem. A specification produced this way is a falsifiable commitment — phase gates, prerequisite chains, mode assignments — that the deployment will test. The instrument hands off to the platform, and the experiment continues in production.
+The engine runs. Sessions are logged. The dashboard looks fine. Students engage. Nothing is learned, and the dashboard cannot see it, because engagement is all the dashboard was built to measure and engagement is all the specification gave it.
 
----
+This is the IDK-IDK problem — the Khanmigo pattern from Chapter 1 — restated at the curriculum-design layer. A platform produced from "suggest 15 chapters" is a platform that will measure engagement as learning because there is nothing else for it to measure against. The failure is silent, which is the worst kind.
 
-## §1. The Meta-Move Named
-
-This book is a Tic TOC session.
-
-The reader has been experiencing the design conversation methodology since Chapter 1. Question by question. Intake before architecture. Evidence before specification. Honest inventory before the map. The only thing this chapter does is name it.
-
-Chapter 1 opened with a failure — the IDK-IDK incident at Khanmigo — before any framework was introduced. Chapter 2 imposed the honest check — the complexity threshold test — before the architecture was delivered. Chapter 3 walked the evidence base before any architecture chapter could cite it. Chapters 4 through 10 delivered the four-layer architecture with evidence at every decision point, in the sequence that makes each layer comprehensible given what precedes it. Chapter 11 named the gaps in the language of the Montaigne *essai* — *que sais-je?* about the platform's own claims.
-
-That sequence is the design conversation. The methodology is not a new instrument introduced in this chapter. It is the instrument the book has been operating with throughout. You have already done it. The architecture you now hold was produced by it. **The chapter is the naming of what you have been doing.**
-
-Why this matters: a reader who learns the methodology by reading about it has acquired vocabulary. A reader who has *experienced* the methodology has acquired a capability. The latter is what the book has been building. This chapter is the moment the capability becomes nameable.
-
-There is a second move embedded in the meta-move, and it dissolves a confusion I have been letting sit since Chapter 1. **Medhavy the platform and Medhavy the instrument are the same conversation in different domains.** The platform is the AI-and-student conversation about a concept. The instrument is the AI-and-domain-expert conversation about a curriculum. The shape of the question-by-question intake is the same. The output differs — student understanding in one case, buildable specification in the other.
-
-That is why the book uses one name for two things. The two things share a structure. The structure is the conversation that produces a learning trajectory. The platform's trajectory ends with a student who can do something they could not do before. The instrument's trajectory ends with a specification a developer can build from.
+This chapter is about the question that should have come before "suggest 15 chapters." Not the architecture — you have that. The conversation that produces the inputs the architecture needs before anyone writes a line of code.
 
 ---
 
-## §2. Why the Tool Requires the Thinking
+## What this book has been doing
 
-The failure mode this chapter teaches around is the one that opens Chapter 8. An author opens a design tool. They type:
+I want to name something that has been true since Chapter 1 and that this chapter finally says out loud.
 
-> *"Suggest 15 chapters for a medical school pharmacology textbook."*
+This book is a design conversation.
 
-The tool produces 15 plausible-sounding chapter titles. The author accepts them. The adaptive engine now has a concept map with:
+Every chapter has been doing the thing the chapter is now describing. Chapter 1 opened with a failure before any framework was introduced — the IDK-IDK incident, a real system producing a measurable harm, held up so the reader could feel the problem before being handed the solution. Chapter 4 walked the evidence base before any architecture chapter could cite it, because the architecture should not be trusted until the evidence that licenses it is visible. Chapters 5 through 10 delivered the four-layer architecture with the evidence at every decision point, in the sequence that makes each layer comprehensible given what precedes it — not in the sequence that would have been easiest to write. Chapter 11 named the gaps. And each chapter closed with what would change the author's mind, which is the only honest way to end a chapter making claims the evidence does not yet fully support.
 
-- No prerequisite dependencies — chapter 7 may require chapter 12 for any given concept.
-- No learning-outcome statements — the chapters are *topics*, not *capabilities*.
-- No phase-gate logic — the modes have nothing to gate on.
-- No mode-appropriateness flags — Quiz Me vs. Glimmer vs. Case Study has no answer.
+That sequence is the design conversation. Intake before architecture. Evidence before specification. Honest inventory before the map. The methodology is not new material introduced in this chapter. It is the instrument the book has been operating with throughout. You have already done it. The architecture you now hold was produced by it.
 
-The engine is flying blind. The bandit can run, but it cannot learn — it has no structure to update against. The failure mode is silent: students engage, sessions log, dashboards look fine, and nothing has been learned.
-
-**This is the IDK-IDK problem at the curriculum design layer.** A platform produced from "suggest 15 chapters" is a platform that will measure engagement as learning because there is nothing else for it to measure against.
-
-### What the tool contributes
-
-The tool's contribution is amplification of specification work that a domain expert is *already capable of producing* but would take days to write out. It reads the intake answers, infers the concept map structure, names the phase gates that would be coherent given the learning outcomes, flags the prerequisite chains, proposes the mode assignments, surfaces the measurement signals each phase gate would require, and produces the specification document in the format the developer needs.
-
-### What the tool cannot do
-
-The tool cannot generate the domain expert's understanding of what students get wrong. Sadler 2013 (Chapter 10, §2) is the empirical anchor. The most valuable input the domain expert brings is the *misconception map* — what students typically believe before instruction, what wrong answers they reach for, where the bottlenecks live in transfer. The LLM has training-data inferences about common misconceptions in well-documented subjects: Newtonian mechanics, Bayesian probability, photosynthesis. It does not have the domain expert's tacit knowledge of *this* population, *this* curriculum, *this* program's specific bottlenecks. That is the input the tool requires from the human — and the input it cannot produce on its own.
-
-The cleanest framing: **the tool can produce the architecture but not the misconception map. The domain expert produces the misconception map and uses the tool to amplify it into the architecture.** That is the labor separation the chapter teaches.
-
-### What "the thinking" consists of
-
-The thinking the book provides — the input the tool requires — is the structured intake the design conversation conducts. Six moves:
-
-1. **Learner profile.** One specific person, not a category.
-2. **Complexity threshold check.** Does this learning problem warrant the full architecture, or is the right answer a simpler tool?
-3. **Evidence audit.** What does the evidence say about how the target capability is built? Which design choices are evidence-supported and which are bets?
-4. **Four-layer specification.** Content, curriculum design, adaptive engine, measurement — with the data each layer produces and receives.
-5. **Economics check.** What audience size justifies the architecture at the available production budget?
-6. **Honest inventory.** Adjacent evidence, direct evidence, design bet — per design decision.
-
-These six moves are the design conversation. The Medhavy instrument conducts them as a question-by-question intake. The human (Charles Fadel type) provides the answers. The instrument produces the specification document the developer builds from. **The book has been training the reader to *do* these six moves since Chapter 1.**
+A reader who learned the methodology by reading about it has acquired vocabulary. A reader who experienced it through twelve chapters has acquired a capability. The chapter's job is to make the capability explicit enough to run.
 
 ---
 
-## §3. Platform vs. Instrument — the Distinction That Makes Both Buildable
+## Two things called Medhavy
 
-The distinction the chapter has to land:
+There is a confusion that has been sitting since Chapter 1, and this is where it gets dissolved.
 
-- **Medhavy the platform** is what the developer builds. The four-layer architecture deployed at cancer.medhavy.com or physics.medhavy.com — the production system serving medical students or physics undergraduates with Ask AI + Quiz Me + Case Study + Glimmer + Video and Animation, instrumented by GLP measurement, optimized by the within-learner bandit.
-- **Medhavy the instrument** is what the domain expert uses to produce the specification the developer builds from. The design conversation tool — the intake-driven session that walks the Charles Fadel type through learner profile, complexity threshold, evidence audit, four-layer specification, economics check, and honest inventory.
+**Medhavy the platform** is what the developer builds. The four-layer architecture deployed at a specific URL — the production system serving medical students or education-policy graduate students, instrumented by GLP measurement, optimized by the within-learner bandit, with Ask AI and Quiz Me and Case Study and Glimmer running against a faculty-reviewed content layer.
 
-They share a name because they share a structure. **Both are conversations that produce learning trajectories.** The platform's conversation is between AI and student about a concept. The instrument's conversation is between AI and domain expert about a curriculum. The shape of the question-by-question intake is the same. The output differs.
+**Medhavy the instrument** is what the domain expert uses to produce the specification the developer builds from. The design conversation tool — the intake-driven session that walks the commissioning party through learner profile, complexity threshold, evidence audit, four-layer specification, economics check, and honest inventory, and produces a document a developer can build from without a translation meeting.
 
-### Why the distinction matters
+They share a name because they share a structure. Both are conversations that produce learning trajectories. The platform's conversation is between AI and student about a concept. The instrument's conversation is between AI and domain expert about a curriculum. The shape of the question-by-question intake is the same. The output differs — student understanding in one case, buildable specification in the other.
 
-A Charles Fadel type who confuses the platform with the instrument will commission the wrong thing. He will ask the developer to build "Medhavy" without specifying *which* Medhavy or what the specification is. The developer will build the platform without the specification, which produces the "suggest 15 chapters" output writ large — a platform with a concept map that no one designed for the learners actually being served.
+<!-- → [DIAGRAM: Two-column parallel structure — left column "Medhavy the Platform": conversation between AI and student, input = learner question, output = student understanding, end state = student can do something they couldn't before. Right column "Medhavy the Instrument": conversation between AI and domain expert, input = domain expert's judgment, output = buildable specification, end state = developer can build without a translation meeting. A shared header spanning both columns: "Same shape of conversation. Different domain." A horizontal bridge between the two columns at the "intake" level showing the structural parallel. Reader should see in one image why the two things share a name and what the distinction actually is.] -->
 
-A developer who confuses the platform with the instrument will build the platform and assume the design conversation will happen later, somewhere else, by someone else. That is the bolt-on failure of Chapter 4. **The design conversation does not happen later. It happens before the build or it does not happen at all.** A platform configured against an unspecified curriculum is the platform that cannot learn.
-
-The chapter's move: name the distinction explicitly so both readers can recognize when they are asking the wrong question, and use the shared structure — intake → architecture → specification → deployment — to make the right question askable.
-
-### What the implementation book holds
-
-This book ends with the map, not the build. The *implementation* book — the book about turning the specification into deployed code — is a follow-up that does not exist yet. Chapter 12 hands the specification. The implementation book is about turning the specification into deployed code, and that is a separate project with separate scope.
+A Charles Fadel type who confuses the two will commission the wrong thing. He will ask the developer to build "Medhavy" without specifying which Medhavy or what the specification is. The developer will build the platform without the specification — the "suggest 15 chapters" outcome writ large. A developer who confuses the two will build the platform and assume the design conversation will happen later, somewhere else, by someone else. It will not. The design conversation does not happen later. It happens before the build or it does not happen at all. A platform configured against an unspecified curriculum is the platform that cannot learn.
 
 ---
 
-## §4. How to Conduct the Design Conversation
+## What the tool requires from the human
 
-This is the operational core. The reader must finish able to run the conversation themselves.
+The most important thing to understand about the instrument is what it cannot do.
 
-### 4.1 Intake questions
+The instrument can produce the architecture. It can read the intake answers, infer the concept-map structure, name the phase gates that would be coherent given the stated learning outcomes, flag the prerequisite chains, propose the mode assignments, surface the measurement signals each phase gate requires, and produce the specification document in the format the developer needs.
 
-The intake's job is to surface the inputs the rest of the conversation needs.
+What it cannot do is generate the domain expert's understanding of what students get wrong.
 
-- *Who is the learner?* One specific person, not a category. Age. Prior knowledge. Prior misconceptions. Current capability gap. Motivation type (academic credential, professional qualification, intellectual project). Institutional context (credentialing, executive education, K-12, homeschool, microschool).
-- *What capability are they being built toward?* Named in terms of what they will be able to *do*, not what they will *know about*. Bloom's level above Apply is required for the full architecture; below Apply, the complexity threshold may not warrant the full build.
-- *Why does this matter?* The motivation layer. Academic credential, job qualification, intellectual project — the motivation type determines which inputs to the adaptive engine matter most.
-- *What is the deployment context?* Phone, desktop, classroom, asynchronous, blended. Platform-bound assumptions of v1.5 vs. the ambient deployment the deployment may aspire to.
+Sadler et al. 2013 — the middle-school physical science study from Chapter 10 — is the empirical anchor.[^1] The teachers who could identify the wrong answers their students would predictably give produced substantially larger learning gains than teachers who could not, controlling for subject-matter knowledge itself. The diagnostic move — knowing what *learners in this domain* get wrong — is what carries the effect. The LLM has training-data inferences about common misconceptions in well-documented subjects: Newtonian mechanics, Bayesian probability, photosynthesis. It does not have the domain expert's tacit knowledge of *this* population's specific bottlenecks. That knowledge is the input the tool requires and the input it cannot produce on its own.
 
-### 4.2 Learner profile
+The cleanest framing: the tool can produce the architecture but not the misconception map. The domain expert produces the misconception map and uses the tool to amplify it into the architecture. That is the labor separation.
 
-The learner profile is the artifact the intake produces. Specific. One person, not a category. **A reader who cannot be named is a reader the book cannot be written for.** This is the bear-textbooks workshop pattern adapted to platform commissioning.
+<!-- → [DIAGRAM: Two-box division of labor — left box "What the tool produces": concept map structure, prerequisite chain inference, phase-gate proposals, mode-assignment flags, measurement-signal specifications, specification document format. Right box "What the domain expert provides": misconception map (this population, this curriculum, these specific bottlenecks), tacit judgment about what students get wrong, Bloom-level assignments by felt difficulty, clinical or practitioner edge cases AI training data does not contain. A horizontal arrow labeled "amplification" pointing from the right box into the left box — the expert's input flows into the tool and becomes architecture. Reader should see immediately that the tool's value is conditional on the human's input, not a substitute for it.] -->
 
-### 4.3 Complexity threshold test
-
-Three questions from Chapter 2:
-
-- *Is adaptive sequencing required across concepts that cannot be pre-ordered?* If the curriculum is fixed and sequential, the bandit has nothing to learn.
-- *Is live instrumentation required?* If the learning evidence is observable at the artifact level, the measurement layer is a different design.
-- *Is a multi-layered capability build required?* If the capability is a single tight skill, one mode is enough and the architecture is over-engineered.
-
-If all three answers are *yes*, the full architecture is warranted. If any is *no*, the chapter recommends the simpler tool. **The complexity threshold is not a gate against the architecture. It is the honest check that prevents the architecture from being commissioned for problems that do not need it.**
-
-### 4.4 Evidence audit
-
-Walk the evidence base relevant to the design choices the architecture will require. Distinguish what Khan uses, what Horvath uses, what both omit. Apply Hattie's 0.40 correctly — as a cost-effectiveness guideline, not an absolute binary. Identify which findings from ITS, spaced repetition, CBL, and generative-assignment literatures apply to this specific design decision. Assess any claimed effect for cherry-picking.
-
-The audit produces the *evidence ladder* for this specific deployment: which design decisions are direct-evidence-supported, which are adjacent-evidence-supported, which are bets. **Chapter 11's epistemic ladder applied to this design conversation.**
-
-### 4.5 Four-layer specification
-
-Each layer specified to the depth the developer needs:
-
-- **Layer 1 — Content.** Domain specificity level (Level 1/2/3 per Chapter 9), AI-generation policy, faculty review gate specifications, minimum viable content per chapter.
-- **Layer 2 — Curriculum design.** Concept map with nodes, prerequisite dependencies, Bloom's level assignments, mode-appropriateness flags. Phase-gate logic per mode per concept.
-- **Layer 3 — Adaptive engine.** Bandit configuration — context features, reward signal, exploration strategy, cold-start defaults.
-- **Layer 4 — Measurement.** Which GLP components are instrumented, which require additional instrumentation, what threshold values trigger phase-gate transitions or engine updates, what the consent architecture commits to and does not.
-
-The cross-layer data flow: what each layer produces and receives. **Chapter 4's architecture applied to this concrete deployment.**
-
-### 4.6 Economics check
-
-What audience size justifies the architecture at the available production budget? Where does the cost-collapse argument apply? Where does it leave the burden of proof unchanged? Project A ($15K) / Project B ($150K) / Project C ($1.5M) — which budget tier is the deployment in, and what subset of the architecture is feasible at that tier?
-
-The economics check is the gate against over-commitment. **A specification that requires Project C investment at Project A budget is the specification that does not get built.**
-
-### 4.7 Honest inventory
-
-Three categories per design decision:
-
-- *Adjacent evidence* — what the literature on partial designs supports.
-- *Direct evidence* — what evidence exists on the integrated claim under deployment conditions.
-- *Bet* — what the design commits to without sufficient evidence and what the deployment will test.
-
-The inventory is the honesty layer. **A specification without an inventory is a specification that has not yet acknowledged what it is committing to without evidence.** Which is the IDK-IDK problem at the design-conversation level.
+Cost collapse at the content layer shifted the binding constraint from production to expert knowledge — from *can we afford to write this* to *do we know what students get wrong here*. The same shift happens at the implementation layer. Cost collapse on code shifts the binding constraint from writing code to specifying what the code should do. What becomes valuable when production gets cheap — at both the content layer and the code layer — is the human's contextual knowledge of what to produce. The Sadler 2013 move has a mirror in the implementation. The instrument is the same kind of thing in both cases: a conversation that converts human judgment into structured input the cheap-production layer can act on.
 
 ---
 
-## §5. What the Map Contains
+## The six moves
 
-The output the design conversation produces. The TIKTOC specifies: *complete specification, everything a developer needs to build without a translation meeting, everything Charles needs to evaluate whether what gets built is what he designed.*
+The design conversation runs in six moves. They are the same six moves the book has been modeling since Chapter 1, now named.
 
-Drawing from the MVAL pattern (Minimum Viable Analytical Log), the map contains six fields per design decision:
+**Move 1: Learner profile.** One specific person, not a category. Age. Prior knowledge. Prior misconceptions. Current capability gap. Motivation type — academic credential, professional qualification, intellectual project. Institutional context. The reader cannot be named is a reader the book cannot be written for. This is the discipline that produces Priya from Chapter 1 — not "adult learner in a BPO preparation program" but a nineteen-year-old in Hyderabad with an Anki deck and an Apollo Health interview in eleven days.
 
-- **WHAT** — the specific design decision. ("Quiz Me phase-gate at section-read threshold of 3 minutes.")
-- **WHY** — the reasoning anchored in evidence. Bastani 2025 for the guardrail-design decision. Cepeda 2006/2008 for the spacing-interval decision. Sadler 2013 for the priority-weighting decision. The WHY field is where the evidence audit lands per decision.
-- **HOW** — the implementation specification. Exact field values, exact threshold numbers, exact mode-selection rules.
-- **ENVIRONMENT** — the dependencies. Which Layer 4 measurement signals the Layer 3 engine requires. Which content elements the Layer 2 curriculum requires from Layer 1. The cross-layer interface specification.
-- **RESULTS expected** — pre-registered prediction of what the design produces. What the engine should converge on after N sessions. What the GLP signal should look like after the phase-gate transition.
-- **QUESTIONS** — the open bets per design decision. What this decision commits to without direct evidence. What the deployment will test.
+**Move 2: Complexity threshold.** Three questions from Chapter 2. Is adaptive sequencing required across concepts that cannot be pre-ordered? Is live instrumentation required — is the evidence of learning observable in the process, not just the final answer? Is a multi-layered capability build required? If all three answers are yes, the full architecture is warranted. If any answer is no, the right answer may be a simpler tool. The complexity threshold is not a gate against the architecture. It is the honest check that prevents the architecture from being commissioned for problems that do not need it.
 
-The map is auditable per the same six-field discipline MVAL enforces. **A developer reading the map can implement. A Charles reading the map can evaluate.** A specification missing any of the six fields per design decision is incomplete in the same sense MVAL flags incomplete entries: it cannot pass review because the missing field cannot be reconstructed from the rest.
+**Move 3: Evidence audit.** Walk the evidence base relevant to the design choices the architecture will require. Distinguish what Khan uses, what Horvath uses, what both omit. Apply Hattie's 0.40 correctly — as a cost-effectiveness guideline, not a threshold. Apply the five-move audit from Chapter 4 to any claim that will bear structural weight. Produce the evidence ladder: which design choices are direct-evidence-supported, which are adjacent-evidence-supported, which are bets.
 
----
+**Move 4: Four-layer specification.** Content layer — domain-specificity level, AI-generation policy, faculty review gate, minimum viable content per chapter. Curriculum design layer — concept map with nodes, prerequisite dependencies, Bloom's-level assignments, mode-appropriateness flags, phase-gate logic per mode per concept. Adaptive engine — bandit configuration, context features, reward signal, exploration strategy, cold-start defaults. Measurement layer — which GLP components are instrumented, what threshold values trigger phase-gate transitions or engine updates, what the consent architecture commits to and does not.
 
-## §6. The Shared Language
+**Move 5: Economics check.** What audience size justifies the architecture at the available production budget? Where does the cost-collapse argument apply, and where does it leave the burden of proof unchanged? A specification that requires Project C investment at a Project A budget is a specification that does not get built. The economics check is the gate against over-commitment.
 
-The design conversation produces a *shared vocabulary* between Charles Fadel and the developer. Charles can say *"Socratic isn't right here because of retrieval interference"* — and mean the specific finding from Bastani-style guardrail design. The developer can say *"we already have something close — here's what Mixture-of-Experts routing does for the persona-classification problem"* — and mean the specific cancer biology textbook implementation. Both are talking about the same design decision in the same terms.
+**Move 6: Honest inventory.** Three categories per design decision: adjacent evidence — what the literature on partial designs supports; direct evidence — what exists on the integrated claim under deployment conditions; bet — what the design commits to without sufficient evidence and what the deployment will test. A specification without an inventory is a specification that has not acknowledged what it is committing to without evidence. Which is the IDK-IDK problem at the design-conversation level.
 
-**The lexicon is not vocabulary for vocabulary's sake.** It is the precondition for the design conversation to scale beyond a single team. Without the lexicon, every new Charles-developer pair has to re-invent the vocabulary that the previous pair invented. With the lexicon, the conversation can happen across teams, across institutions, across years.
-
-The thirteen terms the lexicon owns (Appendix A specifies these in full):
-
-- The IDK-IDK problem
-- The four layers — Book Library / Tic TOC / Adaptive Engine / Measurement Layer
-- The four modes — Ask AI / Case Study / Quiz Me / Glimmer
-- The seven signals (GLP)
-- Phase gates
-- The within-learner bandit
-- The GLP reward signal
-- Ambient infrastructure
-- The conductor
-- The fluency trap
-- Cost-collapse asymmetry
-- The due-today counter
-- Genuine Learning Probability
-
-Charles uses these terms to talk about the design with the developer. The developer uses them to talk about the implementation with Charles. **The chapter's claim is operational: both readers can say the same sentence about the same decision in the same vocabulary by the end of the book.** The lexicon is the test of whether the book delivered on its promise.
+<!-- → [DIAGRAM: Horizontal six-step sequence — Move 1 (Learner profile: one specific person) → Move 2 (Complexity threshold: 3 yes/no questions) → Move 3 (Evidence audit: evidence ladder per decision) → Move 4 (Four-layer specification: content / curriculum / engine / measurement) → Move 5 (Economics check: budget tier → feasible subset) → Move 6 (Honest inventory: adjacent / direct / bet per decision). Arrows connecting each step. A small annotation on Move 2 showing a branch: if any answer is "no," arrow points to "simpler tool" rather than continuing the sequence. A small annotation at Move 6 showing the output feeding back into Move 4 as a constraint on which commitments are licensed. Reader should see the conversation as a linear sequence with two key branch points — complexity threshold and honest inventory — not as a checklist of independent items.] -->
 
 ---
 
-## §7. The Gru Connection
+## What the map contains
 
-One section. The implementation book is the right home for the full Gru specification. This is the conceptual hand-off.
+The output the design conversation produces is a document. The structure per design decision:
 
-The framing — *senior dev is 80% thinking, 20% coding* — is now distributed across the agentic-coding discourse of 2025–2026. The clearest single articulation is Addy Osmani's ["The 80% Problem in Agentic Coding"](https://addyo.substack.com/p/the-80-problem-in-agentic-coding) on Elevate Substack. Koushik Dasika makes the explicit *"for a senior engineer, actual coding is roughly 20%, while the other 80% consists of research, planning, designing the right solution, and collecting and interpreting results"* claim in ["Coding Was Never the Hard Part"](https://koushikdasika.com/blog/coding-was-never-the-hard-part/). Ari Vance frames the shift as a role reconceptualization in ["Stop Coding. Start Orchestrating"](https://medium.com/@AgenticAri/stop-coding-start-orchestrating-the-new-survival-guide-for-2026-83a02d6be859). Greg Brockman at OpenAI 2025 frames it from the production side: AI went from writing 20% to 80% of code in a single month.
+**WHAT** — the specific decision. "Quiz Me phase-gate at section-read threshold of three minutes."
 
-I treat the framing as a shared field formulation rather than a quote from a single source. Osmani is the safest single citation if one is required `[verify whether a specific source is intended]`.
+**WHY** — the reasoning anchored in evidence. Bastani 2025 for the guardrail-design decision.[^2] Cepeda 2006 for the spacing-interval decision.[^3] Sadler 2013 for the priority-weighting decision. The WHY field is where the evidence audit lands per decision.
 
-### What the framing does for the chapter
+**HOW** — the implementation specification. Exact field values, exact threshold numbers, exact mode-selection rules.
 
-**The map Medhavy produces is the 80%. The Gru-assisted build is the 20%.**
+**ENVIRONMENT** — the dependencies. Which measurement signals the engine requires. Which content elements the curriculum requires from the content layer. The cross-layer interface specification.
 
-The design conversation produces the specification — that is the thinking work. The Gru-assisted (or Claude-Code-assisted, or any agentic-coding-assisted) build executes the specification — that is the implementation work.
+**RESULTS expected** — pre-registered prediction of what the design produces. What the engine should converge on after N sessions. What the GLP signal should look like after the phase-gate transition.
 
-The structural parallel to Chapter 10 is the chapter's deepest claim. Cost-collapse on content shifted the binding constraint to knowledge of the individual learner (Sadler 2013). **Cost-collapse on code shifts the binding constraint to specification quality.** The Charles Fadel type can now commission an intelligent textbook and have it built at production-grade quality, *provided he can produce the specification*. The instrument's job is to help him produce the specification.
+**QUESTIONS** — the open bets per design decision. What this decision commits to without direct evidence. What the deployment will test.
 
-What becomes valuable when production gets cheap — at both the content layer and the implementation layer — is the human's contextual knowledge of *what to produce*. The Sadler-2013 move at the content layer has its mirror at the implementation layer. The instrument is the same kind of thing in both cases: a conversation that converts human judgment into structured input the cheap-production layer can act on.
+The map is auditable. A developer reading it can implement. A Charles reading it can evaluate. A specification missing any field per design decision is incomplete in the same sense that a lab notebook with missing entries cannot pass review: the missing field cannot be reconstructed from the rest.
 
-The deliberate brevity here is the right scope. The implementation book is the right home for the full Gru spec. This chapter ends with the map. The next book begins with the build.
+<!-- → [TABLE: Single-decision map template — six rows, each showing field name, a brief description of what belongs there, and a worked example drawn from the chapter (using the Quiz Me phase-gate example): WHAT / "Quiz Me phase-gate at section-read threshold of 3 minutes" / the specific design decision; WHY / "Bastani 2025 — unguarded AI in practice ≠ durable learning; Cepeda 2006 — spacing requires prior encoding" / evidence anchors; HOW / "Y1 temporal-engagement signal ≥ 3 min on section → Quiz Me unlocked; FSRS schedules first item 24 hr after gate opens" / exact implementation; ENVIRONMENT / "Requires Y1 from measurement layer; requires substrate text from content layer" / cross-layer dependencies; RESULTS expected / "Engine converges on 85%+ retention at 7-day probe within 3 sessions per concept" / pre-registered prediction; QUESTIONS / "Does Y1 threshold correctly distinguish read vs. skimmed? Open Question 4 from Ch. 11" / named bets. Reader should be able to use this template directly when filling out a specification.] -->
 
----
-
-## §8. Worked Example — A Medhavy Session as Design Specification
-
-**Label.** What follows is a *design specification* of the Medhavy intake conversation as currently architected. The live instrument is in development as of 2026-05-17 `[verify deployment state at draft time]`. This is not a product demo. It is the specification of what the session will produce when it is complete. A book describing a tool it is building is more interesting than a book describing a tool that already exists — and is the only framing consistent with the epistemic commitments this book has held since Chapter 1.
-
-The case: Charles Fadel has content on 21st-century skills and curriculum redesign. He wants to commission an intelligent textbook deployment for graduate students in education policy. Here is what the design conversation looks like.
-
-### 8.1 Intake — the first three questions
-
-**Q1: Who is the learner?**
-
-Charles: "Graduate students in education policy programs. Mid-career. They have classroom experience or administrative experience. They are working toward a credential — usually a master's, sometimes a doctoral cognate. They are skeptical of jargon. They have read either too much Hattie or too little."
-
-The instrument captures: motivation = professional credential + intellectual project; prior knowledge = uneven, weighted toward practitioner; misconception risk = treating Hattie's 0.40 as a binary threshold; institutional context = credentialed graduate program.
-
-**Q2: What capability are they being built toward?**
-
-Charles: "They have to be able to evaluate a proposed curriculum reform — looking at the evidence base, the audience, the cost, the institutional fit — and decide whether to support it. Apply level at minimum. Evaluate level is the real target."
-
-The instrument captures: Bloom's primary level = Evaluate; target capability = evidence-base assessment + audience-fit assessment + cost-benefit reasoning + institutional-fit assessment.
-
-**Q3: What is the deployment context?**
-
-Charles: "Asynchronous. Most are part-time. They study at night on a laptop. The course already exists as a Canvas shell with PDFs and discussion forums."
-
-The instrument captures: deployment = LMS-embedded (Canvas LTI); platform-bound; asynchronous; existing course structure.
-
-### 8.2 Learner profile (the artifact)
-
-> *The learner is a 38-year-old assistant principal at a Title I middle school in a state with active legislation on AI in classrooms. She enrolled in the master's program because she keeps being asked to evaluate vendor proposals and she does not trust her own evidence-evaluation. She has read Hattie's first book and an old copy of Robert Marzano. She has not read Horvath. She reads at night on a laptop after her kids are asleep. She has 90 minutes per session, three sessions a week. She is skeptical of academic jargon and very tolerant of practitioner anecdote. Her current evidence-evaluation move is "trust the colleague who recommended it."*
-
-This is the artifact the intake produces. Specific. One person. Named.
-
-### 8.3 Complexity threshold check
-
-The instrument applies the three questions from Chapter 2.
-
-- *Adaptive sequencing required?* Yes — evidence-evaluation builds across cases the learner has not encountered, and the prerequisite chain (effect-size literacy → audience-fit reasoning → cost-effectiveness comparison → institutional fit) cannot be pre-ordered without losing learners who arrive at different starting points.
-- *Live instrumentation required?* Yes — the target capability is evaluative reasoning, which is observable in the *process* of working through cases, not in a single final answer. Engagement metrics are not enough; the GLP signal is required.
-- *Multi-layered capability build required?* Yes — the capability is a composite of evidence reading, audience reasoning, cost-effectiveness comparison, and institutional fit. Each requires a different mode at different points in the build.
-
-**All three answers are yes. Full architecture warranted.** The instrument records the threshold result.
-
-### 8.4 Evidence audit
-
-The instrument walks the literature relevant to the design choices the architecture will require for this deployment. Excerpts:
-
-- *Hattie 0.40.* Use as cost-effectiveness guideline, not threshold. Cite Bergeron 2017, Wecker et al. 2017 as the criticism layer. Reference the MetaX 2023+ update for current values. Direct-evidence supported as a heuristic; *adjacent* evidence for any specific threshold claim.
-- *Bastani 2025 on guardrails.* Direct evidence that AI tutor design matters for durable learning. Adjacent for the specific context-anchoring claim in Medhavy. Use as the load-bearing citation for Ask AI design decisions.
-- *Sadler 2013.* Direct evidence for pedagogical content knowledge effect. Adjacent for the misconception-map specification claim. Use for the priority-weighting rationale.
-- *Cornelius-White 2007.* Direct evidence for relationship effect on learning. Use as the rationale for protecting human-mediated time when the platform handles automatable work.
-
-The audit produces the *evidence ladder* per design decision. The instrument records each ladder position.
-
-### 8.5 Four-layer specification (partial — Layer 2 expanded)
-
-The output for Layer 2, as a worked excerpt:
-
-**Concept Map for Module 1 — "Effect Sizes and What They Don't Tell You"**
-
-- Node 1.1 — Effect size definition (Bloom: Understand; mode: Ask AI with context-anchoring; prerequisite: none)
-- Node 1.2 — Effect size magnitude interpretation (Bloom: Understand; mode: Quiz Me with priority weighting; prerequisite: 1.1)
-- Node 1.3 — Effect size *vs.* practical significance (Bloom: Analyze; mode: Case Study with pre-written faculty-reviewed case; prerequisite: 1.1, 1.2)
-- Node 1.4 — Cherry-picking the literature (Bloom: Evaluate; mode: Glimmer with backwards-faded scaffolding; prerequisite: 1.1, 1.2, 1.3)
-
-**Phase gates:** Quiz Me on 1.2 gates on Y1 (Temporal Engagement) showing the learner has actually read 1.1. Case Study on 1.3 gates on Y6 (Retrieval Strength Decay) showing 1.1 and 1.2 have stuck through a 7-day spacing interval. Glimmer on 1.4 gates on Y3 (Cross-Context Transfer) showing the learner can apply 1.3 to a case different from the one used in the Case Study mode.
-
-This is what *one* node of the specification looks like. The full specification covers ~80 nodes for an 8-week module, with the same level of detail per node. The instrument generates the specification document. The reviewer (Charles) audits it. The developer builds from it.
-
-### 8.6 Economics check
-
-The instrument records: target audience ≈ 1,200 graduate students per cohort across partner programs; production budget = $120K. Project tier: between A and B. Subset feasible: all four layers at minimum viable scope; ~80 concept nodes (not 200); GLP at Y1 + Y6 + Y2 (three components, not seven); Case Study with pre-written content (no AI-generated cases); Glimmer with rubric review only (no AI pre-grading); no Video and Animation layer.
-
-The economics check is the gate. The instrument flags Glimmer at the rubric-review level rather than the pre-grading level as a constraint imposed by the budget, not by the pedagogy.
-
-### 8.7 Honest inventory
-
-For each major design decision, the instrument records the evidence ladder position. Excerpts:
-
-- *Ask AI with RAG-grounded context-anchoring.* Adjacent (Bastani 2025 + VanLehn 2011). Bet — Open Question 1 from Chapter 11.
-- *Quiz Me with priority weighting.* Adjacent (Sadler 2013 + spaced retrieval canon). Bet — Open Question 6.
-- *Glimmer with backwards-faded scaffolding for novice users.* Adjacent (Belland et al. 2017 + Pekrun 2006). Bet — Open Question 5.
-- *Solo asynchronous AI-facilitated Case Study on pre-written faculty-reviewed cases.* Adjacent (Thistlethwaite 2012 + Dochy 2003). Bet — Open Question 2.
-
-The inventory is honest. The deployment commits to bets that adjacent evidence supports. The bets will be tested by the deployment. The chapter's commitment to Chapter 11's epistemic ladder is enforced operationally in this layer.
-
-### 8.8 The map handed off
-
-The output the conversation produces is a document. The structure: each design decision in WHAT / WHY / HOW / ENVIRONMENT / RESULTS / QUESTIONS form, organized by layer, with cross-layer dependencies mapped.
-
-A developer who was not in the session reads the map. The test the TIKTOC names: **can they build from it without asking a question?** If yes, the design conversation succeeded. If no, the specification is incomplete in a way the chapter teaches the reader to identify.
-
-This is the deliverable. This is what Medhavy the instrument produces. This is what the book has been building toward since the IDK-IDK opening of Chapter 1.
+The test the map has to pass: can a developer who was not in the design conversation build from it without asking a question? If yes, the design conversation succeeded. If no, the specification is incomplete, and identifying which of the six moves failed to produce sufficient detail is the exact kind of diagnostic this book has been training the reader to do.
 
 ---
 
-## §9. Common Misconceptions
+## The shared vocabulary
 
-### "The tool can produce the specification without the thinking"
+The design conversation produces something besides a specification document. It produces a shared vocabulary between the commissioning party and the developer.
 
-The plausible claim: with enough prompt engineering, the tool can take "suggest 15 chapters" inputs and produce a buildable specification.
+Without the vocabulary, every new pairing has to reinvent the terms that the previous pairing invented. With it, the conversation can happen across teams, across institutions, across years. The commissioning party can say *"Socratic is wrong here because of the assistance dilemma"* — and mean the specific finding from the ITS literature that the hint-not-answer guardrail addresses. The developer can say *"we already have something close — here's what the context-anchoring layer does for the prerequisite-classification problem"* — and mean the specific architectural decision from Chapter 7. Both are talking about the same design decision in the same terms.
 
-**Why it fails.** The misconception map is the input the tool cannot generate. The domain expert's tacit knowledge of *this* curriculum's specific bottlenecks is the thing the LLM does not have. Without it, the architecture has no signal to update against, and the platform reduces to the engagement-as-learning failure mode. The tool amplifies the thinking. It does not replace it.
-
-### "The methodology applies only to Medhavy commissions"
-
-The plausible claim: the design conversation is specific to Medhavy platform deployments and does not generalize.
-
-**Why it fails.** The six moves — intake, complexity threshold, evidence audit, four-layer specification, economics check, honest inventory — are general. They apply to any intelligent textbook design conversation, not just Medhavy. The chapter's worked example is Medhavy-specific because the platform vocabulary is Medhavy's. The methodology under the vocabulary is general. A team commissioning a non-Medhavy intelligent textbook can run the same six moves and produce the same kind of map.
-
-### "The shared language requires institutional adoption"
-
-The plausible claim: the thirteen lexicon terms only work if Medhavy becomes an institutional standard. Otherwise the vocabulary fragments and the cross-team conversation breaks down.
-
-**Why it fails.** This is testable, and the book's circulation strategy is the test. If the Learning Engineering community adopts the lexicon, the conversation scales across teams. If it does not, the lexicon needs to be re-invented per team. **The shared language is itself an open question** that the book's deployment will help answer. The fact that it is open does not make it a weak claim — it makes it a falsifiable one.
+The lexicon owns thirteen terms: the IDK-IDK problem, the four layers, the four modes, the seven GLP signals, phase gates, the within-learner bandit, the GLP reward signal, ambient infrastructure, the conductor, the fluency trap, the cost-collapse asymmetry, the due-today counter, and Genuine Learning Probability. Appendix A specifies all thirteen. The chapter's claim about the vocabulary is operational: both readers should be able to say the same sentence about the same decision in the same vocabulary by the end of the book. If they cannot, something in the book failed to deliver.
 
 ---
 
-## §10. Exercises
+## The build is the 20%
 
-### Exercise 12.1 — Run a Medhavy session (Create)
+There is a framing in the agentic-coding discourse of 2025 that the chapter inherits without making a fetish of it. The senior engineer spends roughly 80% of her time on thinking — research, planning, designing the right solution, interpreting results — and roughly 20% on writing code. Addy Osmani puts the sharpest version of this in the agentic-coding context.[^4] Greg Brockman at OpenAI noted that AI went from writing 20% to 80% of code in a single month. The framing is now distributed enough to treat as a field formulation rather than a quotation from a single source.
+
+The map the design conversation produces is the 80%. The Gru-assisted build — Claude Code, or any agentic-coding assistant, executing against the specification — is the 20%.
+
+The structural parallel to Chapter 10 is the chapter's deepest claim. Cost collapse on content shifted the binding constraint to expert knowledge of what students get wrong. Cost collapse on code shifts the binding constraint to specification quality. A commissioning party can now have a production-grade intelligent textbook built at a cost that was unthinkable five years ago, provided he can produce the specification. The instrument's job is to help him produce it.
+
+The implementation book — what the specification becomes when a developer builds against it — is the follow-up that does not yet exist. This book ends with the map. The next book begins with the build.
+
+---
+
+## What the conversation looks like
+
+The worked case. Charles Fadel has content on 21st-century skills and curriculum redesign. He wants to commission an intelligent textbook for graduate students in education policy.
+
+**Intake question 1: Who is the learner?**
+
+Charles answers: graduate students in education policy programs, mid-career, classroom or administrative experience, working toward a credential, skeptical of jargon, have read either too much Hattie or too little.
+
+The instrument captures: motivation = professional credential plus intellectual project; prior knowledge = uneven and practitioner-weighted; misconception risk = treating Hattie's 0.40 as a binary threshold; institutional context = credentialed graduate program.
+
+**Intake question 2: What capability are they being built toward?**
+
+Charles answers: they have to be able to evaluate a proposed curriculum reform — examining the evidence base, the audience, the cost, the institutional fit — and decide whether to support it. Evaluate level is the real target.
+
+The instrument captures: Bloom's primary level = Evaluate; target capability = evidence-base assessment plus audience-fit reasoning plus cost-benefit comparison plus institutional-fit assessment.
+
+**Intake question 3: What is the deployment context?**
+
+Charles answers: asynchronous, part-time, laptop at night, course already exists as a Canvas shell with PDFs and discussion forums.
+
+The instrument captures: deployment = LMS-embedded; asynchronous; existing course structure.
+
+**The learner profile the intake produces:**
+
+*The learner is a 38-year-old assistant principal at a Title I middle school in a state with active AI-in-classroom legislation. She enrolled in the master's program because she keeps being asked to evaluate vendor proposals and she does not trust her own evidence-evaluation. She has read Hattie's first book and an old copy of Marzano. She has not read Horvath. She studies at night on a laptop after her kids are asleep. She has 90 minutes per session, three sessions a week. Her current evidence-evaluation move is "trust the colleague who recommended it."*
+
+**Complexity threshold:**
+
+All three answers are yes. Adaptive sequencing is required — the prerequisite chain from effect-size literacy to audience-fit reasoning to cost-effectiveness comparison to institutional fit cannot be pre-ordered without losing learners who arrive at different starting points. Live instrumentation is required — the target capability is evaluative reasoning, observable in the process of working through cases, not in a single final answer. A multi-layered capability build is required. Full architecture warranted.
+
+**Layer 2 specification, one module excerpted:**
+
+Module 1 — "Effect Sizes and What They Don't Tell You."
+
+Node 1.1: Effect size definition (Bloom: Understand; mode: Ask AI with context-anchoring; prerequisite: none). Node 1.2: Effect size magnitude interpretation (Bloom: Understand; mode: Quiz Me with priority weighting; prerequisite: 1.1). Node 1.3: Effect size versus practical significance (Bloom: Analyze; mode: Case Study on a pre-written faculty-reviewed case; prerequisites: 1.1, 1.2). Node 1.4: Cherry-picking the literature (Bloom: Evaluate; mode: Glimmer with backwards-faded scaffolding; prerequisites: 1.1, 1.2, 1.3).
+
+Phase gates: Quiz Me on 1.2 gates on the temporal-engagement signal showing the learner has actually read 1.1. Case Study on 1.3 gates on the retrieval-strength-decay signal showing 1.1 and 1.2 have consolidated through a seven-day spacing interval. Glimmer on 1.4 gates on the cross-context transfer signal showing the learner can apply 1.3 to a case the Case Study mode did not cover.
+
+<!-- → [DIAGRAM: Four-node prerequisite graph for Module 1 — Node 1.1 (Effect size definition, Understand, Ask AI) → Node 1.2 (Magnitude interpretation, Understand, Quiz Me) → Node 1.3 (vs. practical significance, Analyze, Case Study) → Node 1.4 (Cherry-picking, Evaluate, Glimmer). Arrows between nodes show prerequisite dependencies. Each arrow labeled with the phase-gate condition: 1.1→1.2: "Y1 ≥ 3 min on 1.1"; 1.1+1.2→1.3: "Y6 retrieval strength consolidated at 7-day probe"; 1.1+1.2+1.3→1.4: "Y3 cross-context transfer on 1.3 material." Each node also labeled with its Bloom level and mode. The graph shows in one image what the prose took several sentences to convey — the prerequisite structure, the mode assignments, and the phase-gate conditions are all visible simultaneously. Reader can use this as a template for drawing their own concept-map excerpts.] -->
+
+This is what one module looks like. The full specification covers roughly 80 nodes for an eight-week module, at this level of detail per node. The instrument generates the document. Charles audits it. The developer builds from it.
+
+**Economics check:**
+
+Target audience approximately 1,200 graduate students per cohort across partner programs. Production budget $120K. Budget tier between Project A and Project B. Subset feasible at this budget: all four layers at minimum viable scope; 80 concept nodes rather than 200; GLP instrumented at three components rather than seven; Case Study with pre-written content only; Glimmer with rubric review but no AI pre-grading.
+
+**Honest inventory, excerpted:**
+
+Ask AI with RAG-grounded context-anchoring: adjacent evidence (Bastani 2025, VanLehn 2011), bet on the specific context-anchoring claim. Quiz Me with priority weighting: adjacent evidence (Sadler 2013, spaced retrieval canon), bet. Glimmer with backwards-faded scaffolding for novice users: adjacent evidence (Belland et al. 2017), bet. Solo asynchronous AI-facilitated Case Study: adjacent evidence (Thistlethwaite 2012), bet.
+
+The bets are named. The deployments that will test them are specified. The inventory is honest.
+
+---
+
+## What would change my mind
+
+A deployment in which a developer outside the original team built a specified intelligent textbook from the map alone — without a translation meeting with the design conversation participants — and the build survived audit against the specification, would convert the chapter's claim from *current best reading* to *demonstrated capability*. If the developer could build only with translation meetings, the specification format is missing something the chapter has not identified. If the developer could build from the map but the build failed audit — if what got built was not what the specification described — the failure points to underspecification or to the developer's reading discipline. Either way the claim would have to be revised.
+
+Whether the shared vocabulary holds across institutions rather than fragmenting per deployment is the book's own open question. If the Learning Engineering community adopts the lexicon, the conversation scales. If each new deployment re-invents the vocabulary, the methodology is captured rather than generalized. The chapter's claim about portability is falsifiable and not yet tested.
+
+---
+
+## Exercises
+
+### Exercise 13.1 — Run a design conversation (Create)
 
 Pick a real learning problem you would commission an intelligent textbook for. Run the design conversation:
 
 (a) Conduct the intake. Specify the learner profile in one paragraph naming a specific person.
 (b) Apply the complexity threshold test. Record the three answers.
 (c) Walk the evidence audit. Identify three load-bearing citations.
-(d) Specify the four-layer architecture for the deployment. Use the §8 worked example as the format.
+(d) Specify the four-layer architecture for the deployment. Use the worked example in this chapter as the format.
 (e) Run the economics check. Specify the budget tier and what subset of the architecture is feasible.
 (f) Produce the honest inventory. Categorize each major design decision as adjacent-supported, direct-supported, or bet.
 
-Hand the specification to a developer who was not in the session. **Can they build from it without asking a question?** This is the only test that matters. If they ask a question, identify which of the six moves failed to produce sufficient detail. Revise.
+Hand the specification to a developer who was not in the session. Can they build from it without asking a question? If they ask a question, identify which of the six moves failed to produce sufficient detail and revise.
 
-### Exercise 12.2 — Audit a Medhavy-generated specification (Evaluate)
+### Exercise 13.2 — Audit a specification (Evaluate)
 
-Given a partial Medhavy-generated specification (use the §8 worked example or a specification you produce in Exercise 12.1), identify:
+Given the worked example from §8 of this chapter, or a specification you produce in Exercise 13.1, identify:
 
 (a) Which layer is underspecified. Name the specific missing element.
 (b) Which phase gates are missing. Specify what each missing gate should look like.
-(c) Which measurement commitments are absent. Identify what GLP components are required to instrument the phase gates and which are not yet specified.
-(d) What questions would the developer ask? List the questions and the specific spec gap each one indicates.
+(c) Which measurement commitments are absent. Identify which GLP components are required to instrument the stated phase gates and which are not yet specified.
+(d) What questions would a developer ask? List the questions and the specific specification gap each one indicates.
 
-The exercise is the test of whether you can read the specification critically. A reviewer who cannot identify gaps cannot enforce the map's discipline.
+### Exercise 13.3 — Conduct the first three intake questions (Apply)
 
-### Exercise 12.3 — Conduct the first three intake questions (Apply)
+Charles Fadel has content on 21st-century skills and curriculum redesign. Run the first three intake questions for a design conversation on his intelligent textbook. For each question:
 
-Charles Fadel has content on 21st-century skills and curriculum redesign. Run the first three intake questions of a Medhavy session for his intelligent textbook. For each question:
-
-(a) Specify the question precisely. Use §4.1 as the structure.
+(a) Specify the question precisely.
 (b) Specify what answer Charles would give. Be concrete — name the audience, the capability, the deployment context.
 (c) Specify what the instrument captures from the answer.
-(d) Identify what the specification needs that the first three questions did not yet surface — and what the next intake question should ask to surface it.
+(d) Identify what the specification still needs that the first three questions did not surface, and what the next intake question should ask to surface it.
 
-The exercise is the discipline of intake. A reader who can run the first three questions has demonstrated the methodology at the most fundamental level.
-
-### Exercise 12.4 — Test the shared language (Apply)
+### Exercise 13.4 — Test the shared vocabulary (Apply)
 
 Pick a design decision from any chapter of this book. Write two sentences:
 
-(a) A sentence Charles Fadel would say about the decision, using the lexicon (§6).
-(b) A sentence the developer would say in response, using the same lexicon.
+(a) A sentence Charles Fadel would say about the decision, using the lexicon from §6.
+(b) A sentence a developer would say in response, using the same lexicon.
 
-Then test the sentences. Hand them to a Charles Fadel type and a developer who were not part of the book's construction. Can both parse the sentences using only the lexicon? If yes, the language scales. If no, the chapter (or Appendix A) needs to expand the term that broke.
+Then test the sentences. Hand them to someone who was not part of the book's construction — one practitioner, one developer. Can both parse the sentences using only the lexicon? If yes, the language scales. If no, identify the term that broke and specify what Appendix A needs to add.
 
-### Exercise 12.5 — Specify a bet (Apply)
+### Exercise 13.5 — Specify a bet (Apply)
 
 From the eight open questions in Chapter 11, pick the one most relevant to a deployment you would commission. Write:
 
-(a) The bet as it appears in the §7 honest inventory. WHAT / WHY / HOW / ENVIRONMENT / RESULTS / QUESTIONS form.
+(a) The bet in WHAT / WHY / HOW / ENVIRONMENT / RESULTS / QUESTIONS form.
 (b) The specific instrumentation the deployment will use to test the bet.
 (c) The pre-registered prediction. What result would confirm the bet? What result would falsify it?
 
-The exercise is the discipline of Chapter 11 applied operationally. A specification that names bets but does not specify how the deployment will test them is a specification that has not yet committed to learning.
+A specification that names bets but does not specify how the deployment will test them is a specification that has not yet committed to learning.
 
 ---
 
-## What Would Change My Mind
+## References
 
-A deployment in which a developer outside the original team built a specified Medhavy textbook from the map alone — without a translation meeting with the design conversation participants — and the build survived audit afterward against the specification, would convert the chapter's claim from *current best reading* to *demonstrated capability*. If the developer could build only with translation meetings, the specification format is missing something the chapter has not yet identified, and the six-move methodology has to be revised to surface what is missing.
+[^1]: Sadler, P. M., Sonnert, G., Coyle, H. P., Cook-Smith, N., & Miller, J. L. (2013). The influence of teachers' knowledge on student learning in middle school physical science classrooms. *American Educational Research Journal*, 50(5), 1020–1049. https://doi.org/10.3102/0002831213477680
 
-If the developer could build from the map but the build failed audit — if what got built was not what the specification described — the failure points to the map's underspecification or to the developer's reading discipline. Either way the chapter's claim would have to be revised. I am betting the map is sufficient. The deployment is the test.
+[^2]: Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. *Proceedings of the National Academy of Sciences*, 122(26), e2422633122. https://doi.org/10.1073/pnas.2422633122
 
-## Still Puzzling
+[^3]: Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. *Psychological Bulletin*, 132(3), 354–380. https://pubmed.ncbi.nlm.nih.gov/16719566/
 
-Does the shared language hold across institutions, or does each new deployment re-invent the vocabulary? The book's circulation strategy — Learning Engineering community, course assignment, colleague-to-colleague handoff — is the empirical test. The answer is not yet in. The lexicon's portability is itself an open question.
-
-Does the design conversation methodology scale beyond Medhavy? The six moves are general. The lexicon is Medhavy-specific. Whether a team commissioning a non-Medhavy intelligent textbook can run the same six moves with their own vocabulary and produce the same kind of map is testable but not yet tested. I think yes. I have not proven it.
-
-At what point does the design conversation become a single-vendor methodology rather than a field practice? If only Medhavy deployments use the six moves, the methodology is captured. If multiple platforms adopt the structure, the methodology becomes part of how the field designs. The latter outcome is what the book is for. The former outcome would mean the book did not do its work.
-
----
-
-## Chapter Closing — The Book's Last Paragraph
-
-The reader holds the map. The developer has a specification they can build from. Charles has the language to evaluate whether what gets built is what he designed. The platform is opinionated. The model has no opinions of its own. The conversation is what makes the platform worth building — and the conversation is what this book has been, from the first IDK-IDK incident to this page.
-
----
-
-**Tags:** design-conversation, Tic-TOC, platform-vs-instrument, shared-language, Gru-80-20, intelligent-textbook-specification, reflexive-methodology
+[^4]: Osmani, A. (2025). The 80% problem in agentic coding. *Elevate Substack*. https://addyo.substack.com/p/the-80-problem-in-agentic-coding
