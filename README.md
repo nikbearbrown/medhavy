@@ -169,3 +169,44 @@ Connect at [nikbearbrown.com](https://www.nikbearbrown.com) · [irreducibly.xyz]
 *मेधावी (Medhavy)* — from Sanskrit, meaning *intelligent* or *intellectually brilliant*.
 
 **Come learn something with us.** → [www.medhavy.com](https://www.medhavy.com/)
+
+---
+
+## What This Book Is
+
+This book is a design specification.
+
+Not a survey of the field. Not a cheerleading document for AI in education. Not a warning about it. A specification: if you wanted to build a platform that avoided the failure modes the field has already demonstrated, and captured the gains the evidence supports, here is what the architecture would have to do, in the order the decisions depend on each other.
+
+The vocabulary the book teaches is small: *conductor*, *instrument*, *four modes*, *seven signals*, *Genuine Learning Probability*, *within-learner bandit*, *cost-collapse asymmetry*, *IDK-IDK pattern*, *experiment-as-product*. Each term gets defined where it first appears. The book's Lexicon in Appendix A is the single-page index if you need to find a definition quickly.
+
+The book is for two readers. The first is the domain expert — the experienced teacher, the curriculum designer, the person who has content and conviction and needs to know what she is commissioning when she commissions an intelligent textbook. The second is the developer who has been handed an API specification and needs to build what the first reader will use. After reading this book, both readers should be able to hold the same conversation about the same decisions in the same terms. That shared language is the book's primary product.
+
+---
+
+---
+
+## Who This Book Is For
+
+reader should see that most problems cluster in the middle and that the spectrum determines which layers are warranted] -->
+
+---
+
+## The Economics Change Everything Except the Target
+
+There is a fact about the economics of intelligent textbooks that I want to name early because it changes the shape of several later chapters.
+
+For decades, the high-quality intelligent tutoring systems that produced the large effect sizes in the ITS literature cost somewhere between $100 and $1,000 per student-hou
+
+---
+
+## How to Read It
+
+<!-- TODO: populate from chapter content -->
+
+---
+
+## Signature Simulations
+
+<!-- TODO: populate from chapter content -->
+
