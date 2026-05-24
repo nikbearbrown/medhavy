@@ -10,7 +10,8 @@ She is not engaged. She is not learning. She has found the easiest path through 
 
 That is the moment this book starts. Not with a theory. With a failure. A real one, at a real scale, noticed publicly by the people who built and paid for the product. Kristen DiCerbo, Khan Academy's Chief Learning Officer, said it plainly: the Khanmigo deployment was producing more *I don't know, I don't know* and more passive engagement than they wanted. The IDK-IDK pattern. The metric says success. The learning says otherwise.
 
-<!-- → [IMAGE: screenshot or reconstruction of a Khanmigo session log showing a completed interaction flagged as "engaged" — visual contrast between the system's success indicator and the `idk idk` input that triggered it; caption should read something like "Logged: engaged. Actual state: unknown."] -->
+![Screenshot or reconstruction of a Khanmigo session log](images/00-introduction-fig-01.png)
+*Figure 1.1 — Screenshot or reconstruction of a Khanmigo session log*
 
 I want to stay with that moment a little longer, because it is more interesting than it looks.
 
@@ -24,7 +25,8 @@ The failure was not a bug. It was a feature behaving as designed — and the des
 
 The mistake is this: the system was measuring a proxy for learning and calling it learning. Engagement is a proxy. Keystrokes are a proxy. Completed sessions are a proxy. They correlate with learning under some conditions, and not others, and the conditions under which they stop correlating are exactly the conditions that a student who has figured out the path of least resistance will produce. The student did not game the system. The system gamed itself. It defined success as a thing that looks like success, and then it produced the thing.
 
-<!-- → [INFOGRAPHIC: diagram showing a measurement loop where the proxy metric (engagement/keystrokes/completed sessions) diverges from the target metric (capability development) — arrows showing how optimizing the proxy actively degrades the target; label the gap "the IDK-IDK zone"] -->
+![Diagram showing a measurement loop where the proxy](images/00-introduction-fig-02.png)
+*Figure 1.2 — Diagram showing a measurement loop where the proxy*
 
 Now here is the question that runs through this entire book: *What would you have to build instead?*
 
@@ -40,7 +42,8 @@ That is a demanding test. It is also, I think, the right test. And it is almost 
 
 Most platforms test recognition: does the student pick the right answer from a set of candidates? Some platforms test reproduction: can the student recall a definition or a procedure? A few platforms test application: given a new problem, can the student use the concept? Almost no platforms test what Feynman's test requires, which is generative understanding — can the student produce something new with the concept that the student has never seen before?
 
-<!-- → [CHART: horizontal bar chart or pyramid showing the distribution of educational platforms across four capability levels — recognition, reproduction, application, generative understanding — with approximate percentage of current platforms at each level; student should see the extreme skew toward recognition] -->
+![Horizontal bar chart or pyramid showing the distribution](images/00-introduction-fig-03.png)
+*Figure 1.3 — Horizontal bar chart or pyramid showing the distribution*
 
 The reason this matters is not philosophical. It is practical. The student who has achieved generative understanding of a concept will perform differently in a clinical setting, or an engineering problem, or a hiring interview than the student who has achieved recognition-level memory of the same concept. They look identical on most assessments. They perform very differently when the situation is novel.
 
@@ -62,7 +65,9 @@ The evidence, read together, does not say *AI in education works* or *AI in educ
 
 That is not a political question. It is an engineering question. This book is the engineering answer.
 
-<!-- → [TABLE: two-column table contrasting the positive evidence base (ITS effect sizes, Bastani 2025, spaced repetition) against the negative evidence base (Horvath PISA correlations, smartphone-ban studies, struggling-student harm findings) — third column: "what each side is actually measuring" — the point being that both columns are real and the resolution is in the third column] -->
+| what each side is actually measuring" — the point being that both columns are real | the resolution is in the third column |
+| --- | --- |
+| contrasting the positive evidence base (ITS effect sizes, Bastani 2025, spaced repetition) against the negative evidence base (Horvath PISA correlations, smartphone-ban studies, struggling-student harm findings) | third |
 
 ---
 
@@ -78,7 +83,8 @@ Both failure modes are the result of measuring the wrong thing. The no-AI failur
 
 I call that measure the Genuine Learning Probability. Chapter 6 develops it in full. The short version: it is a composite signal constructed from multiple behavioral observations across multiple modes of engagement, updated continuously as the learner interacts with the system, and treated as a probability rather than a score precisely because it is uncertain and should be honest about that uncertainty.
 
-<!-- → [INFOGRAPHIC: side-by-side comparison of the no-AI failure mode and the all-AI failure mode — what each measures (encounter vs. output), what each misses (capability), and the GLP as the third column showing what would actually need to be observed; visual should make clear that the two failures are mirror images of the same mistake] -->
+![Comparison of the no-AI failure mode and the](images/00-introduction-fig-04.png)
+*Figure 1.4 — Comparison of the no-AI failure mode and the*
 
 ---
 
@@ -94,7 +100,8 @@ Each instrument has things it does well and things it does badly. The Socratic m
 
 The conductor's job is to know which instrument to reach for, when to switch, and how to tell whether the switch worked.
 
-<!-- → [DIAGRAM: conductor-and-orchestra metaphor rendered as a system diagram — the conductor (adaptive engine) at center, four instruments (Socratic, direct explanation, case study, Glimmer) as nodes, with arrows showing signal flow: learner behavior → conductor → mode selection → learner response → conductor; make the feedback loop visible] -->
+![Conductor-and-orchestra metaphor rendered as a system diagram ](images/00-introduction-fig-05.png)
+*Figure 1.5 — Conductor-and-orchestra metaphor rendered as a system diagram *
 
 That requires measurement. Which brings us back to Genuine Learning Probability. A conductor who cannot hear the orchestra cannot conduct. A platform that cannot observe capability state cannot adapt. The measurement layer is not a nice-to-have — it is the thing that makes the rest of the architecture possible.
 
@@ -112,7 +119,8 @@ There is also a character named Ash. Ash is a first-year medical student working
 
 Most actual learning problems land between Priya and Ash. The book's architecture scales: Chapters 3 through 9 describe the full system, and the complexity threshold test in Chapter 3 is the tool for deciding how much of it any specific problem actually needs.
 
-<!-- → [CHART: horizontal spectrum from "Priya" (left) to "Ash" (right) with labeled markers for: complexity of failure modes, transfer requirement, consequence of non-transfer, appropriate architecture depth — reader should see that most problems cluster in the middle and that the spectrum determines which layers are warranted] -->
+![Horizontal spectrum from "Priya" (left) to "Ash" (right)](images/00-introduction-fig-06.png)
+*Figure 1.6 — Horizontal spectrum from "Priya" (left) to "Ash" (right)*
 
 ---
 
@@ -128,7 +136,8 @@ What the cost collapse does not change is the target. The goal is still verified
 
 This is why the architecture matters. The cost collapse gives us the resources to deploy widely. The architecture determines whether the deployment produces learning.
 
-<!-- → [CHART: line chart showing production cost per student-hour for intelligent tutoring systems from 1985 to 2025 — dramatic drop after 2022 marked as "LLM cost collapse"; second line showing effect size from well-designed systems (flat/stable); the point being that cost collapsed while the quality target did not] -->
+![Line chart showing production cost per student-hour for](images/00-introduction-fig-07.png)
+*Figure 1.7 — Line chart showing production cost per student-hour for*
 
 ---
 
@@ -196,3 +205,69 @@ The IDK-IDK pattern is a system producing a metric that looks like success while
 - Name one other context — outside of education — where you have seen this pattern. (A product that measures engagement and calls it value. A management system that measures activity and calls it productivity.)
 - Ask an AI to help you identify what measurement would have to change to catch the failure earlier.
 - Write one paragraph: what is the measurement that would actually track what matters, and what makes it harder to collect than the proxy?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 1.1 — Screenshot or reconstruction of a Khanmigo session log
+
+Create a standalone D3 v7 HTML file for Figure Screenshot or reconstruction of a Khanmigo session log. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: screenshot or reconstruction of a Khanmigo session log showing a completed interaction flagged as "engaged" — visual contrast between the system's success indicator and the `idk idk` input that triggered it; caption should read something like "Logged: engaged. Actual state: unknown.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-01.html`
+
+---
+
+### Figure 1.2 — Diagram showing a measurement loop where the proxy
+
+Create a standalone D3 v7 HTML file for Figure Diagram showing a measurement loop where the proxy. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: diagram showing a measurement loop where the proxy metric (engagement/keystrokes/completed sessions) diverges from the target metric (capability development) — arrows showing how optimizing the proxy actively degrades the target; label the gap "the IDK-IDK zone". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-02.html`
+
+---
+
+### Figure 1.3 — Horizontal bar chart or pyramid showing the distribution
+
+Create a standalone D3 v7 HTML file for Figure Horizontal bar chart or pyramid showing the distribution. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: horizontal bar chart or pyramid showing the distribution of educational platforms across four capability levels — recognition, reproduction, application, generative understanding — with approximate percentage of current platforms at each level; student should see the extreme skew toward recognition. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-03.html`
+
+---
+
+### Figure 1.4 — Comparison of the no-AI failure mode and the
+
+Create a standalone D3 v7 HTML file for Figure Comparison of the no-AI failure mode and the. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: side-by-side comparison of the no-AI failure mode and the all-AI failure mode — what each measures (encounter vs. output), what each misses (capability), and the GLP as the third column showing what would actually need to be observed; visual should make clear that the two failures are mirror images of the same mistake. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-04.html`
+
+---
+
+### Figure 1.5 — Conductor-and-orchestra metaphor rendered as a system diagram 
+
+Create a standalone D3 v7 HTML file for Figure Conductor-and-orchestra metaphor rendered as a system diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: conductor-and-orchestra metaphor rendered as a system diagram — the conductor (adaptive engine) at center, four instruments (Socratic, direct explanation, case study, Glimmer) as nodes, with arrows showing signal flow: learner behavior → conductor → mode selection → learner response → conductor; make the feedback loop visible. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-05.html`
+
+---
+
+### Figure 1.6 — Horizontal spectrum from "Priya" (left) to "Ash" (right)
+
+Create a standalone D3 v7 HTML file for Figure Horizontal spectrum from "Priya" (left) to "Ash" (right). Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: horizontal spectrum from "Priya" (left) to "Ash" (right) with labeled markers for: complexity of failure modes, transfer requirement, consequence of non-transfer, appropriate architecture depth — reader should see that most problems cluster in the middle and that the spectrum determines which layers are warranted. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-06.html`
+
+---
+
+### Figure 1.7 — Line chart showing production cost per student-hour for
+
+Create a standalone D3 v7 HTML file for Figure Line chart showing production cost per student-hour for. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: line chart showing production cost per student-hour for intelligent tutoring systems from 1985 to 2025 — dramatic drop after 2022 marked as "LLM cost collapse"; second line showing effect size from well-designed systems (flat/stable); the point being that cost collapsed while the quality target did not. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/00-introduction-fig-07.html`

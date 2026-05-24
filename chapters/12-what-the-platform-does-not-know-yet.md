@@ -28,7 +28,8 @@ The honest call: the architecture chapters cite adjacent evidence for design dec
 
 The eight open questions that follow are the bets the deployment is built to test. Each one gets: what the bet is, what adjacent evidence supports it, what direct evidence does not yet exist, and what the deployment can do about it.
 
-<!-- → [INFOGRAPHIC: the three-rung epistemic ladder rendered as a vertical diagram — bottom rung: Assertion (no evidence, claim floats free); middle rung: Adjacent (real evidence on components, does not test the integrated claim); top rung: Direct (integrated claim tested under deployment conditions, Bastani 2025 as the only named example); for each rung, one example from EdTech marketing and one from the Medhavy architecture — reader should be able to place any claim they encounter on this ladder in about five seconds] -->
+![The three-rung epistemic ladder rendered as a vertical](images/12-what-the-platform-does-not-know-yet-fig-01.png)
+*Figure 12.1 — The three-rung epistemic ladder rendered as a vertical*
 
 ---
 
@@ -90,7 +91,11 @@ The cost-collapse argument is established at the unit-production level. Whether 
 
 The bet: AI-generated content matches professional production on immediate post-test, falls behind on delayed retention and transfer, with the gap larger for high-complexity content. This is the single most important RCT the field could run, and Medhavy is structurally positioned to run a within-deployment version of it. The honest version of the cost-collapse argument from Chapter 10 hinges on the outcome.
 
-<!-- → [TABLE: the eight bets as a reference table — columns: bet number and question (one clause), adjacent evidence (one citation), what direct evidence is missing (one clause), deployment test design (one clause), predicted outcome (one clause), what a wrong result would require — reader should be able to scan all eight in two minutes and know exactly which bets are closest to having evidence and which are furthest out] -->
+| bet number | question (one clause) | adjacent evidence (one citation) | what direct evidence is missing (one clause) | deployment test design (one clause) |
+| --- | --- | --- | --- | --- |
+| Core idea | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Practical use | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Common failure | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -104,7 +109,8 @@ Medhavy's design dissolves this question by letting the student choose their own
 
 The null arm: turn off the AI entirely, download the Kindle, take the content and leave. This is how education worked for five hundred years. It has dignity. The low-epsilon arm: mostly receive what the system currently believes is best, with occasional exploration. The full-RCT arm: higher exploration rate and active contribution to the research program. Change settings at any time. Data from sessions before leaving is still informative. The act of leaving is itself data.
 
-<!-- → [DIAGRAM: the four consent arms as a spectrum — left: Null arm (AI off, Kindle only, pure content delivery); center-left: Low epsilon (mostly current-best, occasional exploration, low disruption); center-right: Full RCT (higher exploration, research participant, highest information value); far right: Exit (download Kindle, leave — "act of leaving is data" labeled explicitly); arrows showing that movement between arms is permitted at any time and that switching is itself a measurement event, not a compliance failure] -->
+![The four consent arms as a spectrum ](images/12-what-the-platform-does-not-know-yet-fig-02.png)
+*Figure 12.2 — The four consent arms as a spectrum *
 
 Here is the design claim. A student who *chose* the AI-on condition has a different learning trajectory than a student who was *assigned* it, even with identical exposure. Ryan and Deci's self-determination theory argues that autonomy — the sense that the action is self-endorsed — is a basic psychological need whose satisfaction predicts engagement and persistence. A student who chose the AI-on condition is acting in an autonomy-supportive context. A student who was assigned it is not. The treatment is the same. The trajectory is not.
 
@@ -130,7 +136,8 @@ None of this is available in a traditional RCT, which treats switching as a comp
 
 The traditional RCT treats attrition as a validity threat. This architecture treats it as a measurement.
 
-<!-- → [INFOGRAPHIC: switching behavior taxonomy — four panels, one per switch type described in the section: (1) low-epsilon → full-RCT mid-semester (label: "trust signal or curiosity"); (2) engaged → downloads Kindle at week eight (label: "stopped working or finished"); (3) AI off the week before exam (label: "reveals mental model of platform purpose"); (4) Quiz Me → Glimmer mid-session (label: "highest-information signal: engine prior was wrong") — each panel shows what the bandit should do with the signal and how aggressively it should update] -->
+![Switching behavior taxonomy ](images/12-what-the-platform-does-not-know-yet-fig-03.png)
+*Figure 12.3 — Switching behavior taxonomy *
 
 ---
 
@@ -144,7 +151,13 @@ That is the schein-of-an-RCT move: even though this is not a formal RCT, the nex
 
 This is what the field needs more of. Platforms with engagement metrics for headlines rarely produce it.
 
-<!-- → [TABLE: the honest reporting template as a reusable structure — rows: Sample and distribution, GLP component signal (component by component), Bets with preliminary evidence (which bets, what the signal shows), Calibrated uncertainty per signal (what would make it real vs. artifactual), Next-period pre-registered predictions — each row shows what an honest report contains vs. what a typical vendor white paper contains; the contrast column is the argument] -->
+| Item | Meaning |
+| --- | --- |
+| Sample and distribution, GLP component signal (component by component | A concrete checkpoint for applying the chapter concept. |
+| Bets with preliminary evidence (which bets, what the signal shows | A concrete checkpoint for applying the chapter concept. |
+| Calibrated uncertainty per signal (what would make it real vs. artifactual | Audience, stakes, timing, and platform conventions shape the choice. |
+| Next-period pre-registered predictions | each row shows what an honest report contains vs. what a typical vendor white paper contains |
+| the contrast column is the argument | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -157,3 +170,37 @@ Montaigne did not write *Que sais-je?* as an admission of failure. He wrote it a
 The discipline is to keep asking the question. What do I know. What is adjacent. What is direct. What is assertion. What does the deployment test.
 
 The architecture earns the right to say it is honest. The gaps are where the science lives.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 12.1 — The three-rung epistemic ladder rendered as a vertical
+
+Create a standalone D3 v7 HTML file for Figure The three-rung epistemic ladder rendered as a vertical. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the three-rung epistemic ladder rendered as a vertical diagram — bottom rung: Assertion (no evidence, claim floats free); middle rung: Adjacent (real evidence on components, does not test the integrated claim); top rung: Direct (integrated claim tested under deployment conditions, Bastani 2025 as the only named example); for each rung, one example from EdTech marketing and one from the Medhavy architecture — reader should be able to place any claim they encounter on this ladder in about five seconds. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-01.html`
+
+---
+
+### Figure 12.2 — The four consent arms as a spectrum 
+
+Create a standalone D3 v7 HTML file for Figure The four consent arms as a spectrum . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the four consent arms as a spectrum — left: Null arm (AI off, Kindle only, pure content delivery); center-left: Low epsilon (mostly current-best, occasional exploration, low disruption); center-right: Full RCT (higher exploration, research participant, highest information value); far right: Exit (download Kindle, leave — "act of leaving is data" labeled explicitly); arrows showing that movement between arms is permitted at any time and that switching is itself a measurement event, not a compliance failure. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-02.html`
+
+---
+
+### Figure 12.3 — Switching behavior taxonomy 
+
+Create a standalone D3 v7 HTML file for Figure Switching behavior taxonomy . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: switching behavior taxonomy — four panels, one per switch type described in the section: (1) low-epsilon → full-RCT mid-semester (label: "trust signal or curiosity"); (2) engaged → downloads Kindle at week eight (label: "stopped working or finished"); (3) AI off the week before exam (label: "reveals mental model of platform purpose"); (4) Quiz Me → Glimmer mid-session (label: "highest-information signal: engine prior was wrong") — each panel shows what the bandit should do with the signal and how aggressively it should update. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-03.html`

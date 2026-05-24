@@ -12,7 +12,11 @@ Buy an LMS for content delivery. License a chatbot for student questions. Add a 
 
 I want to take this question seriously, because the institutions that build the bolt-on stack are not making an obviously wrong choice. They are making a reasonable choice under real constraints. The question deserves a structural answer, not a brochure answer.
 
-<!-- → [TABLE: Side-by-side comparison of bolt-on stack vs. four-layer architecture — rows: Content delivery, Curriculum structure, Interaction modes, Learning measurement; columns: Bolt-on tool (what it is), What it was built for, Signal it cannot produce. Purpose: show that each off-the-shelf tool was designed for a job adjacent to learning measurement, not for it. Student should see the systematic gap before reading the seven signals.] -->
+| Bolt-on tool (what it is) | What it was built for | Signal it cannot produce |
+| --- | --- | --- |
+| Content delivery, Curriculum structure, Interaction modes, Learning measurement | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| columns: Bolt-on tool (what it is | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| What it was built for, Signal it cannot produce. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 Here is the structural answer: there is a class of signal an intelligent textbook must read in order to do its job, and that class of signal is not extractable from the data streams the bolt-on tools produce. Not because the tools are bad. Because *you cannot extract from an instrument the signal it was never measuring.*
 
@@ -28,13 +32,15 @@ Let me start with what the system needs to know. Not what would be nice to know 
 
 Canvas logs page views at the page level. A twelve-minute page view tells you nothing about whether the student spent eleven minutes on the hard paragraph or eleven minutes idle with the tab open. Canvas was built to administer courses. The resolution is wrong, and it was never built to be right.
 
-<!-- → [IMAGE: Two heatmap panels side by side — left panel: "What Canvas sees" showing a single uniform block labeled "Page view: 12 min"; right panel: "What the platform sees" showing paragraph-level attention heat with hot zones on difficult passages and cool zones on already-known material. Caption: same session, different resolution. The measurement you can make is the measurement you built the instrument to make.] -->
+![Two heatmap panels side by side ](images/05-the-four-layers-fig-01.png)
+*Figure 5.1 — Two heatmap panels side by side *
 
 **The shape of a student's wrong answers across a sequence of attempts.** A real misconception produces coherent errors. Question 1 wrong in a way that implicates the same missing component as question 2's error, and question 3 right when the component is repaired. Random wrong answers across question types indicate no underlying model developing. The student is guessing, not building.
 
 A quiz tool stores grades. Sometimes it stores the response. What it does not store is the relationship between item 1 and item 3, because that relationship requires a misconception model — a map of which error patterns implicate which conceptual gaps. That model does not live in the quiz tool. It is the curriculum design layer's job to produce it. Without it, the error trajectory is just a list of wrong answers.
 
-<!-- → [DIAGRAM: Two error sequences shown as node graphs — left: "Coherent misconception" showing Q1 wrong → Q2 wrong → Q3 right, with a labeled node indicating "exhaustion/anergy confusion" as the common root across Q1 and Q2 errors; right: "Random errors" showing Q1 wrong → Q2 right → Q3 wrong with no connecting structure. Caption: the trajectory that implies a specific gap vs. the trajectory that implies nothing. A quiz tool sees the checkmarks; the misconception model sees the structure.] -->
+![Two error sequences shown as node graphs ](images/05-the-four-layers-fig-02.png)
+*Figure 5.2 — Two error sequences shown as node graphs *
 
 **Whether the student applies the concept in a context the instruction did not directly cue.** This is the Bjorkian operational definition of learning: a concept the student "has" is one they can use outside the cue conditions in which they encountered it. Most assessments test the concept in the same kind of problem the instruction used. The student recognizes the surface features and retrieves the right procedure. That is not transfer. Transfer requires deliberately divergent problems, sequenced so the student does not recognize that the second problem is "the same concept."
 
@@ -94,7 +100,8 @@ This is the layer that closes the loop. The seven signals from the previous sect
 
 The measurement layer is the reward signal the engine optimizes on. If the reward is engagement — time on platform, turns exchanged, problems completed — the engine will optimize for engagement. That is the IDK-IDK failure restated as a control-theory problem. A student spending six minutes typing *idk* and copying hints scores well on every engagement metric. The GLP estimate for that session is near zero. The engine should route differently. Without the measurement layer, the engine does not know this.
 
-<!-- → [DIAGRAM: Four-layer stack with data flow arrows — Book Library at base feeding up to Tic TOC, Tic TOC feeding up to Adaptive Engine, Adaptive Engine feeding up to Measurement Layer, and a feedback arrow from Measurement Layer back down to Adaptive Engine labeled "reward signal." The LLM shown as an external node connected to the Adaptive Engine by a dotted line, explicitly outside the stack. Caption: the loop is what distinguishes a system from a collection of tools. The LLM is not a layer; it is a dependency of one mode in one layer.] -->
+![Four-layer stack with data flow arrows ](images/05-the-four-layers-fig-03.png)
+*Figure 5.3 — Four-layer stack with data flow arrows *
 
 ---
 
@@ -124,7 +131,13 @@ Khanmigo: a version of Ask AI — one mode within the engine — without the con
 
 Every prior platform optimized within one layer. What I am claiming is novel about the four-layer architecture is not any individual layer. Knewton had a version of Layer 3. DreamBox has a version of Layer 3. Khanmigo has a version of one mode within Layer 3. What is absent across all three is the closed loop — the architecture in which each layer's output is the next layer's input, and the measurement updates the selection policy.
 
-<!-- → [TABLE: Platform comparison matrix — rows: Knewton, DreamBox, Khanmigo, Four-layer architecture; columns: Book Library (multi-framing, concept-aligned), Curriculum Design (backward-designed concept map), Adaptive Engine (within-learner bandit), Measurement Layer (GLP seven signals). Fill each cell with ✓, partial, or ✗. The last row should be all ✓. The pattern in the prior three rows — all partial or ✗ except a single Layer 3 entry — makes the structural argument visible at a glance.] -->
+| Book Library (multi-framing | concept-aligned) | Curriculum Design (backward-designed concept map) | Adaptive Engine (within-learner bandit) | Measurement Layer (GLP seven signals) |
+| --- | --- | --- | --- | --- |
+| Knewton, DreamBox, Khanmigo, Four-layer architecture | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| columns: Book Library (multi-framing, concept-aligned | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Curriculum Design (backward-designed concept map | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Adaptive Engine (within-learner bandit | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Measurement Layer (GLP seven signals). Fill each cell with ✓, partial, or ✗. The last row should be all ✓. The pattern in the prior three rows | all partial or ✗ except a single Layer 3 entry | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 The closed loop is not a feature. It is the architecture.
 
@@ -146,7 +159,19 @@ S replies. The reply contains a recognizable misconception — she has confused 
 
 Now: what would the bolt-on alternative have produced? A Canvas page view of four minutes. A chatbot conversation stored separately with no link to the concept map, no misconception tag, no uncertainty calibration. No update to anything. The next time S opens the platform, the system has no record of what she understood or what she confused. The signals existed in the session. The instrument did not measure them.
 
-<!-- → [TABLE: The S session reconstructed as two system readouts — left column "Bolt-on stack record" (Canvas: page view 4 min; Chatbot log: question asked, response given, session ended; Spaced repetition: no items triggered this session; Update to student profile: none); right column "Four-layer platform record" (Y1 temporal: consistent with difficulty norm; Y2 error trajectory: exhaustion/anergy confusion flagged; Y4 calibration: 60% confidence, partially correct, calibration good; Y5 texture: specific mechanism question, authentic; GLP composite: partial, positive; Next session queued: Quiz Me on immune checkpoint, retrieval interval set). Caption: same session. One system has a record; the other has a log.] -->
+| Item | Meaning |
+| --- | --- |
+| The S session reconstructed as two system readouts | left column "Bolt-on stack record" (Canvas: page view 4 min |
+| Chatbot log: question asked, response given, session ended | A concrete checkpoint for applying the chapter concept. |
+| Spaced repetition: no items triggered this session | A concrete checkpoint for applying the chapter concept. |
+| Update to student profile: none | A concrete checkpoint for applying the chapter concept. |
+| right column "Four-layer platform record" (Y1 temporal: consistent with difficulty norm | A concrete checkpoint for applying the chapter concept. |
+| Y2 error trajectory: exhaustion | anergy confusion flagged |
+| Y4 calibration: 60% confidence, partially correct, calibration good | A concrete checkpoint for applying the chapter concept. |
+| Y5 texture: specific mechanism question, authentic | It makes the underlying reasoning visible instead of implied. |
+| GLP composite: partial, positive | A concrete checkpoint for applying the chapter concept. |
+| Next session queued: Quiz Me on immune checkpoint, retrieval interval set). Caption: same session. One system has a record | A concrete checkpoint for applying the chapter concept. |
+| the other has a log. | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -193,3 +218,37 @@ What Chapter 5 has not specified is what the modes in Layer 3 actually are — h
 The point that will carry into Chapter 6: the mode design is not aesthetic. Every interaction design decision is a decision about which signals the measurement layer will be able to read. Ask AI with a hints-not-answers guardrail produces a different Y7 signal than Ask AI that leaks answers under student pressure. Quiz Me with pre-response confidence elicitation produces a Y4 signal that Quiz Me without it cannot. The modes are the measurement infrastructure in student-facing form.
 
 The platform is opinionated. The model has no opinions of its own. The modes are where those opinions become visible.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 5.1 — Two heatmap panels side by side 
+
+Create a standalone D3 v7 HTML file for Figure Two heatmap panels side by side . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two heatmap panels side by side — left panel: "What Canvas sees" showing a single uniform block labeled "Page view: 12 min"; right panel: "What the platform sees" showing paragraph-level attention heat with hot zones on difficult passages and cool zones on already-known material. Caption: same session, different resolution. The measurement you can make is the measurement you built the instrument to make.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-the-four-layers-fig-01.html`
+
+---
+
+### Figure 5.2 — Two error sequences shown as node graphs 
+
+Create a standalone D3 v7 HTML file for Figure Two error sequences shown as node graphs . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two error sequences shown as node graphs — left: "Coherent misconception" showing Q1 wrong → Q2 wrong → Q3 right, with a labeled node indicating "exhaustion/anergy confusion" as the common root across Q1 and Q2 errors; right: "Random errors" showing Q1 wrong → Q2 right → Q3 wrong with no connecting structure. Caption: the trajectory that implies a specific gap vs. the trajectory that implies nothing. A quiz tool sees the checkmarks; the misconception model sees the structure.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-the-four-layers-fig-02.html`
+
+---
+
+### Figure 5.3 — Four-layer stack with data flow arrows 
+
+Create a standalone D3 v7 HTML file for Figure Four-layer stack with data flow arrows . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Four-layer stack with data flow arrows — Book Library at base feeding up to Tic TOC, Tic TOC feeding up to Adaptive Engine, Adaptive Engine feeding up to Measurement Layer, and a feedback arrow from Measurement Layer back down to Adaptive Engine labeled "reward signal." The LLM shown as an external node connected to the Adaptive Engine by a dotted line, explicitly outside the stack. Caption: the loop is what distinguishes a system from a collection of tools. The LLM is not a layer; it is a dependency of one mode in one layer.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/05-the-four-layers-fig-03.html`

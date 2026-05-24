@@ -12,7 +12,8 @@ This is the exploration-exploitation problem. It is one of the oldest problems i
 
 The simplest rule that actually works is called Thompson sampling. Instead of keeping a single estimate of each machine's expected payout, you keep a *distribution* — a probability cloud over what the payout probably is. At each pull, you draw a sample from each cloud and pick the machine with the highest sample. If a machine has been pulled many times and paid well, its cloud is tight and high. If a machine has been pulled twice and paid poorly, its cloud is wide and low — wide enough that a sample might still come out high, which means the machine gets another chance. After each pull, the cloud updates. The bad machine's cloud shrinks and shifts down. The good machine's cloud sharpens. You never stop exploring; you just explore in proportion to your uncertainty.
 
-<!-- → [DIAGRAM: Three panels showing the same five slot machines at three points in time — "After 10 pulls", "After 50 pulls", "After 200 pulls". Each machine shown as a horizontal probability cloud (Beta distribution shape). Early: all five clouds wide and overlapping. Mid: one cloud has shifted right and narrowed, others still wide. Late: one cloud is tight and high, two are tight and low, two remain wide (rarely pulled). Caption: uncertainty drives exploration. The cloud is what the bandit is actually managing — not a number, a distribution.] -->
+![Three panels showing the same five slot machines](images/08-the-adaptive-engine-fig-01.png)
+*Figure 8.1 — Three panels showing the same five slot machines*
 
 Now replace the slot machines with Ask AI, Case Study, Quiz Me, and Glimmer. Replace the tokens with a student's study sessions. Replace the payout with genuine learning. You have the adaptive engine. The math is identical. The architecture decisions — what counts as a payout, whose data the engine learns from, what the engine is categorically not allowed to maximize — are everything else.
 
@@ -30,7 +31,8 @@ This is the failure mode EdTech platforms fall into, and it does not require any
 
 Engagement features appear in the Medhavy engine's context vector — days since last session, total Ask AI turns on a concept, mode completion rate. These tell the engine what the student has tried. They are *inputs* to the decision, not *targets* of the decision. The difference between engagement-as-context and engagement-as-reward is the difference between a navigator who looks at the currents to know which way to steer and a navigator who optimizes for the strength of the current under the hull. Same measurement. Opposite architecture.
 
-<!-- → [IMAGE: Two-column diagram — left: "Engagement as context" showing a decision node receiving arrows from engagement features (days since last session, completion rate, turns) and outputting a mode selection; right: "Engagement as reward" showing the same engagement features now on the output side of the loop, with an arrow from the engine back to them labeled "maximize." The structural difference — input vs. output, context vs. target — is the whole argument. Caption: same data. Two different places in the loop. One produces learning. The other produces engagement.] -->
+![Two-column diagram ](images/08-the-adaptive-engine-fig-02.png)
+*Figure 8.2 — Two-column diagram *
 
 The engine is allowed to optimize for one thing: the weighted composite of the seven GLP signals and a delayed retrieval probe administered seven days after each session. Not session length. Not return visits. Not student-reported satisfaction, which is an engagement signal wearing a different hat. The delayed retrieval probe is the most important single architectural commitment in the engine, because it is the one that forces the optimization target seven days into the future, past the point where engagement and learning come apart.
 
@@ -52,7 +54,10 @@ The fourth family is concept-level features from the curriculum design layer: im
 
 Eighteen features is at the upper end of what a Thompson-sampling linear model can reliably estimate at typical cohort sizes of 30–120 students. Korbit, the closest published deployment to Medhavy's architecture, used a five-feature vector and achieved 66% prediction accuracy against a 60% majority-class baseline — sufficient for the bandit to outperform a heuristic rule on learning outcomes. The number of features is not what makes the engine work. Capturing the dimensions most predictive of the reward is what makes the engine work.
 
-<!-- → [TABLE: Context vector feature table — four row groups (Mastery & Retrievability, Reasoning Quality, Engagement Recency, Concept-Level Features), each with 4–5 rows. Columns: Feature name, What it tells the engine, Failure mode if used as reward instead of context. The last column is the load-bearing one — it makes the context-vs-reward distinction concrete for each feature. For example: "days since last Case Study" as context tells the engine what the student has tried; as reward, the engine learns to space out Case Studies to inflate the days-since count.] -->
+| Feature name | What it tells the engine | Failure mode if used as reward instead of context |
+| --- | --- | --- |
+| four row groups (Mastery & Retrievability, Reasoning Quality, Engagement Recency, Concept-Level Features | It makes the underlying reasoning visible instead of implied. | The pattern becomes easy to misuse or overlook. |
+| each with 4–5 rows. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. |
 
 ---
 
@@ -92,7 +97,8 @@ The second is *proxy drift*: the reward is nominally a learning signal but the i
 
 The third is *signal contamination*: the reward function is well-designed but the measurement leaks engagement information. If the seven-day retrieval probe can be gamed — if students recognize the probe items and pattern-match without genuine retrieval — the engine will learn to produce those patterns upstream. The probe corrupts the reward. The reward corrupts the policy. The policy corrupts the probe.
 
-<!-- → [DIAGRAM: Three small loop diagrams, one per failure mode, each showing where the corruption enters the engine-reward-policy cycle. "Direct substitution": engagement metric sits in the reward slot directly. "Proxy drift": a sensible-looking signal (quiz completion rate) sits in the reward slot with a dotted line showing it correlates with gaming behavior. "Signal contamination": reward signal looks clean but a feedback arrow from policy back to the measurement shows the engine is upstream-shaping the very thing it is measured against. Caption: same loop, three different places the corruption enters. Recognizing which kind you have determines which fix you reach for.] -->
+![Three small loop diagrams, one per failure mode,](images/08-the-adaptive-engine-fig-03.png)
+*Figure 8.3 — Three small loop diagrams, one per failure mode,*
 
 The defense is architectural, not algorithmic.
 
@@ -118,7 +124,8 @@ By week six, concepts have advanced to the Apply level. Case Study is now produc
 
 Six weeks. Forty-eight sessions. The bandit's posterior is no longer uniform, and it is not yet converged. The student finishes with a per-concept mode allocation that is statistically distinct from the population prior *and* from her own week-zero starting point. That is what within-learner adaptation produces. It is not magic. It is a small loop run honestly.
 
-<!-- → [CHART: Four stacked area charts, one per mode (Ask AI, Quiz Me, Case Study, Glimmer), showing allocation percentage across weeks 0–6 per concept type (factual, application-level). Ask AI: high early on factual, falls sharply by week 2, remains elevated only in the prerequisite-rescue context. Quiz Me: rises on factual from week 2 onward, stays moderate on application. Case Study: low early, rises to ~55% on application concepts by week 6. Glimmer: briefly attempted weeks 3–4, suppressed but not zeroed from week 4, floor maintained. Caption: the posterior is not a setting. It is a trajectory. The shape of the trajectory is the personalization.] -->
+![Four stacked area charts, one per mode (Ask](images/08-the-adaptive-engine-fig-04.png)
+*Figure 8.4 — Four stacked area charts, one per mode (Ask*
 
 ---
 
@@ -157,3 +164,45 @@ Evaluate the LLM's response against the chapter's framing. Does it correctly ide
 Choose a learning domain you know well. Ask an LLM to specify a context vector for an adaptive engine in that domain — mastery signals, reasoning-quality signals, engagement-recency signals, concept-level features.
 
 Audit the LLM's specification: for each feature it proposes, identify whether it is being proposed as context (an input to the decision) or as reward (a target of the optimization). If any features are engagement-shaped, note whether the LLM recognizes this and marks them appropriately as context-only. Write a paragraph on the single feature you would add that the LLM missed, and explain what it would tell the engine.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 8.1 — Three panels showing the same five slot machines
+
+Create a standalone D3 v7 HTML file for Figure Three panels showing the same five slot machines. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Three panels showing the same five slot machines at three points in time — "After 10 pulls", "After 50 pulls", "After 200 pulls". Each machine shown as a horizontal probability cloud (Beta distribution shape). Early: all five clouds wide and overlapping. Mid: one cloud has shifted right and narrowed, others still wide. Late: one cloud is tight and high, two are tight and low, two remain wide (rarely pulled). Caption: uncertainty drives exploration. The cloud is what the bandit is actually managing — not a number, a distribution.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/08-the-adaptive-engine-fig-01.html`
+
+---
+
+### Figure 8.2 — Two-column diagram 
+
+Create a standalone D3 v7 HTML file for Figure Two-column diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column diagram — left: "Engagement as context" showing a decision node receiving arrows from engagement features (days since last session, completion rate, turns) and outputting a mode selection; right: "Engagement as reward" showing the same engagement features now on the output side of the loop, with an arrow from the engine back to them labeled "maximize." The structural difference — input vs. output, context vs. target — is the whole argument. Caption: same data. Two different places in the loop. One produces learning. The other produces engagement.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/08-the-adaptive-engine-fig-02.html`
+
+---
+
+### Figure 8.3 — Three small loop diagrams, one per failure mode,
+
+Create a standalone D3 v7 HTML file for Figure Three small loop diagrams, one per failure mode,. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Three small loop diagrams, one per failure mode, each showing where the corruption enters the engine-reward-policy cycle. "Direct substitution": engagement metric sits in the reward slot directly. "Proxy drift": a sensible-looking signal (quiz completion rate) sits in the reward slot with a dotted line showing it correlates with gaming behavior. "Signal contamination": reward signal looks clean but a feedback arrow from policy back to the measurement shows the engine is upstream-shaping the very thing it is measured against. Caption: same loop, three different places the corruption enters. Recognizing which kind you have determines which fix you reach for.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annota
+
+> Reference implementation: `d3/08-the-adaptive-engine-fig-03.html`
+
+---
+
+### Figure 8.4 — Four stacked area charts, one per mode (Ask
+
+Create a standalone D3 v7 HTML file for Figure Four stacked area charts, one per mode (Ask. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Four stacked area charts, one per mode (Ask AI, Quiz Me, Case Study, Glimmer), showing allocation percentage across weeks 0–6 per concept type (factual, application-level). Ask AI: high early on factual, falls sharply by week 2, remains elevated only in the prerequisite-rescue context. Quiz Me: rises on factual from week 2 onward, stays moderate on application. Case Study: low early, rises to ~55% on application concepts by week 6. Glimmer: briefly attempted weeks 3–4, suppressed but not zeroed from week 4, floor maintained. Caption: the posterior is not a setting. It is a trajectory. The shape of the trajectory is the personalization.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. 
+
+> Reference implementation: `d3/08-the-adaptive-engine-fig-04.html`

@@ -14,7 +14,8 @@ Run the division. Cost per 0.1 standard-deviation gain: about $1.72 per child. C
 
 For forty years this was the floor. The most cost-effective educational intervention ever documented at scale, sustained across three decades of replication, across continents. Anyone proposing an educational technology investment had to clear it, or explain why their cost-per-0.1-SD was higher.
 
-<!-- → [CHART: Log-scale scatter plot — x-axis: cost per child per year (log scale, $1 to $10,000); y-axis: effect size d. Plot points for: Sesame Street (~$5, d=0.29), Head Start (~$9,000, d~0.3), high-dose tutoring (~$2,500, d=0.37), unguarded AI tutor (Bastani GPT Base, ~$10, d=−0.5 on post-test), research-designed AI tutor (Bastani GPT Tutor / Kestin, ~$20–50, d=0.7–1.3). Draw a diagonal "cost-per-0.1-SD" reference line. Caption: the floor is not the cheapest point — it is the best ratio. Sesame Street sits at the frontier. Unguarded AI sits below the x-axis.] -->
+![Log-scale scatter plot ](images/11-the-economics-fig-01.png)
+*Figure 11.1 — Log-scale scatter plot *
 
 Then the floor collapsed.
 
@@ -26,7 +27,12 @@ A 500-word explanation of a concept, retrieval-augmented to a textbook, costs ce
 
 The collapse is on the order of three orders of magnitude at the unit-production level for text and quiz items. The collapse for educational video is similarly large in raw production cost — vendor sources claim 70–90% reduction, though these figures have moved monthly through 2025–2026 and should be verified at publication time.
 
-<!-- → [TABLE: Before/after cost comparison — rows: 500-word explanation, Quiz Me item (per item), Educational video (per 60–90 sec), Full 20-chapter textbook (production), Platform engineering (adaptive modes). Columns: Pre-collapse cost, Post-collapse cost, Factor reduction. Numbers from the chapter text. Final row: "Design discipline / faculty review" — showing costs that did NOT collapse, to set up the asymmetry argument immediately following.] -->
+| Pre-collapse cost | Post-collapse cost | Factor reduction |
+| --- | --- | --- |
+| 500-word explanation, Quiz Me item (per item | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Educational video (per 60–90 sec | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Full 20-chapter textbook (production | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Platform engineering (adaptive modes). Columns: Pre-collapse cost, Post-collapse cost, Factor reduction. Numbers from the chapter text. Final row: "Design discipline | faculty review" | showing costs that did NOT collapse, to set up the asymmetry argument immediately following. |
 
 This is genuinely new. It is not a marginal improvement. For fifty years the binding constraint on educational content production was labor: subject-matter experts writing explanations, instructional designers structuring sequences, video producers recording and editing. The constraint was not that anyone lacked the knowledge of how to make good educational content. The constraint was that making it was expensive enough to limit who could afford it and at what scale.
 
@@ -46,7 +52,8 @@ Not production polish. The show's visual style is cheerful and functional, not t
 
 That is the design layer. It took time to develop. It required expertise that is not generic. It required a feedback loop between production and audience testing that ran for decades. And it is the reason the effect size is 0.29 and not 0.02.
 
-<!-- → [INFOGRAPHIC: The Sesame Street production pipeline — left to right: Script draft → Cognitive scientist review → Distractor methodology testing (Palmer's research department) → Audience pre-testing → Revision → Air. Annotate each stage with what it is checking: not "is this accurate?" but "does a 4-year-old's attention hold here?", "does the visual reinforce the audio?", "does repetition occur at the right interval?". Caption: the $5 bought this loop, not the production values. AI-generated content enters at the left and skips everything in the middle unless the design discipline is deliberately rebuilt.] -->
+![The Sesame Street production pipeline ](images/11-the-economics-fig-02.png)
+*Figure 11.2 — The Sesame Street production pipeline *
 
 AI-generated content matches the unit-production cost. Whether it reliably matches the design discipline — temporal contiguity, signaling, segmenting, coherence, the specific calibration to the misconceptions a particular student population actually brings — is an open question. Production cost collapsing does not mean production quality has collapsed in the same direction. The chapter has to hold these two facts in tension, or it becomes a vendor pitch deck with citations.
 
@@ -64,7 +71,8 @@ The costs that remain are: curriculum design (the Tic TOC layer — a structured
 
 The important implication: **the fixed cost structure changes more than the variable cost structure.** A traditional textbook was expensive to start and cheap to distribute. An intelligent textbook is moderately expensive to design well, cheap to produce content for, cheap to distribute, and carries a persistent measurement cost that traditional textbooks do not have at all.
 
-<!-- → [CHART: Two cost-structure diagrams side by side — "Traditional textbook" and "Intelligent textbook." Each shown as a stacked bar or waterfall chart with cost components. Traditional: large Production block, small Distribution block, zero Measurement block. Intelligent: small Content generation block, moderate Curriculum design + Faculty review block, small Distribution block, persistent Measurement block (recurring). The visual point: the total may be similar but the structure is completely different — and which costs scale with audience vs. which are fixed changes the minimum viable audience calculation.] -->
+![Two cost-structure diagrams side by side ](images/11-the-economics-fig-03.png)
+*Figure 11.3 — Two cost-structure diagrams side by side *
 
 <!-- [PLACEHOLDER — Full source material needed: Minimum viable audience calculation at given production cost and price point. The $15K/$150K/$1.5M investment tier analysis. The homeschool-microaudience worked example. These sections were not in the partial source provided.] -->
 
@@ -82,7 +90,8 @@ This is what faculty review is actually buying. Not error-checking. Not polish. 
 
 The Sadler finding implies a specific investment discipline: **spend on curriculum design and faculty review first, then on content generation, then on platform features.** The order matters. The common error is inverting it — spending on platform features first, because platform features are legible and demonstrable, and treating curriculum design and review as the cheap commodity work that happens afterward.
 
-<!-- → [DIAGRAM: Two investment sequences shown as left-to-right flow — "Correct order": Curriculum design → Faculty review → Content generation → Platform features → Measurement; "Common error": Platform features → Content generation → Curriculum design (rushed) → Faculty review (minimal). Annotate the correct order with what each stage produces; annotate the common error with what gets skipped or degraded at each stage. Caption: both sequences spend roughly the same budget. One produces a platform that can learn. The other produces a platform that looks right.] -->
+![Two investment sequences shown as left-to-right flow ](images/11-the-economics-fig-04.png)
+*Figure 11.4 — Two investment sequences shown as left-to-right flow *
 
 ---
 
@@ -129,3 +138,45 @@ The minimum viable audience calculation — working through the algebra of produ
 These sections will appear in the complete chapter. What is here is the load-bearing economics argument: the floor, the asymmetry, the shift in the binding constraint, and the calibration anchor that tells a builder whether the investment makes sense. The missing sections are arithmetic and worked examples. The argument is complete.
 
 The platform is opinionated. The economics have to be honest about what the opinions cost.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 11.1 — Log-scale scatter plot 
+
+Create a standalone D3 v7 HTML file for Figure Log-scale scatter plot . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Log-scale scatter plot — x-axis: cost per child per year (log scale, $1 to $10,000); y-axis: effect size d. Plot points for: Sesame Street (~$5, d=0.29), Head Start (~$9,000, d~0.3), high-dose tutoring (~$2,500, d=0.37), unguarded AI tutor (Bastani GPT Base, ~$10, d=−0.5 on post-test), research-designed AI tutor (Bastani GPT Tutor / Kestin, ~$20–50, d=0.7–1.3). Draw a diagonal "cost-per-0.1-SD" reference line. Caption: the floor is not the cheapest point — it is the best ratio. Sesame Street sits at the frontier. Unguarded AI sits below the x-axis.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/11-the-economics-fig-01.html`
+
+---
+
+### Figure 11.2 — The Sesame Street production pipeline 
+
+Create a standalone D3 v7 HTML file for Figure The Sesame Street production pipeline . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: The Sesame Street production pipeline — left to right: Script draft → Cognitive scientist review → Distractor methodology testing (Palmer's research department) → Audience pre-testing → Revision → Air. Annotate each stage with what it is checking: not "is this accurate?" but "does a 4-year-old's attention hold here?", "does the visual reinforce the audio?", "does repetition occur at the right interval?". Caption: the $5 bought this loop, not the production values. AI-generated content enters at the left and skips everything in the middle unless the design discipline is deliberately rebuilt.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required
+
+> Reference implementation: `d3/11-the-economics-fig-02.html`
+
+---
+
+### Figure 11.3 — Two cost-structure diagrams side by side 
+
+Create a standalone D3 v7 HTML file for Figure Two cost-structure diagrams side by side . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two cost-structure diagrams side by side — "Traditional textbook" and "Intelligent textbook." Each shown as a stacked bar or waterfall chart with cost components. Traditional: large Production block, small Distribution block, zero Measurement block. Intelligent: small Content generation block, moderate Curriculum design + Faculty review block, small Distribution block, persistent Measurement block (recurring). The visual point: the total may be similar but the structure is completely different — and which costs scale with audience vs. which are fixed changes the minimum viable audience calculation.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and t
+
+> Reference implementation: `d3/11-the-economics-fig-03.html`
+
+---
+
+### Figure 11.4 — Two investment sequences shown as left-to-right flow 
+
+Create a standalone D3 v7 HTML file for Figure Two investment sequences shown as left-to-right flow . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two investment sequences shown as left-to-right flow — "Correct order": Curriculum design → Faculty review → Content generation → Platform features → Measurement; "Common error": Platform features → Content generation → Curriculum design (rushed) → Faculty review (minimal). Annotate the correct order with what each stage produces; annotate the common error with what gets skipped or degraded at each stage. Caption: both sequences spend roughly the same budget. One produces a platform that can learn. The other produces a platform that looks right.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/11-the-economics-fig-04.html`

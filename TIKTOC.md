@@ -1,6 +1,6 @@
 # TIKTOC.md
 # How to Build an Intelligent Textbook
-**Author:** Nik Bear Brown · ni.brown@neu.edu · Bear Brown & Company
+**Author:** Humanitarians AI · ni.brown@neu.edu · Bear Brown & Company
 **Publisher:** Bear Brown, LLC
 **Format:** Kindle / KDP ($1 / Kindle Unlimited) + epub (direct distribution)
 **Status:** TIKTOC complete — ready for Research Gatherer → Chapter Writer pipeline

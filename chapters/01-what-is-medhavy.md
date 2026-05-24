@@ -10,7 +10,8 @@ You have a student — call her Priya. She is nineteen years old. She lives in H
 
 On a Wednesday afternoon in month four, she opens Anki. Eighty-three cards are due. She works through them in nineteen minutes. Sixty-three she gets right. Twenty she struggles with. Six she fails entirely — and when you look at the six, they share something: they are all words for medical procedures. *Prescription. Injection. Consultation. Diagnosis.* The vocabulary domain she needs most for Tuesday's interview is the one she knows least.
 
-<!-- → [INFOGRAPHIC: Priya's Wednesday session at a glance — a simple horizontal breakdown showing 83 cards due → 63 Good/Easy, 20 Hard, 6 Again; the 6 Again cards highlighted and labeled with the four medical-procedure words; a countdown bar showing "11 days to Apollo Health interview." Reader should immediately see the gap the conductor is about to diagnose.] -->
+![Priya's Wednesday session at a glance ](images/01-what-is-medhavy-fig-01.png)
+*Figure 1.1 — Priya's Wednesday session at a glance *
 
 Here is the question: who decides what happens Thursday morning?
 
@@ -34,7 +35,8 @@ The conductor does not play the instruments. She decides which instrument plays,
 
 Medhavy is the conductor. The instruments are everything else: the AI modes, the spaced-repetition algorithms, the human tutors, the textbooks, the exercises, the measurement systems. Some of those instruments are sophisticated. Some are very simple. A Kindle book and a weekly Zoom call can be instruments. A full adaptive learning platform with four layers and seven measurement signals can be instruments. The sophistication of the instrument is not what makes the system intelligent. What makes it intelligent is whether there is a conductor watching what the instruments produce and deciding what plays next.
 
-<!-- → [DIAGRAM: Two-tier diagram — top tier labeled "Conductor (Medhavy)" with a single node; bottom tier labeled "Instruments" with five nodes: Anki / spaced-repetition, Human tutor / Zoom volunteer, AI chat modes, Measurement layer, Curriculum. Arrows point upward from all instruments to the Conductor. A bidirectional arrow between Conductor and a "Learner" node on the right labeled "recommendation + pushback." Reader should see that Medhavy is architecturally above all instruments, not one of them.] -->
+![Two-tier diagram ](images/01-what-is-medhavy-fig-02.png)
+*Figure 1.2 — Two-tier diagram *
 
 I want to be careful here, because the thing I am about to say is the central claim of the book and it looks smaller than it is.
 
@@ -80,7 +82,11 @@ A platform built learner-first, but *only* the learner — ignoring the instruct
 
 The frame that holds all three — learner, then instructor, then organization, in that order — is the one that produces learning at institutional scale. Get the order wrong and the platform fails. Not loudly. Predictably. In ways that are visible if you know to look.
 
-<!-- → [TABLE: Three-row comparison of ordering failures — columns: Primary audience, Platform type it becomes, What it optimizes for, Predictable failure mode, Timeline to failure. Rows: Organization-first → compliance product → purchasing checklist → unused voluntarily → contract end; Instructor-first → content-management tool → authoring convenience → inconsistent learner adoption → mixed results within 2 years; Learner-only (no instructor/org) → consumer app → engagement → no institutional embedding → never reaches the learner who needs structure. Final row: Learner → Instructor → Organization → learning platform → durable outcomes. Reader should see the pattern and where Medhavy sits in it.] -->
+| Primary audience | Platform type it becomes | What it optimizes for | Predictable failure mode | Timeline to failure |
+| --- | --- | --- | --- | --- |
+| Organization-first → compliance product → purchasing checklist → unused voluntarily → contract end | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. | The pattern becomes easy to misuse or overlook. |
+| Instructor-first → content-management tool → authoring convenience → inconsistent learner adoption → mixed results within 2 years | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. | The pattern becomes easy to misuse or overlook. |
+| Learner-only (no instructor | org) → consumer app → engagement → no institutional embedding → never reaches the learner who needs structure. Final row: Learner → Instructor → Organization → learning platform → durable outcomes. Reader should see the pattern and where Medhavy sits in it. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. | The pattern becomes easy to misuse or overlook. |
 
 ---
 
@@ -96,7 +102,8 @@ What to do about it is genuinely contested, at the level of evidence. Not becaus
 
 There are four broad positions. *Ban it* — restore pre-LLM conditions, return to handwritten assessments, treat AI use as a violation. *Embrace it* — assume AI is the new baseline, redesign every assignment around it, teach students to use it well. *Measure it* — instrument heavily, run controlled experiments, defer conclusions until the evidence accumulates. *Wait* — defer action until the technology stabilizes.
 
-<!-- → [INFOGRAPHIC: Horizontal spectrum showing the four positions left to right — Ban it / Wait / Measure it / Embrace it — with a brief label under each naming what it assumes about the evidence. A marker or highlight on "Measure it" to show Medhavy's position. Reader should see that this is not a simple binary and that "Measure it" is a deliberate epistemic stance, not a non-answer.] -->
+![Horizontal spectrum showing the four positions left to](images/01-what-is-medhavy-fig-03.png)
+*Figure 1.3 — Horizontal spectrum showing the four positions left to*
 
 Each position is held by serious people with serious arguments. I hold a position too, and I will tell you what it is: in the present state of the evidence, the responsible thing is to run the experiment in the open and update as the evidence comes in. That is Medhavy's position. It is not the same as having no position. It is, I would argue, the more honest one.
 
@@ -136,7 +143,9 @@ Trust is built by three specific transparencies, which the rest of the book will
 
 **Uncertainty transparency:** The platform names what it does not know. The open questions are not embarrassing gaps. They are the active research agenda the platform is running in the open. The learner who participates in Medhavy is participating in that agenda, and she has the right to see what it is.
 
-<!-- → [TABLE: Three-row reference card for the transparency types — columns: Transparency type, What it covers, What it looks like to the learner, What breaks without it. Rows: Data transparency / Decision transparency / Uncertainty transparency. Compact enough to work as a sidebar or pullout. Reader should be able to use this as a checklist when evaluating any platform's disclosure posture.] -->
+| Transparency type | What it covers | What it looks like to the learner | What breaks without it |
+| --- | --- | --- | --- |
+| Data transparency | Decision transparency | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 The platform that hides its results is making an argument: *trust us, we have decided what is best.* The platform that publishes them is making a different argument: *here is what we tried, here is what happened, here is what we concluded, and here are the data; if you want to draw a different conclusion, the door is open.*
 
@@ -175,3 +184,37 @@ The following exercises are for practice with large language models in an educat
 3. **(Adversarial — LLM exercise)** Ask an LLM to take the opposite position from this chapter: argue that organization-first EdTech deployments produce better learning outcomes than learner-first ones, using the best evidence it can find. Then ask it to critique its own argument. The goal is not to find out who is right. The goal is to see how the LLM handles contested empirical territory — does it claim more certainty than the evidence licenses, or does it name the uncertainty honestly?
 
 4. **(Transparency — LLM exercise)** Draft a one-paragraph transparency disclosure for Priya. It must include: what data the platform collects, what it does not, one decision the platform will surface with its reasoning, and one thing the platform openly does not yet know. Then ask an LLM to evaluate whether the disclosure would be understandable to a sixteen-year-old learner and what it would change. Compare your draft to the LLM's revision. Where did you over-explain? Where did you under-disclose?
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 1.1 — Priya's Wednesday session at a glance 
+
+Create a standalone D3 v7 HTML file for Figure Priya's Wednesday session at a glance . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Priya's Wednesday session at a glance — a simple horizontal breakdown showing 83 cards due → 63 Good/Easy, 20 Hard, 6 Again; the 6 Again cards highlighted and labeled with the four medical-procedure words; a countdown bar showing "11 days to Apollo Health interview." Reader should immediately see the gap the conductor is about to diagnose.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-what-is-medhavy-fig-01.html`
+
+---
+
+### Figure 1.2 — Two-tier diagram 
+
+Create a standalone D3 v7 HTML file for Figure Two-tier diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-tier diagram — top tier labeled "Conductor (Medhavy)" with a single node; bottom tier labeled "Instruments" with five nodes: Anki / spaced-repetition, Human tutor / Zoom volunteer, AI chat modes, Measurement layer, Curriculum. Arrows point upward from all instruments to the Conductor. A bidirectional arrow between Conductor and a "Learner" node on the right labeled "recommendation + pushback." Reader should see that Medhavy is architecturally above all instruments, not one of them.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-what-is-medhavy-fig-02.html`
+
+---
+
+### Figure 1.3 — Horizontal spectrum showing the four positions left to
+
+Create a standalone D3 v7 HTML file for Figure Horizontal spectrum showing the four positions left to. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Horizontal spectrum showing the four positions left to right — Ban it / Wait / Measure it / Embrace it — with a brief label under each naming what it assumes about the evidence. A marker or highlight on "Measure it" to show Medhavy's position. Reader should see that this is not a simple binary and that "Measure it" is a deliberate epistemic stance, not a non-answer.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/01-what-is-medhavy-fig-03.html`

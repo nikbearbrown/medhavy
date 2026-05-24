@@ -38,7 +38,11 @@ There are three levels of domain specificity in instructional content. **Level 1
 
 Level 3 costs more to produce. Published estimates from curriculum-variant production put the premium at roughly 1.5 to 2 times the Level 1 cost. For a multi-domain deployment — ten domains, each requiring separate variants — the total cost is approximately 15 to 20 times the Level 1 baseline per finished unit.
 
-<!-- → [TABLE: Three-row comparison of content specificity levels — columns: Level, Structure, Evidence base, Theoretical claim, Empirical failure mode, Pre-AI cost multiplier. Rows: Level 1 (generic, abstract throughout, TAP and situated learning benefits absent, motivational fragility, 1×); Level 2 (generic + domain capstone, TAP benefit only at capstone, partial transfer benefit, 1.2–1.5×); Level 3 (domain-specific throughout, full TAP and situated learning benefits, most evidence-aligned, 1.5–2× per variant). Reader should see at a glance that Level 3 is the evidence-supported default and that the pre-AI cost is the main reason it has not been the standard.] -->
+| Level | Structure | Evidence base | Theoretical claim | Empirical failure mode |
+| --- | --- | --- | --- | --- |
+| Level 1 (generic, abstract throughout, TAP and situated learning benefits absent, motivational fragility, 1× | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. |
+| Level 2 (generic + domain capstone, TAP benefit only at capstone, partial transfer benefit, 1.2–1.5× | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. |
+| Level 3 (domain-specific throughout, full TAP and situated learning benefits, most evidence-aligned, 1.5–2× per variant). Reader should see at a glance that Level 3 is the evidence-supported default and that the pre-AI cost is the main reason it has not been the standard. | It makes the underlying reasoning visible instead of implied. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | The pattern becomes easy to misuse or overlook. |
 
 This is where the cost-collapse argument changes the calculation. But first, the asymmetry.
 
@@ -68,7 +72,8 @@ Empirical validation. Running a controlled study on content effectiveness costs 
 
 Domain-expert authorship for high-stakes content. A practicing oncologist writing a clinical scenario from her case experience cannot be replaced by AI generation. The cost lives in the expertise that produces the scenario, not in the keyboard time that records it.
 
-<!-- → [CHART: Two-column bar chart comparing pre-AI vs. post-AI costs for each content production category — bars for: text generation, AI video, image generation, voice synthesis (all showing 2–4 order-of-magnitude collapse), and expert review, curriculum design, empirical validation, domain-expert authorship (all showing near-flat or unchanged bars). The visual asymmetry between the collapsed and unchanged bars should be immediately striking. A vertical label on the unchanged side: "This is where the cost should stay." Reader sees the structure of the argument in one image — some things fell off a cliff; the things that matter for quality did not.] -->
+![Two-column bar chart comparing pre-AI vs](images/10-the-content-layer-fig-01.png)
+*Figure 10.1 — Two-column bar chart comparing pre-AI vs*
 
 The asymmetry has a consequence that needs to be stated plainly. The burden of proof required before deploying a piece of content should scale with the asymmetry of the failure modes the content can produce. Cass Sunstein's argument in *Laws of Fear* applies directly: the strong precautionary principle is incoherent because it forbids action and inaction simultaneously when both carry risk; the defensible frame is cost-benefit analysis under uncertainty, with extra precaution proportional to the irreversibility of the failure.[^6]
 
@@ -80,7 +85,14 @@ Failure mode C: AI content develops a durable wrong model of the domain. Largest
 
 The honest answer to *"does cost collapse lower the burden of proof?"* is: yes, asymmetrically. Lower for content where failure is small and reversible. Unchanged for content where failure is large or persistent. Higher for content where failure produces a durable wrong model that compounds.
 
-<!-- → [TABLE: Failure-mode decision matrix — rows: Failure Mode A (content fails to help), Failure Mode B (content actively misleads), Failure Mode C (content develops durable wrong model); columns: Example, Loss magnitude, Reversibility, Evidence threshold before deployment, Tier implication. The three rows show a clear escalation: small/reversible → lowered threshold → Tier 1 eligible; larger/harder to detect → unchanged threshold → Tier 2 minimum; durable/compounds → higher threshold → Tier 3 required. Reader should be able to use this table as a decision tool when assigning tier to a new content unit.] -->
+| Example | Loss magnitude | Reversibility | Evidence threshold before deployment | Tier implication |
+| --- | --- | --- | --- | --- |
+| Failure Mode A (content fails to help | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Failure Mode B (content actively misleads | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Failure Mode C (content develops durable wrong model | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| columns: Example, Loss magnitude, Reversibility, Evidence threshold before deployment, Tier implication. The three rows show a clear escalation: small | reversible → lowered threshold → Tier 1 eligible | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| larger | harder to detect → unchanged threshold → Tier 2 minimum | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| durable | compounds → higher threshold → Tier 3 required. Reader should be able to use this table as a decision tool when assigning tier to a new content unit. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 What the cost-collapse does open up — and this is the genuinely consequential change — is the Level 3 multi-domain case. The pre-AI arithmetic: Level 3 at 10 domain variants cost approximately 15 to 20 times the Level 1 baseline. The post-AI arithmetic: if AI generation drops per-unit production cost by 10 times for appropriate content, the Level 3 multi-domain cost can fall below the pre-AI Level 1 cost per unit of finished domain-variant content. The Sadler 2013 finding — domain-specific instruction, with misconception coverage, is what carries the PCK effect — is becoming economically tractable at multi-domain scale. That is the actual change worth getting excited about. Not *we can produce more content cheaply.* That, alone, is a faster route to mediocre. The change is *we can now afford domain-specific content for audiences that could never have justified the production cost before.*
 
@@ -114,7 +126,8 @@ Sesame Street has historically cost approximately $5 per child per year on a ful
 
 Compute the benchmark: $5 per child per year at *d* = 0.29 is approximately $1.72 per 0.1 standard-deviation gain. Compare to high-dose tutoring: Nickow, Oreopoulos, and Quan's 2024 meta-analysis found *d* ≈ 0.37 at $2,000 to $3,500 per child, roughly $540 to $945 per 0.1 SD gain.[^13] Sesame Street is approximately 300 to 500 times more cost-effective per 0.1 standard deviation of gain than tutoring at scale.
 
-<!-- → [CHART: Log-scale bar chart of cost per 0.1 standard-deviation gain for three interventions — Sesame Street ($1.72), AI-generated content at $5/unit (unknown learning outcome — shown as a question-mark bar or range), high-dose tutoring ($540–$945). The log scale makes the 300–500× cost-effectiveness gap visible. A label on the AI-generated content bar: "Cost parity achieved. Quality parity unknown." Reader sees in one image why Sesame Street is the benchmark and why cost parity is not the same as effectiveness parity.] -->
+![Log-scale bar chart of cost per 0](images/10-the-content-layer-fig-02.png)
+*Figure 10.2 — Log-scale bar chart of cost per 0*
 
 This is the floor. AI-generated content at production cost parity — roughly $5 per finished content unit — has achieved cost parity with Sesame Street. Whether it has achieved design quality parity is genuinely unknown, and that is the open question.
 
@@ -156,7 +169,13 @@ Each of those gets a tier assignment from the production policy. The substrate t
 
 The economic envelope this produces for a single chapter at 10 to 20 concept nodes: Tier 1 units at roughly $0.50 production plus $0.50 review; Tier 2 units at roughly $2 production plus $10 review; Tier 3 units at $20 to $100 in expert-author time. Total per chapter, order of magnitude: $600 to $3,000. The pre-AI baseline for the same chapter at the same depth: roughly $5,000 to $20,000 in writer and reviewer time. The collapse is real. The remaining cost is real too, and concentrated exactly where the asymmetry says it should stay — in the expert authorship that AI generation cannot replace.
 
-<!-- → [TABLE: Per-chapter economic envelope — rows: Tier 1 (80–150 units, $0.50 production + $0.50 review each, subtotal $80–$150), Tier 2 (30–60 units, $2 production + $10 review each, subtotal $360–$720), Tier 3 (10–20 units, $20–$100 expert-author time each, subtotal $200–$2,000), Total ($640–$2,870), Pre-AI baseline ($5,000–$20,000). A final row showing the cost reduction factor: 2–7×. Columns: tier, unit count, per-unit production cost, per-unit review cost, subtotal. The table makes the economic argument concrete and shows that the remaining cost is concentrated in Tier 3 — exactly where the asymmetry says it should be.] -->
+| tier | unit count | per-unit production cost | per-unit review cost | subtotal |
+| --- | --- | --- | --- | --- |
+| Tier 1 (80–150 units, $0.50 production + $0.50 review each, subtotal $80–$150 | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Tier 2 (30–60 units, $2 production + $10 review each, subtotal $360–$720 | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Tier 3 (10–20 units, $20–$100 expert-author time each, subtotal $200–$2,000 | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Total ($640–$2,870 | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Pre-AI baseline ($5,000–$20,000). A final row showing the cost reduction factor: 2–7×. Columns: tier, unit count, per-unit production cost, per-unit review cost, subtotal. The table makes the economic argument concrete and shows that the remaining cost is concentrated in Tier 3 | exactly where the asymmetry says it should be. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -213,3 +232,29 @@ The following exercises are for practice with large language models in an educat
 [^13]: Nickow, A., Oreopoulos, P., & Quan, V. (2024). The impressive effects of tutoring on PreK-12 learning: A systematic review and meta-analysis of the experimental evidence. *Quarterly Journal of Economics*, 138(4), 2451–2512.
 
 [^14]: Mayer, R. E. (Ed.). (2014). *The Cambridge Handbook of Multimedia Learning* (2nd ed.). Cambridge University Press.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 10.1 — Two-column bar chart comparing pre-AI vs
+
+Create a standalone D3 v7 HTML file for Figure Two-column bar chart comparing pre-AI vs. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column bar chart comparing pre-AI vs. post-AI costs for each content production category — bars for: text generation, AI video, image generation, voice synthesis (all showing 2–4 order-of-magnitude collapse), and expert review, curriculum design, empirical validation, domain-expert authorship (all showing near-flat or unchanged bars). The visual asymmetry between the collapsed and unchanged bars should be immediately striking. A vertical label on the unchanged side: "This is where the cost should stay." Reader sees the structure of the argument in one image — some things fell off a cliff; the things that matter for quality did not.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use
+
+> Reference implementation: `d3/10-the-content-layer-fig-01.html`
+
+---
+
+### Figure 10.2 — Log-scale bar chart of cost per 0
+
+Create a standalone D3 v7 HTML file for Figure Log-scale bar chart of cost per 0. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Log-scale bar chart of cost per 0.1 standard-deviation gain for three interventions — Sesame Street ($1.72), AI-generated content at $5/unit (unknown learning outcome — shown as a question-mark bar or range), high-dose tutoring ($540–$945). The log scale makes the 300–500× cost-effectiveness gap visible. A label on the AI-generated content bar: "Cost parity achieved. Quality parity unknown." Reader sees in one image why Sesame Street is the benchmark and why cost parity is not the same as effectiveness parity.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/10-the-content-layer-fig-02.html`

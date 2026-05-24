@@ -10,7 +10,8 @@ In April 2001, MIT announced it would publish virtually all of its course materi
 
 The opposite happened. Applications went up. Selectivity went up. MIT's brand became *more* valuable as the institution gave away what everyone had assumed was the moat. Surveys of incoming undergraduates found that more than half were aware of OpenCourseWare before choosing MIT, and roughly a third said it was a significant influence on their decision to attend.
 
-<!-- → [INFOGRAPHIC: Timeline of MIT OCW from 2001 pilot (50 courses) to 2007 full curriculum (1,800+ courses), with MIT application volume indexed alongside — reader should see the two lines moving in the same direction, not opposite ones. Caption should name the counterintuitive result explicitly.] -->
+![Timeline of MIT OCW from 2001 pilot (50](images/02-what-is-an-intelligent-textbook-fig-01.png)
+*Figure 2.1 — Timeline of MIT OCW from 2001 pilot (50*
 
 Stop and think about what this means. The content was never the product. It had been available in textbook and library form for decades. What MIT was selling — at $80,000 a year — was the experience: the labs, the cohort, the apprenticeship under faculty, the social graph. OpenCourseWare *raised the visibility* of that experience. Prospective students looked at the course materials and concluded: this is a place I want to be, physically. The signal got louder when MIT gave away what everyone thought was the moat.
 
@@ -30,7 +31,8 @@ What did she not do during that time? She did not run the Socratic ambiguity exe
 
 The work that is only available because she is in the building, with her judgment and her relationships and her time — that work got crowded out by work an algorithm could have done for roughly forty cents in API tokens. Nobody chose this. The short-answer grading, the lecture re-recording, the case construction — they fit in her queue. The Socratic work does not fit in a queue. It gets eaten.
 
-<!-- → [IMAGE: Two-column diagram — left column "Work that fits in a queue" (short-answer grading, lecture re-recording, case template construction, annotated bibliography), right column "Work that only exists because she is in the room" (Socratic ambiguity exercise, recognizing structural gap in a student's reasoning, the call after a rotation goes sideways, coffee with the new resident). Visual weight should favor the right column. Caption: the queue selects for the left column, which crowds out the right.] -->
+![Two-column diagram ](images/02-what-is-an-intelligent-textbook-fig-02.png)
+*Figure 2.2 — Two-column diagram *
 
 This is the failure I have been writing about in the *Trust the Teacher* essays. The micro-mechanism: when a teacher's marginal hour is committed to work AI can do nearly as well, the teacher's highest-leverage hour — the hour AI genuinely cannot do — gets squeezed out. The technology is irrelevant. The structural problem is real with or without it. Refusing AI does not solve this. It accelerates it.
 
@@ -44,7 +46,10 @@ Here is what IDK IDK looks like. A student opens the tutor. A quadratic equation
 
 Session log: time on platform, six minutes. Turns exchanged, eight. Problems completed, one. The engagement dashboard records a success.
 
-<!-- → [TABLE: The IDK IDK session reconstructed as two dashboards side by side — left: "Engagement Dashboard" (time on platform: 6 min ✓, turns exchanged: 8 ✓, problems completed: 1 ✓, streak maintained: yes ✓, daily active: yes ✓), right: "What actually happened" (student never committed an answer the system could evaluate, model leaked hint under pressure, student copied and advanced, zero externalized reasoning, GLP estimate: near zero). The contrast should be visually stark — both sides populated, same session, opposite stories.] -->
+| Item | Meaning |
+| --- | --- |
+| The IDK IDK session reconstructed as two dashboards side by side | left: "Engagement Dashboard" (time on platform: 6 min ✓, turns exchanged: 8 ✓, problems completed: 1 ✓, streak maintained: yes ✓, daily active: yes ✓ |
+| right: "What actually happened" (student never committed an answer the system could evaluate, model leaked hint under pressure, student copied and advanced, zero externalized reasoning, GLP estimate: near zero). The contrast should be visually stark | both sides populated, same session, opposite stories. |
 
 The student learned nothing.
 
@@ -60,7 +65,8 @@ During practice, with AI access, the GPT Base group performed 48% above the no-A
 
 On the post-practice exam — *without* AI access — the GPT Base group scored 17 percentage points *lower* than the no-AI control.
 
-<!-- → [CHART: Bar chart with three grouped pairs — "During practice (with AI)" and "Post-practice exam (without AI)" for each condition: No-AI control (baseline 0% / baseline 0%), GPT Base (+48% during / –17% post), GPT Tutor (+127% during / ~0% post). The GPT Base post-practice bar should go below the baseline — visually below zero — so the reversal is impossible to miss. Caption: same model, same students, opposite outcomes. The variable is the wrapper.] -->
+![Bar chart with three grouped pairs ](images/02-what-is-an-intelligent-textbook-fig-03.png)
+*Figure 2.3 — Bar chart with three grouped pairs *
 
 Read that again. In-session, the students felt smarter, performed better, looked engaged. On the durable-learning measure, the unguarded condition produced roughly half a standard deviation of damage relative to no AI at all. Not "AI is mildly suboptimal." Unguarded AI made students substantially worse than they would have been without it.
 
@@ -114,7 +120,8 @@ The Khanmigo failure, in this frame, is a missing measurement layer in disguise.
 
 The integration is the architecture. That is the load-bearing claim. I am sketching here, not building.
 
-<!-- → [DIAGRAM: Four-layer stack diagram — Book Library at base, Tic TOC above it, Adaptive Engine above that, Measurement Layer at top. Each layer labeled with its governing question (what is being taught / in what order / what mode now / what does the student know). Arrows showing data flow upward and selection flow downward. A fifth element outside the stack: the LLM, connected to the Adaptive Engine by a dotted line labeled "willing actor, no opinions." The point of the diagram is that the LLM is not in the stack — it is a dependency of one layer, not the architecture itself.] -->
+![Four-layer stack diagram ](images/02-what-is-an-intelligent-textbook-fig-04.png)
+*Figure 2.4 — Four-layer stack diagram *
 
 ---
 
@@ -185,3 +192,45 @@ The platform is opinionated. The model has no opinions of its own. That sentence
 [^10]: Sadler, P. M., Sonnert, G., Coyle, H. P., Cook-Smith, N., & Miller, J. L. (2013). The influence of teachers' knowledge on student learning in middle school physical science classrooms. *American Educational Research Journal*, 50(5), 1020–1049.
 
 [^11]: Kestin, G., Miller, K., Klales, A., Milbourne, T., & Ponti, G. (2025). AI tutoring outperforms in-class active learning: An RCT introducing a smart learning companion. *Scientific Reports*, 15. https://www.nature.com/articles/s41598-025-97652-6
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 2.1 — Timeline of MIT OCW from 2001 pilot (50
+
+Create a standalone D3 v7 HTML file for Figure Timeline of MIT OCW from 2001 pilot (50. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Timeline of MIT OCW from 2001 pilot (50 courses) to 2007 full curriculum (1,800+ courses), with MIT application volume indexed alongside — reader should see the two lines moving in the same direction, not opposite ones. Caption should name the counterintuitive result explicitly.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-what-is-an-intelligent-textbook-fig-01.html`
+
+---
+
+### Figure 2.2 — Two-column diagram 
+
+Create a standalone D3 v7 HTML file for Figure Two-column diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column diagram — left column "Work that fits in a queue" (short-answer grading, lecture re-recording, case template construction, annotated bibliography), right column "Work that only exists because she is in the room" (Socratic ambiguity exercise, recognizing structural gap in a student's reasoning, the call after a rotation goes sideways, coffee with the new resident). Visual weight should favor the right column. Caption: the queue selects for the left column, which crowds out the right.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-what-is-an-intelligent-textbook-fig-02.html`
+
+---
+
+### Figure 2.3 — Bar chart with three grouped pairs 
+
+Create a standalone D3 v7 HTML file for Figure Bar chart with three grouped pairs . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Bar chart with three grouped pairs — "During practice (with AI)" and "Post-practice exam (without AI)" for each condition: No-AI control (baseline 0% / baseline 0%), GPT Base (+48% during / –17% post), GPT Tutor (+127% during / ~0% post). The GPT Base post-practice bar should go below the baseline — visually below zero — so the reversal is impossible to miss. Caption: same model, same students, opposite outcomes. The variable is the wrapper.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-what-is-an-intelligent-textbook-fig-03.html`
+
+---
+
+### Figure 2.4 — Four-layer stack diagram 
+
+Create a standalone D3 v7 HTML file for Figure Four-layer stack diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Four-layer stack diagram — Book Library at base, Tic TOC above it, Adaptive Engine above that, Measurement Layer at top. Each layer labeled with its governing question (what is being taught / in what order / what mode now / what does the student know). Arrows showing data flow upward and selection flow downward. A fifth element outside the stack: the LLM, connected to the Adaptive Engine by a dotted line labeled "willing actor, no opinions." The point of the diagram is that the LLM is not in the stack — it is a dependency of one layer, not the architecture itself.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/02-what-is-an-intelligent-textbook-fig-04.html`

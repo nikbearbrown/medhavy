@@ -12,7 +12,7 @@
 
 # Medhavy
 
-**Author:** Nik Bear Brown
+**Author:** Humanitarians AI
 
 ---
 

@@ -18,7 +18,8 @@ The bypass is not subtle. A well-structured essay can be produced in seconds by 
 
 This is the decoupling problem. It is not a problem about cheating, exactly. It is a problem about the load-bearing inference education has used for centuries. The artifact used to be proof of the process. It no longer is.
 
-<!-- → [DIAGRAM: two-chain comparison — left: the historic three-link chain "Genuine Learning → Cognitive Process → Artifact" with each link labeled and intact; right: the AI-bypass chain "AI Generation → Artifact" with the middle link absent and a visual break or bypass arrow — the missing link is the chapter's entire argument; caption should name it "the decoupling problem"] -->
+![Two-chain comparison ](images/06-the-measurement-layer-fig-01.png)
+*Figure 6.1 — Two-chain comparison *
 
 The naive response — artifact-based AI detection — cannot work, and the argument against it is now settled. Liang et al. 2023 showed that AI detectors classified TOEFL essays by non-native English writers as AI-generated at rates five to ten times higher than native-speaker essays, despite no AI involvement. The detectors were finding low syntactic perplexity, which non-native writers also produce. Sadasivan et al. 2023 gave the theoretical argument: as language models improve, the statistical distinguishability of their output from human writing approaches zero. OpenAI discontinued its public AI Classifier in July 2023 after concluding it did not work. The vendors with the most data and the most incentive concluded they could not solve the detection problem at the artifact level.
 
@@ -48,7 +49,8 @@ The caveat: Schultz's work was in macaque monkeys responding to learned cues for
 
 This is the strongest version of the "friction traces exist because learning is biological" argument. The behavioral signals are what we measure. The cascade is why the signals are real.
 
-<!-- → [DIAGRAM: the three-step neurobiological cascade rendered as a flow — Step 1: prediction error (dopamine spike on gap between expected and received outcome, Schultz 1997) → Step 2: BDNF-mediated synaptic consolidation (labile trace → durable trace, hours to days, Lu/Christian/Lu 2008) → Step 3: dendritic spine formation (new stable spines as physical substrate of long-term memory, Yang 2009) — with a parallel bypass track showing "AI Generation → Artifact" skipping all three steps; reader should see that the bypass isn't just pedagogically wrong, it's biologically empty] -->
+![The three-step neurobiological cascade rendered as a flow](images/06-the-measurement-layer-fig-02.png)
+*Figure 6.2 — The three-step neurobiological cascade rendered as a flow*
 
 ---
 
@@ -70,7 +72,11 @@ The measurement layer has seven components. Each one measures a different byprod
 
 **Y7 — Scaffolding Response Curve.** The performance gain produced by a partial structural hint, as a function of where the learner is in their developing understanding. A student in the zone of proximal development shows a large gain from a small hint; a student outside the zone shows no gain. Borrowed certainty produces near-zero response to the hint — the student needed the full answer, not a structural prompt. There was no underlying scaffold for the hint to engage. This signal and the hint-not-answer interaction design are the same thing: a well-designed hint differentiates between hint-responsive and hint-unresponsive learners. A poorly designed hint differentiates between nothing.
 
-<!-- → [TABLE: all seven GLP components in a reference table — columns: signal code (Y1–Y7), signal name, what it measures (one clause), genuine learning signature, borrowed certainty signature, instrumentation cost (low/medium/high), and first-deployment priority rank — reader should be able to use this as a one-page reference when the downstream chapters cite individual signals] -->
+| signal code (Y1–Y7) | signal name | what it measures (one clause) | genuine learning signature | borrowed certainty signature |
+| --- | --- | --- | --- | --- |
+| Core idea | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Practical use | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
+| Common failure | The pattern becomes easy to misuse or overlook. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -84,7 +90,8 @@ The errors are partially independent. Y1's confound — external interruption �
 
 The more important argument is about gaming cost. To produce a high composite GLP score by gaming, the gamer must manufacture all seven signals simultaneously. Manufacturing Y1 requires actually spending time on the difficult moves. Manufacturing Y2 requires producing wrong answers in the right misconception sequence — which requires having the misconception, which requires having attempted the problem. Manufacturing Y4 requires having the answer accuracy to calibrate against. The compositional gaming cost approaches the cognitive cost of doing the work. The system is not gaming-proof. It is gaming-expensive in a structural way that artifact-based detection cannot be. The cost of gaming the full ensemble approaches the cost of learning. A rational student finds genuine engagement competitive with gaming.
 
-<!-- → [INFOGRAPHIC: gaming cost vs. genuine learning cost for artifact-based detection vs. ensemble-based detection — left column: artifact detection (gaming cost: one paraphrase pass through a second model ≈ near zero; detection arms race converges to chance); right column: GLP ensemble (gaming cost: must manufacture all seven signals simultaneously; cost floor = cognitive work of genuine learning) — the visual argument is that the two columns are not on a spectrum; they are different cost structures entirely] -->
+![Gaming cost vs](images/06-the-measurement-layer-fig-03.png)
+*Figure 6.3 — Gaming cost vs*
 
 ---
 
@@ -98,7 +105,8 @@ A well-written AI explanation produces more perceptual fluency than a textbook c
 
 The empirical evidence is strong and converges across very different methodologies. Bastani et al. (2025, *PNAS* 122) showed students using unguarded GPT-4 during practice scored 48 percentage points higher than no-AI controls during practice — and 17 percentage points lower on the subsequent exam where AI was unavailable. A 65-point swing. Confidence rose with AI access; durable skill fell. Lee et al. (2025, CHI) showed 319 knowledge workers across 936 GenAI use cases: higher confidence in GenAI was associated with less critical thinking; higher self-confidence was associated with more. The directionality matches Bastani's objective-test finding via a completely different methodology.
 
-<!-- → [CHART: the Bastani 2025 65-point swing rendered as a bar chart — three groups: no-AI control, GPT Base (unguarded), GPT Tutor (constrained); two measurement points per group: during-practice performance and post-exam performance; the visual should make the performance/learning dissociation visceral — GPT Base bar soars during practice and collapses on exam; Tutor bar shows modest practice gain and modest exam gain; control bar is flat and honest throughout] -->
+![The Bastani 2025 65-point swing rendered as a](images/06-the-measurement-layer-fig-04.png)
+*Figure 6.4 — The Bastani 2025 65-point swing rendered as a*
 
 The measurement layer's claim: it can catch what the student cannot report. The student's subjective feeling of understanding is not in the GLP signal. The behavioral byproducts of having-actually-learned are in the GLP signal. The two diverge in the fluency trap. The platform can know what the student does not.
 
@@ -124,7 +132,8 @@ What the seven signals show:
 
 Composite GLP score: Student A is in the high-confidence, high-genuine-learning tier. Student B is in the low-confidence, low-genuine-learning tier. The artifact was indistinguishable. The measurement layer was not.
 
-<!-- → [INFOGRAPHIC: the two-student comparison rendered as a radar/spider chart — seven axes, one per Y1–Y7 signal, with Student A's polygon filled in and Student B's polygon collapsed toward zero on most axes; the identical artifact (the essay) shown above both charts with an equals sign between them; below each chart, the composite GLP score; reader should see at a glance that two identical artifacts can have completely different process signatures] -->
+![The two-student comparison rendered as a radar/spider chart](images/06-the-measurement-layer-fig-05.png)
+*Figure 6.5 — The two-student comparison rendered as a radar/spider chart*
 
 ---
 
@@ -155,3 +164,53 @@ A platform dashboard reports: total time on platform, pages viewed, quiz complet
 **Exercise 6.3 — Design a minimum viable measurement layer**
 
 Specify a minimum viable measurement layer for a single-subject intelligent textbook in a domain you know well. Ask an AI: "Help me identify the three GLP components that would give the most information about genuine learning in this subject, and what interaction designs they require." Evaluate the AI's reasoning — does it correctly identify the signal-to-noise tradeoffs? Then write your own specification: which three components you would prioritize, why, what threshold on the composite score would trigger an adaptive engine response, and one operational hazard — a confound or false-positive risk — your minimum viable layer creates that a fuller deployment would eventually mitigate.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 6.1 — Two-chain comparison 
+
+Create a standalone D3 v7 HTML file for Figure Two-chain comparison . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: two-chain comparison — left: the historic three-link chain "Genuine Learning → Cognitive Process → Artifact" with each link labeled and intact; right: the AI-bypass chain "AI Generation → Artifact" with the middle link absent and a visual break or bypass arrow — the missing link is the chapter's entire argument; caption should name it "the decoupling problem". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/06-the-measurement-layer-fig-01.html`
+
+---
+
+### Figure 6.2 — The three-step neurobiological cascade rendered as a flow
+
+Create a standalone D3 v7 HTML file for Figure The three-step neurobiological cascade rendered as a flow. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the three-step neurobiological cascade rendered as a flow — Step 1: prediction error (dopamine spike on gap between expected and received outcome, Schultz 1997) → Step 2: BDNF-mediated synaptic consolidation (labile trace → durable trace, hours to days, Lu/Christian/Lu 2008) → Step 3: dendritic spine formation (new stable spines as physical substrate of long-term memory, Yang 2009) — with a parallel bypass track showing "AI Generation → Artifact" skipping all three steps; reader should see that the bypass isn't just pedagogically wrong, it's biologically empty. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono 
+
+> Reference implementation: `d3/06-the-measurement-layer-fig-02.html`
+
+---
+
+### Figure 6.3 — Gaming cost vs
+
+Create a standalone D3 v7 HTML file for Figure Gaming cost vs. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: gaming cost vs. genuine learning cost for artifact-based detection vs. ensemble-based detection — left column: artifact detection (gaming cost: one paraphrase pass through a second model ≈ near zero; detection arms race converges to chance); right column: GLP ensemble (gaming cost: must manufacture all seven signals simultaneously; cost floor = cognitive work of genuine learning) — the visual argument is that the two columns are not on a spectrum; they are different cost structures entirely. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/06-the-measurement-layer-fig-03.html`
+
+---
+
+### Figure 6.4 — The Bastani 2025 65-point swing rendered as a
+
+Create a standalone D3 v7 HTML file for Figure The Bastani 2025 65-point swing rendered as a. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the Bastani 2025 65-point swing rendered as a bar chart — three groups: no-AI control, GPT Base (unguarded), GPT Tutor (constrained); two measurement points per group: during-practice performance and post-exam performance; the visual should make the performance/learning dissociation visceral — GPT Base bar soars during practice and collapses on exam; Tutor bar shows modest practice gain and modest exam gain; control bar is flat and honest throughout. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/06-the-measurement-layer-fig-04.html`
+
+---
+
+### Figure 6.5 — The two-student comparison rendered as a radar/spider chart
+
+Create a standalone D3 v7 HTML file for Figure The two-student comparison rendered as a radar/spider chart. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the two-student comparison rendered as a radar/spider chart — seven axes, one per Y1–Y7 signal, with Student A's polygon filled in and Student B's polygon collapsed toward zero on most axes; the identical artifact (the essay) shown above both charts with an equals sign between them; below each chart, the composite GLP score; reader should see at a glance that two identical artifacts can have completely different process signatures. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/06-the-measurement-layer-fig-05.html`

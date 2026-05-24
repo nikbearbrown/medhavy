@@ -2,7 +2,7 @@
 
 ### A design specification for the conductor era
 
-**Nik Bear Brown**
+**Humanitarians AI**
 
 *Bear Brown, LLC*
 
@@ -10,9 +10,9 @@
 
 ## Copyright
 
-Copyright © 2026 Nik Bear Brown. All rights reserved.
+Copyright © 2026 Humanitarians AI. All rights reserved.
 
-Published by Bear Brown, LLC.
+Published by Humanitarians AI.
 
 No part of this publication may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the publisher, except in the case of brief quotations in critical reviews and certain other noncommercial uses permitted by copyright law.
 
@@ -36,77 +36,64 @@ For permissions requests, write to the publisher at the email below.
 
 ## Preface
 
-I started building Medhavy because I could not get a clear answer to what I thought was a simple question.
+*What is this book? Why now? Why Humanitarians AI?*
 
-The question was this. I teach AI to engineers. The same engineers who, four years ago, were learning to use neural networks the way an electrical engineer learns to use a transistor — read the data sheet, study the failure modes, work the examples — are now learning to use language models the way you learn to play with a precocious child who is occasionally lying to you. The difference between those two postures is enormous. The pedagogy that worked for the first does not work for the second. And nobody — not the most experienced AI researcher I know, not the most committed EdTech vendor I have spoken to, not me — could give me a clear answer to *what works now*.
-
-What I could see, and what every working teacher with three years of post-LLM classroom experience could see, was that something had changed. The essays were different. The questions were different. The fluency of work that students had no business producing was different. What I could not see — what nobody could give me clean evidence on — was what to do.
-
-This book is what I built while I was trying to answer that question.
-
-I should be clear about what kind of answer it is. It is not a defense of any particular AI tool. It is not a critique of any particular EdTech vendor. It is not a manifesto. It is a design specification — the kind of document an engineer hands to another engineer when the engineer-on-the-receiving-end is going to build something that has to work. The specification names what an intelligent textbook would have to do, what evidence it would have to gather, what decisions it would have to make on the learner's behalf, and what it would have to disclose about all of that. The specification is opinionated where the evidence supports an opinion, agnostic where it does not, and explicit about the difference.
-
-The pace at which the underlying technology is changing makes this work hard. A book published in May of 2026 about generative AI in education will be partially obsolete by January of 2027. I have tried to write a book whose obsolete parts will be specific factual claims — *the model that was the state of the art when this paragraph was written* — and whose durable parts will be the architecture and the frame. The frame is what the title means by *intelligent textbook*. The architecture is what the rest of the book describes. The frame, I am betting, will outlast the specific tools.
-
-The book is written for two readers in the same room. The first is the domain expert with content and conviction — the Charles Fadel type, the curriculum designer with a coherent argument about what education is missing, the working teacher who has spent twenty years getting good at teaching her subject and wants to know what AI requires her to change. The second is the developer who got handed an API spec and is now responsible for building something the first reader will use. Those two readers do not, today, share a language. Half of my work in the past three years has been translating between them, in real time, on calls that should have taken thirty minutes and took three hours because the vocabulary was wrong.
-
-If this book does its job, those two readers will have the same conversation about the same decisions, in the same terms, on the first call. That is the deliverable.
-
-I want to acknowledge what the book is not.
-
-It is not a comprehensive review of the educational technology literature. The literature is real, and important, and the book cites it where it bears on a specific design decision. But the book is organized around what you would have to build if you took all the evidence seriously, not around a chronological survey of who said what when.
-
-It is not a Khan Academy book, nor an anti-Khan book. The book takes Khan's promise seriously and asks what it would actually require to deliver it. The chapter on the Khanmigo IDK-IDK pattern is honest about what the most ambitious AI-tutoring deployment in history has so far produced; the rest of the book is honest about what would have to be different. Sal Khan has done more for free access to educational content than almost anyone alive, and I want that on the record, even where my technical conclusions diverge from his.
-
-It is not an opposed-to-AI-in-education book. The opposition position is real, and Phil Horvath's *The Digital Delusion* is its sharpest current expression, and the book engages with it seriously — including in chapter 4, which is largely a critical reading of Horvath against the evidence Horvath himself cites. The book disagrees with Horvath about the scope of the conclusions the evidence supports. The book agrees with Horvath that the field has been confusing engagement with learning for fifteen years, and the book takes that confusion as the design problem to be solved.
-
-It is not, finally, a book about Medhavy the company. Medhavy is the illustrative platform that runs through the chapters because it is the platform I have access to as a designer; it is not the only architecture that could implement the specification the book describes. The book describes the architecture I think the evidence licenses. Where Medhavy implements that architecture, the book shows you what Medhavy does. Where Medhavy does not yet implement it, the book says so. The eight open questions in chapter 12 are not embarrassing gaps. They are the active research agenda the platform is running in the open, with student consent and visible results, because the platform's design commitment is that what it does not yet know is more important to disclose than to hide.
+This book is part of the **AI+1 series** — a curriculum published by Humanitarians AI, a 501(c)(3) nonprofit, and made available under the principle that graduate-level AI education should not require a graduate tuition bill to access. Every book in the series is free to read. Every book is written for a specific domain, by practitioners who have done the work, for people who are about to.
 
 ---
 
-The book's organizing claim is short enough to print on one card. The card is this:
+## What is this book?
 
-> **What is Medhavy?**
->
-> Not a feature. Not a product category. A frame.
->
-> Medhavy is a system that conducts other AI systems — each one a specialist, each one shaped by an instructor's vision, each one in service of a learner who chose to be here.
->
-> The conductor doesn't play the instruments. She decides which one plays, when, and for how long — based on evidence, not assumption. And she adjusts as the evidence changes.
->
-> She exists because the impact of AI on learning is obvious. The right implementation is not. Nobody knows yet. Medhavy doesn't pretend to. It runs the experiment.
->
-> **The frame that runs every decision** — every feature, every bot, every content rule — is measured against three questions, in this order. The order is not arbitrary. The order is the argument.
->
-> **The learner comes first.** Does this genuinely help the person doing the learning? Not the institution that purchased the platform, not the instructor who built the course — the human sitting with the material, trying to understand something. If learners don't want to use it, or only use it because they're required to, the platform has failed. Full stop.
->
-> **The instructor comes second.** Does this make it easier for the instructor to build what they actually want to build? Not a compromise with a rigid template, but a learning experience that reflects their real pedagogical vision. The easier it is to create something genuinely useful, the more they will create.
->
-> **The organization comes third.** Institutional constraints are real — compliance, branding, data governance, accreditation. They need to be easy to configure. But an organization that forces a platform on instructors who resent it and learners who resist it has solved the wrong problem.
->
-> **Experiment is the product.** The impact of AI on learning is obvious. What to do about it isn't. The tools are changing faster than any curriculum can track, and what works today may not work six months from now because the underlying technology has changed.
->
-> Medhavy doesn't pick a model and defend it. It runs a continuously controlled experiment — on each learner, on each teaching approach, and on the AI itself as it evolves.
->
-> *What's actually improving learning outcomes? What just feels impressive?*
->
-> The experiment runs on both questions at once, and the results are visible to instructors, to institutions, to anyone who wants to look.
->
-> **Without transparency, there is no trust. Without trust, there is no learning.**
->
-> *Medhavy — the AI. Come learn something.*
+[BOOK-SPECIFIC: one paragraph stating the book's exact scope and the discipline it serves. Name what the reader will be able to do that they cannot do now. Name what the book does *not* cover.]
 
-That card is the frame. The chapters are what the frame requires.
-
-A note on the byline. The book is written in the first person. The first person is mine. The conclusions are mine. Where I have changed my mind during writing — and there are several places — the prior view and the reason for the revision are named in the chapter where the revision happened. Where I am uncertain, I have tried to say so in the same sentence as the claim, not in a footnote where the reader is unlikely to find it. The book's epistemic posture is the one I would want from a writer I trusted on a topic where the evidence is moving faster than the writing.
-
-The book takes seriously that you may not be reading it cover to cover. Chapter 1 is what Medhavy is. Chapter 2 is what an intelligent textbook is. Chapters 3 and 4 are the calibration — when the simple answer is right, and what the evidence base licenses. Chapters 5 through 11 are the architecture, layer by layer. Chapter 12 is what the platform does not yet know. Chapter 13 is the design conversation that produces the specification a developer can build from. The introduction tells you which chapters can be skipped, in which order, and at what cost.
-
-What I want from you, the reader, is the willingness to hold one frame in your head long enough to read the book through it. The frame is on the card above. If you cannot live with the order of the three questions, the rest of the book will not land. If you can, you will, by the end, hold a design map you can use to build something, audit something, or defend something against a vendor who is selling you the wrong thing.
-
-That is what this book exists to do.
-
-— Nik Bear Brown
-Boston, May 2026
+The organizing frame is the AI+1 argument: you do not need to leave your field to work at the frontier. You need to add the layer of capability your field now requires — the judgment layer, the supervision layer, the reasoning layer that AI cannot perform and that your domain expertise uniquely equips you to hold. This book renders that argument for [DOMAIN].
 
 ---
+
+## The Series
+
+Every book in the AI+1 series asks the same question in a different domain: *what does a [domain professional] with AI superpowers actually know how to do?*
+
+The answer is never "write better prompts." It is always a precise account of where human cognition is irreplaceable in that domain — and what it looks like to build and exercise that capacity in practice.
+
+The series draws on the **Irreducibly Human** taxonomy, which organizes human cognitive capacities into seven tiers, from pattern recognition (where machines are already superhuman) to practical wisdom under genuine stakes (where machines are absent by definition). The books do not make this taxonomy explicit in every chapter. It is the architecture the curriculum is built on, not the subject it teaches.
+
+The full taxonomy, the series index, and free digital versions of every book are maintained at [irreducibly.xyz](https://irreducibly.xyz).
+
+---
+
+## Why now
+
+[BOOK-SPECIFIC: one to two paragraphs on the specific urgency in this domain. What is breaking, accelerating, or newly possible in [DOMAIN] because of AI? What is the harm being done right now by the absence of the capability this book teaches?]
+
+The general answer is always the same: AI systems are being deployed faster than the institutions deploying them can evaluate them. The professionals most affected are often the least equipped — not because they are unsophisticated, but because their training was built for a world where the execution layer and the judgment layer lived in the same person. That world is ending. This book is for the transition.
+
+---
+
+## Why Humanitarians AI?
+
+Humanitarians AI is a 501(c)(3) bridge education program. It connects international graduates on OPT with real projects, experienced mentors, and a framework for developing the capacities the AI era most urgently requires — and that most education has never taught. That framework is called Irreducibly Human.
+
+The books in this series are produced using **AI+1**, a software system built by Nik Bear Brown, Associate Teaching Professor in Engineering at Northeastern University, that allows domain-specific textbooks to be written at production scale without sacrificing depth or precision. AI+1 does not generate books. It enables a structured collaborative process in which human judgment — about what matters in a domain, what AI gets wrong in it, and what practitioners actually need to know — is the input, and a rigorously authored book is the output. The system is itself an instantiation of the argument every book in the series makes: AI handles the execution layer, humans supply the judgment layer, and the boundary between them is explicit by design.
+
+Nik Bear Brown's doctorate is in computer science from UCLA, with a major field in computational and systems biology and minor fields in artificial intelligence and statistics. He completed a postdoctoral fellowship in Computational Neurology at Harvard Medical School while teaching at Northeastern. He holds a Master's in Information Design and Data Visualization and an MBA, both from Northeastern, and has taught artificial intelligence, statistics, applied mathematics, and a range of technical and design subjects at Northeastern, UCLA, Santa Monica College, ITT, and the Art Institutes Hollywood. He founded Humanitarians AI in 2019.
+
+The nonprofit was founded on the observation that the most consequential AI failures are not engineering failures — they are judgment failures. The algorithm ran. Nobody was conducting it. Humanitarians AI exists to build the conductors.
+
+[BOOK-SPECIFIC CONTRIBUTOR PARAGRAPH: one paragraph naming the domain expert(s) who supplied the field knowledge this rendering required. This paragraph changes with each book.]
+
+Course materials, slide decks, and assignment scaffolds for courses using this book are available at [bearbrown.co](https://www.bearbrown.co/).
+
+---
+
+## A note on how Humanitarians AI is funded
+
+This book is free because the nonprofit's operating revenue comes from workshop contracts, university licensing, and platform subscriptions — not from the cover price of a textbook. Making the books free is not charity. It is the model.
+
+If your organization wants to run an AI+1 workshop — a half-day, a full day, or a multi-session engagement that delivers the domain-specific capability this book teaches — contact Humanitarians AI at [humanitarians.ai](https://www.humanitarians.ai/). The workshop is where the book becomes practice. The book is what lets the practice stick.
+
+---
+
+*Humanitarians AI*  
+*Boston, Massachusetts*  
+*2026*

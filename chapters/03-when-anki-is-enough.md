@@ -48,7 +48,8 @@ If composite — "demonstrate clinical reasoning under diagnostic ambiguity wher
 
 The decision rule is simple: deploy the full architecture when all three answers are yes. When any one is no, reach for simpler tools.
 
-<!-- → [INFOGRAPHIC: the three-question complexity threshold test rendered as a decision flowchart — Q1 → Q2 → Q3, each with yes/no branches; any "no" exits to "simpler tools sufficient" with examples (Anki, Kindle, volunteer); all three "yes" exits to "full four-layer architecture"; the conjunctive logic should be visually obvious — this is the diagnostic the reader will return to repeatedly] -->
+![The three-question complexity threshold test rendered as a](images/03-when-anki-is-enough-fig-01.png)
+*Figure 3.1 — The three-question complexity threshold test rendered as a*
 
 ---
 
@@ -64,7 +65,8 @@ All three answers are no. Anki is enough.
 
 The right tool for Priya is a frequency-ordered Anki deck of 500 BPO-functional words, run daily on her phone before breakfast and again on the bus, with a Humanitarians AI volunteer doing the irreducibly human work the deck cannot encode. Zero dollars of platform spend.
 
-<!-- → [IMAGE: Priya's complete tool stack rendered as a simple diagram — Anki deck (labeled: frequency-ordered, 500 BPO words, daily retrieval practice) + Kindle book (labeled: Homes of Hope Plus One) + Zoom volunteer call (labeled: 45 min/week, Humanitarians AI, PCK carrier) — total cost: $0 platform spend; the point is how small and legible the right answer is] -->
+![Priya's complete tool stack rendered as a simple](images/03-when-anki-is-enough-fig-02.png)
+*Figure 3.2 — Priya's complete tool stack rendered as a simple*
 
 ---
 
@@ -80,7 +82,8 @@ I want to be careful here. Saying "Anki is enough" is not the same as saying "so
 
 These three mechanisms explain why Anki produces real learning for vocabulary acquisition. The recommendation is not "use something cheap." It is "use the tool that activates the right mechanisms for this structure of problem." Those happen to overlap here. They do not always overlap.
 
-<!-- → [CHART: three-panel summary of the evidence for each mechanism — Mechanism 1: bar chart showing Roediger & Karpicke 2006 recall at 5 min vs. 1 week for study-only vs. retrieval-practice groups (the reversal is the point); Mechanism 2: curve showing retention decay with massed vs. spaced practice intervals from Cepeda 2006; Mechanism 3: schematic of the Zeigarnik due-today counter as a habit-loop trigger — cue, routine, reward labeled] -->
+![Summary of the evidence for each mechanism ](images/03-when-anki-is-enough-fig-03.png)
+*Figure 3.3 — Summary of the evidence for each mechanism *
 
 ---
 
@@ -96,7 +99,8 @@ Anki does the retrieval practice. The Humanitarians AI volunteer does the work A
 
 The Bastani 2025 finding from Chapter 1 is the empirical confirmation of why this matters. The GPT Tutor wrapper — teacher-designed hints, no answer-giving — preserved learning. The GPT Base wrapper — raw chat, helpfulness-default — destroyed it. The Tutor wrapper encoded the teacher's pedagogical judgment. The Base wrapper had no judgment to encode. For Priya, Anki is the GPT Tutor wrapper for vocabulary — constrained, retrieval-anchored, low-temperature. The volunteer is the pedagogical judgment Anki cannot encode. Human and AI, not human versus AI.
 
-<!-- → [DIAGRAM: the Anki + volunteer system as a division-of-labor map — two columns: "What Anki does" (retrieval practice, spaced scheduling, habit loop, scalable deck distribution) vs. "What the volunteer does" (register modeling, local PCK, relational signal, responsive pacing) — with a clear label at the bottom: "Neither column works without the other"] -->
+![The Anki + volunteer system as a division-of-labor](images/03-when-anki-is-enough-fig-04.png)
+*Figure 3.4 — The Anki + volunteer system as a division-of-labor*
 
 ---
 
@@ -137,7 +141,8 @@ The worked version of the comparison, fully laid out:
 
 Notice the bottom rows. For Priya, "upgrading" to the full architecture has a real cost — and not the obvious one. The obvious cost is the platform fee. The non-obvious cost is the displacement of the volunteer relationship. If you swap the Humanitarians AI volunteer for a chatbot tutor, the chatbot will not say: *I came from a residence in Pune. Here is what they will ask.* The chatbot will produce GPT Base behavior in the Bastani sense. Net effect: cost up, durable learning down.
 
-<!-- → [INFOGRAPHIC: cost-benefit breakdown of "upgrading" Priya to the full platform — two columns: "Obvious cost" ($24,000/year platform fee, labeled) vs. "Non-obvious cost" (displacement of volunteer relationship → GPT Base behavior → durable learning loss, with Bastani 2025 finding cited); the visual should make the non-obvious cost feel larger and more structural than the obvious one] -->
+![Cost-benefit breakdown of "upgrading" Priya to the full](images/03-when-anki-is-enough-fig-05.png)
+*Figure 3.5 — Cost-benefit breakdown of "upgrading" Priya to the full*
 
 ---
 
@@ -151,7 +156,8 @@ The PISA 2022 finding is real and important: students who spend five to seven ho
 
 Conflating them is a category error. Judging the scalpel's potential by observing its average misuse. The hardware is not the variable. The wrapper is the variable.
 
-<!-- → [INFOGRAPHIC: the same smartphone shown in two contexts — left: "11 pm, TikTok, leisure, saturating dosage" (labeled with PISA 2022 finding: −49 math points at 5–7 hrs/day leisure use); right: "7 am, Anki, low-dosage, retrieval-anchored, human-supported" (labeled: Priya's context) — caption: "Same hardware. Different wrapper. Different outcome."] -->
+![Same hardware. Different wrapper. Different outcome.](images/03-when-anki-is-enough-fig-06.png)
+*Figure 3.6 — The same smartphone shown in two contexts *
 
 ---
 
@@ -208,3 +214,61 @@ Ask an AI: "Help me build the argument against this purchase." Then write a 600-
 The chapter argues that vocabulary acquisition for vocational English is clearly a simpler-tools problem. Construct a thought experiment: what would have to change about Priya's learning problem to make the full four-layer architecture the right answer?
 
 Ask an AI: "What is the single most economical modification to Priya's problem that flips the complexity threshold test to all-three-yes?" Evaluate the AI's answer. Then write your own 500-word analysis identifying the modification, defending why it is necessary and sufficient, and identifying which of the three test questions is hardest to flip and why.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 3.1 — The three-question complexity threshold test rendered as a
+
+Create a standalone D3 v7 HTML file for Figure The three-question complexity threshold test rendered as a. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the three-question complexity threshold test rendered as a decision flowchart — Q1 → Q2 → Q3, each with yes/no branches; any "no" exits to "simpler tools sufficient" with examples (Anki, Kindle, volunteer); all three "yes" exits to "full four-layer architecture"; the conjunctive logic should be visually obvious — this is the diagnostic the reader will return to repeatedly. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-01.html`
+
+---
+
+### Figure 3.2 — Priya's complete tool stack rendered as a simple
+
+Create a standalone D3 v7 HTML file for Figure Priya's complete tool stack rendered as a simple. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Priya's complete tool stack rendered as a simple diagram — Anki deck (labeled: frequency-ordered, 500 BPO words, daily retrieval practice) + Kindle book (labeled: Homes of Hope Plus One) + Zoom volunteer call (labeled: 45 min/week, Humanitarians AI, PCK carrier) — total cost: $0 platform spend; the point is how small and legible the right answer is. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-02.html`
+
+---
+
+### Figure 3.3 — Summary of the evidence for each mechanism 
+
+Create a standalone D3 v7 HTML file for Figure Summary of the evidence for each mechanism . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: three-panel summary of the evidence for each mechanism — Mechanism 1: bar chart showing Roediger & Karpicke 2006 recall at 5 min vs. 1 week for study-only vs. retrieval-practice groups (the reversal is the point); Mechanism 2: curve showing retention decay with massed vs. spaced practice intervals from Cepeda 2006; Mechanism 3: schematic of the Zeigarnik due-today counter as a habit-loop trigger — cue, routine, reward labeled. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-03.html`
+
+---
+
+### Figure 3.4 — The Anki + volunteer system as a division-of-labor
+
+Create a standalone D3 v7 HTML file for Figure The Anki + volunteer system as a division-of-labor. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the Anki + volunteer system as a division-of-labor map — two columns: "What Anki does" (retrieval practice, spaced scheduling, habit loop, scalable deck distribution) vs. "What the volunteer does" (register modeling, local PCK, relational signal, responsive pacing) — with a clear label at the bottom: "Neither column works without the other". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-04.html`
+
+---
+
+### Figure 3.5 — Cost-benefit breakdown of "upgrading" Priya to the full
+
+Create a standalone D3 v7 HTML file for Figure Cost-benefit breakdown of "upgrading" Priya to the full. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: cost-benefit breakdown of "upgrading" Priya to the full platform — two columns: "Obvious cost" ($24,000/year platform fee, labeled) vs. "Non-obvious cost" (displacement of volunteer relationship → GPT Base behavior → durable learning loss, with Bastani 2025 finding cited); the visual should make the non-obvious cost feel larger and more structural than the obvious one. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-05.html`
+
+---
+
+### Figure 3.6 — The same smartphone shown in two contexts 
+
+Create a standalone D3 v7 HTML file for Figure The same smartphone shown in two contexts . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the same smartphone shown in two contexts — left: "11 pm, TikTok, leisure, saturating dosage" (labeled with PISA 2022 finding: −49 math points at 5–7 hrs/day leisure use); right: "7 am, Anki, low-dosage, retrieval-anchored, human-supported" (labeled: Priya's context) — caption: "Same hardware. Different wrapper. Different outcome.". Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/03-when-anki-is-enough-fig-06.html`

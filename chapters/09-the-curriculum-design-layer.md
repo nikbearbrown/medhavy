@@ -34,7 +34,9 @@ Before getting to the methodology, I want to be precise about what specifically 
 
 In each case, the missing curriculum-layer specification does not crash the engine. It silently degrades the engine's learning. The platform looks adaptive. What it is doing is rediscovering, slowly and noisily, what the curriculum designer could have stated cleanly up front.
 
-<!-- → [TABLE: four-row reference table — row per bandit component (Arms, Reward, Context, Exploration constraints); columns: component name, what the curriculum layer must supply, what happens when it's missing, cost of the omission — reader should see the four silent degradation paths side by side and understand that none of them crash the engine, all of them waste sessions] -->
+| component name | what the curriculum layer must supply | what happens when it's missing | cost of the omission — reader should see the four silent degradation paths side by side | understand that none of them crash the engine |
+| --- | --- | --- | --- | --- |
+| row per bandit component (Arms, Reward, Context, Exploration constraints | Use the chapter example as the concrete test case. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. | A concrete checkpoint for applying the chapter concept. |
 
 ---
 
@@ -50,7 +52,8 @@ Two pieces of vocabulary the chapter will use.
 
 *Bloom's revised taxonomy* — the 2001 revision by Anderson and Krathwohl of Bloom's 1956 hierarchy — orders cognitive operations as: Remember, Understand, Apply, Analyze, Evaluate, Create. The revision changed the nouns to gerunds, swapped the top two levels (Create now caps the hierarchy), and added a two-dimensional structure of cognitive process crossed with knowledge type. The 2001 verbs are what current curriculum work uses; the original 1956 nouns are a different document.
 
-<!-- → [INFOGRAPHIC: the revised Bloom's taxonomy as a two-column comparison — left: the 1956 original six levels as nouns (Knowledge, Comprehension, Application, Analysis, Synthesis, Evaluation) with Evaluation at top; right: the 2001 revised six levels as gerunds (Remember, Understand, Apply, Analyze, Evaluate, Create) with Create at top; arrows showing the two swaps: nouns→gerunds and Synthesis/Evaluation inversion; below each level, one example verb and one example outcome statement — reader should be able to use this as a quick reference for the rest of the chapter] -->
+![The revised Bloom's taxonomy as a two-column comparison](images/09-the-curriculum-design-layer-fig-01.png)
+*Figure 9.1 — The revised Bloom's taxonomy as a two-column comparison*
 
 *Mode-appropriateness flags* are the bits of the concept map that tell the engine which modes can sensibly be offered for a given concept at a given Bloom level. Quiz Me is approved for substrate-table recall at Remember level. Glimmer is not approved for that same level. Case Study is approved for the Apply-level outcome where the student predicts an interaction. The flags are the curriculum designer's judgment about pedagogical fit. The engine does not have that judgment. The curriculum designer does.
 
@@ -87,7 +90,8 @@ Here is the default Bloom-to-mode mapping. Treat it as a starting point, not a r
 
 *Asterisks mark debated calls where concept-specific context often drives the override.*
 
-<!-- → [DIAGRAM: the concept map node as a data structure — one pharmacology example node ("Rate-limiting role of CYP3A4 in clinical drug interactions") rendered with all six required fields labeled: concept node name, prerequisite edges (arrows to upstream nodes), Bloom level tag, mode-appropriateness flags (four checkboxes), outcome statements (two bullet verbs), assessment evidence specification (one Quiz Me template, one Case Study rubric stub) — reader sees what a complete node looks like vs. a bare chapter title] -->
+![The concept map node as a data structure](images/09-the-curriculum-design-layer-fig-02.png)
+*Figure 9.2 — The concept map node as a data structure*
 
 One more element: phase gates. The gate is the rule that says "Quiz Me is locked on this concept until the section has been read; Glimmer is locked until Quiz Me retrievability is above threshold; Case Study is locked until prerequisites are mastered." The gate's mechanism lives in the mode layer. The gate's threshold lives in the curriculum layer — because the threshold is a judgment about prerequisite cognitive state, and prerequisite cognitive state is what the curriculum designer is supposed to be expert in.
 
@@ -111,7 +115,8 @@ A specific example: a student fails warfarin-dosing case studies. The chapter on
 
 The diagnostic procedure: if GLP signals are noisy or absent, suspect the measurement layer first. If the signals are clean and the engine has converged on a single mode that is not producing gain, suspect mode-fit. If signals are clean, modes have been explored, and no mode produces learning gain, suspect curriculum design or content. Distinguish those last two by inspecting the prerequisite trace. If the student is failing only downstream of a specific concept that no upstream node points to, there is a prerequisite gap. If the student is failing across multiple concepts that share content provenance, there is a content problem.
 
-<!-- → [DIAGRAM: failure-mode diagnostic flowchart — starting question: "Student is failing a concept"; branch 1: GLP signals noisy/absent → suspect Measurement Layer; branch 2: signals clean, engine stuck on one mode → suspect Mode-fit; branch 3: signals clean, all modes explored, no gain → second branch: failing downstream of one gap node? → yes = Prerequisite Gap (Curriculum Design); failing across multiple concepts with shared content source? → yes = Content Layer — reader should be able to use this as a literal diagnostic tool when reading deployment logs] -->
+![Failure-mode diagnostic flowchart ](images/09-the-curriculum-design-layer-fig-03.png)
+*Figure 9.3 — Failure-mode diagnostic flowchart *
 
 ---
 
@@ -139,7 +144,8 @@ The claim is not that this is *the* canonical Tic TOC session. Other domains wil
 
 One more thing about Tic TOC: it uses LLM assistance. The discipline is not "no LLM." It is "LLM scaffolds, human judges, output is a specification not a list." The LLM produces candidate concepts, candidate outcomes, candidate prerequisite edges. The curriculum designer accepts, rejects, refines each candidate. The output contains only human-judged elements. This is the same boundary the book argues for at the content layer in Chapter 10. The boundary is stated consistently across chapters because the argument is the same.
 
-<!-- → [DIAGRAM: Tic TOC session flow as a loop — three stages shown as phases: (1) Structured Intake (who is the learner, complexity threshold, four-layer spec, open bets); (2) Specification Output (concept map with all six required fields); (3) LLM-scaffold / Human-judge boundary (LLM produces candidates → curriculum designer accepts/rejects/refines → specification contains only judged elements); arrow from stage 3 back into the engine as the concept map the bandit reads — the diagram should make visible that the session is a loop, not a one-shot prompt] -->
+![Tic TOC session flow as a loop ](images/09-the-curriculum-design-layer-fig-04.png)
+*Figure 9.4 — Tic TOC session flow as a loop *
 
 ---
 
@@ -161,7 +167,8 @@ Chapter title: Predicting CYP3A4-Mediated Clinical Interactions. Outcome stateme
 
 Prerequisite dependencies: within pharmacology, CYP3A4 substrate specificity (Apply-level) and therapeutic index of warfarin (Understand-level). Cross-discipline: vitamin K cycle biochemistry (Apply-level, biochemistry textbook) and albumin binding and free-drug pharmacology (Understand-level, physiology). The cross-discipline edges are encoded. The graph is not a chain.
 
-<!-- → [DIAGRAM: the Version B prerequisite DAG — nodes for: CYP3A4 substrate specificity, therapeutic index of warfarin, vitamin K cycle biochemistry, albumin binding/free-drug pharmacology, and the focal node (Predicting CYP3A4-Mediated Clinical Interactions); directed edges from each prerequisite to the focal node; cross-discipline edges (vitamin K, albumin binding) drawn in a different color or style to make visible that they cross the pharmacology boundary; compare this to the Version A "chain" (Drug Absorption → Drug Metabolism) in a small inset — the contrast between chain and DAG is the argument] -->
+![The Version B prerequisite DAG ](images/09-the-curriculum-design-layer-fig-05.png)
+*Figure 9.5 — The Version B prerequisite DAG *
 
 Mode flags: Quiz Me yes for substrate facts and INR-direction recall. Ask AI yes for prerequisite rescue — the student who has forgotten the vitamin K cycle can request a clarification. Case Study yes for application of the mechanism to clinical scenarios. Glimmer yes at the Analyze extension for novel patient-design scenarios where the student constructs the scenario.
 
@@ -192,3 +199,53 @@ Three things the platform learns from this chapter that it does not learn from a
 *The concept map is a bet, not a document.* Every prerequisite edge, every outcome statement, is a falsifiable prediction about what learners need and in what order. When the deployment data shows that students are failing Concept 7 because of an unspecified upstream gap, the conductor revises the prerequisite graph. The curriculum is not handed down from authority; it is held openly, tested against learner trajectories, and updated as the evidence accumulates.
 
 That is the experiment-as-product posture from Chapter 1, applied one layer deeper. The concept map is the platform's working theory of the subject. The deployment is the test of the theory. The revisions are the science.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 9.1 — The revised Bloom's taxonomy as a two-column comparison
+
+Create a standalone D3 v7 HTML file for Figure The revised Bloom's taxonomy as a two-column comparison. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the revised Bloom's taxonomy as a two-column comparison — left: the 1956 original six levels as nouns (Knowledge, Comprehension, Application, Analysis, Synthesis, Evaluation) with Evaluation at top; right: the 2001 revised six levels as gerunds (Remember, Understand, Apply, Analyze, Evaluate, Create) with Create at top; arrows showing the two swaps: nouns→gerunds and Synthesis/Evaluation inversion; below each level, one example verb and one example outcome statement — reader should be able to use this as a quick reference for the rest of the chapter. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/09-the-curriculum-design-layer-fig-01.html`
+
+---
+
+### Figure 9.2 — The concept map node as a data structure
+
+Create a standalone D3 v7 HTML file for Figure The concept map node as a data structure. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the concept map node as a data structure — one pharmacology example node ("Rate-limiting role of CYP3A4 in clinical drug interactions") rendered with all six required fields labeled: concept node name, prerequisite edges (arrows to upstream nodes), Bloom level tag, mode-appropriateness flags (four checkboxes), outcome statements (two bullet verbs), assessment evidence specification (one Quiz Me template, one Case Study rubric stub) — reader sees what a complete node looks like vs. a bare chapter title. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/09-the-curriculum-design-layer-fig-02.html`
+
+---
+
+### Figure 9.3 — Failure-mode diagnostic flowchart 
+
+Create a standalone D3 v7 HTML file for Figure Failure-mode diagnostic flowchart . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: failure-mode diagnostic flowchart — starting question: "Student is failing a concept"; branch 1: GLP signals noisy/absent → suspect Measurement Layer; branch 2: signals clean, engine stuck on one mode → suspect Mode-fit; branch 3: signals clean, all modes explored, no gain → second branch: failing downstream of one gap node? → yes = Prerequisite Gap (Curriculum Design); failing across multiple concepts with shared content source? → yes = Content Layer — reader should be able to use this as a literal diagnostic tool when reading deployment logs. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/09-the-curriculum-design-layer-fig-03.html`
+
+---
+
+### Figure 9.4 — Tic TOC session flow as a loop 
+
+Create a standalone D3 v7 HTML file for Figure Tic TOC session flow as a loop . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Tic TOC session flow as a loop — three stages shown as phases: (1) Structured Intake (who is the learner, complexity threshold, four-layer spec, open bets); (2) Specification Output (concept map with all six required fields); (3) LLM-scaffold / Human-judge boundary (LLM produces candidates → curriculum designer accepts/rejects/refines → specification contains only judged elements); arrow from stage 3 back into the engine as the concept map the bandit reads — the diagram should make visible that the session is a loop, not a one-shot prompt. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/09-the-curriculum-design-layer-fig-04.html`
+
+---
+
+### Figure 9.5 — The Version B prerequisite DAG 
+
+Create a standalone D3 v7 HTML file for Figure The Version B prerequisite DAG . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the Version B prerequisite DAG — nodes for: CYP3A4 substrate specificity, therapeutic index of warfarin, vitamin K cycle biochemistry, albumin binding/free-drug pharmacology, and the focal node (Predicting CYP3A4-Mediated Clinical Interactions); directed edges from each prerequisite to the focal node; cross-discipline edges (vitamin K, albumin binding) drawn in a different color or style to make visible that they cross the pharmacology boundary; compare this to the Version A "chain" (Drug Absorption → Drug Metabolism) in a small inset — the contrast between chain and DAG is the argument. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono
+
+> Reference implementation: `d3/09-the-curriculum-design-layer-fig-05.html`

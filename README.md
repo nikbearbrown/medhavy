@@ -2,7 +2,7 @@
 
 ### A design specification for the conductor era
 
-**Author:** Nik Bear Brown · ni.brown@neu.edu
+**Author:** Humanitarians AI · ni.brown@neu.edu
 **Publisher:** Bear Brown, LLC
 **Format:** Kindle / KDP ($1 / Kindle Unlimited) + EPUB (direct distribution) + tight integration with [Medhavy](https://www.medhavy.com/)
 **First edition:** 2026

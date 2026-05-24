@@ -30,7 +30,8 @@ The second is the generative-AI literature from 2024 to 2025. I described the Ba
 
 The pattern is bimodal. Unguarded AI produces negative durable outcomes. Pedagogically designed AI produces outcomes in the upper range of the ITS literature. The same technology, opposite results, depending entirely on what the wrapper tells the model to do.
 
-<!-- → [DIAGRAM: Two-column split — left column "Unguarded wrapper (GPT Base)": in-session performance +48%, durable exam outcome –17 percentage points, verdict: fluency without learning. Right column "Designed wrapper (GPT Tutor)": in-session performance +127%, durable exam outcome ~0 (null), verdict: learning preserved. A dividing label between columns: "Same GPT-4 underneath both." Reader must see the bimodal outcome in a single glance to understand why the wrapper is the design unit, not the model.] -->
+![Two-column split ](images/07-the-four-modes-fig-01.png)
+*Figure 7.1 — Two-column split *
 
 Ask AI in Medhavy bets on the second pattern.
 
@@ -38,7 +39,9 @@ The context-anchoring design is the load-bearing mechanism. The candidate contex
 
 The Medhavy discipline: inject the current paragraph unconditionally; inject specific prerequisites on demand, retrieved against the prerequisites graph; avoid full-chapter dumps unless the question genuinely requires cross-section synthesis; place high-value context at the beginning and end; treat student state as a structured summary, not a transcript.
 
-<!-- → [TABLE: Context-anchoring tiers — rows ranked cheapest to most expensive: section title only / current paragraph / chapter to this point / prerequisites graph (RAG) / student state summary / full book. Columns: cost, coherence benefit, "lost in the middle" risk, Medhavy deployment decision. The "current paragraph" row marked as unconditional default; "full book" row flagged red for lost-in-the-middle degradation risk. Reader should see the trade-off that makes "more context" wrong as a general heuristic.] -->
+| cost | coherence benefit | lost in the middle" risk | Medhavy deployment decision |
+| --- | --- | --- | --- |
+| Context-anchoring tiers | rows ranked cheapest to most expensive: section title only | current paragraph | chapter to this point |
 
 I want to flag one honest gap. The literature has not yet separated context-anchoring from hint-not-answer discipline as independent variables. Bastani's GPT Tutor result bundled teacher-designed hints with instructions to withhold answers. Medhavy bundles them too. An A/B inside the platform that varied one while holding the other constant could be a publishable result. It is Chapter 11's open question, not a settled design choice.
 
@@ -76,7 +79,8 @@ The three threads, kept separate:
 
 Here is the honest limit: *"FSRS produces better scheduling"* is established. *"FSRS produces better learning"* is a reasonable bet from the better-scheduling claim, not a directly demonstrated RCT finding. The three should not be collapsed. Chapter 11 flags this as an open question.
 
-<!-- → [INFOGRAPHIC: Three-tier vertical stack — top tier "Mechanism: Retrieval Practice" with key citations and effect sizes (Roediger & Karpicke 2006, Adesope 2017 meta g=0.51–0.93, Pan & Rickard 2018 transfer d=0.40); middle tier "Scheduling Principle: Spacing" (Cepeda 2006 meta 839 assessments, Cepeda 2008 350-day persistence); bottom tier "Implementation: FSRS/SM-2" (internal benchmark only — 20–30% fewer reviews, ±5.3% error). A clear label on the bottom tier: "Scheduling evidence ≠ learning-outcome evidence." Reader should see immediately which claims have RCT backing and which are algorithmic benchmarks — and understand why a vendor citing FSRS is not citing the same level of evidence as Roediger & Karpicke.] -->
+![Three-tier vertical stack ](images/07-the-four-modes-fig-02.png)
+*Figure 7.2 — Three-tier vertical stack *
 
 ---
 
@@ -104,7 +108,8 @@ The failure is predictable. Sixty percent of students abandoning an ill-structur
 
 The design response is backwards-faded scaffolding, from Atkinson, Renkl, and Merrill 2003.[^18] The idea: present the problem initially with all steps worked out. The student studies the worked solution. Later versions of similar problems are presented with the *last step missing*, requiring the student to complete it. Then the *last two steps* missing. And so on, with the scaffolding fading from the back of the solution toward the front. By the time the student is solving from scratch, they have built the framework by working backwards from the end state. Each fading step asks the student to perform exactly one new cognitive operation in a context where every other operation is already supported. Cognitive load is bounded. The anxiety failure is prevented because the student is never asked to perform an operation they have no scaffold for.
 
-<!-- → [DIAGRAM: Horizontal sequence of five Glimmer sessions — Session 1: fully worked example (all steps shown, student evaluates); Session 2: last step missing (student completes); Session 3: last two steps missing; Session 4: last three steps missing; Session 5: student works from scratch. Each session shows which cognitive operations are supported (shaded) vs. new (highlighted). A label underneath: "Each session adds exactly one new unsupported operation." The anxiety failure mode annotated with an arrow pointing at what would happen if Session 5 came first. Reader should see the fading logic as a design constraint, not a pacing convenience.] -->
+![Horizontal sequence of five Glimmer sessions ](images/07-the-four-modes-fig-03.png)
+*Figure 7.3 — Horizontal sequence of five Glimmer sessions *
 
 Renkl on worked examples more broadly: worked examples produce reliably stronger learning than equivalent time on problem-solving alone, particularly for novices, with typical effect sizes of 0.5–1.0 standard deviations on near-transfer.[^19]
 
@@ -128,7 +133,8 @@ The chapter's structural argument is that phase gates are not pedagogical decisi
 
 The phase-gate framework is a closed loop. The signal from the measurement layer informs the mode-selection decision. The mode selection generates the learning interaction. The learning interaction produces a new signal. The next decision uses the updated signal.
 
-<!-- → [DIAGRAM: Closed-loop cycle with four nodes — (1) Measurement layer produces signal; (2) Phase gate checks signal against threshold; (3) Mode selected and learning interaction occurs; (4) Interaction produces new signal → back to (1). Four mode branches shown leaving node 3: Ask AI (always available, bounded by prerequisites graph); Quiz Me (gated on reading-engagement signal); Case Study (gated on cross-context transfer + retrieval strength); Glimmer (gated on scaffolding-response signal). Each gate annotated with its specific signal and what failure it prevents. Reader should see the system as a feedback loop, not as a decision tree that terminates.] -->
+![Closed-loop cycle with four nodes ](images/07-the-four-modes-fig-04.png)
+*Figure 7.4 — Closed-loop cycle with four nodes *
 
 This is what makes the four modes a system rather than a menu. A menu lets the learner pick — and the learner will pick the mode that feels easiest, which is the fluency trap from Chapter 5 restated at the mode level. Unguarded access to Ask AI produces the Bastani GPT-Base outcome. Unguarded access to Quiz Me produces high session scores and poor 30-day retention. Unguarded access to Glimmer produces 60% abandonment by week two. The phase-gate system selects on the learner's behalf, using evidence the learner does not have direct access to. The platform's uncomfortable claim is that the platform knows things the student does not — and that using that knowledge to gate the mode is the design move.
 
@@ -211,3 +217,45 @@ The following exercises are for practice with large language models in an educat
 [^19]: Renkl, A. (2014). Toward an instructionally oriented theory of example-based learning. *Cognitive Science*, 38(1), 1–37. https://doi.org/10.1111/cogs.12086
 
 [^20]: Pea, R. (2004). The social and technological dimensions of scaffolding and related theoretical concepts for learning, education, and human activity. *Journal of the Learning Sciences*, 13(3), 423–451.
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 7.1 — Two-column split 
+
+Create a standalone D3 v7 HTML file for Figure Two-column split . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column split — left column "Unguarded wrapper (GPT Base)": in-session performance +48%, durable exam outcome –17 percentage points, verdict: fluency without learning. Right column "Designed wrapper (GPT Tutor)": in-session performance +127%, durable exam outcome ~0 (null), verdict: learning preserved. A dividing label between columns: "Same GPT-4 underneath both." Reader must see the bimodal outcome in a single glance to understand why the wrapper is the design unit, not the model.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
+
+> Reference implementation: `d3/07-the-four-modes-fig-01.html`
+
+---
+
+### Figure 7.2 — Three-tier vertical stack 
+
+Create a standalone D3 v7 HTML file for Figure Three-tier vertical stack . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Three-tier vertical stack — top tier "Mechanism: Retrieval Practice" with key citations and effect sizes (Roediger & Karpicke 2006, Adesope 2017 meta g=0.51–0.93, Pan & Rickard 2018 transfer d=0.40); middle tier "Scheduling Principle: Spacing" (Cepeda 2006 meta 839 assessments, Cepeda 2008 350-day persistence); bottom tier "Implementation: FSRS/SM-2" (internal benchmark only — 20–30% fewer reviews, ±5.3% error). A clear label on the bottom tier: "Scheduling evidence ≠ learning-outcome evidence." Reader should see immediately which claims have RCT backing and which are algorithmic benchmarks — and understand why a vendor citing FSRS is not citing the same level of evidence as Roediger & Karpicke.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where po
+
+> Reference implementation: `d3/07-the-four-modes-fig-02.html`
+
+---
+
+### Figure 7.3 — Horizontal sequence of five Glimmer sessions 
+
+Create a standalone D3 v7 HTML file for Figure Horizontal sequence of five Glimmer sessions . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Horizontal sequence of five Glimmer sessions — Session 1: fully worked example (all steps shown, student evaluates); Session 2: last step missing (student completes); Session 3: last two steps missing; Session 4: last three steps missing; Session 5: student works from scratch. Each session shows which cognitive operations are supported (shaded) vs. new (highlighted). A label underneath: "Each session adds exactly one new unsupported operation." The anxiety failure mode annotated with an arrow pointing at what would happen if Session 5 came first. Reader should see the fading logic as a design constraint, not a pacing convenience.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use 
+
+> Reference implementation: `d3/07-the-four-modes-fig-03.html`
+
+---
+
+### Figure 7.4 — Closed-loop cycle with four nodes 
+
+Create a standalone D3 v7 HTML file for Figure Closed-loop cycle with four nodes . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Closed-loop cycle with four nodes — (1) Measurement layer produces signal; (2) Phase gate checks signal against threshold; (3) Mode selected and learning interaction occurs; (4) Interaction produces new signal → back to (1). Four mode branches shown leaving node 3: Ask AI (always available, bounded by prerequisites graph); Quiz Me (gated on reading-engagement signal); Case Study (gated on cross-context transfer + retrieval strength); Glimmer (gated on scaffolding-response signal). Each gate annotated with its specific signal and what failure it prevents. Reader should see the system as a feedback loop, not as a decision tree that terminates.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use
+
+> Reference implementation: `d3/07-the-four-modes-fig-04.html`

@@ -42,7 +42,8 @@ There is a confusion that has been sitting since Chapter 1, and this is where it
 
 They share a name because they share a structure. Both are conversations that produce learning trajectories. The platform's conversation is between AI and student about a concept. The instrument's conversation is between AI and domain expert about a curriculum. The shape of the question-by-question intake is the same. The output differs — student understanding in one case, buildable specification in the other.
 
-<!-- → [DIAGRAM: Two-column parallel structure — left column "Medhavy the Platform": conversation between AI and student, input = learner question, output = student understanding, end state = student can do something they couldn't before. Right column "Medhavy the Instrument": conversation between AI and domain expert, input = domain expert's judgment, output = buildable specification, end state = developer can build without a translation meeting. A shared header spanning both columns: "Same shape of conversation. Different domain." A horizontal bridge between the two columns at the "intake" level showing the structural parallel. Reader should see in one image why the two things share a name and what the distinction actually is.] -->
+![Two-column parallel structure ](images/13-the-design-conversation-fig-01.png)
+*Figure 13.1 — Two-column parallel structure *
 
 A Charles Fadel type who confuses the two will commission the wrong thing. He will ask the developer to build "Medhavy" without specifying which Medhavy or what the specification is. The developer will build the platform without the specification — the "suggest 15 chapters" outcome writ large. A developer who confuses the two will build the platform and assume the design conversation will happen later, somewhere else, by someone else. It will not. The design conversation does not happen later. It happens before the build or it does not happen at all. A platform configured against an unspecified curriculum is the platform that cannot learn.
 
@@ -60,7 +61,8 @@ Sadler et al. 2013 — the middle-school physical science study from Chapter 10 
 
 The cleanest framing: the tool can produce the architecture but not the misconception map. The domain expert produces the misconception map and uses the tool to amplify it into the architecture. That is the labor separation.
 
-<!-- → [DIAGRAM: Two-box division of labor — left box "What the tool produces": concept map structure, prerequisite chain inference, phase-gate proposals, mode-assignment flags, measurement-signal specifications, specification document format. Right box "What the domain expert provides": misconception map (this population, this curriculum, these specific bottlenecks), tacit judgment about what students get wrong, Bloom-level assignments by felt difficulty, clinical or practitioner edge cases AI training data does not contain. A horizontal arrow labeled "amplification" pointing from the right box into the left box — the expert's input flows into the tool and becomes architecture. Reader should see immediately that the tool's value is conditional on the human's input, not a substitute for it.] -->
+![Two-box division of labor ](images/13-the-design-conversation-fig-02.png)
+*Figure 13.2 — Two-box division of labor *
 
 Cost collapse at the content layer shifted the binding constraint from production to expert knowledge — from *can we afford to write this* to *do we know what students get wrong here*. The same shift happens at the implementation layer. Cost collapse on code shifts the binding constraint from writing code to specifying what the code should do. What becomes valuable when production gets cheap — at both the content layer and the code layer — is the human's contextual knowledge of what to produce. The Sadler 2013 move has a mirror in the implementation. The instrument is the same kind of thing in both cases: a conversation that converts human judgment into structured input the cheap-production layer can act on.
 
@@ -82,7 +84,8 @@ The design conversation runs in six moves. They are the same six moves the book 
 
 **Move 6: Honest inventory.** Three categories per design decision: adjacent evidence — what the literature on partial designs supports; direct evidence — what exists on the integrated claim under deployment conditions; bet — what the design commits to without sufficient evidence and what the deployment will test. A specification without an inventory is a specification that has not acknowledged what it is committing to without evidence. Which is the IDK-IDK problem at the design-conversation level.
 
-<!-- → [DIAGRAM: Horizontal six-step sequence — Move 1 (Learner profile: one specific person) → Move 2 (Complexity threshold: 3 yes/no questions) → Move 3 (Evidence audit: evidence ladder per decision) → Move 4 (Four-layer specification: content / curriculum / engine / measurement) → Move 5 (Economics check: budget tier → feasible subset) → Move 6 (Honest inventory: adjacent / direct / bet per decision). Arrows connecting each step. A small annotation on Move 2 showing a branch: if any answer is "no," arrow points to "simpler tool" rather than continuing the sequence. A small annotation at Move 6 showing the output feeding back into Move 4 as a constraint on which commitments are licensed. Reader should see the conversation as a linear sequence with two key branch points — complexity threshold and honest inventory — not as a checklist of independent items.] -->
+![Horizontal six-step sequence ](images/13-the-design-conversation-fig-03.png)
+*Figure 13.3 — Horizontal six-step sequence *
 
 ---
 
@@ -104,7 +107,17 @@ The output the design conversation produces is a document. The structure per des
 
 The map is auditable. A developer reading it can implement. A Charles reading it can evaluate. A specification missing any field per design decision is incomplete in the same sense that a lab notebook with missing entries cannot pass review: the missing field cannot be reconstructed from the rest.
 
-<!-- → [TABLE: Single-decision map template — six rows, each showing field name, a brief description of what belongs there, and a worked example drawn from the chapter (using the Quiz Me phase-gate example): WHAT / "Quiz Me phase-gate at section-read threshold of 3 minutes" / the specific design decision; WHY / "Bastani 2025 — unguarded AI in practice ≠ durable learning; Cepeda 2006 — spacing requires prior encoding" / evidence anchors; HOW / "Y1 temporal-engagement signal ≥ 3 min on section → Quiz Me unlocked; FSRS schedules first item 24 hr after gate opens" / exact implementation; ENVIRONMENT / "Requires Y1 from measurement layer; requires substrate text from content layer" / cross-layer dependencies; RESULTS expected / "Engine converges on 85%+ retention at 7-day probe within 3 sessions per concept" / pre-registered prediction; QUESTIONS / "Does Y1 threshold correctly distinguish read vs. skimmed? Open Question 4 from Ch. 11" / named bets. Reader should be able to use this template directly when filling out a specification.] -->
+| Item | Meaning |
+| --- | --- |
+| Single-decision map template | six rows, each showing field name, a brief description of what belongs there, and a worked example drawn from the chapter (using the Quiz Me phase-gate example): WHAT |
+| WHY | "Bastani 2025 |
+| Cepeda 2006 | spacing requires prior encoding" |
+| HOW | "Y1 temporal-engagement signal ≥ 3 min on section → Quiz Me unlocked |
+| FSRS schedules first item 24 hr after gate opens" | exact implementation |
+| ENVIRONMENT | "Requires Y1 from measurement layer |
+| requires substrate text from content layer" | cross-layer dependencies |
+| RESULTS expected | "Engine converges on 85%+ retention at 7-day probe within 3 sessions per concept" |
+| QUESTIONS | "Does Y1 threshold correctly distinguish read vs. skimmed? Open Question 4 from Ch. 11" |
 
 The test the map has to pass: can a developer who was not in the design conversation build from it without asking a question? If yes, the design conversation succeeded. If no, the specification is incomplete, and identifying which of the six moves failed to produce sufficient detail is the exact kind of diagnostic this book has been training the reader to do.
 
@@ -170,7 +183,8 @@ Node 1.1: Effect size definition (Bloom: Understand; mode: Ask AI with context-a
 
 Phase gates: Quiz Me on 1.2 gates on the temporal-engagement signal showing the learner has actually read 1.1. Case Study on 1.3 gates on the retrieval-strength-decay signal showing 1.1 and 1.2 have consolidated through a seven-day spacing interval. Glimmer on 1.4 gates on the cross-context transfer signal showing the learner can apply 1.3 to a case the Case Study mode did not cover.
 
-<!-- → [DIAGRAM: Four-node prerequisite graph for Module 1 — Node 1.1 (Effect size definition, Understand, Ask AI) → Node 1.2 (Magnitude interpretation, Understand, Quiz Me) → Node 1.3 (vs. practical significance, Analyze, Case Study) → Node 1.4 (Cherry-picking, Evaluate, Glimmer). Arrows between nodes show prerequisite dependencies. Each arrow labeled with the phase-gate condition: 1.1→1.2: "Y1 ≥ 3 min on 1.1"; 1.1+1.2→1.3: "Y6 retrieval strength consolidated at 7-day probe"; 1.1+1.2+1.3→1.4: "Y3 cross-context transfer on 1.3 material." Each node also labeled with its Bloom level and mode. The graph shows in one image what the prose took several sentences to convey — the prerequisite structure, the mode assignments, and the phase-gate conditions are all visible simultaneously. Reader can use this as a template for drawing their own concept-map excerpts.] -->
+![Four-node prerequisite graph for Module 1 ](images/13-the-design-conversation-fig-04.png)
+*Figure 13.4 — Four-node prerequisite graph for Module 1 *
 
 This is what one module looks like. The full specification covers roughly 80 nodes for an eight-week module, at this level of detail per node. The instrument generates the document. Charles audits it. The developer builds from it.
 
@@ -257,3 +271,45 @@ A specification that names bets but does not specify how the deployment will tes
 [^3]: Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. *Psychological Bulletin*, 132(3), 354–380. https://pubmed.ncbi.nlm.nih.gov/16719566/
 
 [^4]: Osmani, A. (2025). The 80% problem in agentic coding. *Elevate Substack*. https://addyo.substack.com/p/the-80-problem-in-agentic-coding
+
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 13.1 — Two-column parallel structure 
+
+Create a standalone D3 v7 HTML file for Figure Two-column parallel structure . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column parallel structure — left column "Medhavy the Platform": conversation between AI and student, input = learner question, output = student understanding, end state = student can do something they couldn't before. Right column "Medhavy the Instrument": conversation between AI and domain expert, input = domain expert's judgment, output = buildable specification, end state = developer can build without a translation meeting. A shared header spanning both columns: "Same shape of conversation. Different domain." A horizontal bridge between the two columns at the "intake" level showing the structural parallel. Reader should see in one image why the two things share a name and what the distinction actually is.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, d
+
+> Reference implementation: `d3/13-the-design-conversation-fig-01.html`
+
+---
+
+### Figure 13.2 — Two-box division of labor 
+
+Create a standalone D3 v7 HTML file for Figure Two-box division of labor . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-box division of labor — left box "What the tool produces": concept map structure, prerequisite chain inference, phase-gate proposals, mode-assignment flags, measurement-signal specifications, specification document format. Right box "What the domain expert provides": misconception map (this population, this curriculum, these specific bottlenecks), tacit judgment about what students get wrong, Bloom-level assignments by felt difficulty, clinical or practitioner edge cases AI training data does not contain. A horizontal arrow labeled "amplification" pointing from the right box into the left box — the expert's input flows into the tool and becomes architecture. Reader should see immediately that the tool's value is conditional on the human's input, not a substitute for it.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relations
+
+> Reference implementation: `d3/13-the-design-conversation-fig-02.html`
+
+---
+
+### Figure 13.3 — Horizontal six-step sequence 
+
+Create a standalone D3 v7 HTML file for Figure Horizontal six-step sequence . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Horizontal six-step sequence — Move 1 (Learner profile: one specific person) → Move 2 (Complexity threshold: 3 yes/no questions) → Move 3 (Evidence audit: evidence ladder per decision) → Move 4 (Four-layer specification: content / curriculum / engine / measurement) → Move 5 (Economics check: budget tier → feasible subset) → Move 6 (Honest inventory: adjacent / direct / bet per decision). Arrows connecting each step. A small annotation on Move 2 showing a branch: if any answer is "no," arrow points to "simpler tool" rather than continuing the sequence. A small annotation at Move 6 showing the output feeding back into Move 4 as a constraint on which commitments are licensed. Reader should see the conversation as a linear sequence with two key branch points — complexity threshold and honest inventory — not as a checklist of independent items.. Use the described data shape and labels; when exact values are not s
+
+> Reference implementation: `d3/13-the-design-conversation-fig-03.html`
+
+---
+
+### Figure 13.4 — Four-node prerequisite graph for Module 1 
+
+Create a standalone D3 v7 HTML file for Figure Four-node prerequisite graph for Module 1 . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Four-node prerequisite graph for Module 1 — Node 1.1 (Effect size definition, Understand, Ask AI) → Node 1.2 (Magnitude interpretation, Understand, Quiz Me) → Node 1.3 (vs. practical significance, Analyze, Case Study) → Node 1.4 (Cherry-picking, Evaluate, Glimmer). Arrows between nodes show prerequisite dependencies. Each arrow labeled with the phase-gate condition: 1.1→1.2: "Y1 ≥ 3 min on 1.1"; 1.1+1.2→1.3: "Y6 retrieval strength consolidated at 7-day probe"; 1.1+1.2+1.3→1.4: "Y3 cross-context transfer on 1.3 material." Each node also labeled with its Bloom level and mode. The graph shows in one image what the prose took several sentences to convey — the prerequisite structure, the mode assignments, and the phase-gate conditions are all visible simultaneously. Reader can use this as a template for drawing their own concept-map excerpts.. Use the described data shape and labels; when exact value
+
+> Reference implementation: `d3/13-the-design-conversation-fig-04.html`
