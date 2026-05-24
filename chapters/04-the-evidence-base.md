@@ -281,37 +281,3 @@ The following exercises are for practice with large language models in an educat
 [^20]: Jonassen, D. H. (1997). Instructional design models for well-structured and ill-structured problem-solving learning outcomes. *Educational Technology Research and Development*, 45(1), 65–94. https://doi.org/10.1007/BF02299613
 
 [^21]: Spiegelhalter, D. (2019). *The Art of Statistics: How to Learn from Data*. Basic Books.
-
-## Prompts
-
-Use these prompts with Claude to generate interactive D3 v7 versions of the
-figures in this chapter. Each produces a standalone HTML file you can open
-in a browser and modify freely.
-
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
-your Claude project context before using these prompts. They define the stack,
-naming conventions, color system, and typography the figures use.
-
----
-
-### Figure 4.1 — Horizontal bar chart of ITS effect sizes from
-
-Create a standalone D3 v7 HTML file for Figure Horizontal bar chart of ITS effect sizes from. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Horizontal bar chart of ITS effect sizes from the canonical studies — bars: VanLehn step-based ITS d=0.76, VanLehn human tutoring d=0.79, Kulik & Fletcher ITS median g=0.66, AutoTutor d=0.75–1.22, Steenbergen-Hu K–12 overall g=0.01–0.09, Steenbergen-Hu low-achieving K–12 g=–0.18, VanLehn answer-based CAI d=0.31. Color-code positive vs. negative. Hattie 0.40 hinge shown as a vertical reference line. Reader should immediately see the variance: same category of technology, wildly different outcomes depending on context and design discipline.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/04-the-evidence-base-fig-01.html`
-
----
-
-### Figure 4.2 — Three-tier stack distinguishing the retrieval-practice evidence hierarchy 
-
-Create a standalone D3 v7 HTML file for Figure Three-tier stack distinguishing the retrieval-practice evidence hierarchy . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Three-tier stack distinguishing the retrieval-practice evidence hierarchy — top tier: Mechanism (retrieval practice itself; Roediger & Karpicke 2006, Karpicke & Blunt 2011, Adesope et al. 2017 meta-analysis, Pan & Rickard 2018 transfer); middle tier: Scheduling principle (spacing; Cepeda et al. 2006, Cepeda et al. 2008); bottom tier: Implementations (SM-2 algorithm, FSRS algorithm — note: implementation benchmarks only, no peer-reviewed learning-outcome RCTs). Effect sizes annotated at each tier. Reader should see immediately that the evidence is strongest at the mechanism level and thins out toward implementation — and that a vendor citing FSRS internal benchmarks is not citing the same level of evidence as Roediger & Karpicke.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relatio
-
-> Reference implementation: `d3/04-the-evidence-base-fig-02.html`
-
----
-
-### Figure 4.3 — Two-branch decision tree for mode selection 
-
-Create a standalone D3 v7 HTML file for Figure Two-branch decision tree for mode selection . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-branch decision tree for mode selection — root node: "Does the student have sufficient prior knowledge to generate?" → No branch leads to: "Build prior knowledge first (Ask AI / Quiz Me)" → then return to root. Yes branch splits on: "Is the problem well-structured or ill-structured?" → Well-structured leads to "Quiz Me" with example problems listed; Ill-structured leads to "Glimmer / Case Study" with example problems listed. Anxiety failure mode annotated on the "Glimmer without prior knowledge" path. Reader should be able to use this as a practical reference for instructional design decisions.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables an
-
-> Reference implementation: `d3/04-the-evidence-base-fig-03.html`

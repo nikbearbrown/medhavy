@@ -218,37 +218,3 @@ What Chapter 5 has not specified is what the modes in Layer 3 actually are — h
 The point that will carry into Chapter 6: the mode design is not aesthetic. Every interaction design decision is a decision about which signals the measurement layer will be able to read. Ask AI with a hints-not-answers guardrail produces a different Y7 signal than Ask AI that leaks answers under student pressure. Quiz Me with pre-response confidence elicitation produces a Y4 signal that Quiz Me without it cannot. The modes are the measurement infrastructure in student-facing form.
 
 The platform is opinionated. The model has no opinions of its own. The modes are where those opinions become visible.
-
-## Prompts
-
-Use these prompts with Claude to generate interactive D3 v7 versions of the
-figures in this chapter. Each produces a standalone HTML file you can open
-in a browser and modify freely.
-
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
-your Claude project context before using these prompts. They define the stack,
-naming conventions, color system, and typography the figures use.
-
----
-
-### Figure 5.1 — Two heatmap panels side by side 
-
-Create a standalone D3 v7 HTML file for Figure Two heatmap panels side by side . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two heatmap panels side by side — left panel: "What Canvas sees" showing a single uniform block labeled "Page view: 12 min"; right panel: "What the platform sees" showing paragraph-level attention heat with hot zones on difficult passages and cool zones on already-known material. Caption: same session, different resolution. The measurement you can make is the measurement you built the instrument to make.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/05-the-four-layers-fig-01.html`
-
----
-
-### Figure 5.2 — Two error sequences shown as node graphs 
-
-Create a standalone D3 v7 HTML file for Figure Two error sequences shown as node graphs . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two error sequences shown as node graphs — left: "Coherent misconception" showing Q1 wrong → Q2 wrong → Q3 right, with a labeled node indicating "exhaustion/anergy confusion" as the common root across Q1 and Q2 errors; right: "Random errors" showing Q1 wrong → Q2 right → Q3 wrong with no connecting structure. Caption: the trajectory that implies a specific gap vs. the trajectory that implies nothing. A quiz tool sees the checkmarks; the misconception model sees the structure.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/05-the-four-layers-fig-02.html`
-
----
-
-### Figure 5.3 — Four-layer stack with data flow arrows 
-
-Create a standalone D3 v7 HTML file for Figure Four-layer stack with data flow arrows . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Four-layer stack with data flow arrows — Book Library at base feeding up to Tic TOC, Tic TOC feeding up to Adaptive Engine, Adaptive Engine feeding up to Measurement Layer, and a feedback arrow from Measurement Layer back down to Adaptive Engine labeled "reward signal." The LLM shown as an external node connected to the Adaptive Engine by a dotted line, explicitly outside the stack. Caption: the loop is what distinguishes a system from a collection of tools. The LLM is not a layer; it is a dependency of one mode in one layer.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/05-the-four-layers-fig-03.html`

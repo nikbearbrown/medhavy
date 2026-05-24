@@ -232,29 +232,3 @@ The following exercises are for practice with large language models in an educat
 [^13]: Nickow, A., Oreopoulos, P., & Quan, V. (2024). The impressive effects of tutoring on PreK-12 learning: A systematic review and meta-analysis of the experimental evidence. *Quarterly Journal of Economics*, 138(4), 2451–2512.
 
 [^14]: Mayer, R. E. (Ed.). (2014). *The Cambridge Handbook of Multimedia Learning* (2nd ed.). Cambridge University Press.
-
-## Prompts
-
-Use these prompts with Claude to generate interactive D3 v7 versions of the
-figures in this chapter. Each produces a standalone HTML file you can open
-in a browser and modify freely.
-
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
-your Claude project context before using these prompts. They define the stack,
-naming conventions, color system, and typography the figures use.
-
----
-
-### Figure 10.1 — Two-column bar chart comparing pre-AI vs
-
-Create a standalone D3 v7 HTML file for Figure Two-column bar chart comparing pre-AI vs. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-column bar chart comparing pre-AI vs. post-AI costs for each content production category — bars for: text generation, AI video, image generation, voice synthesis (all showing 2–4 order-of-magnitude collapse), and expert review, curriculum design, empirical validation, domain-expert authorship (all showing near-flat or unchanged bars). The visual asymmetry between the collapsed and unchanged bars should be immediately striking. A vertical label on the unchanged side: "This is where the cost should stay." Reader sees the structure of the argument in one image — some things fell off a cliff; the things that matter for quality did not.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use
-
-> Reference implementation: `d3/10-the-content-layer-fig-01.html`
-
----
-
-### Figure 10.2 — Log-scale bar chart of cost per 0
-
-Create a standalone D3 v7 HTML file for Figure Log-scale bar chart of cost per 0. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Log-scale bar chart of cost per 0.1 standard-deviation gain for three interventions — Sesame Street ($1.72), AI-generated content at $5/unit (unknown learning outcome — shown as a question-mark bar or range), high-dose tutoring ($540–$945). The log scale makes the 300–500× cost-effectiveness gap visible. A label on the AI-generated content bar: "Cost parity achieved. Quality parity unknown." Reader sees in one image why Sesame Street is the benchmark and why cost parity is not the same as effectiveness parity.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/10-the-content-layer-fig-02.html`

@@ -170,37 +170,3 @@ Montaigne did not write *Que sais-je?* as an admission of failure. He wrote it a
 The discipline is to keep asking the question. What do I know. What is adjacent. What is direct. What is assertion. What does the deployment test.
 
 The architecture earns the right to say it is honest. The gaps are where the science lives.
-
-## Prompts
-
-Use these prompts with Claude to generate interactive D3 v7 versions of the
-figures in this chapter. Each produces a standalone HTML file you can open
-in a browser and modify freely.
-
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
-your Claude project context before using these prompts. They define the stack,
-naming conventions, color system, and typography the figures use.
-
----
-
-### Figure 12.1 — The three-rung epistemic ladder rendered as a vertical
-
-Create a standalone D3 v7 HTML file for Figure The three-rung epistemic ladder rendered as a vertical. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the three-rung epistemic ladder rendered as a vertical diagram — bottom rung: Assertion (no evidence, claim floats free); middle rung: Adjacent (real evidence on components, does not test the integrated claim); top rung: Direct (integrated claim tested under deployment conditions, Bastani 2025 as the only named example); for each rung, one example from EdTech marketing and one from the Medhavy architecture — reader should be able to place any claim they encounter on this ladder in about five seconds. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-01.html`
-
----
-
-### Figure 12.2 — The four consent arms as a spectrum 
-
-Create a standalone D3 v7 HTML file for Figure The four consent arms as a spectrum . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: the four consent arms as a spectrum — left: Null arm (AI off, Kindle only, pure content delivery); center-left: Low epsilon (mostly current-best, occasional exploration, low disruption); center-right: Full RCT (higher exploration, research participant, highest information value); far right: Exit (download Kindle, leave — "act of leaving is data" labeled explicitly); arrows showing that movement between arms is permitted at any time and that switching is itself a measurement event, not a compliance failure. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-02.html`
-
----
-
-### Figure 12.3 — Switching behavior taxonomy 
-
-Create a standalone D3 v7 HTML file for Figure Switching behavior taxonomy . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: switching behavior taxonomy — four panels, one per switch type described in the section: (1) low-epsilon → full-RCT mid-semester (label: "trust signal or curiosity"); (2) engaged → downloads Kindle at week eight (label: "stopped working or finished"); (3) AI off the week before exam (label: "reveals mental model of platform purpose"); (4) Quiz Me → Glimmer mid-session (label: "highest-information signal: engine prior was wrong") — each panel shows what the bandit should do with the signal and how aggressively it should update. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/12-what-the-platform-does-not-know-yet-fig-03.html`

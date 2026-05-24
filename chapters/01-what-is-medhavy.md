@@ -184,37 +184,3 @@ The following exercises are for practice with large language models in an educat
 3. **(Adversarial — LLM exercise)** Ask an LLM to take the opposite position from this chapter: argue that organization-first EdTech deployments produce better learning outcomes than learner-first ones, using the best evidence it can find. Then ask it to critique its own argument. The goal is not to find out who is right. The goal is to see how the LLM handles contested empirical territory — does it claim more certainty than the evidence licenses, or does it name the uncertainty honestly?
 
 4. **(Transparency — LLM exercise)** Draft a one-paragraph transparency disclosure for Priya. It must include: what data the platform collects, what it does not, one decision the platform will surface with its reasoning, and one thing the platform openly does not yet know. Then ask an LLM to evaluate whether the disclosure would be understandable to a sixteen-year-old learner and what it would change. Compare your draft to the LLM's revision. Where did you over-explain? Where did you under-disclose?
-
-## Prompts
-
-Use these prompts with Claude to generate interactive D3 v7 versions of the
-figures in this chapter. Each produces a standalone HTML file you can open
-in a browser and modify freely.
-
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
-your Claude project context before using these prompts. They define the stack,
-naming conventions, color system, and typography the figures use.
-
----
-
-### Figure 1.1 — Priya's Wednesday session at a glance 
-
-Create a standalone D3 v7 HTML file for Figure Priya's Wednesday session at a glance . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Priya's Wednesday session at a glance — a simple horizontal breakdown showing 83 cards due → 63 Good/Easy, 20 Hard, 6 Again; the 6 Again cards highlighted and labeled with the four medical-procedure words; a countdown bar showing "11 days to Apollo Health interview." Reader should immediately see the gap the conductor is about to diagnose.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/01-what-is-medhavy-fig-01.html`
-
----
-
-### Figure 1.2 — Two-tier diagram 
-
-Create a standalone D3 v7 HTML file for Figure Two-tier diagram . Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Two-tier diagram — top tier labeled "Conductor (Medhavy)" with a single node; bottom tier labeled "Instruments" with five nodes: Anki / spaced-repetition, Human tutor / Zoom volunteer, AI chat modes, Measurement layer, Curriculum. Arrows point upward from all instruments to the Conductor. A bidirectional arrow between Conductor and a "Learner" node on the right labeled "recommendation + pushback." Reader should see that Medhavy is architecturally above all instruments, not one of them.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/01-what-is-medhavy-fig-02.html`
-
----
-
-### Figure 1.3 — Horizontal spectrum showing the four positions left to
-
-Create a standalone D3 v7 HTML file for Figure Horizontal spectrum showing the four positions left to. Use the CDN https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js, inline CSS, ResizeObserver redraw, SVG role="img", aria-labelledby, title, and desc. Build the figure from this structural brief: Horizontal spectrum showing the four positions left to right — Ban it / Wait / Measure it / Embrace it — with a brief label under each naming what it assumes about the evidence. A marker or highlight on "Measure it" to show Medhavy's position. Reader should see that this is not a simple binary and that "Measure it" is a deliberate epistemic stance, not a non-answer.. Use the described data shape and labels; when exact values are not supplied, use plausible illustrative values that preserve the relationships in the brief. Use a zero baseline for bars or areas, direct labels where possible, and annotations named in the brief. Use only DESIGN.md color variables and the required serif/mono font split.
-
-> Reference implementation: `d3/01-what-is-medhavy-fig-03.html`
