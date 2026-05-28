@@ -1,155 +1,99 @@
-# Chapter 1 — The Failure That Looks Like Success
+# Chapter 2 — AI+1 Is a Better Textbook. Is That Enough?
 
-**The reader learns why AI in education can look like it's working while actively harming learning — and why that failure is architectural, not incidental.**
-
----
-
-## Opening case
-
-A university deploys an AI tutoring tool. Engagement metrics climb. Students report satisfaction. Session completion rates hit 94%. The end-of-term exam arrives. The students who used the AI most score lower than the students who used it least.
-
-The vendor's dashboard showed success. The exam showed something else.
-
-This is not a hypothetical. It is the Bastani 2025 PNAS finding, translated into plain language. Bastani and colleagues at Wharton ran a randomized trial across nearly 1,000 Turkish high-school students in 9th, 10th, and 11th grade math. Four 90-minute practice sessions. Three groups: one with access to a standard GPT-4 chatbot ("GPT Base"), one with access to the same GPT-4 model wrapped in a system prompt that committed it to giving hints rather than answers ("GPT Tutor"), and a no-AI control group that practiced from the same problem set without any AI.
-
-During practice, both AI groups outperformed control. They worked through more problems. They reported higher satisfaction. Engagement metrics — the kind a vendor's dashboard would surface — were indistinguishable between the GPT Base and GPT Tutor groups.
-
-Then the unassisted final exam. No AI access. Same content the students had been practicing on for four sessions.
-
-**The students who used the unguarded GPT scored roughly 17 percentage points below the no-AI control group.** [verify against the corrected PNAS figure, 10.1073/pnas.2518204122] The students who used the guarded GPT Tutor matched the control group — neither helped nor harmed compared to practicing without AI at all.
-
-Same AI model. Same students. Same content. Same four sessions of practice. Two wrappers. Opposite learning outcomes on the only measurement that mattered.
-
-This is the finding the rest of the book responds to. Before you decide whether your institution should add Medhavy [Humanitarians AI internal framework] to a Canvas + AI+1 [Humanitarians AI internal framework] deployment, you need to install one distinction in working memory: **engagement evidence is not learning evidence, and a dashboard cannot tell them apart.** Everything downstream depends on it.
+*The question sounds modest. The answer determines everything that follows.*
 
 ---
 
-## The engagement-learning gap
+There is a category error that gets made constantly in educational technology, and it goes like this: someone builds a better version of an existing thing, demonstrates that it is in fact better, and then the institution concludes that better means sufficient. A better textbook is adopted. Outcomes improve marginally. The improvement is noted, and everyone moves on. What nobody asks is whether a better textbook was actually the binding constraint on learning in the first place — whether the thing that was limiting students was the quality of their reading material, or something else entirely.
 
-The thing Canvas measures well is who showed up. Time on page. Clicks. Module completion. Quiz submission. These are real measurements of real behaviors, and they were never designed to be measurements of learning. They were designed to administer courses — to confirm that a student opened the file, submitted the assignment, finished the module by the deadline. That is a legitimate measurement category. It is just not the one institutional decision-makers usually think it is.
+This distinction is not pedantic. It is the whole chapter.
 
-The gap between engagement evidence and learning evidence comes from a finding in cognitive psychology that predates LLMs by 30 years. Robert and Elizabeth Bjork, working at UCLA in the early 1990s, drew a hard line between two things students and teachers routinely confuse: *current performance* (what the student can do right now, with the textbook open or the tutor present) and *learning* (what the student can do later, unassisted, possibly months from now). Current performance, the Bjorks demonstrated, is a strikingly unreliable predictor of learning. Worse — interventions that produce the highest current performance are sometimes the ones that produce the worst learning. Re-reading is the canonical example. It feels productive. It produces less retention than retrieval practice that feels harder.
+AI+1 is a better textbook. I want to be careful about what that claim means, because it does not mean what most people expect when they hear "AI-powered learning." The text was produced with AI — a domain expert and an AI drafting tool working in combination — but the AI does not run at read time. When a student opens the Kindle edition, she is not querying a model. She is reading a book written by a pharmacist or a nurse educator or a physician, a book that happened to be produced faster and cheaper than conventional academic publishing allows, because the expert's judgment was paired with a tool that handles synthesis and drafting at scale. The "+1" in the name refers to the human contributor — the person who cannot be removed without changing what the book actually is. Paul Daugherty and James Wilson called this arrangement the "missing middle" in their 2018 *Human + Machine*: the work that humans do badly alone, machines do badly alone, and the pair does well together. AI+1 is the missing middle applied to publishing.
 
-The Bjorks called the gap between these two measurements the performance-learning distinction. Bastani 2025 is what happens when an unguarded LLM amplifies that gap to its maximum: AI groups had the highest in-session performance and, in the unguarded condition, the lowest learning.
+What AI+1 produces is a book that sounds like one expert practitioner talking to one student, because the production model requires an expert practitioner to anchor it. That is rarer than it sounds. Most textbooks sound like committees. This one sounds like a person — which is, it turns out, pedagogically relevant. Jerome Bruner argued in 1966 that students learn from narrative and voice in ways they do not learn from taxonomic enumeration; what he was describing is the difference between a book that tells you what is known and a book that shows you how a practitioner thinks. AI+1 is designed to be the second kind.
 
-The implication for a vendor dashboard is direct. A dashboard that shows time-on-page, session completion, and in-session quiz scores is showing current performance. Current performance is upstream of two very different downstream outcomes — genuine learning, or borrowed competence that evaporates the moment the AI is removed. Without a measurement that distinguishes them, the dashboard cannot tell which one is happening. The dashboard does not have a bug. It is honestly reporting what it was designed to report. The category of evidence it provides is not the category of evidence the adoption decision requires.
+<!-- → [IMAGE: diagram showing the AI+1 production model — expert practitioner + AI drafting tool → frozen text → Kindle delivery → student reads; contrast with a "live AI at read time" diagram; student should see the distinction between AI at write time vs. AI at read time] -->
 
----
+So: it is a better textbook. The delivery is cheap — a dollar on Kindle, which is not a concession to the market but a philosophical position about what textbook economics should look like. The slides that accompany it in class are Brutalist — text-heavy, no animations, no decorative themes — because the name comes from a 2014 web design manifesto by D.B. Copeland that argued decoration imposes a cognitive-load tax on readers, and the slides are making the same argument about lectures. The whole stack is designed around one idea: the content should be good, the delivery should be cheap, and nothing should get between the student and the material.
 
-## The fluency trap
+For a significant fraction of deployments, that stack — AI+1 on Kindle, Brutalist slides in class, Canvas for grades, an instructor who knows her students — is complete. Not a compromise, not "good enough for now." Complete. The right answer.
 
-There is a second mechanism running underneath the engagement-learning gap, and it is specific to the technology you are evaluating. A well-trained large language model produces text that reads like understanding. Coherent paragraphs. Confident hedges in the right places. Domain terms used in the right relations. When a student asks "what's the difference between a beta-1 selective and a non-selective beta blocker?" and an unguarded chatbot returns 300 fluent words, the surface of that text is indistinguishable from an explanation a hospital pharmacist would write.
-
-This is the fluency trap. The text reads as understanding on the page; the student reads it nodding; the student moves on. What did not happen during that interaction is the cognitive work that produces a durable schema — retrieving prior knowledge, generating a hypothesis, encountering a prediction error, repairing the schema. Reception, however fluent, is not generation. Bender and colleagues described this in 2021 from the model side: a language model's surface coherence is not a reliable signal of comprehension on either side of the conversation. The reader infers understanding from the fluency. The reader is sometimes correct. The reader is sometimes — measurably, in Bastani's data, roughly 17 points worth — wrong.
-
-The fluency trap is not specific to "bad" AI tools. It is specific to *competent* AI tools deployed without architectural commitments about what they will and will not do. The better the model is at sounding like an expert, the more powerful the trap, because the perceived value of the interaction goes up while the cognitive work going into it stays low or goes lower. This is the failure mode the rest of the book is organized around preventing.
+The question this chapter is built to answer is: complete for whom?
 
 ---
 
-## The wrapper is the variable
+Before I can answer that, I need to explain what AI+1 is not, because the confusion between what it is and what it is not is where most institutional decision-making goes wrong.
 
-Now the central architectural claim. In Bastani, the only difference between the harm group and the no-harm group was a system prompt. Same GPT-4 model. Same students. Same content. Same four sessions. The GPT Base condition handed the model to students with no constraints on its behavior. The GPT Tutor condition wrapped the same model in instructions that committed it to giving hints and asking questions rather than producing complete solutions. That wrapper was the entire architectural intervention. It was not a different AI. It was the same AI committed to do a different thing.
+AI+1 is not Medhavy. This sounds obvious when stated directly, but the two products come from the same publisher and share a lineage, and institutions frequently assume that adopting AI+1 textbooks means they have adopted something like Medhavy. They have not. Medhavy is a measurement and adaptation layer — software that runs at read time, on top of the AI+1 content, and does things the content cannot do by itself: present material differently to different learners based on what they have demonstrated, measure whether the variation is helping, and adjust. The content and the layer are different products solving different problems. Having the first does not give you the second.
 
-The 17-point gap is what that wrapper bought.
+The other confusion is between AI+1 and what might be called an "adaptive textbook" — ALEKS-style platforms where the content itself shifts based on student performance. AI+1 is not that. The AI+1 text is frozen. The student adapts to the book; the book does not adapt to the student. Whether you also want a layer that adapts at read time is a separate question with a separate answer, and conflating the two is the error that produces expensive deployments of software that adds no value over a Kindle and a good instructor.
 
-This is the foundational claim under every subsequent chapter of this book: **the AI is not the variable. The wrapper around the AI is the variable.** Two products can be built on the same underlying model and produce opposite learning outcomes. Two vendor proposals that both say "powered by GPT-4" or "powered by Claude" are not the same product. The architecture — what the platform commits the AI to doing and refusing to do — is the unit of analysis. The base model is a component.
-
-You can see why this matters for the decision in front of you. When the vendor's feature sheet for Medhavy says "AI-powered tutoring," that phrase contains zero information about whether the system will help or harm your students. It is consistent with both outcomes Bastani observed. The relevant question is not "does this product use AI?" — every plausible product does. The relevant question is "what architectural commitments does this product make about how the AI behaves, and how would I know if it failed at them?" That is the question the rest of this book is built to help you ask of any AI layer, Medhavy or otherwise.
-
-There is a parallel from the pre-LLM era worth keeping in mind. The ASSISTments tutoring system, developed at WPI by Neil Heffernan and colleagues, produced roughly three-quarters of a year of math gain in Maine middle schools — same content as the textbook, different architecture (immediate scaffolded feedback, teacher report-back). Same problem set, different wrapper, opposite outcome from what Bastani saw with unguarded GPT. The architecture-matters claim is not new. The stakes are new because the wrappers are now capable of producing fluent answers to almost any question, which means the architectural commitments matter more, not less, than they did when the underlying tool was a hint database.
+Beverly Park Woolf made an early version of the relevant distinction in *Building Intelligent Interactive Tutors* in 2009. Woolf has a PhD in computer science and an EdD, which is an unusual combination, and her position was unusually precise: an intelligent tutor adds value beyond a well-designed textbook when the deployment cannot rely on a human teacher to do the adaptation — and the conditions under which that holds are conditions of scale, heterogeneity, and accountability. That was 2009. Sixteen years later, her three conditions are a first draft of the diagnostic this chapter is building toward.
 
 ---
 
-## What this means for the decision in front of you
+Let me describe a standard deployment so the diagnostic has something to work against.
 
-The question this chapter is not asking is "is AI bad for learning?" The answer to that question, on current evidence, is "it depends on the architecture, and Bastani gives us one well-measured data point on what the dependency looks like." That is not a useful question for a curriculum director with a budget meeting in six weeks. The useful question is sharper.
+Thirty nursing students. One section. One instructor — a nurse educator, twelve years of clinical experience, four years teaching the course. She has taught this material enough times that she knows which drug classes produce confusion in week six and which dose-calculation errors show up in week nine. By week three, she knows each student's name and something about how they think. She can tell from a Tuesday discussion who did the reading. She adapts in real time: she slows down on receptor binding when the class is lost, accelerates through dose calculation when they are not. She holds office hours. She fields the questions students were too embarrassed to ask out loud.
 
-**Given that the same AI can produce opposite outcomes depending on what the platform commits it to doing — what specific architectural commitments would you require any AI tool to make before you added it to your Canvas instance?**
+She is the loop. In the language I will use in Chapter 3 and beyond, the loop is the combination of three things: presenting content differently to different learners, measuring whether the variation is helping, and adapting based on what the measurement reveals. This instructor does all three. She does them manually, with her professional judgment as the algorithm, and she does them at a scale — thirty students — where a human being can actually do this.
 
-Bastani gives you a starting list. At a minimum:
+Now run the same material through a different deployment. Three hundred nursing students. Five sections. Three instructors of varying experience, ranging from clinical veteran to second-year faculty. Students were placed into sections by registration order, not by entry level. The sections share a syllabus but the instructors teach differently. The program director has no shared visibility into which students in which sections are struggling with which concepts. The board exam is fourteen months out. The dean wants to know why one section had a lower NCLEX pass rate last year, and the honest answer from the program director is: I don't know.
 
-1. *A commitment about what the AI will not do.* In Bastani's GPT Tutor, the commitment was: do not produce complete solutions; produce hints and questions that redirect the student to their own reasoning. Medhavy's Ask AI mode [Humanitarians AI internal framework] is built on this commitment — Chapter 3 explains what that looks like in practice.
+Same AI+1 content. Same Kindle edition. Same Brutalist slides. Completely different deployment.
 
-2. *A measurement that is not in-session performance.* In Bastani, the measurement that revealed the gap was a delayed, unassisted exam. In a Medhavy deployment, the equivalent is the Frictional Framework [Humanitarians AI internal framework] — the seven signals that measure whether a student is learning or borrowing. Chapter 7 covers them.
+The instructor in the first case is performing a function that the second case has no equivalent of. The first case has a human loop. The second case has five partial loops of varying quality with no way to compare them and no way to intervene in real time across all of them simultaneously. Adding Medhavy to the first case would be overhead — the instructor is already doing what the software does, and she is doing it with judgment a contextual bandit cannot match at n=30. Adding Medhavy to the second case would be addressing a real structural problem: the measurement the dean is asking for does not exist, the loop is broken across sections, and there is no human who can hold all of it at once.
 
-3. *A grounding source.* In Bastani, both AI conditions used the same problem set; the AI did not roam. In a Medhavy deployment, Ask AI is grounded by RAG to the textbook the student is reading. The AI cannot wander into off-curriculum content the institution has not approved.
+<!-- → [TABLE: two-column comparison of the 30-student single-section deployment vs. the 300-student five-section deployment — rows: number of students, number of instructors, real-time visibility into individual performance, mechanism for cross-section comparison, feedback loop between learning and instruction, board exam accountability; student should see that the difference is structural, not just quantitative] -->
 
-You do not need to take Medhavy as the answer to these requirements. Other architectures could meet them. What you need from this chapter is the *categorical* shift: that the question "should I adopt this AI tool?" cannot be answered from a feature sheet, because the feature sheet describes capabilities, not commitments. The next chapter starts the diagnostic that tells you whether your deployment needs an architecture with these commitments at all — or whether the simpler answer (AI+1 on Kindle, no measurement layer, no adaptation) is the right one for the context you are actually operating in.
-
----
-
-## Worked example: Bastani as a deployment case
-
-It is worth walking the study itself one more time, slowly, in the shape an institutional reader will need to recognize when she sees a similar deployment in her own program.
-
-**The setup.** A consortium of Turkish high schools agreed to a randomized trial. Roughly 50 9th–11th grade math classes. Nearly 1,000 students. Each class assigned to one of three conditions. The content was identical across conditions: four 90-minute practice sessions on procedural and conceptual math problems aligned with the school curriculum.
-
-**The conditions.** GPT Base students worked the problems with access to an unmodified GPT-4 chatbot. They could ask anything. The model would answer. GPT Tutor students worked the same problems with access to the same model — but the model had been given a system prompt that committed it to a tutoring stance: ask clarifying questions, offer hints, refuse to produce a complete worked solution. The no-AI control worked the same problems with the textbook and pencil and paper.
-
-**The in-session metrics.** Both AI conditions outperformed control during practice. They completed more problems. They reported the sessions as helpful. If you had run an LMS dashboard over the data and stopped there, you would have concluded that both AI conditions were producing strong engagement and the unguarded version was producing slightly better in-session performance. You would have written a positive report to your dean.
-
-**The exam.** At the end of the four sessions, every student took an unassisted exam — no AI, no notes — on the same content. GPT Base students scored substantially below control. GPT Tutor students scored comparably to control. The students who had the *strongest* in-session performance — the unguarded AI group — produced the *weakest* learning by the time the AI was removed.
-
-**The institutional translation.** Imagine the same shape in your own program. A pharmacology section uses an unguarded AI study companion. Practice quiz scores are strong. Student satisfaction is high. The dashboard shows healthy engagement. The mid-term and the board exam are unassisted. The students who used the AI most score lower than the students who used it least.
-
-You would not have seen this coming from the dashboard. You would have seen something the dashboard does not show: a behavioral pattern in how the AI was used and what cognitive work the student did or did not do while using it. The vendor would not have flagged it. The platform was honestly reporting what it was designed to report.
-
-That is the failure that looks like success. The book exists because the technology has made this failure mode more available, not less, and the standard institutional measurement stack does not catch it.
+The question is not which deployment is better. The question is which deployment needs what.
 
 ---
 
-## Exercises
+The diagnostic has three questions. I am going to give them to you plainly, then spend some time on the third one, because the third one is where most institutions fail.
 
-1. **(Analyze)** Open the Canvas analytics dashboard for one course you know well. Identify three metrics it presents — for example, time-on-page, module completion rate, quiz score average. For each, write one sentence on what behavior it measures and one sentence on what genuine learning signal it would miss. The point is not to dismiss the metrics — they measure real things. The point is to name precisely what they do not measure.
+The first question: *does the deployment need to present content differently to different learners at scale?* Not "present different content" — that is the curriculum question, and AI+1 handles it at the textbook level. The question is whether different learners need different pedagogical approaches to the same material. A student who has never seen the citric acid cycle needs a different entry point than a student who studied it three years ago and is rebuilding the schema. If your deployment is thirty students with one experienced instructor who can see the difference and adjust, the answer is probably no — you have not yet exhausted the human layer. If your deployment is three hundred students across five sections with heterogeneous entry levels and no human who can see the whole picture at once, the answer is probably yes.
 
-2. **(Analyze)** Describe a time in your career when you watched student engagement look high and learning look low. (Most curriculum directors have an example.) What did the dashboard or the gradebook show? What would a learning-evidence measurement — performance on an unassisted, delayed assessment — have shown? Write the comparison as two sentences. If you cannot recall a specific case, describe the kind of course or student population where you would predict this gap, and what evidence would resolve it.
+The second question: *does someone need to know whether the variation is helping?* If you are not varying delivery, there is nothing to measure. If you are — either through a software layer or through faculty who teach different sections differently — the question is whether your institution needs to know whether the variation is producing learning or just producing variation. The active-learning literature is supportive here: Freeman et al.'s 2014 meta-analysis in PNAS found that active-learning sections reduced failure rates from 34% to 22% across 225 STEM studies. But that finding is about the structure of the intervention, not about whether any particular deployment of active learning is working. Knowing the intervention class works is not the same as knowing whether your specific deployment is working. End-of-pipeline measurement — board exam in eighteen months, licensure pass rate next year — is real data, but it does not let you intervene. If the answer to "when would I find out a section is underperforming" is "next year," Question 2 is a yes.
 
-3. **(Evaluate, applied to your own deployment)** Given Bastani's finding, write down the single architectural commitment you would require any AI tool to make before adding it to your Canvas instance. State the commitment plainly — what the AI will do, what it will not do, and how you would know if it failed at the commitment. Keep this answer; you will return to it in Chapter 11.
+The third question: *is the institution willing to act on what the measurement reveals?*
 
----
+This is the one that breaks things. I have seen institutions add measurement layers and produce dashboards showing exactly which sections are underperforming on which concepts, and then do nothing with the information — because acting on it would mean changing a curriculum, or having a direct conversation with a tenured colleague whose section is producing the weakest outcomes, or restructuring a sequence that has been in place for fifteen years. Measurement without willingness to act is expensive Canvas analytics. The data accumulates. Nothing changes. The question is not whether you can produce the information but whether your institution will do something when the information is uncomfortable.
 
-## Common misconceptions
+The honest version of Question 3 is this: if Medhavy showed you, in week eight, that one section was producing weaker durable learning than another on the same content, what would happen? If your answer is "I would convene a curriculum committee, identify the cause, and change something," Question 3 is a yes. If your answer is any variant of "I would note it" — Question 3 is a no, and the measurement layer is a budget mistake regardless of how good the technology is.
 
-**"If students are using the tool and saying they like it, they're learning."** This is the engagement-learning conflation. It is the single most prevalent misreading among institutional decision-makers and it is what Bastani most directly rebuts. The GPT Base students in Bastani used the tool more and reported satisfaction; they learned less. Student satisfaction is a real measurement of a real thing — student satisfaction. It is not a measurement of learning, and the correlation between the two is unreliable enough that you cannot use one as a proxy for the other on a high-stakes adoption decision.
+If any of the three answers is no, stop here. AI+1 on Kindle is the right answer. Not the conservative answer. Not the "we'll upgrade later" answer. The right answer, because the deployment does not have the structural problem the additional layer exists to solve.
 
-**"AI is bad for education."** The chapter does not say this and you should not leave with it. Bastani's GPT Tutor matched the control group — neither helped nor harmed compared to no-AI practice. The harm was specific to the unguarded condition. The architectural commitments are the variable. A categorical position on "AI in education" is the wrong unit of analysis. The right unit of analysis is the specific commitments a specific tool makes.
+If all three answers are yes, the rest of this book describes what the loop looks like and what it would cost.
 
-**"A higher score during practice means a higher score on the exam."** This is the performance-learning conflation, formalized by the Bjorks 30 years before LLMs existed. It was wrong then. It is more wrong now, because the technology can produce in-session performance gains that are decoupled from learning to a degree the pre-LLM literature had not anticipated.
-
-**"The vendor's dashboard reflects whether students are learning."** It reflects whether students are using the platform. Different measurement category. A vendor that conflates the two is selling you a metric, not a finding.
+<!-- → [INFOGRAPHIC: the three-question decision tree — Q1 (present differently at scale?) → if no: AI+1 stack is complete; if yes → Q2 (need to know if variation helps?) → if no: AI+1 stack is complete; if yes → Q3 (willing to act on measurement?) → if no: AI+1 stack is complete; if yes: proceed to Medhavy; student should see that each no is a complete answer, not a partial one] -->
 
 ---
 
-## What would change my mind
+The hardest case is the in-between deployment, and it is also the most common. Ninety students across two sections. One experienced instructor and one who is in her second year of teaching. Question 1 is a tentative yes. Question 2 is a tentative yes. Question 3 depends on whether the senior faculty member is willing to have her teaching examined alongside the new instructor's.
 
-The central claim of this chapter is that the wrapper around an AI is the variable that determines whether the deployment produces learning or harm, and that engagement-style measurements cannot distinguish the two. A finding that would revise this claim: a well-powered randomized trial — comparable in size to Bastani, run in a different domain and at a different age band — showing that unguarded chatbot access produces *equivalent or better* learning on a delayed, unassisted assessment compared to no-AI control. If such a study were published and held up to replication, the architectural argument would still survive (the wrapper is still a variable; some wrappers happen to be neutral), but the urgency would drop sharply. The Bastani finding is currently one RCT in one country in one subject; the chapter's argument is held up by the *strongest available evidence*, not by settled science, and an institutional decision-maker is entitled to know that.
+Most institutions hesitate at Question 3. That hesitation is itself the most important data point the diagnostic produces. If Question 3 is uncertain, the right move is to resolve it before buying the measurement layer — not to buy the measurement layer and hope. You cannot retrofit institutional willingness to act. Either the culture exists or it needs to be built, and building it is a prior project to deploying software that will produce uncomfortable findings.
 
----
+J.C.R. Licklider published "Man-Computer Symbiosis" in 1960, before AI was a marketing category and decades before Kindle existed. His argument was that the durable design problem in computing was not whether machines would replace humans but how the interface between the two could be made productive. Each side does something the other cannot; the work of design is to specify the seam between them clearly enough that the combination produces value neither could produce alone. The AI+1 framework is Licklider's symbiosis applied to publishing: the domain expert provides irreducible judgment, the AI provides scale, and the combination produces something neither could produce alone. The three-question test is the question of where to put the seam for a particular deployment — whether the human side of the seam can handle the measurement and adaptation work, or whether that work needs to move further toward the machine.
 
-## Still puzzling
-
-- How far does the Bastani finding generalize beyond Turkish high-school mathematics? Health-sciences-specific replication does not yet exist. The mechanism (offloading produces fluent performance without schema formation) is plausibly general; the effect size at health-sciences ages and content levels is not measured.
-
-- Are prompt-level guardrails enough, or do you need system-level architecture (RAG grounding, retrieval over a curated corpus, explicit refusal policies)? Bastani tested only the prompt-level case and found a clear separation. Whether prompt-level guardrails remain sufficient as students become more sophisticated at routing around them is an open empirical question.
-
-- Do students adapt to guarded AI tools by switching to unguarded ones when the institution is not looking? A guardrail at the curriculum tool does not bind a student's behavior on their own laptop. The institutional implications of that are a Chapter 9 problem.
-
-- Is there a deployment context where unguarded AI does produce durable learning? Possibly — for advanced learners with strong existing schemas, the offloading risk drops because the schema is already in place. The chapter has not tested this, and the Bastani sample (9th–11th grade) does not speak to it.
+In most deployments, it stays with the human. That is not a failure of ambition. It is Licklider's answer to a question he identified sixty-five years ago: know which side of the seam a task belongs on, and put it there.
 
 ---
 
-## AI Wayback marginal callout — Richard Atkinson
+There are things this chapter has not settled. The size threshold — where exactly does a single instructor stop being able to run the loop manually? — sits somewhere between 30 and 300, and the middle range, where most program directors actually live, does not have a clean answer. The question of how to test institutional willingness before you have committed to a measurement system also has no clean answer; asking the question in the abstract produces yes answers that do not survive contact with the first inconvenient finding. And there is a question the chapter has not addressed at all: are there deployments where AI+1 is not enough and Medhavy is also not enough — where the missing layer is something neither product provides? Clinical placement, mentorship, the kind of feedback that requires watching someone perform in a high-stakes situation and telling them what they did wrong: these are not in the AI+1 stack and are not in the Medhavy stack. The book is not claiming this stack solves all of educational delivery. It is claiming this stack solves the textbook-and-content-delivery problem well enough to bracket everything else.
 
-> *Long before LLMs, before adaptive learning had a marketing budget, Richard Atkinson at Stanford built a computer-aided instruction system in the 1960s that delivered individualized math and reading practice to elementary students. The system worked — published results showed real gains — but it did not claim to replace teachers. It was sized to what the technology could honestly do. Atkinson's CAI failed commercially anyway, killed by the economics of mainframe hardware and the politics of school adoption, not by pedagogy. The lesson rhymes uncomfortably with today: the architecture mattered, the wrapper around the computation was what made the difference, and the institutional decision to buy or not buy ran on factors mostly unrelated to whether the system worked. The "wrapper is the variable" finding is not new. The Bastani study is the cleanest contemporary measurement of a pattern Atkinson would have recognized from a different decade and a different machine.*
-
----
-
-## Bridge to Chapter 2
-
-The failure is architectural. The fix is architectural. The four modes Medhavy introduces — Ask AI, Quiz Me, Case Study, and Glimmer [Humanitarians AI internal framework] — are each a different architectural commitment, designed to prevent a different specific form of the failure this chapter described.
-
-Before you can decide whether your deployment needs those commitments, you need a sharper question. Most edtech failures come from solving the wrong problem correctly — adding measurement and adaptation to deployments that did not need them. Chapter 2 starts with the simplest version of the right question: *do you even need this layer?* Some deployments are well-served by a better textbook on Kindle, full stop. Others are not. The next chapter is the three-question test that tells you which kind you have.
+The next three chapters explain what the loop does when the answer is yes. Medhavy has four pedagogical modes, and it chooses among them based on what the measurement layer is telling it. Each mode is a different cognitive operation with a different evidence base. The next chapter starts with the one that does not answer questions — the mode most easily mistaken for a chatbot, and the one whose architecture most directly responds to the finding from Chapter 1 about what passive AI assistance costs. Ask AI.
 
 ---
 
-*Sources cited in this chapter: Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., & Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. Proceedings of the National Academy of Sciences, 122(26), e2422633122. Correction at 10.1073/pnas.2518204122. · Bjork, R. A., & Bjork, E. L. (1992). A new theory of disuse and an old theory of stimulus fluctuation. · Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the Dangers of Stochastic Parrots. FAccT '21. · Roschelle, J., Feng, M., Murphy, R. F., & Mason, C. A. (2016). Online Mathematics Homework Increases Student Achievement. AERA Open, 2(4). · Atkinson, R. C. (1968). Computerized instruction and the learning process. American Psychologist, 23(4), 225–239.*
+## LLM Exercises
+
+1. **(Evaluate, applied to your own deployment)** Describe your primary deployment in three sentences: how many students, how many sections, how many instructors, what scale of program. Then run the three questions. Record your honest answers. If any answer is uncertain, write one sentence on what evidence would resolve it. Keep the answers — you will return to them in Chapter 9 and Chapter 11.
+
+2. **(Apply)** For a deployment where all three answers are yes, name one specific piece of information the loop would produce that your current Canvas dashboard cannot. Not a category of information — a specific concrete piece. (Example: "Whether the students who scored 78 on the dosage calculation quiz in week 6 are likely to retain that knowledge for the board exam in 14 months.") The exercise is testing whether you can describe the value proposition in operational terms.
+
+3. **(Evaluate)** For a deployment where at least one answer is no, write a one-paragraph defense of why the simpler stack is the *correct* answer, not a compromise. Address the reader who will say "but if Medhavy is even slightly better, shouldn't we adopt it?" The point of the exercise is to make sure you can defend the no answer with confidence to a colleague or a vendor.
+
+---
+
+*Sources cited in this chapter: Daugherty, P. R., & Wilson, H. J. (2018). Human + Machine: Reimagining Work in the Age of AI. HBR Press. · Freeman, S., Eddy, S. L., McDonough, M., et al. (2014). Active learning increases student performance in science, engineering, and mathematics. PNAS, 111(23), 8410–8415. · Bruner, J. S. (1966). Toward a Theory of Instruction. Harvard University Press. · Copeland, D. B. (2014). Brutalist Web Design. brutalist-web.design. · Woolf, B. P. (2009). Building Intelligent Interactive Tutors. Morgan Kaufmann. · Licklider, J. C. R. (1960). Man-Computer Symbiosis. IRE Transactions on Human Factors in Electronics.*
