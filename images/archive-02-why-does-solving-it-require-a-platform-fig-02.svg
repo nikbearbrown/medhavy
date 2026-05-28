@@ -1,0 +1,29 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-0-2 desc-0-2">
+<title id="title-0-2">Three constraints → one conclusion</title>
+<desc id="desc-0-2">Three constraints → one conclusion. Three boxes labeled "Live instrumentation required," "Authentic context evidence is richest," and "Measurement requires specific interaction design" — all three arrows pointing to a single box labeled "The measurement infrastructure and the learning infrastructure are the same system." Caption: The platform requirement isn't a design preference. It follows from three independent constraints that all lead to the same place.</desc>
+<rect width="700" height="420" fill="#FFFFFF"/>
+<text x="48" y="54" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">Three constraints → one conclusion</text>
+<text x="48" y="78" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="10" fill="#545454"><tspan x="48" dy="0">Three constraints → one conclusion. Three boxes labeled "Live</tspan><tspan x="48" dy="15">instrumentation required," "Authentic context evidence is</tspan><tspan x="48" dy="15">richest," and "Measurement requires specific interaction design" —</tspan><tspan x="48" dy="15">all three arrows pointing to a single box labeled "The measurement</tspan></text>
+<rect x="84" y="102" width="532" height="250" fill="#F5EFE8" stroke="#D4D4D4" stroke-width="0.75"/>
+<line x1="350" y1="132" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="222" y1="228" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="478" y1="228" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="132" x2="222" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="132" x2="478" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="222" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="478" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<circle cx="350" cy="132" r="34" fill="#1A3A5C"/>
+<text x="350" y="136" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">constraints</text>
+<circle cx="222" cy="228" r="34" fill="#6B3520"/>
+<text x="222" y="232" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">conclusion</text>
+<circle cx="350" cy="306" r="34" fill="#6B3520"/>
+<text x="350" y="310" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">boxes</text>
+<circle cx="478" cy="228" r="34" fill="#6B3520"/>
+<text x="478" y="232" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">live</text>
+<circle cx="350" cy="220" r="42" fill="#C8102E"/>
+<text x="350" y="224" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">instrumentation</text>
+
+<line x1="48" y1="382" x2="652" y2="382" stroke="#D4D4D4" stroke-width="1"/>
+<text x="48" y="400" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" letter-spacing="0.08em" fill="#545454">FIGURE 0.2</text>
+</svg>

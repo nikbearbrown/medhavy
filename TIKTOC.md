@@ -1,1582 +1,1118 @@
-# TIKTOC.md
-# How to Build an Intelligent Textbook
-**Author:** Humanitarians AI · ni.brown@neu.edu · Bear Brown & Company
-**Publisher:** Bear Brown, LLC
-**Format:** Kindle / KDP ($1 / Kindle Unlimited) + epub (direct distribution)
-**Status:** TIKTOC complete — ready for Research Gatherer → Chapter Writer pipeline
+# Medhavy: Is the Loop Worth It?
+## A Decision Guide for Institutional Decision-Makers
+
+**Working title:** Medhavy: Is the Loop Worth It?
+**Subtitle candidate:** When AI+1 on Kindle Is Enough — and When It Isn't
+**Author:** Nik Bear Brown · ni.brown@neu.edu · Humanitarians AI
+**Series:** Standalone (Book One of a two-book set; Book Two = user guide for deployers)
+**Document:** Full TIKTOC.md — compiled from all phase outputs
 **Version:** 1.0
+**Status:** Pre-draft — chapter specs ready for Cowork
 
 ---
+
+## Document structure
+
+1. Book Concept and Thesis
+2. Learner Profile
+3. Book Type and Deployment Specification
+4. Field Positioning
+5. Three-Act Learning Arc
+6. Prerequisite Map
+7. Learning Outcomes by Chapter
+8. Chapter-by-Chapter TOC
+9. Chapter Anatomy Template
+10. Hard Topics, Contested Claims, Aging Risk
+11. Open Questions
+
+---
+
+# PART 1 — BOOK CONCEPT AND THESIS
 
 ## Book concept summary
 
-This book teaches **how to design an intelligent textbook** — specifying
-its architecture, its pedagogical commitments, and its technology decisions
-— to **domain experts with content and conviction, and the developers they
-work with**, by providing the design specification framework that neither
-the EdTech optimists nor the skeptics have produced, filling the gap left
-by books that cherry-pick the positive (Khan) or cherry-pick the negative
-(Horvath) without ever asking what you would have to build if you took all
-the evidence seriously. It succeeds if the reader — whether a Charles Fadel
-type or the developer who got handed an API spec — holds a complete,
-defensible design map by the final chapter, and if both readers are now
-capable of having the same conversation about the same decisions.
+> This book teaches **institutional decision-makers** — deans, department
+> chairs, curriculum directors, instructional design leads — what Medhavy
+> actually is and whether their deployment warrants adding it, by
+> translating four proprietary modes (Ask AI, Quiz Me, Case Study, Glimmer)
+> and three conceptual foundations (Irreducibly Human, AI+1, Frictional
+> Framework) out of jargon and into plain-language decisions. It fills the
+> gap left by vendor marketing (which names features without explaining
+> them), general AI-in-education literature (which covers the landscape
+> without addressing Medhavy specifically), and the existing Medhavy
+> manuscript (which is written for builders, not buyers). It succeeds if
+> the reader finishes able to make a confident, evidence-based choice:
+> Canvas + Kindle / AI+1 as-is, or Canvas + Kindle / AI+1 + Medhavy.
 
 **One-sentence logline:**
-The field has spent twenty years arguing about whether EdTech works;
-this book asks what you would have to build if you took all the evidence
-seriously — and hands you the design specification.
+AI+1 is a better textbook — but a better textbook is not always enough,
+and this book tells you exactly when it isn't.
 
-## Central thesis
+**The thesis in one paragraph:**
+Medhavy is not a better textbook. It is a measurement and adaptation
+layer — a loop that presents content differently to different learners,
+measures whether the difference helped, and adapts based on what it
+learns. AI+1 on Kindle, with Brutalist slides and Canvas, is a complete,
+high-quality learning stack for most deployments. Medhavy earns its cost
+when three things are simultaneously true: the deployment needs to present
+content differently to different learners at scale, someone needs to know
+whether the variation is working (not just whether students are engaged),
+and the institution is willing to act on what the measurement reveals.
+If those three conditions are not all present, Medhavy is overhead.
+If they are, it is the only tool that closes the loop.
 
-"This book argues that the intelligent textbook field has been asking the
-wrong question — whether AI helps or harms — which means that no one has
-produced the design specification for what you would have to build if you
-took all the evidence seriously, and this matters because without that
-specification, domain experts keep commissioning platforms that measure
-engagement and call it learning, developers keep building hammers, and the
-IDK-IDK problem keeps getting logged as success."
+## The loop — the book's central concept
 
-**The book this is NOT:**
-*Brave New Words* (Khan). Not the optimistic case for AI in education.
-Not a book that picks a side. Human + AI, not human versus AI. An
-intelligent textbook that is just a hammer is going to have difficulty
-when the wood needs sawing.
+Canvas cannot close this loop. Kindle cannot close it. A good AI+1
+textbook cannot close it. The loop is:
 
-## Primary readers — two people, one book
+**Present differently → Measure whether it helped → Adapt → Repeat**
 
-**The Charles Fadel type:** Domain expert. Has content, conviction, and
-a coherent argument about what education is missing. Zero pathway from
-"I have this content" to "here is a working intelligent textbook that
-actually measures learning." Needs to understand what he is commissioning.
+"Present differently" means interventions: not just different explanations
+of the same concept, but different pedagogical approaches — Socratic
+versus didactic, problem-first versus concept-first, retrieval practice
+versus generative assignment. These are not cosmetic variations. They
+are different cognitive operations with different evidence bases and
+different appropriate deployment conditions.
 
-**The developer who got handed API.md:** Can build what is specified.
-Doesn't know why the Glimmer exists, why the phase gates matter, why
-engagement metrics are the wrong optimization target. Makes bad tradeoff
-decisions under pressure because they don't understand what they're
-trading away.
+"Measure whether it helped" is not engagement analytics. Canvas gives
+you time-on-page, clicks, and completion rates. Medhavy measures the
+Frictional Framework's seven signals — behavioral traces that genuine
+learning leaves behind that performance does not. The difference between
+a student who learned something and a student who felt like they learned
+something is invisible to Canvas. It is visible to Medhavy.
 
-**Why one book serves both:** The book is the shared language. Charles
-can say "Socratic isn't right here because of retrieval interference" and
-the developer can say "we already have something close — here's what it
-does" and they're talking about the same design decision in the same terms.
-
-## Book type and deployment
-
-**Field-defining monograph with a practical landing.** Read front to back.
-The argument builds. Every chapter ends with a real-world or illustrative
-case (simulated cases labeled as such). The final chapter delivers the map.
-
-**Three circulation paths:**
-1. Kindle / $1 / Kindle Unlimited — Learning Engineering community (~3,600
-   members), Charles Fadel type, developer who got handed API.md
-2. Direct epub — colleague-to-colleague handoff before a build starts
-3. Course assignment — graduate EdTech, instructional design, learning
-   engineering programs
-
-**Feedback loop is structural:** The community says "Chapter 6 is wrong
-about X" or "we built something like your Glimmer and here's what actually
-happened." The book sharpens through deployment. This enacts the thesis:
-the platform is an experimental apparatus. So is the book.
-
-## Three comparable texts
-
-**Hattie, *Visible Learning*:** Everyone in this community knows it.
-Wildly different views on it. The 0.40 hinge point appears in this book,
-contested. Used correctly here as a cost-effectiveness guideline, not
-an absolute binary.
-
-**Khan, *Brave New Words*:** The community knows it and most hate it.
-The IDK-IDK problem in book form: optimistic about engagement, thin on
-measurement, confident about outcomes the data doesn't support. This book
-takes the promise seriously and asks what it would actually require to
-deliver it.
-
-**Horvath, *The Digital Delusion*:** The antibody. Correctly diagnoses
-the hammer problem. Doesn't build the toolbox. Cherry-picks the negative
-the way Khan cherry-picks the positive. Both are arguing about whether
-EdTech works. This book asks what you would have to build if you took all
-the evidence seriously.
-
-## Three-act learning arc
-
-**Arc statement:** This book takes the reader from *recognizing the failure
-they've already witnessed or been handed* to *conducting the design
-conversation that produces a specification worth building from* by first
-establishing precisely why the field keeps failing in both directions and
-what the right question actually is (Act One: Chapters 1–4), then building
-the complete architecture layer by layer with evidence at every decision
-point (Act Two: Chapters 5–11), then naming the bets honestly and
-delivering the tool that converts thinking into specification
-(Act Three: Chapters 12–13).
-
-**Act One → Act Two transition condition:** The reader can answer: "Given
-what the evidence actually shows — all of it — what would the architecture
-have to do to prevent the IDK-IDK failure?"
-
-**Act Two → Act Three transition condition:** The reader can specify all
-four layers for a given learning problem.
-
-## Load-bearing chapters (cannot be skipped)
-
-Chapters 1, 4, 6, 8. The introduction should include a one-paragraph
-reading guide naming these four (the conductor-frame chapter plus three downstream load-bearing chapters).
-
-## Illustrative platform: Medhavy
-
-Medhavy is used as the primary illustrative case throughout. It appears
-as both:
-- **Medhavy the platform** — what gets built (the cancer textbook, the
-  physics textbook, the Hub architecture)
-- **Medhavy the instrument** — the design conversation tool (Chapter 13)
-  that converts thinking into a buildable specification
-
-The Medhavi Hub architecture (API.md, ARCHITECTURE.md) is available in
-pantry for technical layer descriptions. Use at appropriate depth —
-enough for Charles to understand what he is commissioning, enough for
-the developer to recognize the architecture.
-
-## Pantry contents available for research
-
-- `ask-ai-research.md` — ITS and generative-AI chatbot effectiveness,
-  Bastani PNAS 2025, guardrail design
-- `case-study-research.md` — CBL literature, Thistlethwaite 2012,
-  pre-written vs. on-demand cases
-- `quiz-me-research.md` — retrieval practice, spaced repetition, FSRS,
-  SM-2, Cepeda 2006/2008
-- `quiz-me-habit-research.md` — Anki habit system, due-today counter,
-  Zeigarnik closure, Fogg/Eyal/Wood
-- `glimmer-research.md` — generative learning, ill-structured problems,
-  Jonassen 1997, Fiorella & Mayer 2016
-- `glimmer-displacement-research.md` — AI displacement, studio-critique,
-  scaffolding fading, Renkl, van Merriënboer
-- `concept-sequencing-research.md` — frequency sequencing, BKT, DKT,
-  prerequisite chaining, importance weighting
-- `domain-specific-instruction-research.md` — PCK, situated learning,
-  Level-3 specificity, Sadler 2013
-- `educational-media-economics-research.md` — Sesame Street, Mayer CTML,
-  cost-collapse asymmetry, minimum viable audience
-- GLP preprint (Frictional / Irreducibly Human series) — seven friction
-  components, decoupling problem, ensemble architecture
-- API.md — Medhavi Hub API reference
-- ARCHITECTURE.md — Medhavi Hub system architecture
-- Lexicon.txt — Medhavy vocabulary/lexicon features
-- MVAL.txt — Medhavy learning value features
-- `PEDAGOGY ARCHITECTURE.txt` — Medhavy pedagogical architecture
-- `Contextual Bandits.txt` — contextual bandit implementation notes
-- Computational Skepticism Substack — author's published review of
-  Horvath (The Digital Delusion)
-- Homes of Hope Plus One book.md — Course 2 complete, Priya case
-
-## Chapter anatomy (all chapters)
-
-Every chapter must contain:
-1. Learning objectives (Bloom's level explicit, 3–5 outcomes)
-2. Opening case (failure-first or concrete case before any framework)
-3. Core content sections (4–6), each: concept → example → application
-4. Worked example (real or explicitly labeled illustrative/simulated)
-5. Common misconceptions (state as plausible claim, then why it fails)
-6. Assessable exercises (minimum 3; at least one at Apply or above;
-   at least one requiring the reader to produce something)
-7. What would change my mind (one paragraph — specific empirical
-   finding that would require revising the chapter's central claim)
-8. Still puzzling (2–4 open questions the chapter raises but does
-   not resolve)
-9. Chapter closing / bridge to next chapter (one question this
-   chapter raises that the next chapter answers)
-
-**Enforcement:** A draft chapter missing items 4, 7, 8, or 9 is
-incomplete. Do not advance to editorial review without resolving it.
+"Adapt" is the contextual bandit — the algorithm that learns, per student
+per concept, which interventions produce genuine learning and surfaces
+those interventions more frequently. This is not a recommendation engine.
+It is an experiment that runs continuously, per learner, per concept,
+with learning outcomes as the reward signal.
 
 ---
 
-## Chapter list
+# PART 2 — LEARNER PROFILE
+
+## Primary reader (one specific person)
+
+A curriculum director at a mid-size university health sciences program.
+She has a budget line for educational technology, a Canvas instance, and
+a growing stack of AI+1 textbooks her faculty have adopted. A vendor has
+proposed adding Medhavy. She has read the feature sheet. She does not
+understand what Ask AI is, does not know what Quiz Me does that Anki
+doesn't, has never heard of Glimmer or the Frictional Framework, and
+cannot tell whether Medhavy is a chatbot bolted to a PDF or something
+architecturally different. She needs to make a budget decision in six
+weeks.
+
+## Prior knowledge assumed
+
+- Active institutional responsibility for curriculum or technology decisions
+- Basic familiarity with Canvas or equivalent LMS
+- Awareness that AI tutoring tools exist (even if skeptical)
+- Has heard "spaced repetition" or "adaptive learning" without understanding
+  the mechanisms
+- Can read a vendor proposal but has no framework for evaluating it
+
+## Prior knowledge NOT assumed
+
+- Knowledge of what Ask AI, Quiz Me, Case Study, or Glimmer are
+- Understanding of the Frictional Framework, GLP, or the seven signals
+- Familiarity with Irreducibly Human, AI+1, or Brutalist as frameworks
+- Research literacy (the book translates evidence, not presents it)
+- Technical understanding of LTI, bandits, or RAG
+
+## Prior misconceptions
+
+1. "Medhavy is a chatbot bolted to a textbook" — architecturally wrong;
+   the four modes are not a chatbot; Ask AI is the closest and it is
+   deliberately constrained in ways a chatbot is not
+2. "Intelligent textbook = adaptive quiz generator" — Quiz Me is one of
+   four modes; the other three do things quizzes cannot
+3. "If students are engaged, they are learning" — the Frictional Framework
+   exists precisely because this is false; the book must correct this
+   without alienating the reader
+4. "AI+1 already does what Medhavy does" — AI+1 is a better textbook;
+   Medhavy is a measurement and adaptation layer; these are different products
+5. "More modes = more better" — the book must explain when simpler is
+   correct; Anki is sometimes the right answer
+
+## Motivation type
+
+Professional and institutional. The reader is making a real budget
+decision with real consequences. The book must feel like a trusted
+colleague who has done the research, not like a vendor pitch or an
+academic paper.
 
 ---
 
-### ACT ONE — THE RIGHT QUESTION (Chapters 1–4)
-*What this act does: names what Medhavy is (the conductor frame),
-names the failure precisely, establishes that the field is asking
-the wrong question, calibrates the reader against over-building,
-delivers the complete evidence base.*
+# PART 3 — BOOK TYPE AND DEPLOYMENT SPECIFICATION
+
+**Primary type:** Decision-support book, organized as a practitioner
+handbook. Each chapter is self-contained and answers one decision
+question the reader is actually asking. Reader can enter at the chapter
+that matches their current question.
+
+**NOT:** A user guide (that is Book Two), a course textbook, or a
+technical manual.
+
+**Primary adoption context:**
+Self-directed reading by an institutional decision-maker who has been
+handed a Medhavy proposal and needs a framework to evaluate it.
+Secondary: professional development for instructional design teams
+considering AI+1 + Medhavy deployments.
+
+**$1 Kindle format:** Yes — consistent with the AI+1 series pricing.
+
+**What the book is NOT designed for:**
+Students using Medhavy, developers building on Medhavy, researchers
+studying educational technology, general readers interested in AI and
+education.
 
 ---
 
-### CHAPTER 1 — What is Medhavy?
+# PART 4 — FIELD POSITIONING
 
-**Filename:** `01-what-is-medhavy.md`
-**One-line:** The reader learns to name Medhavy as the conductor (not
-the intelligent textbook); to order the three audiences — learner,
-instructor, organization — in the sequence the frame requires; and
-to apply the experiment-as-product test to a given EdTech deployment.
-**Act:** One
-**Bloom's primary level:** Understand → Evaluate
-**Load-bearing:** YES — establishes the frame that runs every later chapter
+## The gap this book fills
 
-**Learning outcomes:**
-1. (Understand) State the conductor frame in one sentence and explain
-   why Medhavy is not the intelligent textbook but the system that
-   conducts what might be one.
-2. (Apply) Order the three audiences — learner, instructor,
-   organization — in the sequence the frame requires and explain why
-   the order matters more than the content of any single answer.
-3. (Analyze) Identify when a platform has solved the wrong problem
-   because it has the three audiences in the wrong order.
-4. (Evaluate) Apply the experiment-as-product test: is the deployment
-   running a continuously controlled experiment, or is it defending
-   a model?
-5. (Understand) Explain why transparency is the precondition for the
-   trust that learning requires.
+No existing resource tells an institutional decision-maker what Medhavy's
+four modes actually are in plain language, how they differ from what
+Canvas already does, when each one is warranted, and how to make the
+adoption decision honestly — including the honest case for not adopting.
 
-**Opening case:** The conductor metaphor. The conductor does not play
-the instruments. She decides which one plays, when, and for how long
-— based on evidence, not assumption. And she adjusts as the evidence
-changes. The chapter opens with the metaphor and immediately defends
-the distinction the metaphor makes load-bearing for the rest of the
-book: Medhavy is the conductor; the intelligent textbook is whatever
-the conductor conducts. Sometimes that is the four-layer platform.
-Sometimes it is Anki, a Kindle book, and a Humanitarians AI volunteer
-on a Zoom call.
+## Positioning statements
 
-**Core content:**
-1. Not a feature. Not a product category. A frame.
-2. The three questions, in order — learner first, instructor second,
-   organization third; why the order is the argument
-3. Experiment is the product — the impact of AI on learning is
-   obvious; the right implementation is not; Medhavy doesn't pick
-   a model and defend it
-4. Without transparency, there is no trust; without trust, there is
-   no learning — data, decision, and uncertainty transparencies
-5. Worked example — what the conductor does in twenty minutes of a
-   Wednesday afternoon (Priya, Anki, the volunteer Zoom, the
-   medical-vocabulary domain shift)
+vs. the existing Medhavy manuscript (the builder's book):
+"Unlike the Medhavy manuscript, which is written for people building an
+intelligent textbook from scratch, this book is written for people
+deciding whether to add Medhavy to a deployment they already have —
+starting from 'I have Canvas and AI+1 Kindles' and ending at 'here is
+my decision and why.'"
 
-**Worked example:** Priya's Wednesday afternoon — Anki review,
-six Again cards in the medical-vocabulary domain, the conductor's
-recommendation for Friday combining role-play and Anki, the consent-
-based notification to Priya that closes the loop. The reader watches
-the conductor work at the scale of a single learner's twenty minutes.
+vs. general AI-in-education landscape reports:
+"Unlike landscape surveys of intelligent textbook platforms, this book
+does not compare Medhavy to ALEKS or Khanmigo — it explains what Medhavy
+specifically does, in the vocabulary Medhavy uses, translated into
+decision-maker language."
 
-**Assessable exercises:**
-1. (Analyze) Apply the three-questions test to a learning product
-   you have used. Where did the product land?
-2. (Apply) Sketch a Medhavy conductor specification for a learning
-   problem you understand well.
-3. (Evaluate) Diagnose the frame of a vendor's pitch deck that opens
-   with institutional dashboards before student experience.
-4. (Create) Write a one-paragraph transparency disclosure for a
-   hypothetical learner.
-
-**Bridge to Chapter 2:** Chapter 2 is titled *What Is an Intelligent
-Textbook?* — the question about the second-order object, the thing
-the conductor conducts. The chapter catalogs the two failure modes
-the field has been committing in opposite directions. The conductor
-frame is the diagnostic.
-
-**Key pantry sources:** Bear's *What is Medhavy?* philosophy text
-(verbatim throughout chapter); `02-when-anki-is-enough_notes.md`
-(Priya case grounding); `medhavy-1.5-feature-roadmap.md` (instrument
-framing).
+vs. vendor marketing:
+"Unlike Medhavy's own feature documentation, this book names when
+Medhavy is not the right answer — including the specific conditions
+under which AI+1 on Kindle without Medhavy is the better choice."
 
 ---
 
-### CHAPTER 2 — What Is an Intelligent Textbook?
+# PART 5 — THREE-ACT LEARNING ARC
 
-**Filename:** `02-what-is-an-intelligent-textbook.md`
-**One-line:** The reader learns to name both failure modes precisely and
-understand why the field keeps committing both simultaneously.
-**Act:** One
-**Bloom's primary level:** Analyze
-**Load-bearing:** YES
+## Arc statement
 
-**Learning outcomes:**
-1. (Understand) Explain why content was never the product education was
-   selling — using the MIT OpenCourseWare experiment and the Khanmigo
-   IDK-IDK data as the evidence.
-2. (Analyze) Distinguish between the "no AI" failure mode and the "all AI"
-   failure mode, and name the specific mechanism by which each produces
-   worse outcomes than its proponents acknowledge.
-3. (Understand) Describe the four-layer architecture of an intelligent
-   textbook and explain why the integration of layers is the architecture,
-   not the layers themselves.
-4. (Evaluate) Identify which failure mode a given EdTech deployment
-   represents, using the engagement-vs-learning distinction as the
-   diagnostic.
+This book takes the reader from **"I have a vendor proposal I cannot
+evaluate"** to **"I have made a confident, evidence-based adoption
+decision"** — by first establishing what the four modes actually are
+and what problem each one solves (Act One), then explaining what
+Medhavy measures that Canvas cannot and why that measurement matters
+(Act Two), then giving the reader the decision framework and the
+honest conditions under which Medhavy does and does not earn its cost
+(Act Three).
 
-**Opening case:** The IDK-IDK incident. A student types "I don't know,
-I don't know" into a Khanmigo Socratic prompt and moves on. The system
-logs them as engaged. They are not learning. The most ambitious AI
-tutoring deployment in history — backed by the most credentialed EdTech
-optimist in the field — produced this. Not because the AI was bad.
-Because the architecture was wrong.
+## Act One — What Are These Four Things? (Chapters 1–5)
 
-**Core content:**
-1. Content was never the product — MIT OpenCourseWare, enrollment did
-   not collapse, what got more valuable was the experience
-2. The no-AI failure mode — professor absorbs automatable work,
-   irreducibly human work gets crowded out by accident
-3. The all-AI failure mode — chatbot becomes the relationship,
-   IDK-IDK logged as engaged, measurement system reports success
-4. The third position — not a compromise, a different question:
-   what would you have to build if you took all the evidence seriously?
-5. The four-layer architecture introduced as a sketch — Book Library,
-   Tic TOC, Adaptive Engine, Measurement Layer
-6. The platform is opinionated. The model has no opinions of its own.
+Starting state: Reader has heard Ask AI, Quiz Me, Case Study, Glimmer.
+Does not know what any of them are. Cannot tell them apart from a
+general-purpose chatbot.
 
-**Worked example:** A real EdTech deployment where engagement metrics
-reported success while learning outcome data showed failure. Walk through
-what the engagement dashboard showed, what a learning evidence dashboard
-would have shown, and the gap between them. (Illustrative case — label
-as such if not sourced.)
+Ending state: Reader understands what cognitive operation each mode
+serves, what the evidence base for each one is, when each one is
+appropriate, and — critically — when each one is NOT appropriate.
 
-**Assessable exercises:**
-1. (Apply) Given a description of an EdTech deployment, classify it
-   as "no AI," "all AI," or "neither" failure mode and identify the
-   specific architectural decision that produced the outcome.
-2. (Analyze) The Khanmigo IDK-IDK incident — what would the engagement
-   dashboard have shown? What would a learning evidence dashboard have
-   shown? What is the gap?
-3. (Evaluate) MIT OpenCourseWare increased enrollment rather than
-   collapsing it. What does this prove about content as the product —
-   and what does it not prove?
+Inciting question: What is a "mode" and why are there four of them
+instead of one?
 
-**Bridge to Chapter 3:** Before the architecture is introduced, the
-reader needs the honest check: for some learning problems, the right
-answer is a simpler tool. Chapter 3 delivers that check.
+**The pebble:** Chapter 1 opens with the most common failure mode in
+AI-in-education deployments — students who look engaged, score well
+in-session, and learn nothing durable. The Bastani 2025 finding in
+plain language: same AI, different wrapper, opposite outcomes. The
+reader who finishes Chapter 1 understands why "the AI is doing the
+work" is the failure, and why Medhavy's four modes are each designed
+to prevent a specific form of that failure.
 
-**Key pantry sources:** ask-ai-research.md (IDK-IDK / Khanmigo data),
-educational-media-economics-research.md (MIT OpenCourseWare framing),
-Computational Skepticism Substack
+## Act Two — What Does Medhavy Measure That Canvas Doesn't? (Chapters 6–8)
+
+Starting state: Reader understands the four modes. Still does not
+understand why measurement is the value proposition.
+
+Ending state: Reader understands the difference between engagement
+analytics (what Canvas provides) and learning evidence (what Medhavy's
+Frictional Framework provides). Understands the seven friction signals
+in plain language. Understands why the loop — present differently,
+measure whether it helped, adapt — cannot be closed by Canvas alone.
+
+Hardest moment: Chapter 6. The reader has spent a professional career
+treating engagement as a proxy for learning. The book must correct
+this without insulting them. The Bastani finding carries most of this
+weight if presented correctly.
+
+## Act Three — Is the Loop Worth It for My Deployment? (Chapters 9–11)
+
+Starting state: Reader understands the modes and the measurement.
+Now needs the decision framework.
+
+Ending state: Reader can answer the three adoption questions:
+(1) Does my deployment need to present content differently at scale?
+(2) Do I need to know whether the variation is helping?
+(3) Am I willing to act on what the measurement reveals?
+If all three yes: Medhavy earns its cost. If any no: simpler stack.
+
+Transfer test: The reader who finishes Chapter 11 can sit in a
+budget meeting and explain — in plain language, without jargon —
+what Medhavy does that Canvas doesn't, when it's worth adding,
+and when it isn't.
 
 ---
 
-### CHAPTER 3 — When Anki Is Enough
+# PART 6 — PREREQUISITE MAP
 
-**Filename:** `03-when-anki-is-enough.md`
-**One-line:** The reader learns to apply the complexity threshold test
-before reaching for the full architecture.
-**Act:** One
-**Bloom's primary level:** Evaluate
-**Load-bearing:** No (skippable for a reader who already knows they
-need the full architecture — they lose calibration and the Homes of
-Hope case but not a capability build)
+| Prerequisite | Safe to Assume? | Where Addressed |
+|---|---|---|
+| LMS familiarity (Canvas or equivalent) | Yes | Referenced throughout, not explained |
+| Basic AI tool awareness | Probably | Chapter 1 establishes baseline |
+| Understanding of spaced repetition | No | Chapter 3 (Quiz Me) explains from scratch |
+| Knowledge of Bloom's taxonomy | No | Referenced in passing, not required |
+| Research literacy | No | Evidence always translated, never cited raw |
+| Understanding of AI+1 framework | No | Chapter 2 explains what AI+1 is |
+| Understanding of Irreducibly Human | No | Introduced in Chapter 2, used throughout |
+| Knowledge of Frictional Framework / GLP | No | Chapter 6 introduces from scratch |
+| LTI or technical integration knowledge | No | Chapter 10 addresses without technical depth |
 
-**Learning outcomes:**
-1. (Evaluate) Apply a complexity threshold test to a learning problem
-   and determine whether the full intelligent textbook architecture is
-   warranted or whether simpler tools are the correct answer.
-2. (Analyze) Identify the three conditions under which intelligent
-   textbook complexity earns its cost: multi-layered capability build,
-   live instrumentation requirement, and adaptive sequencing across
-   concepts that cannot be pre-ordered.
-3. (Apply) Map a specific learner profile and learning goal to the
-   minimum viable tool set.
-4. (Evaluate) Distinguish between "this tool is insufficient" and
-   "this tool is the wrong tool."
-
-**Opening case:** Priya. 19 years old. Six years in a Homes of Hope
-residence in Hyderabad. Telugu and basic English. A smartphone. The three
-most accessible jobs in Hyderabad's employment market — BPO customer
-service, hospital support, NGO administration — all require English. The
-door is closed. Anki opens it. With a Kindle book. With a Humanitarians
-AI volunteer from the BPO sector on a Zoom call. Zero dollars.
-
-**Core content:**
-1. What Priya needs — 500-word job-functional vocabulary, spaced
-   repetition, a human who came from the sector she is entering
-2. The complexity threshold test — three questions: adaptive sequencing
-   required? Live instrumentation required? Multi-layered capability build?
-3. The three conditions that earn the full architecture — medical school
-   clinical reasoning, engineering design judgment, ill-structured domains
-4. The tool is not the problem. The context is the problem. — Homes of
-   Hope girl on TikTok vs. Homes of Hope girl using Anki to get a job.
-   Same phone. Different context.
-5. Human + AI, not human versus AI — Priya's volunteer is the
-   irreducibly human part; Anki is the AI part; neither works without
-   the other
-
-**Worked example:** Side-by-side comparison. Priya's learning problem
-(vocabulary acquisition, job placement goal, phone-based delivery, zero
-budget) versus a medical school clinical reasoning problem (diagnosis under
-ambiguity, transfer required, performance indistinguishable from
-understanding without live instrumentation). Same complexity threshold
-test — completely different answers. Show the test applied to both.
-
-**Assessable exercises:**
-1. (Apply) Given three learning problems — corporate onboarding,
-   surgical residency, professional certification exam — apply the
-   complexity threshold test and specify the minimum viable tool set.
-2. (Evaluate) A well-meaning EdTech vendor proposes replacing Priya's
-   Anki deck with a full adaptive platform. What is the honest
-   cost-benefit analysis?
-3. (Analyze) What would have to change about Priya's learning problem
-   to make the full architecture the right answer?
-
-**Bridge to Chapter 4:** The complexity threshold test claims certain
-tools work for certain problems. How do we know? Chapter 4 delivers the
-evidence base.
-
-**Key pantry sources:** Homes of Hope Plus One book.md (Priya case),
-quiz-me-research.md (Anki / spaced repetition evidence),
-quiz-me-habit-research.md (why Anki works as a habit system),
-educational-media-economics-research.md (cost arguments)
+**Front-loading decision:** No prerequisites chapter. Every concept
+introduced at first use in plain language. The reader does not need
+to understand the research — they need to understand the decision.
 
 ---
 
-### CHAPTER 4 — The Evidence Base
+# PART 7 — LEARNING OUTCOMES BY CHAPTER
 
-**Filename:** `04-the-evidence-base.md`
-**One-line:** The reader acquires the evidence base that every
-architecture chapter will cite — and the diagnostic for identifying
-cherry-picked evidence when they encounter it.
-**Act:** One
-**Bloom's primary level:** Analyze
-**Load-bearing:** YES
-
-**Learning outcomes:**
-1. (Analyze) Distinguish between the evidence Khan uses, the evidence
-   Horvath uses, and the evidence both omit.
-2. (Evaluate) Apply Hattie's 0.40 effect size threshold correctly:
-   as a cost-effectiveness guideline, not an absolute binary.
-3. (Understand) Explain the Bastani PNAS 2025 finding and identify the
-   design variable that determined the difference between outcomes.
-4. (Analyze) Identify which findings from the ITS, spaced repetition,
-   CBL, and generative assignment literatures apply to a specific
-   intelligent textbook design decision.
-5. (Evaluate) Assess a claimed EdTech evidence base for cherry-picking.
-
-**Opening case:** The Butter Knife Fallacy. Judging the scalpel's
-potential by observing its average misuse. The PISA data showing 6+
-hours of daily computer use correlates with a 66-point score drop is
-real and important. It is also a description of indiscriminate
-high-dosage deployment, not a description of what a well-designed
-constrained tool produces.
-
-**Core content:**
-1. What Horvath proves beyond reasonable doubt — PISA/TIMSS/PIRLS
-   correlations, meta-analytic synthesis (ES = +0.29), smartphone harm
-2. Where Horvath overreaches — 0.40 as absolute binary, "nearly every
-   context" claim provably false when ITS (ES = +0.52) exists
-3. What Khan gets right — the promise is real; engagement-as-proxy-for-
-   learning is the problem, not the AI
-4. The Bastani PNAS 2025 finding — same GPT-4, two prompt wrappers,
-   opposite outcomes; the guardrail design is the variable
-5. The ITS literature — ES +0.40 to +0.70 for well-designed ITS;
-   what makes them work
-6. The spaced repetition canon — Roediger & Karpicke 2006, Cepeda
-   2006/2008, retrieval practice mechanism
-7. The CBL literature — Thistlethwaite 2012 BEME synthesis, what the
-   evidence licenses for solo asynchronous AI-facilitated CBL
-8. The generative assignment literature — Fiorella & Mayer 2016,
-   Jonassen 1997, what Glimmer-style assignments can claim
-
-**Worked example:** The author's own published analysis of Horvath's
-*The Digital Delusion* (available in Computational Skepticism Substack).
-Walk through the evidence audit: what the book got right, what it
-overreached, and what a complete reading of the literature shows. This
-is the chapter's meta-lesson: how to read EdTech evidence claims.
-
-**Assessable exercises:**
-1. (Evaluate) A vendor claims their platform produces ES = +0.45 based
-   on a meta-analysis of 12 studies. Identify three questions you must
-   ask before accepting this claim.
-2. (Analyze) Horvath's claim that EdTech fails "in nearly every context"
-   — what does the evidence actually support, and what does it not?
-3. (Apply) The Bastani finding — what does it imply for the Ask AI
-   mode's guardrail design? What specific design decision does it justify?
-
-**Bridge to Chapter 5:** The reader now holds the evidence base. The
-architecture chapters can cite rather than argue. Chapter 5 delivers
-the blueprint: why the layers must be integrated, and what is lost when
-they are not.
-
-**Key pantry sources:** ALL nine pantry research notes are primary
-sources for this chapter. Computational Skepticism Substack review of
-Horvath is the worked example. Bastani PNAS 2025 is the single most
-important finding — verify citation.
+| Chapter | Title | Bloom's Ceiling | Key outcome |
+|---------|-------|-----------------|-------------|
+| 1 | The Failure That Looks Like Success | Analyze | Identify the engagement-learning gap in a real example |
+| 2 | AI+1 Is a Better Textbook. Is That Enough? | Evaluate | Assess whether AI+1 alone meets a specific deployment need |
+| 3 | Ask AI: When the Student Needs to Think, Not Receive | Apply | Match Ask AI to appropriate deployment contexts |
+| 4 | Quiz Me: Making Knowledge Stick | Apply | Distinguish spaced retrieval from quiz-taking; identify when Quiz Me adds value |
+| 5 | Case Study and Glimmer: The Two Modes Nobody Explains | Understand | Explain what Case Study and Glimmer do that the other two modes cannot |
+| 6 | What Canvas Measures and What It Misses | Analyze | Distinguish engagement analytics from learning evidence |
+| 7 | The Seven Signals: What Genuine Learning Looks Like | Understand | Name the seven friction signals in plain language and connect each to a mode |
+| 8 | The Loop: Present, Measure, Adapt | Analyze | Explain how the contextual bandit closes the loop Canvas cannot |
+| 9 | When Kindle Is Enough | Evaluate | Apply the three-question complexity threshold to a real deployment |
+| 10 | Adding Medhavy to Canvas: What Actually Changes | Apply | Specify what LTI integration adds and what it requires from the institution |
+| 11 | The Adoption Decision | Create | Produce a justified adoption recommendation for a specific deployment context |
 
 ---
 
-### ACT TWO — THE ARCHITECTURE (Chapters 5–11)
-*What this act does: delivers the complete four-layer architecture —
-measurement, modes, engine, curriculum design, content, economics —
-in the sequence that makes each layer comprehensible given what
-precedes it. Evidence at every decision point.*
+# PART 8 — CHAPTER-BY-CHAPTER TOC
 
 ---
 
-### CHAPTER 5 — The Four Layers
-
-**Filename:** `05-the-four-layers.md`
-**One-line:** The reader learns why bolt-on tools cannot produce what
-an intelligent textbook requires — and what each layer must do for
-the integration to function.
-**Act:** Two
-**Bloom's primary level:** Apply
-**Load-bearing:** No
-
-**Learning outcomes:**
-1. (Understand) Describe the function of each of the four layers and
-   explain what each layer cannot do without the others.
-2. (Analyze) Explain why bolt-on tools cannot produce the integrated
-   signal an intelligent textbook requires — and name the specific
-   signal lost at each seam.
-3. (Apply) Map a specific learning problem to the four layers,
-   identifying what each layer needs to do and what data it exchanges.
-4. (Evaluate) Assess an existing platform's architecture against the
-   four-layer model and identify which layer is the binding constraint.
-
-**Opening case:** The reasonable objection. A Charles Fadel type has
-just read Chapters 1–4. He says: "I could buy an LMS, a chatbot, a
-spaced repetition tool, and a case study library and connect them. Why
-do I need a platform?" The bolt-on failure answers before he finishes
-asking.
-
-**Core content:**
-1. The bolt-on failure — what gets lost when tools are assembled rather
-   than integrated: the seven signals that require live instrumentation
-2. Layer 1: Book Library — domain-specific content, Level-3 specificity,
-   what it must provide to the curriculum layer and adaptive engine
-3. Layer 2: Curriculum Design Layer — Tic TOC as the instrument, concept
-   map, prerequisite dependencies, phase gate specifications
-4. Layer 3: Adaptive Engine — the within-learner bandit, mode selection,
-   reward signal, what it needs from measurement
-5. Layer 4: Measurement Layer — GLP framework, seven friction components,
-   what it must capture for the engine to optimize for learning
-6. The integration — the layers are a loop, not a stack; a break anywhere
-   degrades the whole
-
-**Worked example:** One student session in Medhavy's cancer textbook
-deployment. A medical student working through an oncology concept. Show
-what data flows between layers at each step. What the measurement layer
-captures. What the engine receives. What mode it selects and why. First
-time the reader sees all four layers operating simultaneously.
-
-**Assessable exercises:**
-1. (Apply) Given a learning problem, specify the data each layer must
-   produce and receive. Draw the dependency map.
-2. (Analyze) A platform uses an LMS for content, a third-party chatbot
-   for Ask AI, and a separate quiz tool for retrieval practice. Identify
-   the specific signal lost at each seam.
-3. (Evaluate) The Khanmigo deployment — which layer was the binding
-   constraint? What would have to change to prevent the IDK-IDK outcome?
-
-**Bridge to Chapter 6:** Measurement determines what every other layer
-can learn. Chapter 6 specifies the measurement layer first — because
-understanding it is prerequisite to understanding why mode design and
-engine design take the shape they do.
-
-**Key pantry sources:** ARCHITECTURE.md (system architecture),
-API.md (technical layer descriptions), all nine pantry notes (for
-the seven signals argument), GLP preprint
+## ACT ONE — WHAT ARE THESE FOUR THINGS? (Chapters 1–5)
 
 ---
 
-### CHAPTER 6 — The Measurement Layer
+### CHAPTER 1 — The Failure That Looks Like Success
 
-**Filename:** `06-the-measurement-layer.md`
-**One-line:** The reader learns to specify a measurement layer that
-captures learning evidence rather than engagement proxies.
-**Act:** Two
-**Bloom's primary level:** Create
-**Load-bearing:** YES — generates prerequisites for Chapters 7, 8, 12
+**One-line:** The reader learns why AI in education can look like it's
+working while actively harming learning — and why that failure is
+architectural, not incidental.
 
-**⚠ LOAD-BEARING FLAG: If this chapter is written poorly, three
-downstream chapters break. Priority chapter for hostile reader review
-before any other chapter goes to editorial.**
+**Opening:**
+A university deploys an AI tutoring tool. Engagement metrics climb.
+Students report satisfaction. Session completion rates hit 94%. The
+end-of-term exam arrives. The students who used the AI most score
+lower than students who used it least. The vendor's dashboard showed
+success. The exam showed something else.
 
-**Learning outcomes:**
-1. (Analyze) Explain the decoupling problem: why the artifact can no
-   longer be trusted as sole evidence of the process that produced it.
-2. (Apply) Identify which of the seven GLP friction components are
-   measurable in a given platform architecture.
-3. (Evaluate) Assess a measurement system against the engagement-vs-
-   learning distinction.
-4. (Create) Specify a minimum viable measurement layer for a given
-   intelligent textbook.
+This is not a hypothetical. This is the Bastani 2025 PNAS finding,
+translated into plain language. Same AI, two deployments, one wrapper
+that refused to give answers, one that didn't. The no-guardrail group
+scored 17 percentage points below the no-AI control on the unassisted
+exam. The engagement metrics were indistinguishable between groups.
 
-**Opening case:** The artifact used to be proof of the process. It no
-longer is. A well-structured essay can now be produced in seconds by a
-system that has performed none of the cognitive work the essay was
-designed to evidence. The forensic window is closing. In writing it is
-largely closed already. This chapter opens on the decoupling problem
-before introducing the GLP framework as the response to it.
+**Core content blocks:**
+1. The engagement-learning gap — what it is, why it exists, why
+   dashboards cannot see it; the Bastani finding in three sentences
+2. The fluency trap — why AI-generated explanations feel like
+   understanding without producing it; why this is the primary risk
+   of adding AI to a learning stack without architecture
+3. Why the wrapper is the variable — same AI, different outcomes,
+   the only difference is what the platform commits the AI to doing;
+   this is the book's foundational claim
+4. What this means for the reader's decision — not "is AI bad" but
+   "what commitments does any AI layer need to make, and does Medhavy
+   make them"
 
-**Core content:**
-1. The decoupling problem — the causal chain that broke; Genuine
-   Learning → Cognitive Process → Artifact; AI inserts a bypass
-2. Why friction traces exist — genuine learning is a biological event;
-   dopamine-mediated prediction error; BDNF; dendritic spine formation;
-   behavioral consequences are traceable
-3. The seven GLP components — Y1 Temporal Engagement Pattern, Y2 Error
-   Trajectory Coherence, Y3 Cross-Context Transfer, Y4 Uncertainty
-   Calibration, Y5 Social Knowledge Texture, Y6 Retrieval Strength
-   Decay Signature, Y7 Scaffolding Response Curve
-4. The ensemble architecture — why seven components, not one; gaming
-   cost argument
-5. The fluency trap — brain confuses perceptual fluency with
-   understanding; smooth AI explanation produces genuine fluency;
-   the feeling of understanding is real; the understanding is not
-6. Minimum viable measurement layer — which three GLP components are
-   highest priority; what can be approximated from LMS clickstream data
+**Worked example:**
+The Bastani study as a case: two versions of the same deployment,
+same students, same content, same AI model. Walk the reader through
+what each group experienced, what each group's dashboard showed, and
+what each group's exam revealed. The gap between the dashboard and
+the exam is the problem this book solves.
 
-**Worked example:** Two students submit identical essays on a clinical
-pharmacology concept. One used AI to generate it. One wrote it after
-genuine engagement. The artifact is indistinguishable. Walk through
-what each of the seven GLP components would show for each student.
-Where the signals diverge. What the composite GLP score looks like.
+**Exercises (3):**
+1. (Analyze) Look at a set of Canvas analytics for a course you know.
+   Identify three metrics that measure engagement. For each, name what
+   genuine learning signal it would miss.
+2. (Analyze) Describe a time when student engagement was high but
+   learning was low. What would the dashboard have shown? What would
+   a learning-evidence measurement have shown?
+3. (Evaluate) Given the Bastani finding, what one commitment would
+   you require any AI tool to make before adding it to your Canvas
+   deployment?
 
-**Assessable exercises:**
-1. (Apply) Given a platform architecture, identify which GLP components
-   are already measurable from existing data streams with no additional
-   instrumentation.
-2. (Evaluate) A platform dashboard shows: time on platform, pages
-   viewed, quiz completion rate, chat interactions. Classify each as
-   engagement proxy, performance proxy, or learning evidence.
-3. (Create) Specify the minimum viable measurement layer for a single-
-   subject intelligent textbook. Name what gets instrumented, what
-   signals are captured, what threshold triggers an adaptive engine
-   response.
+**Bridge:** The failure is architectural. The fix is architectural.
+The four modes are each a different architectural commitment.
+Chapter 2 starts with the simplest question: do you even need them?
 
-**Bridge to Chapter 7:** The measurement layer specifies what the
-adaptive engine can learn. Chapter 7 delivers the four modes as the
-engine's arms — and why phase gates are a measurement decision as much
-as a pedagogical one.
-
-**Key pantry sources:** GLP preprint (primary source — seven components
-fully specified), all nine pantry notes (for the neurobiology section
-and the fluency trap), ARCHITECTURE.md
+**Contributor notes:** The Bastani finding must be stated accurately
+and accessibly. The reader will be skeptical — they have seen engagement
+metrics that looked like learning. The chapter's job is not to convince
+them AI is bad. It is to install a single distinction: engagement
+evidence vs. learning evidence. Everything downstream depends on that.
 
 ---
 
-### CHAPTER 7 — The Four Modes
+### CHAPTER 2 — AI+1 Is a Better Textbook. Is That Enough?
 
-**Filename:** `07-the-four-modes.md`
-**One-line:** The reader learns to select the right mode for a given
-learning objective and specify the phase gate logic that prevents each
-mode's characteristic failure.
-**Act:** Two
-**Bloom's primary level:** Apply
-**Load-bearing:** No
+**One-line:** The reader learns what AI+1 is, what it adds to a Kindle
+or Canvas deployment, and the specific condition under which that is
+not sufficient.
 
-**Learning outcomes:**
-1. (Understand) Explain the evidence base for each of the four modes
-   and identify the specific learning mechanism each mode activates.
-2. (Analyze) Explain why each mode is phase-gated and what specific
-   failure mode each gate prevents.
-3. (Apply) Select the appropriate mode or mode sequence for a given
-   learning objective using evidence and phase gate logic as criteria.
-4. (Evaluate) Diagnose a mode deployment failure and specify the
-   design correction.
+**Opening:**
+Most educational technology fails because it tries to be three things
+at once: a better textbook, a measurement system, and an adaptive
+engine. AI+1 is explicitly the first thing only. It is a domain-specific,
+practitioner-facing textbook written at the intersection of AI fluency
+and human expertise. It is not a platform. It is not a measurement
+system. It is not adaptive.
 
-**Opening case:** The hammer problem restated at mode level. A platform
-with only one mode is a hammer. Ask AI for every interaction produces
-the Bastani GPT-Base outcome. Quiz Me for every interaction produces
-performance without storage strength. Glimmer for every interaction
-produces the anxiety failure mode in novice learners. Case Study for
-every interaction produces pattern matching without causal understanding.
+For a significant fraction of deployments, that is exactly enough.
+This chapter explains when.
 
-**Core content:**
-1. Ask AI — the guardrail is the design decision; context-anchoring
-   (RAG to current section + prerequisites) as primary guardrail;
-   the open question: does context-anchoring alone convert GPT-Base
-   to GPT-Tutor success?
-2. Case Study — solo asynchronous AI-facilitated CBL on faculty-
-   curated cases at the application stage; Thistlethwaite 2012 as
-   the applicable evidence base; pre-written + faculty-reviewed as
-   the evidence-licensed path
-3. Quiz Me — retrieval practice as mechanism; FSRS as scheduling
-   algorithm; due-today counter as Zeigarnik closure variable; the
-   algorithm is a small contributor to whether students adopt the
-   tool at all — the due-count is load-bearing UI
-4. Glimmer — ill-structured problem at session level; backwards-faded
-   scaffolding weeks 1–3; the anxiety failure mode in novice learners;
-   scaffolding fading, not scaffolding removal
-5. Phase gates as measurement decisions — Quiz Me gated until section
-   read (Y1), Glimmer gated until concept built (Y7), Case Study
-   gated until representation sufficient (Y3)
+**Core content blocks:**
+1. What AI+1 is — the framework in plain language: domain expert plus
+   AI fluency; the Irreducibly Human taxonomy; what makes AI+1 different
+   from a textbook that mentions AI
+2. The standard AI+1 deployment stack — Kindle + Brutalist slides +
+   Canvas; what each component does; why this is a complete learning
+   environment for most purposes
+3. The three questions that determine sufficiency — does the deployment
+   need to present content differently to different learners at scale?
+   Does someone need to know whether variation is helping? Is the
+   institution willing to act on measurement? If any answer is no,
+   stop here.
+4. What Medhavy adds to this stack — the loop in plain language;
+   not a replacement for AI+1 but a layer on top of it; the distinction
+   between a better textbook and a measurement-and-adaptation layer
 
-**Worked example:** A medical student working through a pharmacokinetics
-concept. Mode sequence: Ask AI to clarify a prerequisite (context-
-anchored, hint-only). Quiz Me on the core mechanism (spaced, due-count
-visible). Case Study on a drug interaction scenario (pre-written,
-faculty-reviewed, gated until Quiz Me mastery threshold). Glimmer:
-design a dosing protocol for a complex patient (open, scaffolding-faded
-by week). Show what the measurement layer captures at each mode
-transition.
+**Worked example:**
+Two deployments side by side. Deployment A: 30 nursing students,
+one instructor, AI+1 pharmacology textbook on Kindle, Canvas for
+assignments. The instructor knows her students. She adapts in real
+time. She does not need Medhavy. Deployment B: 300 students across
+five sections, three instructors, no shared visibility into which
+students are struggling with which concepts. The instructors cannot
+adapt at scale. This deployment has the three conditions. This one
+warrants the loop.
 
-**Assessable exercises:**
-1. (Apply) Given a learning objective and learner profile, specify the
-   mode sequence with phase gate logic and the failure mode each
-   gate prevents.
-2. (Evaluate) A Glimmer deployment shows 60% of students abandoning
-   the mode in week 2. Diagnose the failure mode and specify the
-   scaffolding correction.
-3. (Analyze) A Quiz Me deployment shows high session scores but poor
-   retention at 30-day re-assessment. Which GLP component is the
-   diagnostic? What does it suggest about the scheduling algorithm's
-   configuration?
+**Exercises (3):**
+1. (Evaluate) Describe your current or most relevant deployment.
+   Apply the three questions. Record your honest answers.
+2. (Apply) For a deployment where all three questions are yes,
+   name the specific information the loop would produce that Canvas
+   currently cannot provide.
+3. (Evaluate) For a deployment where one or more answers are no,
+   explain why the simpler stack is not a compromise — why it is
+   the correct answer for that context.
 
-**Bridge to Chapter 8:** The modes are the engine's arms. Chapter 8
-delivers how the engine learns which arm to pull for which learner on
-which concept — and why that learning requires the measurement layer
-Chapter 6 specified.
-
-**Key pantry sources:** ask-ai-research.md, case-study-research.md,
-quiz-me-research.md, quiz-me-habit-research.md, glimmer-research.md,
-glimmer-displacement-research.md, PEDAGOGY ARCHITECTURE.txt
+**Bridge:** The loop has four components. The next three chapters
+explain the four modes — what each one does, when it works, and
+when it doesn't. Start with Ask AI.
 
 ---
 
-### CHAPTER 8 — The Adaptive Engine
+### CHAPTER 3 — Ask AI: When the Student Needs to Think, Not Receive
 
-**Filename:** `08-the-adaptive-engine.md`
-**One-line:** The reader learns what the adaptive engine is actually
-optimizing, why within-learner beats cross-learner generalization, and
-how to specify a reward function that does not silently drift toward
-engagement.
-**Act:** Two
-**Bloom's primary level:** Evaluate
-**Load-bearing:** YES
+**One-line:** The reader learns what Ask AI is, why it is deliberately
+constrained, and when that constraint is the point.
 
-**Learning outcomes:**
-1. (Understand) Explain the difference between cross-learner
-   generalization and within-learner bandit optimization — and why
-   the difference matters for learning outcomes.
-2. (Analyze) Identify what the adaptive engine is learning across
-   (mode × concept × time) cells and what data the measurement layer
-   must provide.
-3. (Apply) Specify the reward signal for a given intelligent textbook
-   — naming what GLP components contribute and how the engine updates.
-4. (Evaluate) Assess an adaptive engine design for the engagement trap
-   — whether it is optimizing for the right reward signal or drifting.
+**Opening:**
+The most natural assumption about an AI tool in a textbook is that
+it answers questions. Ask AI does not answer questions. This is not
+a limitation. It is the design.
 
-**Opening case:** The casino. Five slot machines. 1,000 tokens. You
-cannot tell from looking which machine pays best. This is the
-exploration-exploitation dilemma — formalized by Herbert Robbins in
-1952. Now replace the slot machines with Ask AI, Case Study, Quiz Me,
-and Glimmer. Replace the tokens with a student's study sessions.
-Replace the payout with genuine learning probability.
+A student who gets the answer from an AI has offloaded the cognitive
+work that produces learning. The answer is now the AI's, not the
+student's. Ask AI is designed to prevent this by giving hints, asking
+clarifying questions, and redirecting students back to material they
+are supposed to be building a relationship with — not bypassing.
 
-**Core content:**
-1. The slot machine version — epsilon-greedy, UCB1, exploration-
-   exploitation tradeoff; the contextual bandit: what if payout
-   depended on wind speed? In Medhavy, wind speed is (learner history
-   × concept prerequisites × time since last session × prior mode
-   performance)
-2. The within-learner distinction — most adaptive platforms use cross-
-   learner generalization; within-learner bandit learns per-learner
-   reward functions; requires more sessions to converge but does not
-   require the assumption that learners are similar
-3. What the engine is learning — reward function over (mode × concept
-   × time) cells; updates every session
-4. The engagement trap — the casino owner watching through the security
-   camera; engagement-optimizing platform keeps genuine earnings low
-   while logging the learner as a winner; an engine that receives
-   engagement signals instead of GLP signals will drift
-5. The reward function specification — GLP components, initial weights
-   from evidence base, update from deployment data; honest uncertainty:
-   right weights are one of the book's eight open bets
-6. What the engine cannot learn — cross-learner generalization outside
-   its scope by design; curriculum sequencing outside its scope
+**Core content blocks:**
+1. What Ask AI actually does — RAG-grounded context awareness;
+   the hints-not-answers guardrail; Socratic mode in plain language;
+   why "it won't just tell me the answer" is the feature, not the bug
+2. The Bastani finding applied to Ask AI — the unguarded chatbot
+   is the failure mode this design prevents; the guardrail is what
+   converts harm into learning
+3. When Ask AI is the right mode — acquiring a representation;
+   the student who has no schema for a concept yet; the entry point
+   of the four-mode sequence
+4. When Ask AI is NOT the right mode — for factual recall on
+   well-understood concepts, it is patronizing; for application
+   under ambiguity, it cannot replace a case; for generative work,
+   it cannot replace Glimmer; Ask AI is the first mode, not the
+   only mode
+5. What Ask AI cannot do — it cannot make knowledge durable;
+   it cannot force application under ambiguity; it cannot produce
+   generative capability; these are the jobs of the other three modes
 
-**Worked example:** A within-learner bandit session log for a medical
-student across six weeks of oncology study. Show engine's initial mode
-distribution (near-uniform — pure exploration). Week 2 update (this
-student responds to Quiz Me better than Ask AI on factual concepts).
-Week 4 (Glimmer underperforming — engine reduces weight). Week 6
-(Case Study receiving higher allocation for application-level concepts).
-Walk through the reward function update at each step.
+**Worked example:**
+A medical student asks: "What is beta blockade?" Two responses shown
+side by side — the unguarded chatbot response (complete, fluent,
+forgettable) and the Ask AI response (a question back: "What did
+you observe about heart rate in the prerequisite section?"). The
+student who received the question has to think. The student who
+received the answer doesn't have to.
 
-**Assessable exercises:**
-1. (Apply) Given a reward function specification and a four-week
-   deployment log, calculate the engine's updated mode allocation
-   for a specific learner-concept pair.
-2. (Evaluate) An adaptive engine's session logs show increasing time-
-   on-platform and decreasing GLP scores over six weeks. Diagnose the
-   failure. What reward signal is the engine actually optimizing?
-3. (Analyze) A platform claims to "personalize learning to each
-   student." What question do you ask to determine whether it uses
-   cross-learner generalization or within-learner optimization?
+**Exercises (3):**
+1. (Apply) For a concept in your domain, write the Ask AI response
+   to "Can you explain this to me?" — a question that requires the
+   student to retrieve and articulate, not receive.
+2. (Analyze) Identify a concept in your curriculum where Ask AI
+   would be patronizing or inappropriate. Name the mode that would
+   be better and why.
+3. (Evaluate) In your deployment context, what percentage of student
+   questions are "acquisition" questions (student has no schema yet)
+   versus "retrieval" questions (student has a schema but is forgetting)?
+   What does that ratio imply for how much Ask AI your students need?
 
-**Bridge to Chapter 9:** The engine's learning depends on a well-
-specified curriculum. Chapter 9 delivers the curriculum design layer —
-why backward design is the instrument that produces the structured
-input the engine requires.
-
-**Key pantry sources:** Contextual Bandits.txt (primary technical
-source), MVAL.txt, concept-sequencing-research.md, GLP preprint,
-ARCHITECTURE.md. Reference the Robert C. Gray multi-armed bandit
-explanation style: slot machines first, technical vocabulary second.
+**Bridge:** Ask AI gets the student to a fragile first understanding.
+Quiz Me makes that understanding durable. Chapter 4.
 
 ---
 
-### CHAPTER 9 — The Curriculum Design Layer
+### CHAPTER 4 — Quiz Me: Making Knowledge Stick
 
-**Filename:** `09-the-curriculum-design-layer.md`
-**One-line:** The reader learns to produce a chapter specification
-detailed enough that a developer can configure the adaptive engine
-without a meeting.
-**Act:** Two
-**Bloom's primary level:** Create
-**Load-bearing:** No
+**One-line:** The reader learns what spaced retrieval practice is,
+why it works, and when Quiz Me adds something that Anki or Canvas
+quizzes do not.
 
-**Learning outcomes:**
-1. (Understand) Explain why curriculum design is a prerequisite for
-   an adaptive engine — and what happens to the bandit's learning
-   when the concept map is underspecified.
-2. (Apply) Use backward design to specify the learning outcomes,
-   sequencing logic, and prerequisite map for a chapter or module.
-3. (Analyze) Identify the three curriculum design failure modes:
-   topic coverage masquerading as capability build, sequences that
-   serve author expertise rather than learner progression, prerequisite
-   gaps that appear as learner failure.
-4. (Create) Produce a chapter specification — outcomes, phase gates,
-   mode assignments, prerequisite dependencies — detailed enough for
-   a developer to act on.
+**Opening:**
+There is a finding in cognitive psychology so well-replicated that
+it functions as a law: testing yourself on material produces more
+durable learning than re-reading it, even when re-reading feels
+more productive. Students who study by testing themselves perform
+worse immediately and better at every subsequent measurement.
 
-**Opening case:** The "suggest 15 chapters" failure. An author opens
-a design tool and types "suggest 15 chapters for a medical school
-pharmacology textbook." The tool produces 15 plausible-sounding chapter
-titles. The author accepts them. The adaptive engine now has a concept
-map with no prerequisite dependencies, no outcome statements, no phase
-gate logic, no mode assignments. It is flying blind.
+This is the testing effect, and it is the mechanism Quiz Me is built on.
 
-**Core content:**
-1. Why the engine needs the curriculum layer — garbage curriculum in,
-   garbage adaptation out; "Drug Metabolism" as a topic vs. as a
-   capability; what the engine cannot learn from an underspecified map
-2. Backward design as the instrument — two-paragraph introduction for
-   developers who haven't encountered this; outcomes first, assessment
-   second, content structure third
-3. The concept map — what it must contain: concept nodes, prerequisite
-   dependencies, Bloom's level assignments, mode appropriateness flags
-4. The chapter specification — the shared deliverable Charles produces
-   and the developer configures from; the shared language the book
-   promised
-5. The three curriculum design failure modes — topic coverage disguised
-   as capability, author-sequence vs. learner-sequence, prerequisite
-   gaps appearing as learner failure
-6. Tic TOC as the curriculum design instrument — the meta-move: this
-   book was produced through a Tic TOC session; the reader has been
-   experiencing the methodology since Chapter 1
+**Core content blocks:**
+1. The testing effect in plain language — why retrieving something
+   from memory changes the memory; why re-reading feels good and
+   produces less learning; the counterintuitive finding that worse
+   practice performance predicts better retention
+2. Spaced repetition — why distributing practice over time produces
+   more durable retention than massing it; the FSRS algorithm in
+   one sentence: the more you struggle to retrieve something, the
+   longer it stays
+3. What Quiz Me adds beyond Anki — the integration with the concept
+   node map; priority weighting for high-importance concepts;
+   the aviation pedagogy principle (safety-critical concepts reviewed
+   regardless of recall score); the prerequisite interleaving that
+   forces discrimination learning
+4. When Quiz Me is NOT the right mode — for concepts requiring
+   application under ambiguity, retrieval practice produces pattern
+   matching, not reasoning; for generative capability, retrieval
+   practice alone does not build what Glimmer builds
+5. The habit loop — why the due-count counter is as important as
+   the algorithm; why the completion event is the reward; why
+   Quiz Me is designed as a maintenance habit, not an assessment
 
-**Worked example:** A pharmacology chapter specified incorrectly (topic-
-coverage model) versus specified correctly (backward design model).
-What the engine receives from each. What it can learn. What the student
-experiences as a result. The correctly specified chapter produces a
-concept map the engine can use. The topic-coverage chapter produces a
-list the engine cannot adapt to.
+**Worked example:**
+Two students preparing for a pharmacology board exam. Student A
+re-reads their notes every Sunday. Student B runs Quiz Me for
+12 minutes every morning. Two weeks before the exam, Student A
+scores higher on a practice test. On exam day, Student B scores
+higher. The testing effect in one scenario.
 
-**Assessable exercises:**
-1. (Create) Given a chapter topic and learner profile, produce a
-   chapter specification that passes backward design audit: outcomes
-   at Apply level or above, phase gate logic for each mode, prerequisite
-   dependency map with no broken chains.
-2. (Analyze) A student is failing Chapter 8 of a deployed intelligent
-   textbook. Platform logs show high engagement and low GLP scores.
-   Diagnose: curriculum design failure, measurement failure, or content
-   failure?
-3. (Apply) Convert a topic-coverage chapter outline into a backward-
-   design chapter specification. Name every change made and why.
+**Exercises (3):**
+1. (Apply) Identify five concepts in your curriculum that require
+   durable factual recall (drug names, anatomical structures, clinical
+   criteria). These are Quiz Me candidates. Identify five that require
+   reasoning under ambiguity. These are not.
+2. (Analyze) Your institution uses Canvas quizzes for retrieval
+   practice. What does Quiz Me's FSRS scheduling add that Canvas
+   quizzes cannot provide? Name the specific mechanism.
+3. (Evaluate) For a 15-week course, estimate how many Quiz Me
+   sessions a student would complete if the habit formed in week 2
+   versus week 6. What design choice most affects habit formation?
 
-**Bridge to Chapter 10:** The curriculum design layer produces the
-specification. The content layer produces what the specification
-describes. Chapter 10 answers: given what the curriculum layer requires
-from the content layer, what content production decisions are justified
-by the evidence?
-
-**Key pantry sources:** PEDAGOGY ARCHITECTURE.txt, Lexicon.txt,
-domain-specific-instruction-research.md, concept-sequencing-research.md
+**Bridge:** Quiz Me makes factual and conceptual knowledge durable.
+It does not teach students to use that knowledge when the situation
+is ambiguous and the right answer is not obvious. That is Case Study's job.
 
 ---
 
-### CHAPTER 10 — The Content Layer
+### CHAPTER 5 — Case Study and Glimmer: The Two Modes Nobody Explains
 
-**Filename:** `10-the-content-layer.md`
-**One-line:** The reader learns which content production decisions
-the evidence supports and which ones cost-collapse changes — without
-changing the burden of proof for high-stakes content.
-**Act:** Two
-**Bloom's primary level:** Evaluate
-**Load-bearing:** No
+**One-line:** The reader learns what Case Study and Glimmer are,
+why they exist as separate modes, and what cognitive operation each
+one serves that Ask AI and Quiz Me cannot.
 
-**Learning outcomes:**
-1. (Analyze) Explain the domain-specificity finding and identify the
-   design constraint it imposes on content production.
-2. (Evaluate) Apply the cost-collapse asymmetry: identifying which
-   content decisions have low burden of proof and which retain high
-   burden of proof regardless of production cost.
-3. (Apply) Specify the content requirements for a given intelligent
-   textbook — domain specificity level, AI-generation policy, faculty
-   review gates, minimum viable content layer.
-4. (Evaluate) Assess an AI-generated content sample against the
-   vetting requirements the evidence base specifies.
+**Opening:**
+Professional education trains students for well-structured-problem
+performance. Professional practice requires ill-structured-problem
+judgment. This is not a new observation. The Carnegie Foundation
+documented it in medical education in 2010 and engineering education
+in 2008. The gap has not closed.
 
-**Opening case:** Content last. Deliberately. Every author wants to
-start here. This chapter opens by naming why it is last: content is
-what every author thinks is the product. The preceding eight chapters
-have argued it is one layer among four — and the least interesting
-design decision if the other three layers are wrong.
+Case Study and Glimmer are Medhavy's answer to that gap. They are
+not enhancements to the other two modes. They are different cognitive
+operations entirely.
 
-**Core content:**
-1. The domain-specificity finding — Level 1 (generic) vs. Level 2
-   (generic + domain capstone) vs. Level 3 (domain-specific throughout,
-   generic backbone); Level 3 captures bulk of transfer and motivation
-   benefits at ~1.5-2× production cost
-2. The cost-collapse asymmetry — AI content at $5/unit changes burden
-   of proof asymmetrically; low-risk content burden lowered; high-risk
-   content burden unchanged
-3. The AI-generation policy — which content elements can be AI-
-   generated with light review; which require domain expert authorship;
-   the faculty review gate is not optional
-4. The Sesame Street standard — $5/child/year producing measurable
-   learning gains; what AI-generated content produces is genuinely
-   unknown for initial concept acquisition — named as an open bet
-5. The minimum viable content layer — what the curriculum design layer
-   requires; a chapter specification without content is an engine
-   without fuel
+**Core content blocks — Case Study:**
+1. What Case Study is — a pre-written, faculty-reviewed clinical or
+   domain scenario presented after the student has demonstrated
+   understanding of underlying concepts; the AI facilitates discussion,
+   never gives the answer
+2. Why pre-written and faculty-reviewed — the prohibition on
+   AI-generated cases; why a plausible-sounding wrong clinical claim
+   in a case scenario is a patient safety risk; why the faculty review
+   gate is not optional
+3. The graduated assistance ladder — why the case starts with broad
+   evidential questions and escalates only when the student demonstrates
+   engagement; the assistance dilemma in plain language: too much help
+   produces offloading, too little produces shutdown
+4. When Case Study is the right mode — application under ambiguity;
+   the student who can retrieve a concept but cannot deploy it when
+   the situation is unclear; the cognitive operation that produces
+   flexible, transferable knowledge
 
-**Worked example:** Two versions of the same pharmacology concept
-explanation. Version A: AI-generated, generic, unreviewed. Version B:
-domain-specific, faculty-reviewed, cross-domain comparison included.
-What each version produces in the measurement layer. What GLP
-components respond differently. What the engine learns from each
-after ten student sessions.
+**Core content blocks — Glimmer:**
+1. What Glimmer is — a generative, open-ended assignment where the
+   student produces something that did not exist before; no single
+   correct answer; graded on reasoning quality, not output
+2. The five dimensions — WHY (problem framing), Usefulness,
+   Mechanism (causal steps), Defensibility, Specificity; why
+   each dimension is designed to resist AI offloading
+3. The AI pre-grading reviewer — why it asks one targeted question
+   about the weakest dimension rather than providing comprehensive
+   feedback; the distinction between process-level and task-level
+   feedback
+4. The emergent term project — why students don't know they're
+   building a portfolio until week 10; why hiding the destination
+   produces more authentic work than announcing it
+5. When Glimmer is NOT the right mode — for students without
+   sufficient prior knowledge, it produces anxiety, not learning;
+   the backwards-faded scaffolding solution; the phase gate that
+   prevents premature deployment
 
-**Assessable exercises:**
-1. (Apply) Given a content production budget and a domain, specify
-   the content layer: which elements get AI-generated with light
-   review, which require domain expert authorship, and why.
-2. (Evaluate) An AI-generated explanation contains one factual error
-   and two conceptually misleading simplifications. What does the GLP
-   measurement layer capture — and when? What is the faculty review
-   gate's job?
-3. (Analyze) A platform claims their AI-generated content is "as
-   effective as professionally produced content" based on engagement
-   metrics. What evidence would actually support this claim?
+**Worked example:**
+The same student at three stages. After Chapter 3 (Ask AI): can
+explain what beta blockade is. After Chapter 4 (Quiz Me): can
+recall the mechanism reliably under timed conditions. After Case
+Study: can decide whether beta blockade is appropriate for a
+patient who presents with ambiguous symptoms. After Glimmer:
+can design a clinical protocol for beta blockade in a novel
+patient context and defend every decision.
 
-**Bridge to Chapter 11:** The architecture is complete. Chapter 11
-delivers the economic argument for why this moment — this specific
-convergence of cost collapse, AI capability, and evidence base —
-is the right moment to build it.
+**Exercises (3):**
+1. (Understand) For a concept in your curriculum, describe what
+   a student who has only completed Ask AI and Quiz Me can do.
+   Then describe what they still cannot do. Name which mode
+   addresses each gap.
+2. (Apply) Identify one faculty member in your program who could
+   write and review Case Study scenarios for their area of expertise.
+   What would the review process require from them in time and
+   format?
+3. (Evaluate) In your deployment, what percentage of learning
+   objectives require students to produce something original and
+   defend it? Those are Glimmer candidates. What percentage require
+   application under ambiguity without a single right answer?
+   Those are Case Study candidates.
 
-**Key pantry sources:** educational-media-economics-research.md
-(Sesame Street, Mayer CTML, cost-collapse), domain-specific-
-instruction-research.md (PCK, Level-3 specificity, Sadler 2013)
-
----
-
-### CHAPTER 11 — The Economics of Intelligent Textbooks
-
-**Filename:** `11-the-economics.md`
-**One-line:** The reader learns to make the economic case for an
-intelligent textbook — and to identify when the economics do not
-support the build.
-**Act:** Two
-**Bloom's primary level:** Evaluate
-**Load-bearing:** No (skippable for a reader whose build decision
-is already made — they lose the cost-collapse argument but not
-the architecture)
-
-**Learning outcomes:**
-1. (Understand) Explain why cost collapse changes the economics
-   of intelligent textbook production asymmetrically.
-2. (Analyze) Calculate the minimum viable audience for an intelligent
-   textbook at a given production cost and price point.
-3. (Evaluate) Assess a proposed intelligent textbook investment against
-   the cost-collapse asymmetry.
-4. (Apply) Specify the minimum viable investment for a given
-   intelligent textbook.
-
-**Opening case:** Sesame Street. $5 per child per year. The most
-cost-effective educational intervention ever documented at scale.
-For forty years this was the floor. Then the floor collapsed.
-AI-generated content at $5 per unit. What does this change — and
-what does it not change?
-
-**Core content:**
-1. The cost collapse — what AI-generated content costs now vs.
-   professionally produced content before; the asymmetry
-2. The binding cost shift — when production cost collapses, the
-   binding constraint shifts to knowledge of the individual learner;
-   Sadler 2013: teachers who identified student misconceptions produced
-   substantially larger gains; cheap content makes pedagogical content
-   knowledge more valuable, not less
-3. The minimum viable audience calculation — what audience size justifies
-   the architecture investment at different price points; the Kindle/$1
-   model; the Learning Engineering community as minimum viable audience
-4. The homeschool and micro-audience market — cost collapse makes
-   intelligent textbooks viable for previously too-small audiences;
-   Homes of Hope as the minimum viable audience example where Anki
-   wins on economics, not just pedagogy
-5. What the economics do not change — burden of proof for high-stakes
-   content; faculty review gate; domain expert curriculum design;
-   GLP measurement instrumentation
-
-**Worked example:** Three intelligent textbook projects at different
-investment levels. Project A: $15K (Dirac Quantum Tutor). Project B:
-$150K (medical school pilot). Project C: $1.5M (full-scale platform).
-What each can and cannot build at that investment level. Which layers
-are feasible, which are minimum viable, which must be deferred.
-
-**Assessable exercises:**
-1. (Apply) Given a production budget and target audience, specify
-   what the intelligent textbook can and cannot build at that
-   investment.
-2. (Evaluate) A vendor proposes an intelligent textbook for a niche
-   professional certification with 500 potential users at $50/year.
-   Does the economics support the full four-layer architecture? What
-   is the minimum viable version?
-3. (Analyze) Cost collapse changed the economics of content production.
-   What did it not change? Name three costs that are unchanged and
-   explain why.
-
-**Bridge to Chapter 12:** The architecture is complete. The economics
-are specified. Act Three begins: honesty about what is not yet known,
-and the tool that converts everything the book has built into a
-specification worth handing to a developer.
-
-**Key pantry sources:** educational-media-economics-research.md
-(Sesame Street, minimum viable audience, AI content quality evidence,
-Sunstein burden-of-proof inversion), Homes of Hope Plus One book.md
-(economics of the minimum viable case)
+**Bridge:** The four modes cover the full cognitive sequence —
+acquire, retain, apply, generate. The question is whether your
+institution needs all four, and whether you can tell whether
+they're working. That requires measurement. Chapter 6.
 
 ---
 
-### ACT THREE — THE MAP (Chapters 12–13)
-*What this act does: names the bets honestly, delivers the instrument
-that converts thinking into specification, demonstrates that the book's
-method is itself an instance of the methodology it describes.*
+## ACT TWO — WHAT DOES MEDHAVY MEASURE THAT CANVAS DOESN'T? (Chapters 6–8)
 
 ---
 
-### CHAPTER 12 — What the Platform Does Not Know Yet
+### CHAPTER 6 — What Canvas Measures and What It Misses
 
-**Filename:** `12-what-the-platform-does-not-know-yet.md`
-**One-line:** The reader learns to distinguish what the evidence
-supports from what is a design bet — and to specify the instrumentation
-that makes the bets testable.
-**Act:** Three
-**Bloom's primary level:** Evaluate
-**Load-bearing:** No (skippable for a reader who trusts the
-architecture and is not interested in the epistemic inventory —
-they lose the honest uncertainty framing but not a capability)
+**One-line:** The reader learns the specific gap between engagement
+analytics and learning evidence — and why that gap is the adoption
+decision's hinge.
 
-**NOTE FOR CHAPTER AUTHOR:** This chapter requires the author's
-voice more than any other chapter. It cannot be written as a
-literature review. The author must speak in first person about
-bets they are personally making. A contributor cannot write
-this chapter — it will read as false.
+**Opening:**
+Canvas shows you who opened the module, how long they stayed,
+whether they submitted the assignment, and what score they received.
+None of those measurements tells you whether the student learned
+anything they can use six weeks later without the textbook in front
+of them.
 
-**Learning outcomes:**
-1. (Evaluate) Assess an intelligent textbook deployment's epistemic
-   honesty: distinguishing adjacent evidence, direct evidence, and
-   design bets.
-2. (Apply) Specify the instrumentation required to make a given
-   design bet testable from deployment data.
-3. (Analyze) Explain the student consent architecture as a design
-   decision with learning consequences.
-4. (Understand) Describe switching behavior as signal and explain
-   what the adaptive engine should do with it.
+This is not a criticism of Canvas. Canvas was designed to administer
+courses, not to measure learning. The gap between administration
+metrics and learning evidence is not a Canvas failure. It is a
+category difference. Medhavy is built specifically for the second
+category.
 
-**Opening case:** The Montaigne register. What Medhavy currently
-knows. What it does not. Why the not-knowing is itself an instrumented
-research bet, not a gap to be embarrassed about. The chapter opens
-with the eight open questions the platform is designed to answer.
+**Core content blocks:**
+1. What Canvas actually measures — the five standard analytics:
+   time on page, clicks, completion rate, quiz score, submission
+   rate; what each one captures; what each one misses
+2. The performance-learning paradox — Bjork's distinction in
+   plain language: the student who scores well immediately after
+   instruction and forgets by next week; why immediate performance
+   is not a reliable predictor of durable learning; the Bastani
+   finding as the most extreme demonstration
+3. The decoupling problem — how generative AI made artifact-based
+   assessment unreliable; why the essay that looks like understanding
+   no longer necessarily is; what this means for Canvas's gradebook
+4. What learning evidence actually requires — behavioral traces
+   of genuine cognitive engagement; why these are different from
+   performance metrics; introduction to the Frictional Framework
+   concept (full detail in Chapter 7)
 
-**Core content:**
-1. The eight open questions:
-   - Does context-anchoring alone convert GPT-Base failure to
-     GPT-Tutor success?
-   - Does pre-written faculty-reviewed CBL produce reasoning gains
-     comparable to group human-facilitated CBL when solo/asynchronous?
-   - Does FSRS-style scheduling generalize to conceptual material?
-   - Is the Quiz Me habit loop driven by the due-count or the algorithm?
-   - Does backwards-faded scaffolding prevent the anxiety collapse
-     in novice Glimmer users?
-   - Does priority-weighted scheduling outperform recall-only
-     scheduling?
-   - Does Level-3 domain specificity outperform Level-1 generic
-     instruction enough to justify the production cost?
-   - Does AI-generated educational content produce durable learning
-     outcomes comparable to professionally produced content?
-2. What the adjacent evidence supports — ITS, spaced repetition,
-   CBL — provides adjacent support; does not directly test the
-   integrated platform claim
-3. What the direct evidence does not yet show — no published RCT
-   has tested the integrated four-layer architecture
-4. The student consent architecture — what data the platform
-   collects, what it commits not to collect, why this is a design
-   decision with learning consequences
-5. Switching behavior as signal — when a learner switches from
-   Quiz Me to Glimmer mid-session, the switch is information
+**Worked example:**
+Two students, same Canvas analytics. Both logged 47 minutes on the
+module. Both submitted the assignment. Both scored 88%. One student
+learned. One student used AI to produce the assignment without
+engaging the material. Canvas cannot tell them apart. The chapter
+shows what Medhavy's measurement layer sees that Canvas does not.
 
-**Worked example:** The Medhavy cancer textbook deployment at six
-weeks. What the data show. What they do not show. Which of the eight
-open questions has preliminary evidence. Which is still genuinely open.
-A deployment report that a researcher could use as a preprint — not
-polished findings, but honest preliminary evidence with appropriate
-uncertainty.
+**Exercises (3):**
+1. (Analyze) Open your Canvas analytics for one course. List every
+   metric available. For each, write one sentence on what it measures
+   and one sentence on what genuine learning it cannot detect.
+2. (Analyze) Describe the decoupling problem to a skeptical faculty
+   member who trusts Canvas gradebook scores. What one piece of
+   evidence would you show them? (Hint: the Bastani study.)
+3. (Evaluate) For your deployment, name the highest-stakes assessment
+   in the curriculum. Is that assessment currently based on artifact
+   quality, engagement data, or learning evidence? What would change
+   if it were based on learning evidence?
 
-**Assessable exercises:**
-1. (Apply) For a given intelligent textbook deployment, specify the
-   minimum instrumentation required to generate preliminary evidence
-   on three of the eight open questions within one semester.
-2. (Evaluate) A platform publishes a white paper claiming their
-   intelligent textbook "improves learning outcomes by 40%." Apply
-   the epistemic audit: adjacent evidence, direct evidence, or
-   assertion?
-3. (Analyze) Design the student consent architecture for a medical
-   school intelligent textbook. What data must be collected for GLP
-   to function? What should not be collected? What must be disclosed?
-
-**Bridge to Chapter 13:** The honest inventory is complete. Chapter 13
-delivers the design conversation itself — the instrument that converts
-everything this book has built into a specification worth handing to
-a developer. And the meta-move: the reader has been living this
-conversation since Chapter 1.
-
-**Key pantry sources:** All nine pantry notes (for the eight open
-questions), GLP preprint, ARCHITECTURE.md. The eight open questions
-are drawn directly from the manuscript summary's "open questions the
-deployment is designed to answer" section.
+**Bridge:** If engagement analytics are insufficient, what does
+learning evidence look like? Chapter 7 introduces the seven signals.
 
 ---
 
-### CHAPTER 13 — The Design Conversation
+### CHAPTER 7 — The Seven Signals: What Genuine Learning Looks Like
 
-**Filename:** `13-the-design-conversation.md`
-**One-line:** The reader conducts the design conversation that
-produces a specification worth building from — and understands why
-the tool can only work if the thinking came first.
-**Act:** Three
-**Bloom's primary level:** Create
-**Load-bearing:** No
+**One-line:** The reader learns the Frictional Framework's seven
+signals in plain language — what each one is, what it measures,
+and which mode produces it.
 
-**NOTE FOR CHAPTER AUTHOR:** The worked example in this chapter
-depends on Medhavy the instrument existing as a usable tool.
-If the tool is not built when the chapter is drafted, the worked
-example must be labeled explicitly as a design specification of
-what the session will produce — not a product demo. The book's
-epistemic honesty commitment requires this label. It is fine —
-a book describing a tool it is building is more interesting than
-a book describing a tool that already exists.
+**Opening:**
+Genuine learning leaves traces. Not in the artifact the student
+produces — AI can produce that without the student having learned
+anything. In the behavior surrounding the artifact's production:
+how time was distributed, whether errors followed a coherent pattern,
+whether knowledge held up at a delay, whether a partial hint
+activated something already developing.
 
-**Learning outcomes:**
-1. (Understand) Explain why a "suggest 15 chapters" prompt produces
-   unusable output — and what the tool requires from the human before
-   it can produce a specification worth building from.
-2. (Apply) Conduct the design conversation — the question-by-question
-   process this book has modeled — that produces the inputs Medhavy
-   needs.
-3. (Create) Use Medhavy to produce a design map — complete
-   specification of layers, modes, phase gates, measurement signals,
-   and curriculum architecture — that can be handed to a developer
-   without a translation meeting.
-4. (Evaluate) Assess a Medhavy-generated specification for
-   completeness: which layers are underspecified, which phase gates
-   are missing, which measurement commitments are absent.
+These are the seven friction signals. They are not experimental.
+They are behavioral consequences of the neurobiological events that
+constitute genuine learning. They exist whether or not the platform
+measures them. Medhavy measures them.
 
-**Opening case:** The meta-move named. This book is a Tic TOC session.
-The reader has been experiencing the design conversation methodology
-since Chapter 1 — question by question, intake before architecture,
-evidence before specification, honest inventory before the map. The
-chapter opens by naming this explicitly.
+**Core content blocks:**
+1. Why genuine learning leaves behavioral traces — the neurobiological
+   argument in two paragraphs: prediction error drives encoding,
+   consolidated traces produce durable retrieval; borrowed certainty
+   bypasses both; the traces are the evidence of which path was taken
+2. The seven signals in plain language (one paragraph each):
+   - Y1 Temporal Engagement — harder material takes longer when
+     processing is genuine; AI offloading decouples time from difficulty
+   - Y2 Error Trajectory Coherence — real misconceptions produce
+     coherent errors that update; guessing produces random errors
+   - Y3 Cross-Context Transfer — genuine understanding applies to
+     new contexts; surface learning does not
+   - Y4 Uncertainty Calibration — genuine learners know what they
+     don't know; AI-assisted students inherit the AI's confidence
+     without the underlying knowledge
+   - Y5 Social Knowledge Texture — genuine engagement produces
+     specific confusions and real-time position changes; borrowed
+     certainty produces smooth generic statements
+   - Y6 Retrieval Strength Decay — genuine learning holds up at
+     delay; borrowed performance collapses
+   - Y7 Scaffolding Response Curve — genuine partial understanding
+     responds to a partial hint; borrowed certainty needs the full
+     answer
+3. Which mode produces which signal — the mode-to-signal mapping
+   in plain language; why the combination is what makes the GLP
+   score robust
+4. What the GLP score is NOT — not a grade; the instructor as
+   meta-model; the GLP score adds evidence, it does not replace
+   judgment
 
-**Core content:**
-1. Why the tool requires the thinking — a Medhavy session without the
-   thinking this book provides produces "suggest 15 chapters" output;
-   the tool amplifies the thinking, it does not replace it
-2. The platform vs. instrument distinction — Medhavy the platform is
-   what gets built; Medhavy the instrument is what produces the
-   specification for what gets built
-3. How to conduct the design conversation — the intake questions,
-   learner profile, complexity threshold test, evidence audit, four-
-   layer specification, economics check, honest inventory
-4. What the map contains — complete specification; everything a
-   developer needs to build without a translation meeting; everything
-   Charles needs to evaluate whether what gets built is what he designed
-5. The shared language — Charles can say "Socratic isn't right here
-   because of retrieval interference"; the developer can say "we
-   already have something close"; both talking about the same decision
-6. The Gru connection — "senior dev is 80% thinking, 20% coding";
-   the map Medhavy produces is the 80%; the Gru-assisted build is
-   the 20%
+**Worked example:**
+The two-student scenario from Chapter 6, now shown through the
+seven signals. Student A (genuine learner) and Student B (AI-assisted)
+produce identical Canvas analytics and identical assignments. The
+seven-signal comparison shows where they diverge and which signals
+are most diagnostic for each mode.
 
-**Worked example:** A complete Medhavy session for a new intelligent
-textbook project — run at accessible depth. Show the intake questions,
-learner profile, complexity threshold decision, four-layer specification
-emerging, and the map that results. The reader watches a design
-conversation produce a buildable specification.
+**Exercises (3):**
+1. (Understand) For each of the seven signals, name one behavior
+   you have observed in a student that would register as genuine
+   learning on that signal — something specific you have seen in
+   office hours, class discussion, or assignments.
+2. (Apply) For your highest-risk assessment (the one where AI
+   offloading would cause the most harm), identify which two or
+   three signals would be most diagnostic. Name why.
+3. (Evaluate) Which of the seven signals could you currently
+   observe, even imperfectly, in your Canvas deployment without
+   adding Medhavy? Which cannot be observed without Medhavy?
 
-**Assessable exercises:**
-1. (Create) Run a Medhavy session for a real learning problem. Produce
-   the specification. Hand it to someone who was not in the session.
-   Can they build from it without asking a question? This is the only
-   test that matters.
-2. (Evaluate) Given a Medhavy-generated specification, identify which
-   layer is underspecified, which phase gates are missing, which
-   measurement commitments are absent. What questions would the
-   developer ask?
-3. (Apply) Charles Fadel has content on 21st century skills and
-   curriculum redesign. Run the first three intake questions of a
-   Medhavy session for his intelligent textbook. What do you learn
-   that changes the specification?
-
-**Chapter closing (book's last paragraph):** The reader holds the map.
-The developer has a specification they can build from. Charles has the
-language to evaluate whether what gets built is what he designed.
-The platform is opinionated. The model has no opinions of its own.
-The conversation is what makes the platform worth building — and the
-conversation is what this book has been, from the first IDK-IDK
-incident to this page.
-
-**Key pantry sources:** ARCHITECTURE.md, API.md, PEDAGOGY
-ARCHITECTURE.txt, Lexicon.txt (for Medhavy vocabulary). The Gru
-connection is deliberately brief — one section, not a full technical
-treatment. The implementation book is the right home for the full
-Gru specification.
+**Bridge:** The seven signals are what Medhavy measures. The loop
+is what Medhavy does with that measurement. Chapter 8.
 
 ---
 
-## Appendices
+### CHAPTER 8 — The Loop: Present, Measure, Adapt
 
-*Appendices are written from pantry material by Cowork. Each appendix
-is a standalone reference document — not required reading, but
-available for readers who want technical depth on specific Medhavy
-features or implementation approaches.*
+**One-line:** The reader learns what the contextual bandit is in
+plain language, what "adapt" actually means in practice, and why
+Canvas cannot close the loop Medhavy closes.
 
----
+**Opening:**
+Medhavy is not a smarter way to present content. It is a system
+that learns, per student per concept, which interventions produce
+genuine learning and surfaces those interventions more frequently.
+The technical name for this is a contextual bandit. The plain-language
+name is: an experiment that runs continuously, with learning outcomes
+as the reward signal, and adapts based on what it finds.
 
-### APPENDIX A — The Medhavy Lexicon: Vocabulary the Platform Teaches
+**Core content blocks:**
+1. The loop in concrete terms — present differently (interventions,
+   not just explanations); measure whether it helped (the seven
+   signals, not engagement metrics); adapt (the bandit updates its
+   policy); repeat; why each step is necessary and what breaks
+   without it
+2. What "present differently" actually means — interventions as
+   the unit of variation; the difference between "a different
+   explanation" and "a different pedagogical approach"; the evidence
+   library behind each intervention (Socratic vs. didactic, problem-first
+   vs. concept-first, spaced vs. massed — each has a different
+   evidence base and a different appropriate context)
+3. The contextual bandit in plain language — the slot machine analogy;
+   why the bandit explores and exploits simultaneously; why it runs
+   per-student per-concept rather than using population averages;
+   why this is the only design that respects learner heterogeneity
+4. What Canvas cannot do that Medhavy can — Canvas administers
+   courses; Medhavy runs experiments; the loop requires measurement
+   and adaptation in the same system; bolt-on tools cannot close it
+5. The honest limits — cold start problem in plain language; why
+   the first six sessions are exploratory; what the institution
+   needs to provide for the loop to work
 
-**Filename:** `A-medhavy-lexicon.md`
-**Source:** Lexicon.txt, NanoLex / Wikipedia Pipeline notes
-**One-line:** The platform-specific vocabulary the book introduces,
-defined precisely and mapped to their first appearance in each chapter.
+**Worked example:**
+One concept node across eight weeks of deployment. Week 1: bandit
+has no data, explores all modes. Week 3: Ask AI producing Y2 signal
+for this concept, Quiz Me producing Y6, Case Study not yet tried.
+Week 6: Case Study unlocked after Quiz Me threshold met, producing
+Y3 and Y7. Week 8: bandit's policy for this concept is taking shape
+— 40% Case Study, 35% Quiz Me, 25% Ask AI for this student. Another
+student's policy looks different. The bandit is doing what a skilled
+human tutor would do if they had infinite patience and perfect memory.
 
-**Contents:**
-- The IDK-IDK problem
-- The four layers (Book Library / Tic TOC / Adaptive Engine /
-  Measurement Layer)
-- The four modes (Ask AI / Case Study / Quiz Me / Glimmer)
-- The seven signals
-- Phase gates
-- The within-learner bandit
-- The GLP reward signal
-- Ambient infrastructure
-- The conductor
-- The fluency trap
-- Cost-collapse asymmetry
-- The due-today counter
-- Genuine Learning Probability (GLP)
+**Exercises (3):**
+1. (Analyze) In your deployment, who currently performs the "adapt"
+   function? (An instructor who adjusts based on exam results?
+   No one?) What information do they use? What information are
+   they missing?
+2. (Apply) For one high-stakes concept in your curriculum, describe
+   what the loop would need to measure to determine whether students
+   are genuinely learning versus performing. Which of the seven
+   signals are relevant?
+3. (Evaluate) The bandit requires a reward signal. In Medhavy, the
+   reward is delayed retrieval accuracy at seven days. In your
+   deployment, what would the equivalent be? Is that measurement
+   currently possible without Medhavy?
 
-**NanoLex connection:** The NanoLex / Wikipedia pipeline (Pipeline A
-live on dev; Pipeline B a publishable paper — "Automated Lexical Entry
-Generation for Nanomedicine") is the production implementation of the
-lexicon layer described in this appendix. Document the pipeline
-architecture and its relationship to the Book Library content layer.
-
----
-
-### APPENDIX B — The Causal Knowledge Graph: Mapping What Works
-
-**Filename:** `B-causal-knowledge-graph.md`
-**Source:** Hattie's Visible Learning DAG framework notes, Causal
-Knowledge Graph project files (Satwik Reddy Sripathi)
-**One-line:** How Hattie's Visible Learning variables map into a DAG
-framework (Intervention/Diagnostic/Context taxonomy) and what the
-Adherence Classifier architecture adds.
-
-**Contents:**
-- Hattie's Visible Learning as a knowledge base — the 250+ effect
-  sizes and what they represent
-- The Intervention/Diagnostic/Context taxonomy — how Hattie's variables
-  map to the three categories
-- The DAG framework — directed relationships between intervention,
-  context, and outcome variables
-- The Adherence Classifier architecture — what it detects and why
-  it matters for the adaptive engine
-- Connection to Chapter 8 (The Adaptive Engine) — how the causal
-  knowledge graph informs the engine's prior on reward function weights
-- Open questions: the causal discovery vs. expert elicitation debate
-  applied to educational interventions
-
----
-
-### APPENDIX C — The GLP Framework: Technical Specification
-
-**Filename:** `C-glp-technical-specification.md`
-**Source:** GLP preprint (Frictional / Irreducibly Human series)
-**One-line:** The full technical specification of the Genuine Learning
-Probability framework — the seven components, the ensemble architecture,
-the tier calibration, and the validation methodology.
-
-**Contents:**
-- The seven GLP components with full mathematical specification
-- The three-layer ensemble architecture (component models → tier-
-  conditioned combination → meta-model)
-- Tier calibration table (seven cognitive tiers, primary friction
-  signal per tier)
-- Validation methodology (labeled corpus construction, calibration
-  assessment, information gain test)
-- The arms race problem and why process-based measurement is different
-  from artifact-based detection
-- Implementation guidance: which components are measurable from LMS
-  clickstream data, which require additional instrumentation
+**Bridge:** You now have the full picture: four modes, seven signals,
+one loop. The question is whether your deployment needs it. Chapter 9.
 
 ---
 
-### APPENDIX D — Contextual Bandits: Implementation Notes
-
-**Filename:** `D-contextual-bandits.md`
-**Source:** Contextual Bandits.txt, MVAL.txt, ARCHITECTURE.md
-**One-line:** Technical implementation notes for the within-learner
-contextual bandit — the algorithm, the context features, the reward
-signal, and the update mechanics.
-
-**Contents:**
-- The contextual bandit formulation — arms, context features, reward
-- Context features for Medhavy: learner history, concept prerequisites,
-  time since last session, prior mode performance, GLP component scores
-- Reward signal specification — GLP components and weights
-- Exploration strategy — epsilon-greedy vs. UCB1 vs. Thompson sampling
-  for the Medhavy use case
-- Update mechanics — how the per-learner reward function is updated
-  after each session
-- Cold start problem — what the engine does for a new learner with
-  no session history
-- MVAL (Medhavy Value) — the platform's internal value metric and
-  its relationship to GLP
-- Open questions: right weights, generalization across learner
-  populations, convergence rate
+## ACT THREE — IS THE LOOP WORTH IT FOR MY DEPLOYMENT? (Chapters 9–11)
 
 ---
 
-### APPENDIX E — The Medhavi Hub: Architecture Reference
+### CHAPTER 9 — When Kindle Is Enough
 
-**Filename:** `E-medhavi-hub-architecture.md`
-**Source:** API.md, ARCHITECTURE.md
-**One-line:** The Medhavi Hub system architecture — authentication,
-access control, textbook registry, analytics, and memory API —
-for developers building on the platform.
+**One-line:** The reader gets the complexity threshold test — three
+questions that determine whether their deployment warrants Medhavy
+or whether AI+1 on Kindle is the complete answer.
 
-**Contents:**
-- System context diagram (from ARCHITECTURE.md)
-- Tech stack (Next.js, Clerk, Supabase, AWS S3, PostHog)
-- Auth architecture (JWT token flow, CORS strategy, logout invalidation)
-- Textbook access decision tree
-- Database schema (core tables, analytics tables, concept map tables)
-- Key design decisions (Clerk for identity / Supabase for data,
-  JWT vs. proxied sessions, dynamic CORS, service role key)
-- API reference summary (access, textbooks, classes, analytics,
-  memory — from API.md)
-- Concept map editor workflow (pipeline → session → node review →
-  export to S3)
+**Opening:**
+The most expensive mistake in educational technology is solving the
+wrong problem correctly. A deployment that does not need the loop,
+given the loop, has spent money on overhead and added complexity
+without adding learning value.
 
----
+This chapter is the discipline that says: not always, and here
+is how to know.
 
-### APPENDIX F — Medhavy 1.5 Feature Roadmap
+**Core content blocks:**
+1. The three questions — stated clearly as the decision framework:
+   (1) Does the deployment need to present content differently to
+   different learners at scale? (2) Does someone need to know whether
+   the variation is helping? (3) Is the institution willing to act
+   on what the measurement reveals?
+2. When all three are no — the AI+1 on Kindle deployment; what
+   makes it complete; the nursing class of 30 with one instructor
+   example; why adding Medhavy would be overhead, not value
+3. When all three are yes — the conditions that make the loop
+   worth closing; scale, heterogeneity, and accountability as the
+   three drivers; the 300-student multi-section example
+4. The partial cases — one yes, two no; two yes, one no; what
+   each combination implies for the adoption decision
+5. What "willing to act" actually requires — the institution has
+   to be prepared to change something based on what the measurement
+   reveals; Medhavy without the willingness to adapt is expensive
+   Canvas analytics
 
-**Filename:** `F-medhavy-1.5-feature-roadmap.md`
-**Source:** `medhavy-1.5-feature-roadmap.md` (in pantry)
-**One-line:** The product-and-engineering alignment document for the
-1.5 release — what already exists, what 1.5 adds, and the research
-rationale behind each feature.
+**Worked example:**
+Five deployments run through the three-question test. Each gets a
+yes/no verdict and a one-sentence justification. The reader should
+be able to run their own deployment through the test by the time
+the examples are done.
 
-**Contents:**
-- How to read the document (cognitive-operations framing — different
-  kinds of learning require different kinds of help)
-- The platform as it exists today — Ask AI as the context-aware tutor,
-  MoE routing in the Cancer Biology textbook, physics widget tools
-  in the Physics Vol. 1 textbook
-- What 1.5 adds — Quiz Me, Case Study, Glimmer — with the research
-  rationale for each design choice and the failure modes each is
-  designed to avoid
-- How the four modes fit together — the cognitive logic that makes
-  the combination more than the sum of its parts
-- The Medhavy 2.0 architecture preview (contextual bandit mode
-  selection) — pointer forward to Appendix I
+**Exercises (3):**
+1. (Evaluate) Run your primary deployment through the three
+   questions. Record your honest answers and your reasoning.
+2. (Evaluate) Identify the deployment in your institution where
+   all three answers are most clearly yes. What would Medhavy
+   need to show that deployment within one term to justify renewal?
+3. (Create) Write a one-paragraph recommendation for or against
+   adding Medhavy to a deployment of your choice. The recommendation
+   must cite the three questions and must be honest about which
+   answers were uncertain.
 
-**Relation to chapters:** This appendix is the engineering-and-product
-restatement of what Chapters 5–7 specify pedagogically. A reader who
-prefers the build-side framing can read this appendix first and then
-return to Chapter 5 for the architectural argument. A developer who
-inherits API.md should read this appendix before reading the code.
-
----
-
-### APPENDIX G — Medhavy 1.5 Video and Animation
-
-**Filename:** `G-medhavy-1.5-video-animation.md`
-**Source:** `medhavy-1.5-video-animation.md` (in pantry)
-**One-line:** The cost-effectiveness argument and design discipline
-for AI-produced educational video and animation in Medhavy textbooks
-— addendum to the 1.5 Feature Roadmap.
-
-**Contents:**
-- The cost-effectiveness argument — Nina Harris's $75K–$150K per
-  two-minute video estimate at professional production standards
-  collapses to ~$5/video via AI pipelines (15,000–30,000× reduction)
-- The minimum-viable-audience inversion — at $5/video a 30-student
-  section justifies production if any measurable gain exists
-- The evidence base for domain-specific video effectiveness — Mayer's
-  Cognitive Theory of Multimedia Learning (multimedia / modality /
-  coherence principles, ~1.13 SD modality effect), Mares & Pan's
-  cross-country meta-analysis (ES = 0.29 overall, 0.41 for low-SES)
-- Why physics and dynamic biological processes are the right initial
-  domains — spatial, temporal, dynamic structure that text + diagrams
-  cannot capture
-- The coherence-principle risk — cheap production tempts violation of
-  the design discipline that makes video effective; poorly produced
-  video produces negative learning relative to text-with-diagrams
-
-**Relation to chapters:** This appendix is the production-economics
-companion to Chapter 10 (Content Layer) and Chapter 11 (Economics).
-Where Chapter 10 specifies the content layer's burden-of-proof
-discipline, Appendix G specifies the cost-collapse asymmetry as it
-applies specifically to educational video, and names the coherence-
-principle trap that the cost collapse creates.
+**Bridge:** If the answer is yes, what does adding Medhavy to
+Canvas actually involve? Chapter 10.
 
 ---
 
-### APPENDIX H — Canvas LTI Integration Research
+### CHAPTER 10 — Adding Medhavy to Canvas: What Actually Changes
 
-**Filename:** `H-canvas-lti-research.md`
-**Source:** `medhavy-2.0-canvas-lti-research.md` (in pantry)
-**One-line:** The technical and institutional groundwork for Medhavy's
-Canvas LTI integration — what LTI 1.3 + LTI Advantage provides,
-where the authentication and grade-passback fit relative to the
-existing Clerk + Supabase + JWT architecture, and where the actual
-deployment bottleneck lives (institutional approval, not technical
-integration).
+**One-line:** The reader learns what LTI integration means in
+plain language, what changes for students, instructors, and the
+institution, and what the institution needs to provide.
 
-**Contents:**
-- Executive summary — LTI 1.3 with LTI Advantage as the standard;
-  Canvas LTI Advantage Complete certification; three LTI Advantage
-  services (AGS, NRPS, Deep Linking) cover everything Medhavy 2.0
-  needs
-- The institutional approval bottleneck — technical integration takes
-  days; institutional approval takes weeks to months (security review,
-  legal review, accessibility review, data processing agreements);
-  the University of Washington November 2024–March 2025 LTI freeze
-  as the cautionary example
-- The authentication flow — OIDC over OAuth 2.0 with RSA-signed JWTs;
-  how this layers onto the existing Medhavy Hub JWT flow; the new
-  LTI identity mapping table
-- Canvas Dynamic Registration (added 2025) — eliminates manual JSON
-  config copy-paste; should be Medhavy's primary installation path
-- What this means for the existing auth architecture — LTI is an
-  additional pathway, not a replacement; direct-access students
-  continue using the Clerk-based flow
+**Opening:**
+Adding Medhavy to a Canvas deployment is not a technical project.
+The LTI integration is straightforward. What takes time and requires
+institutional commitment is the curriculum design layer — specifying
+what the content map looks like, which concepts get which modes,
+and what the measurement thresholds are.
 
-**Relation to chapters:** This appendix is the institutional-integration
-companion to Appendix E (Medhavi Hub Architecture). Where Appendix E
-specifies the standalone deployment, Appendix H specifies the LMS-
-embedded deployment. A developer building for institutional adoption
-should read both. The institutional-approval framing is also relevant
-to Chapter 11's economics — the deployment-cost variable is not the
-code but the legal and security review at each institution.
+**Core content blocks:**
+1. LTI integration in plain language — what LTI is; what "single
+   sign-on from Canvas" means for students; what "grade passback"
+   means for instructors; why the technical setup takes days and
+   the institutional approval takes months
+2. What changes for students — the four-mode interface replaces
+   (or supplements) the standard textbook experience; Quiz Me as
+   a daily habit; Case Study and Glimmer as assignments that look
+   different from traditional ones
+3. What changes for instructors — the GLP dashboard versus the
+   Canvas gradebook; what the instructor does with information
+   Canvas did not provide; the instructor as meta-model for
+   combining GLP scores with artifact quality
+4. What the institution must provide — curriculum design (the
+   concept map, prerequisite graph, mode assignments); faculty
+   review for Case Study scenarios; willingness to act on what
+   the measurement reveals
+5. What Medhavy does not require from the institution — the
+   institution does not need to understand the bandit algorithm;
+   does not need to retrain faculty in pedagogy; does not need
+   to replace Canvas
 
----
+**Worked example:**
+A pharmacology department adds Medhavy to one course section.
+Walk through the six-week setup: LTI configuration (2 days),
+institutional approval process (8 weeks, running in parallel),
+concept map specification with the course instructor (3 sessions),
+Case Study scenario review (2 faculty members, 4 hours each),
+student onboarding (15 minutes first session). What the instructor
+sees in week 8 that she could not see before.
 
-### APPENDIX I — Contextual Bandits for Learning Mode Selection (2.0)
+**Exercises (3):**
+1. (Apply) Identify the single faculty member in your program
+   most likely to be an early adopter of Medhavy. What would
+   their role in the setup be? What would they need from you?
+2. (Apply) Map your institutional approval process for adding
+   a new LTI tool. Who needs to sign off? What security and
+   privacy review is required? How long does it typically take?
+3. (Evaluate) For your institution, what is the realistic
+   timeline from "decision to add Medhavy" to "first students
+   in the loop"? Is that timeline acceptable given the deployment
+   need?
 
-**Filename:** `I-contextual-bandits-2.0.md`
-**Source:** `medhavy-2.0-contextual-bandit-research.md` (in pantry)
-**One-line:** The Medhavy 2.0 design-grounding research for the
-contextual bandit that will select between Ask AI / Quiz Me /
-Case Study / Glimmer at each session re-entry point — the algorithm
-choice (Thompson sampling with the 2025 WAPTS variant), the reward
-design (Impatient Bandit framework combining delayed retrieval with
-short-term progressive signals), the feature vector (extending the
-Korbit/LinUCB 2022 template with FSRS Retrievability, concept
-importance tier, and Glimmer rubric history), and the cold-start
-strategy (hierarchical prior populated from cross-student
-cross-concept-node data).
-
-**Contents:**
-- What a contextual bandit is and why it is the right architecture
-  for mode selection (vs. supervised learning, vs. full RL)
-- Algorithm choice — Thompson sampling baseline; WAPTS (Song et al.
-  2025) for small-cohort robustness; why LinUCB under-performs TS
-  in noisy-feedback educational settings
-- Reward definition — the seven-day delayed retrieval signal is
-  theoretically correct but creates a learning delay; Impatient
-  Bandit (Spotify / NeurIPS 2023; arXiv 2025) combines delayed
-  ground truth with short-term progressive signals through a
-  Bayesian filter — the single most important design decision for 2.0
-- Feature vectors — the Korbit/LinUCB (Belfer et al. 2022) template
-  as the closest published reference; Medhavy's additions (FSRS
-  Retrievability, concept importance tier, Glimmer rubric history)
-- The cold-start problem — every published deployment reports cold
-  start as the dominant practical challenge; hierarchical prior as
-  the recommended path
-- What the literature has not yet solved — no published system has
-  used a contextual bandit to select between *qualitatively different*
-  mode types (retrieval practice vs. case study vs. generative
-  assignment) for the same concept; all prior work selects between
-  exercises of the same type; Medhavy 2.0 is a genuinely novel
-  deployment, not an application of a solved problem
-
-**Relation to chapters:** This appendix is the 2.0 technical follow-up
-to Chapter 8 (Adaptive Engine) and Appendix D (Contextual Bandits
-Implementation Notes). Where Chapter 8 establishes within-learner
-optimization as the right architecture and Appendix D specifies the
-1.x implementation, Appendix I specifies the 2.0 next-step research
-program. The "genuinely novel deployment" framing also reinforces
-Chapter 12 (What the Platform Does Not Know Yet) — App I makes the
-unsolved-problem honest claim concrete and citation-anchored.
+**Bridge:** You have the framework. You have the implementation
+picture. Chapter 11 is the decision.
 
 ---
 
-## Open questions for the book
+### CHAPTER 11 — The Adoption Decision
 
-| # | Question | Stakes | Decision deadline |
-|---|---------|--------|------------------|
-| 1 | Medhavy instrument vs. platform — how much of Chapter 13 can be written if the tool is not yet built? | Chapter 13 completeness | Before manuscript |
-| 2 | The eight open bets — which have deployment data at publication time? | Chapter 12 accuracy | Before publication |
-| 3 | The Gru chapter — is the implementation book named explicitly as a follow-up, or left implied? | Series strategy | Before proposal |
-| 4 | Simulated data cases — which chapters use them and how are they labeled? | Epistemic honesty policy | Before drafting |
-| 5 | The Homes of Hope case — is Priya a real person (requires permission) or a labeled composite? | Ethics / IRB | Before Chapter 3 draft |
+**One-line:** The reader produces their justified adoption
+recommendation — for or against, with specific reasoning — and
+knows what success looks like if the answer is yes.
+
+**Opening:**
+This chapter does not make the decision for you. It gives you the
+structure to make it yourself and the language to explain it to
+a budget committee.
+
+**Core content blocks:**
+1. The decision framework assembled — the three questions, the
+   mode-to-need matching, the institutional requirements, the
+   timeline; a one-page decision tool the reader can use
+2. What success looks like if the answer is yes — what to measure
+   in the first term; what the GLP signals should show; what
+   would justify renewal; what would not
+3. What failure looks like — the three most common failure modes
+   for Medhavy deployments: wrong deployment context (should have
+   used Kindle only), insufficient curriculum design (the
+   "suggest 15 chapters" failure), unwillingness to act on
+   measurement (adding the loop without closing it)
+4. The honest case for no — written as a genuine recommendation,
+   not a hedge; specific deployment types where AI+1 on Kindle
+   is the better answer and adding Medhavy would be overhead
+5. Talking to the budget committee — the three sentences that
+   explain what Medhavy adds that Canvas cannot provide; the
+   one question that reveals whether the deployment is ready
+
+**Worked example:**
+A justified adoption recommendation written in the voice of the
+book's primary reader — the curriculum director making the call
+for her health sciences program. Shows the reasoning, the
+conditions, the success criteria, and the honest acknowledgment
+of what is not yet known.
+
+**Exercises (3):**
+1. (Create) Write your adoption recommendation. One page. Must
+   answer: what deployment are you evaluating, what are your
+   three-question answers, what would Medhavy add that Canvas
+   cannot, what would success look like in the first term, and
+   what would cause you to not renew.
+2. (Create) Write the two-minute explanation of Medhavy for
+   your budget committee. No jargon. No vendor language. Must
+   include what it does that Canvas doesn't, and when it is
+   not the right answer.
+3. (Evaluate) If your answer is no, write the specific conditions
+   under which you would revisit. What would have to change in
+   your deployment context for the three-question answers to
+   flip?
+
+**Closing:**
+AI+1 is a better textbook. For most deployments, that is enough.
+For deployments that need to present differently, measure whether
+it helped, and adapt — Medhavy closes the loop that Canvas leaves
+open. The decision is yours. This book gave you the framework.
+The rest is judgment, which is irreducibly human.
 
 ---
 
-## Pantry index (for Research Gatherer)
+# PART 9 — CHAPTER ANATOMY TEMPLATE
 
-Research Gatherer: scan the following pantry files and copy relevant
-content to notes files for each chapter. Do not fabricate sources.
-Flag any claim not found in pantry or verifiable by web search.
+Every chapter follows this structure:
 
-**Primary pantry files:**
-- ask-ai-research.md → Chapters 2, 4, 7
-- case-study-research.md → Chapters 4, 7
-- quiz-me-research.md → Chapters 3, 4, 7
-- quiz-me-habit-research.md → Chapters 3, 7
-- glimmer-research.md → Chapters 4, 7
-- glimmer-displacement-research.md → Chapters 4, 7
-- concept-sequencing-research.md → Chapters 8, 9
-- domain-specific-instruction-research.md → Chapters 4, 10
-- educational-media-economics-research.md → Chapters 3, 4, 11
-- GLP preprint → Chapters 5, 6, 12, Appendix C
-- API.md → Chapters 5, 8, Appendix E
-- ARCHITECTURE.md → Chapters 5, 8, Appendix E
-- Lexicon.txt → Chapter 13, Appendix A
-- MVAL.txt → Chapter 8, Appendix D (note: MVAL is *Minimum Viable Analytical Log*, not "Medhavy Value")
-- PEDAGOGY ARCHITECTURE.txt → Chapters 7, 9
-- Contextual Bandits.txt → Chapter 8, Appendix D (note: file currently absent from pantry; reconstruct from 07-the-adaptive-engine_notes.md)
-- Homes of Hope Plus One book.md → Chapters 3, 11
-- Computational Skepticism Substack → Chapter 4
-- medhavy-1.5-feature-roadmap.md → Appendix F (also Chapters 5, 7 — current platform features)
-- medhavy-1.5-video-animation.md → Appendix G (also Chapter 10 — video production economics)
-- medhavy-2.0-canvas-lti-research.md → Appendix H (also Chapter 11 — institutional deployment economics)
-- medhavy-2.0-contextual-bandit-research.md → Appendix I (also Chapter 8, Chapter 12 — next-step bandit research)
+1. Chapter title
+2. One-line capability description
+3. Opening case (failure-first or puzzle-first; no jargon before
+   the problem is felt)
+4. Core content blocks (4–5 per chapter; each ends with a
+   decision-relevant implication)
+5. Worked example (a real or realistic deployment scenario,
+   not a hypothetical)
+6. Exercises (3 per chapter; at least one requiring the reader
+   to apply the chapter to their own deployment)
+7. Chapter closing and bridge to next chapter
+
+**Enforcement:** Draft chapters missing the opening case or the
+worked example are incomplete. Both are load-bearing. The reader
+must encounter a real scenario before they encounter a framework.
+
+**Tone rule:** This book sounds like a trusted colleague who has
+done the research and is giving a straight answer. It does not
+sound like a vendor pitch, an academic paper, or a training manual.
+Every claim is evidence-grounded. Every evidence citation is
+translated into plain language before it is used.
 
 ---
 
-*TIKTOC.md v1.2 — ready for Research Gatherer → Chapter Writer pipeline*
-*v1.2 (2026-05-17): Adds Chapter 1 (What is Medhavy?) — conductor-frame chapter. Renumbers existing Ch 1-12 to Ch 2-13. Threads conductor philosophy through all chapters via "Where this fits the conductor frame" sidebars. Load-bearing chapters now Ch 1, 4, 6, 8.
-*v1.1 (2026-05-17): Adds Appendices F (1.5 Feature Roadmap), G (1.5 Video and Animation), H (Canvas LTI Research), I (2.0 Contextual Bandit Research). Pantry index updated.*
-*v1.0: All phases complete — Vision (/i1–/i4), Learning Architecture (/l1–/l4), Chapter Architecture (/c1 full pass), Scope & Market (partial — /m1–/m4 recommended before publisher proposal)*
-*Next step: run Research Gatherer against this TIKTOC.md and pantry/*
+# PART 10 — HARD TOPICS, CONTESTED CLAIMS, AGING RISK
+
+## Hard chapters
+
+**Chapter 6 (What Canvas Measures):** The reader has spent a
+career using Canvas analytics as a proxy for learning. The chapter
+must correct a deeply held professional habit without insulting the
+reader. The Bastani finding is the load-bearing evidence — it must
+be presented accurately and accessibly. Risk: if this chapter reads
+as anti-Canvas or anti-technology, it will alienate the primary reader.
+
+**Chapter 9 (When Kindle Is Enough):** The hardest chapter to write
+honestly, because it argues against the book's own subject. Must
+make the genuine case that a simpler stack is correct for many
+deployments. Risk: if this chapter reads as a hedge or a disclaimer,
+it undermines the book's credibility. It must read as a genuine and
+confident recommendation for the simpler path when appropriate.
+
+## Contested claims
+
+| Claim | Status | Book's position |
+|---|---|---|
+| Bastani 2025 PNAS finding (unguarded AI harms learning) | One RCT, one country, one subject | Presented as the strongest available evidence; explicitly flagged as one study needing replication |
+| FSRS outperforms SM-2 | Established on scheduling benchmarks; not an RCT on learning outcomes | Stated as scheduling efficiency; explicitly distinguished from learning-outcome evidence |
+| Contextual bandit produces per-learner adaptation | Theoretically sound; limited deployed evidence at Medhavy scale | Presented as a bet with strong theoretical support; not as a proven outcome |
+| GLP seven signals distinguish genuine learning from borrowed certainty | Strong theoretical basis; limited large-scale validation | Presented as the framework with honest acknowledgment of what direct evidence exists |
+
+## Aging risk
+
+| Content | Risk | Mitigation |
+|---|---|---|
+| Platform landscape comparisons (ALEKS, Khanmigo) | HIGH — moves fast | Frame as evidence-type comparisons, not platform rankings |
+| LTI integration specifics | MEDIUM — spec stable, institutional processes change | Kept at principle level; direct to docs.claude.com for current specifics |
+| Bastani 2025 as anchor finding | LOW-MEDIUM — needs replication | Explicitly flagged as one study; framed as "strongest currently available" |
+| The four modes as Medhavy's architecture | LOW — these are stable by design | These are the stable core of the book |
+| GLP signal evidence base | LOW — neurobiological basis is stable | Framed as mechanistic argument, not as current findings |
+
+---
+
+# PART 11 — OPEN QUESTIONS
+
+| # | Question | Stakes | Deadline | Owner |
+|---|---------|--------|----------|-------|
+| 1 | Bastani finding presentation — how much detail is right for a non-research reader? Full study description or translated finding only? | Chapter 1 and 6 tone | Before Ch 1 draft | Author |
+| 2 | Chapter 9 (When Kindle Is Enough) — is this chapter honest enough to recommend against Medhavy in plain language, including naming specific deployment types where it is wrong? | Book credibility | Before Ch 9 draft | Author |
+| 3 | The "willing to act" condition — what does this actually require from an institution? Need concrete examples of institutions that had the data and didn't act. | Chapter 8 and 9 specificity | Before Ch 8 draft | Author |
+| 4 | Brutalist slides — is this explained enough for a reader who has never encountered it? Does it need its own section in Chapter 2? | Chapter 2 completeness | Before Ch 2 draft | Author |
+| 5 | GLP score — what does the reader actually see in the instructor dashboard? Need a realistic mock dashboard description or screenshot for Chapter 7. | Chapter 7 concreteness | Before Ch 7 draft | Author |
+| 6 | The adoption decision in Chapter 11 — is the one-page decision tool a table, a flowchart, or prose? What format serves the primary reader best? | Chapter 11 utility | Before Ch 11 draft | Author |
+
+---
+
+*Full TIKTOC.md v1.0 — compiled from all phase outputs*
+*All phases complete: Vision (i1–i4), Learning Architecture (l1–l4),*
+*Chapter Architecture (c1), Build (g1)*
+*Primary structural risk: Chapter 9 (When Kindle Is Enough) must*
+*genuinely argue against the book's subject — this is the chapter*
+*that earns the book's credibility*
+*Primary reader test: a curriculum director with no research background*
+*should be able to read any chapter and finish it knowing what to do*

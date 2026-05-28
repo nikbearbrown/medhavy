@@ -1,0 +1,797 @@
+﻿Intelligent Textbook Systems in EdTech: Landscape, Design Architecture, and Empirical Efficacy
+Research compiled May 2026
+________________
+
+
+1. Definition and Taxonomy
+What is an intelligent textbook?
+A static digital textbook delivers content. An LMS manages courses. An intelligent textbook system does something architecturally different:
+An intelligent textbook system is a structured learning resource that combines authored instructional content with computational learner modeling, embedded assessment, feedback, analytics, and adaptive or conversational support — so that the system changes what it recommends, explains, or asks based on learner behavior.
+The practical dividing line: a digital textbook becomes "intelligent" when it has a student model and uses it to change feedback, sequence, practice, or support. An LLM chatbot bolted to a PDF is not an intelligent textbook — it is a conversational interface without a learner model.
+The conductor frame: One useful conceptual lens is treating the intelligent textbook not as a product but as a conductor — a system that decides which instruments (AI modes, spaced repetition, human tutors, assessments) play, when, and for how long, based on evidence about what the learner currently needs. The conductor does not play the instruments; it reads what the instruments produce and adjusts. This framing distinguishes architecturally coherent systems from collections of features.
+Three market families
+1. Adaptive courseware / intelligent textbook platforms — Acrobatiq/VitalSource, Knewton Alta/Wiley, ALEKS/McGraw-Hill, Smart Sparrow/Pearson, OLI/Torus, OpenStax Assignable. Structured content, concept graphs or learning objective models, embedded assessment driving adaptive pathways.
+2. Intelligent tutoring systems embedded beside or inside content — MATHia, ASSISTments, CTAT-based tutors. Deepest learner models and strongest independent evidence, but narrower in scope.
+3. LLM-native learning companions — Khanmigo, Pearson's AI study tools, RAG-based course assistants, AI instructor copilots. Most flexible in natural-language interaction; weakest in validated learner modeling and independent outcome evidence.
+Functional taxonomy
+Type
+	Defining mechanism
+	Examples
+	Interactive textbook
+	Embedded questions, simulations, hints, feedback
+	OLI/Torus, zyBooks, OpenStax Assignable
+	Adaptive courseware
+	Adjusts practice/content by objective mastery
+	Acrobatiq, Knewton Alta, Smart Sparrow
+	Knowledge-space / mastery systems
+	Fine-grained concept map and readiness model
+	ALEKS
+	Cognitive / intelligent tutor
+	Step-level guidance, hints, model tracing, skill mastery
+	MATHia, CTAT tutors, ASSISTments
+	Conversational AI textbook layer
+	LLM chat grounded in course/textbook content
+	Khanmigo, Pearson AI study tools
+	Instructor-facing intelligence layer
+	Dashboards, alerts, grouping, item analytics
+	ASSISTments reports, MATHia LiveLab, Acrobatiq analytics
+	Authoring-first platform
+	Tools for instructors/designers to build adaptive experiences
+	Smart Sparrow, Acrobatiq Smart Author, CTAT, OLI Torus
+	________________
+
+
+2. Five Evolutionary Generations
+Intelligence Engineered (1990s): Early attempts combining adaptive hypermedia and ITS (e.g., ELM-ART). Relied on hand-coded expert rules and symbolic AI.
+Intelligence Integrated: Web-based education enabled embedding adaptive navigation and early content sequencing into digital reading interfaces.
+Intelligence Extracted: NLP and machine learning extracted knowledge concepts and prerequisite relationships from textbooks at scale.
+Intelligence Data-Mined: Deep usage data enabled reading analytics and predictive modeling — systems began identifying at-risk learners based on real-time telemetry.
+Intelligence Generated (2024–2026): Generative AI and pedagogy-infused LLMs dynamically rebuild, rewrite, illustrate, and narrate content in real time based on student profiles.
+________________
+
+
+3. Five Levels of Textbook Intelligence
+Level
+	Platform Type
+	Core Pedagogical Role
+	Personalization Mechanism
+	1
+	Static Textbooks
+	Uniform content delivery
+	None
+	2
+	Interactive Content
+	Linear content + embedded widgets
+	Keyword search, hyperlinking, embedded video
+	3
+	Adaptive Textbooks
+	Non-linear pathways based on performance
+	Concept graph traversal; rule-based pathways
+	4
+	Textbooks with Chatbots
+	Socratic scaffolding embedded in text
+	RAG + LLM agents with pedagogical guardrails
+	5
+	Autonomous AI Textbooks
+	Real-time generation of custom explanations
+	Multi-agent generative pipelines; fine-tuned illustration models
+	Most commercially deployed systems operate at Level 3 or Level 4. Google's Learn Your Way is an early Level 5 prototype. Most LLM-native systems marketed as Level 5 are actually Level 4 without a proper learner model.
+________________
+
+
+4. Market Landscape
+Publisher acquisition and consolidation
+* Wiley → Knewton Alta: Integrated Knewton's recommendation engine; platform blends OpenStax content with real-time personalized instruction.
+* McGraw-Hill → ALEKS: Knowledge Space Theory for mathematics, chemistry, statistics, and accounting.
+* VitalSource → Acrobatiq: Originally from Carnegie Mellon's Open Learning Initiative.
+* Pearson → Smart Sparrow: Acquired January 2020 for $25 million. Standalone adaptive engine shut down December 31, 2020.
+Open-content vs. closed-content
+Open-content platforms (Knewton Alta, OLI/Torus, ASSISTments, OpenStax Assignable) allow external resources to be structured and adapted. Closed-content platforms (ALEKS, Pearson Aida, Acrobatiq) couple proprietary learning engines with exclusive publisher catalogs.
+________________
+
+
+5. Major Platforms and Products
+5.1 McGraw-Hill ALEKS
+Segment: K–12 and higher education math, chemistry, statistics, accounting Model: Knowledge Space Theory (KST)
+Maps a student's precise knowledge state and restricts questions to only those the student is ready to learn. Uses open-ended response questions rather than multiple choice. The "ALEKS Pie" visualizes progress; "ALEKS Insights" alerts instructors when students are struggling, procrastinating, or moving suspiciously fast. Expanded to calculus in September 2025.
+Arizona State University reported 15% higher completion rates. Over 50 million students reached globally.
+Pricing: $19.95 (1 month) / $49.95 (3 months) / $179.95 (12 months) — student-pay.
+Caveats: STEM only. Outcome claims largely vendor-commissioned.
+________________
+
+
+5.2 Carnegie Learning MATHia + LiveHint AI
+Segment: K–12 mathematics (grades 6–12) Model: Cognitive Tutor (BKT + cognitive task analysis) + generative AI layer
+MATHia analyzes the steps students take (not just answers), identifies discrete skills, and recognizes common mistake patterns. The APLSE (Adaptive Personalized Learning Score) predicts end-of-year assessment performance across multiple states. "LiveLab" shows instructors in real time which students are stuck. LiveHint AI (2024) adds an LLM tutor trained on 5.5 million students and 1.2 billion problems. A RAND gold-standard study found a 16-percentile-point improvement in algebra performance. Used by over 500,000 middle and high school students annually.
+________________
+
+
+5.3 Wiley Knewton Alta
+Segment: Higher education math, statistics, economics, chemistry Model: Knowledge graph + adaptive recommendation engine over OpenStax content
+Knewton's architecture links questions and instructional items to concepts and prerequisite relationships, plus student events, goals, recommendations, and analytics. When a student struggles, the engine reaches back to prerequisite concepts from earlier chapters or developmental courses.
+Pricing: ~$39.95–$49.95 per term (student-pay).
+Evidence: 87% homework mastery and 38% quiz improvement with assignment completion — vendor-originated, no peer-reviewed independent validation.
+________________
+
+
+5.4 VitalSource Acrobatiq
+Segment: Higher education across disciplines Model: Rule-based and predictive pathways from Carnegie Mellon OLI research
+Built-in "My Response" checkpoints throughout content. LTI 1.3 Advantage compliant with deep-linking endpoints. Acrobatiq Studio authoring suite. A 2020 VitalSource study found positive associations with summative scores — but with no experimental controls.
+________________
+
+
+5.5 Carnegie Mellon OLI / Torus
+Segment: Higher education, academic/open Model: Learning objective model with embedded formative assessment
+Every reading page includes a formative check before the student can proceed — the clearest implementation of "assessment embedded throughout the reading." Strong academic authoring tools; used in numerous published academic studies.
+________________
+
+
+5.6 ASSISTments
+Segment: K–12 mathematics (grades 3–12), free Model: Skill/problem mapping with immediate feedback and teacher analytics
+Gives students immediate feedback on homework; gives teachers real-time progress reports. Free, supports OER math assignments, has the strongest independent evidence base of any free platform. IES-documented; Evidence for ESSA listed. An emerging CAIT conversational AI tutor is being added.
+Evidence: Multiple independent studies; IES evidence review. Teacher engagement with analytics reports can improve assignment completion.
+________________
+
+
+5.7 Carnegie Mellon CTAT
+Segment: Research and academic authoring Model: Cognitive model tracing / example tracing
+Lets researchers and educators build cognitive tutors with just-in-time help without extensive programming expertise. Free for academic and research use. Source of many foundational ITS research findings.
+________________
+
+
+5.8 Khan Academy Khanmigo
+Segment: K–12 and early college Model: LLM (GPT-4-based) fine-tuned with Khan Academy curriculum; Socratic design
+Designed explicitly to not give direct answers — scaffolds through Socratic questioning. Teacher tools include lesson plan generation, rubric creation, exit ticket generation, student grouping, and family email drafting. LTI 1.3 integration; district rostering and SSO supported. New Hampshire deployed a statewide pilot in 2024: $2.3 million contract (federal COVID-relief funding) for grades 5–12.
+A large-scale quasi-experimental study across ~350,000 students (grades 3–8) found 30+ minutes/week associated with ~20% greater-than-expected MAP Growth gains. Khanmigo-specific outcome studies are ongoing.
+The IDK-IDK pattern: A documented failure mode in Khanmigo's deployment. Students discovered that typing "I don't know" repeatedly triggered Khanmigo's Socratic system to reveal the answer. Sessions were logged as "engaged." No learning occurred. Khan Academy's Chief Learning Officer acknowledged publicly: "We see more IDK IDK, more passive kinds of interaction than we would like." This is not a critique of the concept; it is a measurement failure — the system was optimizing on engagement because that was what it could see. The learning signal was absent from the reward function.
+Pricing: $4.00/month or $44/year (individual); free for teachers; $10/student/year Enterprise Starter (Khan Academy Districts). Deployed to 1.5 million students across 795 US districts.
+________________
+
+
+5.9 Pearson eText AI Study Tool / MyLab / Aida
+Segment: Higher education across disciplines; calculus specifically (Aida)
+The AI study tool — embedded in MyLab/Mastering from fall 2024, expanding to 40+ titles — provides context-aware Q&A over Pearson eTextbooks. Pearson Aida (2019, now legacy) evaluated handwritten mathematical steps via image recognition — one of the few deployed systems supporting multimodal math input.
+Evidence: Vendor-reported engagement data only. No independent outcome studies.
+________________
+
+
+5.10 OpenStax Assignable
+Segment: Higher education, OER institutions
+Adds course-ready assignments, auto-grading, LMS integration, and instructor reporting on top of free OpenStax textbooks. Not deeply adaptive in the ALEKS/MATHia sense, but the clearest OER-plus-courseware model currently deployed. OpenStax Tutor (its earlier adaptive layer) was discontinued.
+________________
+
+
+5.11 Google Learn Your Way (LearnLM)
+Segment: General education, experimental Model: Google's pedagogy-infused LearnLM, integrated into Gemini 2.5 Pro
+Converts static PDFs into dynamic multimodal study experiences. Layer 1 re-levels vocabulary and rewrites examples using student interests. Layer 2 generates immersive text, podcast-style audio dialogues, narrated slides, and interactive mind maps. Uses a fine-tuned educational illustration model for accuracy in scientific diagrams.
+Evidence: RCT with 60 Chicago high school students; 9% higher immediate post-test, 11% higher retention at 3–5 days. Causal design but very small and single-chapter.
+________________
+
+
+5.12 Realizeit and CogBooks
+Segment: Higher education
+Realizeit tracks 200+ learning parameters per student. UCF reported 34% higher pass rates (vendor-commissioned, 2022). CogBooks employs adaptive sequencing; ASU reported 47% reduction in biology failure rates (vendor-cited, 2020). Neither has independent replication.
+________________
+
+
+6. Feature Comparison
+Feature
+	ALEKS
+	Knewton Alta
+	Acrobatiq
+	MATHia
+	ASSISTments
+	Khanmigo
+	OLI/Torus
+	OpenStax Assignable
+	Adaptive Learning Paths
+	Strong (KST)
+	Strong (concept tree)
+	Strong (rule-based)
+	Strong (skill model)
+	Partial
+	Partial (Khan content)
+	Partial–Strong
+	Limited
+	Embedded Assessment
+	Strong (open-ended)
+	Strong
+	Strong (checkpoints)
+	Strong (step-level)
+	Strong
+	Partial
+	Strong
+	Strong
+	Natural Language AI
+	Limited
+	None
+	None
+	Limited; strong step feedback
+	Emerging CAIT
+	Strong LLM dialogue
+	None
+	None
+	Knowledge Graph
+	Strong (KST)
+	Strong (prerequisite graph)
+	Learning objective model
+	Strong skill model
+	Skill/problem mapping
+	Khan content alignment
+	Learning objective model
+	Textbook-section alignment
+	Spaced Repetition
+	Partial (periodic checks)
+	Partial
+	Partial
+	Partial
+	Partial
+	Limited
+	Partial
+	Partial cumulative
+	Instructor Analytics
+	Strong (ALEKS Insights)
+	Strong (predictive)
+	Strong
+	Strong (LiveLab)
+	Strong (real-time reports)
+	Summaries/tools
+	Instructor data
+	Partial
+	LMS / LTI
+	Yes (institutional)
+	LTI 1.3
+	LTI 1.3 + deep linking
+	Yes (school ecosystems)
+	OER/LMS workflows
+	LTI 1.3; SSO
+	Platform integration varies
+	Strong LMS integration
+	Authoring Tools
+	Limited
+	Publisher-restricted
+	Acrobatiq Studio
+	None
+	Teacher problem-set authoring
+	Teacher generation tools
+	Strong academic authoring
+	Assignment customization
+	Cost
+	$20–$180/student
+	~$40–$50/term
+	Institutional
+	Institutional/district
+	Free
+	$4/mo or $44/yr
+	Free/open
+	Paid layer over free OER
+	________________
+
+
+7. Underlying AI/ML Approaches
+Model Family
+	Use
+	Key Systems
+	Knowledge Space Theory (KST)
+	Models possible knowledge states and readiness relationships
+	ALEKS
+	Bayesian Knowledge Tracing (BKT)
+	Estimates mastery probability from attempts, successes, failures, hints
+	MATHia, CTAT tutors
+	Two-view BKT
+	Adds reading behavioral telemetry (page-view duration, annotations) to BKT
+	Research systems; emerging in commercial platforms
+	Deep Knowledge Tracing (DKT)
+	LSTM/Transformer neural sequence models predicting future performance
+	Research and newer commercial systems
+	Item Response Theory (IRT)
+	Models student ability and item difficulty
+	Assessment/placement systems
+	Cognitive model tracing / production rules
+	Tracks step-level problem solving against a cognitive model
+	MATHia, CTAT tutors
+	Constraint-based modeling
+	Checks student actions against domain constraints
+	Some intelligent tutors
+	Reinforcement learning / contextual bandits
+	Selects next activity to optimize mastery, engagement, or completion
+	Korbit; research systems
+	LLMs / RAG
+	Natural-language explanation, Socratic dialogue, content-grounded tutoring
+	Khanmigo, Pearson AI tools, LiveHint AI
+	The wrapper is the variable
+The most important architectural insight from recent empirical research: the design of the wrapper around an LLM determines whether the system helps or harms learning — not the model itself. Two deployments of GPT-4, same students, same subject, same institution, opposite outcomes. The only variable was the system prompt and interaction design. This finding (Bastani et al. 2025, PNAS) is the clearest single result currently available about what makes an AI tutoring system work.
+The implication is that "which model should we use?" is the wrong design question. "What commitments should the wrapper make?" is the right one.
+The critical architectural distinction
+The key product divide is not "AI vs. non-AI" — it is whether the system has a trustworthy domain model and a feedback loop grounded in that model. LLMs improve conversation. They do not automatically provide valid assessment, sequencing, or mastery inference. The strongest future systems will combine:
+* curated textbook content
+* concept/prerequisite graph
+* student model (BKT, KST, or DKT)
+* retrieval-grounded LLM with pedagogical guardrails
+* formative assessment
+* instructor dashboard
+* LMS/LTI integration
+________________
+
+
+8. Underlying Pedagogical Approaches
+Pedagogical Foundation
+	Core Claim
+	Systems that Reflect It
+	Mastery learning (Bloom, 1968)
+	Students should not advance until they have demonstrated mastery of prerequisites
+	ALEKS (KST), MATHia (skill mastery), ASSISTments
+	Cognitive tutoring (Anderson et al., 1995)
+	Step-level feedback on problem solving outperforms answer-level feedback
+	MATHia, CTAT tutors; feedback tied to a cognitive model of the task
+	Socratic method / guided discovery
+	Students learn more durably when they reason to answers rather than receive them
+	Khanmigo (explicit design principle); LiveHint AI
+	Spaced repetition / spacing effect
+	Distributing practice over time improves long-term retention
+	Cerego; partial implementation in ALEKS and Knewton Alta
+	Dual coding (Paivio, 1971)
+	Learning is strengthened when verbal and visual channels are used together
+	Google Learn Your Way; multimodal systems generally
+	Formative assessment (Black & Wiliam, 1998)
+	Continuous low-stakes assessment with feedback improves learning more than summative
+	ASSISTments, OLI/Torus, Acrobatiq checkpoints
+	Scaffolding / ZPD (Vygotsky)
+	Effective tutoring operates just beyond the learner's current ability
+	All ITS in principle; quality varies significantly
+	Productive struggle
+	Some difficulty is pedagogically desirable; too-easy tasks reduce learning
+	Carnegie Learning's explicit design rationale for LiveHint AI
+	Backwards-faded scaffolding (Atkinson, Renkl & Merrill, 2003)
+	Present fully-worked examples first, then remove steps progressively
+	Best practice for ill-structured / generative problem modes
+	The pedagogical bias risk: Adaptive systems can reward the wrong things — speed, procedural fluency, and test-like performance — over conceptual understanding, transfer, and long-term retention. A system optimized for quiz scores may produce students who perform well on in-system assessments but cannot apply knowledge in novel contexts.
+________________
+
+
+9. A Design Framework: The Four-Mode Architecture
+Beyond the commercial landscape, research and practitioner work has converged on a four-mode taxonomy for intelligent textbook interaction. This is most fully articulated in the Medhavy design framework (Brown, 2026) but is consistent with the ITS and adaptive learning literature more broadly.
+The four modes
+Ask AI (conversational explanation mode): Context-anchored, retrieval-grounded LLM interaction with a hints-not-answers guardrail. The Bastani 2025 evidence strongly supports the guardrail — unguarded chat degrades durable learning; teacher-designed hint-and-scaffold wrappers preserve it. The wrapper, not the model, is the variable. The critical design discipline: the system retrieves from the textbook, learning objectives, and worked examples rather than generating freely. This is both a safety move (reduces hallucination) and a pedagogical one (grounds responses in the actual curriculum).
+Quiz Me (spaced retrieval practice mode): Retrieval items scheduled by FSRS (Free Spaced Repetition Scheduler), the open-source algorithm now default in Anki since November 2023. Three evidential claims that must be kept separate: retrieval practice as mechanism (Roediger & Karpicke 2006; Adesope et al. 2017 meta-analysis: g=0.51); spacing as scheduling principle (Cepeda et al. 2006, 2008); and FSRS as implementation (scheduling benchmark evidence only, not learning-outcome RCT). A crucial and underappreciated design point: the due-today counter driving daily habit formation may matter more than algorithmic sophistication for whether students use the system at all.
+Case Study (application mode): Pre-written, faculty-reviewed case-based learning presented after students have demonstrated understanding of underlying concepts. The evidence base (Thistlethwaite et al. 2012, 104 studies across health professions) supports human-facilitated group CBL; the transfer to solo asynchronous AI-facilitated CBL is a research bet, not a proven equivalence.
+Glimmer (generative / ill-structured problem mode): Open-ended, ill-structured assignments requiring the student to specify the problem before solving it. Grounded in generative learning research (Fiorella & Mayer 2016) and project-based learning evidence (Chen & Yang 2019: g=0.71). The characteristic failure mode is the anxiety collapse: students without sufficient prior knowledge cannot perform the problem-specification move, freeze, and abandon. The fix is backwards-faded scaffolding — presenting fully-worked examples first, then progressively removing the last step, the last two steps, etc., until students are working from scratch. Deploying Glimmer without phase gates reliably produces 60%+ abandonment.
+Phase gates as measurement decisions
+Phase gates — rules preventing a mode from being available until a cognitive precondition is met — are not pedagogical preferences. They are measurement-driven commitments. Quiz Me gates until reading engagement is confirmed. Case Study gates until retrieval strength has consolidated (confirmed by 7-day delayed retest). Glimmer gates until scaffolding-response signals show sufficient underlying structure for hint-responsive engagement.
+Without phase gates, students default to the mode that feels easiest. Unguarded Ask AI produces the Bastani GPT-Base outcome. Unguarded Quiz Me produces high session scores and poor 30-day retention. Unguarded Glimmer produces abandonment. The gates are what make four modes a system rather than a menu.
+The four-layer architecture
+Well-designed intelligent textbook systems require four integrated layers, each answering a distinct question:
+Layer
+	Question Answered
+	What Breaks Without It
+	Content (Book Library)
+	What is being taught, at what grain, in what domain-specific framing?
+	Generic content misses domain-specific misconceptions; Sadler 2013 shows this cuts learning gains substantially
+	Curriculum Design (Tic TOC)
+	In what order, with what prerequisites, toward what specified outcome?
+	Adaptive engine optimizes within a broken concept space; misconceptions go unaddressed
+	Adaptive Engine
+	What mode does this student see for this concept at this moment?
+	System defaults to engagement optimization (the IDK-IDK failure)
+	Measurement Layer
+	What does this student actually know, and how well can we trust the answer?
+	No reward signal for genuine learning; engine cannot distinguish engagement from understanding
+	The loop these layers form — measurement layer feeds back into the engine's reward signal — is what distinguishes a learning system from a collection of tools. A bolt-on stack (LMS + chatbot + Anki + case library) cannot close this loop because each tool was designed for a different job and produces incompatible data streams.
+________________
+
+
+10. The Measurement Problem: Why Engagement Proxies Fail
+The field has been confusing engagement with learning for over fifteen years. This is not a coincidence — engagement is what dashboards can measure, so engagement is what platforms optimize for.
+The IDK-IDK failure mode
+The clearest concrete instance: students in Khanmigo's Socratic mode discovered that typing "I don't know" repeatedly would eventually cause the system to reveal the answer. Sessions were logged as engaged (time on platform, turns exchanged, problems completed). Learning was near zero. The system was not malfunctioning — it was doing exactly what it was designed to do. The design had optimized for the proxy, not the target.
+This pattern generalizes beyond Khanmigo. Any system that uses engagement metrics as its primary success signal will find the path of least resistance that satisfies the metric, because students are rational actors.
+The fluency trap
+A related failure mode: AI-generated explanations are optimized for fluency. They read smoothly, feel lucid, and produce a genuine subjective experience of understanding. Human metacognition uses fluency as a proxy for understanding — a heuristic that worked reliably for centuries when fluency was the result of effort. It fails with AI-mediated content because fluency is now available without the underlying cognitive work.
+Students reading AI explanations feel like they've learned. The feeling is real. The learning often is not. The Bastani 2025 data makes this empirically precise: students using unguarded GPT-4 during practice outperformed controls by 48 percentage points in-session. On the unassisted post-exam, they were 17 percentage points below the no-AI control. The in-session performance was real. It was not learning.
+The decoupling problem
+In the pre-LLM era, the artifact a student produced was reasonable evidence of the cognitive process that produced it. A well-structured essay implied the student had done the reasoning. That inference is now broken. AI generation has inserted a bypass: AI Generation → Artifact, skipping the cognitive process entirely. Artifact-based assessment (including AI detection tools, which have been shown to misclassify non-native English speakers at 5–10x the rate of native speakers) cannot solve a structural problem. Process-based measurement is the only viable response.
+What genuine learning measurement requires
+A system that measures genuine learning — rather than engagement proxies — must capture signals that are byproducts of the cognitive processes that produce learning:
+* Temporal engagement distribution across the difficulty surface (not total time — where the time went)
+* Error trajectory coherence (real misconceptions produce coherent error patterns; guessing doesn't)
+* Cross-context transfer (can the student use the concept in a context the instruction didn't cue?)
+* Uncertainty calibration (is the student's confidence correlated with their accuracy?)
+* Scaffolding response curve (does a partial hint activate underlying structure, or is there nothing to activate?)
+* Retrieval strength decay (does performance hold at 7-day delayed retest, or did it collapse after the session?)
+The 7-day delayed retrieval probe — a retest item administered one week after the original session — is the single most discriminating measure available. It directly tests storage strength rather than transient retrieval strength (Bjork & Bjork 1992). A student who aced the in-session assessment but fails the 7-day probe had retrieval strength without storage strength. The system should treat this as near-zero genuine learning.
+________________
+
+
+11. The Wrapper Is the Variable: Key Empirical Evidence
+Bastani et al. 2025 (PNAS) — the most important result in the space
+Hamsa Bastani and colleagues conducted a randomized controlled trial with approximately 1,000 Turkish high school students (grades 9–11) in math practice sessions. Three conditions: no-AI control; GPT-4 in an unguarded ChatGPT-style interface (GPT Base); GPT-4 in a teacher-designed wrapper that provided hints and refused to give complete answers (GPT Tutor). The underlying model was identical in both AI conditions.
+During practice (with AI access):
+* GPT Base: +48% above no-AI control
+* GPT Tutor: +127% above no-AI control
+On the post-practice exam (without AI access):
+* GPT Base: –17 percentage points below no-AI control
+* GPT Tutor: statistically indistinguishable from no-AI control
+The in-session performance of the GPT Base group was real. It was not learning. The same model that destroyed half a standard deviation of durable learning in the Base condition preserved learning in the Tutor condition. The variable was the wrapper — a few hundred tokens of system prompt and interaction design.
+This is the load-bearing empirical fact for any platform deploying LLMs in education. A platform without pedagogical commitments baked into its wrapper will reliably reproduce the GPT Base outcome. A platform with teacher-designed hint-and-scaffold structure can produce outcomes in the range of the ITS literature.
+Kestin et al. 2025 (Harvard Physics RCT)
+A custom AI tutor built with research-based pedagogical principles — segmented content, formative checks, deliberate misconception traps — produced effect sizes of d ≈ 0.7–1.3 against in-class active learning in a Harvard physics course (N=233). Students learned roughly twice as much in less time on the AI tutor than in the active-learning session.
+Taken together: Bastani shows what unguarded AI produces (–17pp); Kestin shows what well-designed AI produces (d=0.7–1.3). Same technology category, opposite outcomes. The differentiating variable in both cases is design discipline, not model capability.
+Tutor CoPilot 2024 (human + AI > AI alone)
+A randomized trial with 900 tutors and 1,800 K–12 students found that students working with tutors who had AI guidance were 4 percentage points more likely to master topics, with the largest effects for lower-rated tutors. Human + AI outperformed AI alone. This is the strongest current evidence for how to actually deploy AI in educational settings: as support for human instructors and tutors, not as a standalone replacement.
+________________
+
+
+12. Empirical Evidence: What the Research Actually Shows
+Platform
+	Study Design
+	Cohort
+	Key Finding
+	Evidence Quality
+	Carnegie Learning MATHia
+	RAND gold-standard
+	Multi-district
+	16-percentile algebra improvement
+	High — strongest independent evidence in commercial ITS
+	ASSISTments
+	Multiple IES-documented studies
+	Grades 3–12
+	Immediate feedback improves completion; teacher analytics improve engagement
+	High — multiple independent studies
+	Khan Academy (platform)
+	Quasi-experimental longitudinal
+	~350,000 students, grades 3–8
+	30+ min/week → ~20% greater-than-expected MAP Growth gains
+	High — large-scale; Khanmigo-specific studies ongoing
+	Bastani et al. 2025 (GPT Tutor condition)
+	RCT
+	~1,000 Turkish HS students
+	d equivalent ~0.3–0.5 vs. no-AI; wrapper preserved learning; unguarded condition: –17pp
+	High — best-designed generative AI tutoring study available
+	Kestin et al. 2025 (Harvard Physics)
+	RCT
+	233 Harvard students
+	d ≈ 0.7–1.3 vs. in-class active learning
+	Moderate-high — single course, single institution
+	Tutor CoPilot 2024
+	RCT
+	900 tutors, 1,800 K–12 students
+	+4pp mastery probability; largest effects for lower-rated tutors
+	High — rigorous RCT; best evidence for human-AI tutoring model
+	Google Learn Your Way
+	RCT
+	60 HS students, Chicago
+	9% higher immediate scores; 11% higher retention at 3–5 days
+	Moderate-low — causal design; very small cohort
+	McGraw-Hill ALEKS
+	Quasi-experimental
+	ASU math students
+	15% higher completion rates
+	Moderate — McGraw-Hill commissioned
+	Knewton Alta
+	Quasi-experimental field studies
+	Post-secondary math
+	87% homework mastery; 38% quiz improvement
+	Weak — vendor-originated; no peer-reviewed validation
+	Acrobatiq
+	Observational (no controls)
+	Real courses
+	Positive associations with summative scores
+	Weak — acknowledged no experimental controls
+	Realizeit
+	Field study
+	UCF
+	34% higher pass rates
+	Weak — vendor-commissioned
+	Khanmigo (dialogue engine)
+	Emerging
+	Pilots
+	Mixed: engagement savings for teachers; IDK-IDK pattern documented
+	Weak/emerging
+	Cautionary evidence
+A 2024 scoping review of personalized adaptive learning in higher education found 28 of 69 reviewed studies reported no significant academic performance impact. A 14-college experiment found no significant average effect on course completion, slight positive grade effects, and weak instructor continuation intent. The algorithm is rarely the limiting factor. Implementation, instructor adoption, assessment alignment, and whether students actually engage consistently matter at least as much.
+________________
+
+
+13. The Cost-Collapse Asymmetry
+A significant economic shift has occurred in educational content production. Some costs have fallen by one to three orders of magnitude since 2022–2023:
+* Text generation: ~$0.01–$0.10 per 1,000 words (was ~$100–$1,000)
+* AI video generation: ~$30/minute (was ~$1,000–$5,000/minute for professional narrated animation)
+* Image generation: ~$0.001–$0.10 per image (was ~$50–$500)
+What did not collapse: Expert review, curriculum design, empirical validation, domain-expert authorship for high-stakes content. These remain at roughly pre-collapse costs.
+The asymmetry has a consequence: the burden of proof required before deploying content should scale with the irreversibility of the failure mode. Low-risk supplementary content (vocabulary definitions, factual explainers): lower burden. Content where failure produces a durable wrong model (clinical reasoning, technical safety): unchanged or higher burden.
+The Sesame Street benchmark: The most cost-effective educational intervention ever documented at scale — approximately $5 per child per year at d ≈ 0.29 on cognitive outcomes (Mares & Pan 2013), approximately $1.72 per 0.1 SD gain. High-dose tutoring achieves d ≈ 0.37 at $2,000–$3,500 per child, roughly 300–500x less cost-effective per unit of gain. Any EdTech investment should clear this bar or explain why it hasn't.
+AI production costs have now reached cost parity with Sesame Street at the unit level. Whether they have achieved design-quality parity — the dual-channel alignment, misconception targeting, and formative research integration that made Sesame Street work — is genuinely unknown. The cost collapse is real and consequential. It does not automatically produce effective content.
+Three-tier content policy for AI-assisted production:
+* Tier 1 (AI-generated, light review): Vocabulary definitions, factual explainers, Quiz Me items on well-established material with clean answer keys
+* Tier 2 (AI-drafted, substantial expert review): Explanatory text anticipating misconceptions, moderate-stakes case scenarios, worked examples
+* Tier 3 (domain-expert authorship required): Clinical cases, misconception-targeted content, Glimmer rubrics scoring generative work, cross-context transfer scenarios
+The faculty review gate at Tier 2 and Tier 3 is not optional and cannot be replaced by sampling — AI generation errors cluster systematically around the highest-stakes content (drug-drug interactions, rare conditions), and random sampling misses systematic clustering.
+________________
+
+
+14. Evaluation Framework for Intelligent Textbook Systems
+Dimension 1: Pedagogical foundation
+Question
+	What to look for
+	What learning theory underlies the design?
+	Mastery learning, cognitive tutoring, Socratic method, formative assessment, spaced repetition — or none explicitly?
+	Does the system reward understanding or performance?
+	Step-level feedback vs. answer-level; productive struggle vs. answer delivery
+	Is scaffolding designed to fade over time?
+	Good tutoring reduces dependence; bad tutoring creates it
+	Does the system address the performance-learning paradox?
+	Socratic prompting design; avoidance of direct-answer mode
+	What does the wrapper commit to?
+	Hints only? Answer refusal? Context-anchoring? These choices determine durable learning outcomes per Bastani 2025
+	Dimension 2: AI/ML approach and measurement
+Question
+	What to look for
+	Does the system have a real student model?
+	KST, BKT, DKT, cognitive model tracing — or just a chatbot?
+	Is the reward signal engagement or learning?
+	Engagement-optimized systems produce the IDK-IDK failure; learning-optimized systems require delayed retrieval probes
+	Does the system measure genuine learning or proxies?
+	7-day delayed retest; cross-context transfer probes; vs. session completion and click rates
+	Is the domain model (concept graph) explicit and inspectable?
+	Can instructors see and override the prerequisite structure?
+	Is LLM output grounded in course content (RAG)?
+	Ungrounded LLMs hallucinate; grounded systems are more reliable
+	Dimension 3: Feature completeness
+Feature
+	Minimum Viable
+	Best Practice
+	Adaptive learning paths
+	Rule-based by objective
+	Readiness-based using validated learner model
+	Embedded assessment
+	End-of-chapter quizzes
+	Continuous checkpoints embedded in reading, with 7-day delayed retest
+	Feedback granularity
+	Answer-level correct/incorrect
+	Step-level with targeted misconception feedback
+	Natural language
+	None or structured input
+	Grounded Socratic dialogue with guardrails; hints-not-answers design
+	Spaced repetition
+	None
+	Automated, evidence-based scheduling (FSRS or equivalent)
+	Student-facing analytics
+	Score/progress display
+	Concept-level mastery map
+	Instructor analytics
+	Grade reports
+	Real-time at-risk alerts; actionable dashboards; instructor override
+	Dimension 4: Integration and infrastructure
+Question
+	Minimum
+	Best Practice
+	LMS integration
+	Manual export
+	LTI 1.3 Advantage with deep linking and grade passback
+	Authentication
+	Separate login
+	SSO; district/institutional rostering
+	Authoring tools
+	None
+	Instructor-accessible content creation and customization
+	Multimodal input
+	Text only
+	Handwriting, image, code execution, voice
+	Dimension 5: Accessibility
+Requirement
+	Standard
+	Notes
+	Visual accessibility
+	WCAG 2.2 AA
+	Screen reader compatibility; keyboard navigation
+	Math notation
+	MathML or equivalent
+	Readable by screen readers
+	Video/audio
+	Captions + transcripts
+	Required for deaf/HoH learners
+	Cognitive accessibility
+	Adjustable pacing
+	Often the most neglected dimension
+	Language/dialect
+	Regional language support
+	NLP engines frequently fail on non-standard dialects
+	Always request a current VPAT and evidence of actual user testing, not just policy compliance.
+Dimension 6: Evidence quality
+Evidence Type
+	Reliability
+	Notes
+	Vendor case study / white paper
+	Low
+	Insufficient for procurement decisions
+	Vendor-commissioned quasi-experiment
+	Low-moderate
+	Check for selection bias
+	Independent quasi-experiment
+	Moderate
+	Useful; watch for confounders
+	Independent RCT (small)
+	Moderate-high
+	Causal, but generalizability limited
+	Independent RCT (large, multi-site)
+	High
+	Gold standard; rare in EdTech
+	IES / What Works Clearinghouse listing
+	High
+	Standardized review
+	Long-term retention study
+	High
+	Very rare; most EdTech studies measure immediate effects only
+	Key diagnostic questions:
+* Adjacent or direct evidence? (Adjacent = evidence on components; Direct = evidence on the integrated claim under deployment conditions)
+* What was the comparison condition?
+* Was the outcome measurement engagement, immediate performance, or delayed transfer?
+Most vendor claims fail at question one. Most surviving claims fail at question three.
+Dimension 7: Cost and total cost of ownership
+Cost Component
+	What to Assess
+	Per-student licensing
+	Student-pay vs. institutional; flat vs. tiered
+	Content costs
+	Bundled with platform? Separate publisher fee?
+	Implementation / onboarding
+	Included or charged separately?
+	Faculty review and curriculum design
+	Often underestimated; the costs that didn't collapse
+	Technical integration
+	LMS configuration; IT staff time
+	Ongoing support
+	Tiered support levels; contract renewal
+	Opportunity cost
+	Does the platform crowd out irreplaceable human instruction time?
+	Reference pricing (verify current rates directly):
+Platform
+	Pricing
+	Model
+	McGraw-Hill ALEKS
+	$19.95–$179.95/student/period
+	Student-pay
+	Wiley Knewton Alta
+	~$39.95–$49.95/term
+	Student-pay
+	Top Hat + OpenStax
+	$35.00/student
+	Student-pay; content free
+	Khanmigo (individual)
+	$4.00/month or $44/year
+	Consumer
+	Khanmigo (teachers)
+	Free
+	Institutional
+	Khan Academy Districts
+	$10/student/year (Enterprise Starter, ≤1,000 licenses)
+	District
+	ASSISTments
+	Free
+	Free platform
+	OLI/Torus
+	Free/open
+	Academic
+	Dimension 8: Governance and transparency
+Question
+	Why it matters
+	Can instructors inspect and override adaptive recommendations?
+	Black-box adaptivity undermines instructor trust
+	Is the concept graph visible to instructors?
+	Hidden models cannot be corrected or improved
+	Does the AI cite course content or generate freely?
+	Grounding reduces hallucination risk
+	What data is collected and who owns it?
+	FERPA/COPPA compliance; data portability on contract end
+	What are the contract terms if the vendor is acquired or discontinued?
+	Smart Sparrow's shutdown is the cautionary case
+	Does the platform distinguish engagement metrics from learning metrics?
+	Platforms that conflate them will optimize for the wrong thing
+	________________
+
+
+15. Persistent Gaps and Criticisms
+The IDK-IDK failure mode: Systems optimizing on engagement will produce student behavior that maximizes the engagement signal without producing learning. This is not a bug — it is what engagement optimization reliably produces. The only fix is measuring genuine learning.
+Telemetry noise: Page-view duration is a poor proxy for reading engagement. Systems relying on these noisy logs generate incorrect adaptivity recommendations.
+The chatty tutor problem: Students grow frustrated with verbose AI tutors and attempt to bypass dialogue for shortcuts. Typing complex math into chat windows is a persistent usability barrier.
+Cold start: New students and new courses lack the interaction data needed for accurate personalization. Transfer learning approaches are active research areas but not yet mainstream in deployed systems.
+The fluency trap: AI explanations produce genuine feelings of understanding without the underlying cognitive integration. Well-designed measurement layers can detect this; most deployed systems cannot.
+The decoupling problem: Artifacts are no longer reliable evidence of the cognitive process that produced them. Process-based measurement is the structural response.
+Algorithmic and pedagogical bias: Adaptive models can encode biased assumptions from training data. More subtly, systems optimized for quiz scores can reward procedural speed over conceptual understanding.
+Digital divide: ~34% of rural US school districts lack infrastructure for modern AI tools vs. ~8% of urban districts.
+Instructor adoption friction: Faculty resist platforms that remove pedagogical control without transparent oversight. Systems that work best are those where instructors can interpret dashboards and intervene.
+Academic integrity ambiguity: Generative AI tutors create gray areas about where legitimate help ends.
+LLM hallucination: Even grounded RAG systems produce incorrect or miscalibrated feedback. Content errors cluster systematically around highest-stakes material.
+OER funding gap: Commercial publishers afford AI layers. OER institutions largely cannot. A 2025 controlled study found no significant outcome difference between OER + LLM tutor vs. standalone LLM tutor.
+The performance-learning paradox: Students with AI access show immediate performance boosts that often disappear or reverse when AI is removed. Systems must be designed to build durable learning, not scaffold temporary performance.
+________________
+
+
+16. Emerging Trends (2024–2026)
+Wrapper design as the primary competitive differentiator: The Bastani finding makes clear that model choice is secondary to interaction design. Platforms that invest in pedagogically-grounded wrappers will consistently outperform those that don't, regardless of the underlying LLM.
+Human-AI tutoring (not AI-only): The strongest 2024–2025 evidence is that AI works best as a support layer for human tutors and teachers — Tutor CoPilot, Khanmigo teacher tools — not as a standalone replacement.
+Delayed retrieval as the de facto success metric: The field is converging on 7-day (or longer) delayed retest as the minimum standard for evaluating learning outcomes. Platforms that report only in-session performance are measuring the wrong thing.
+LLM-native personalization: Systems adapting content examples to student interests and grade level in real time (Google LearnLM) represent the frontier of the content layer.
+Dual coding and multimodal learning: Platforms building simultaneous text, audio, and visual representations of the same content aligned with cognitive dual-coding theory.
+OER + AI combinations: Generative AI as a potential equalizer between commercial and open textbooks — though the 2025 comparative evidence suggests the integration benefit may be modest.
+Regulatory clarity: US Department of Education guidance permitting AI tools meeting privacy and equity standards has removed some institutional ambiguity.
+Market growth: AI in education market valued at ~$7.05 billion in 2025; projected to reach $136.79 billion by 2035. Adaptive learning segment: $5.1 billion in 2024; projected $29.2 billion by 2033.
+________________
+
+
+17. Market and Institutional Adoption
+Segment
+	Common Adoption Model
+	Higher education gateway courses
+	Courseware for math, stats, chemistry, economics, biology; often bundled with textbook access
+	K–12 districts
+	District licenses for math and reading platforms; rostering, SSO, implementation support
+	OER institutions
+	OpenStax + paid assignment/integration layer
+	Online/scaled programs
+	Adaptive courseware embedded in asynchronous courses
+	Tutoring programs
+	Human tutors plus AI dashboards or copilots
+	Workforce learning
+	Adaptive engines for skill-based training and certification prep
+	Notable deployments:
+* Georgia Tech / TCSG: Apprentice Tutors (BKT-powered) in college algebra via Blackboard
+* Michigan Virtual (2024–2025): Khanmigo pilot, 24 teachers, 1,102 students, 8 districts — showed teacher time savings but documented IDK-IDK pattern
+* New Hampshire statewide: $2.3M Khanmigo deployment (federal COVID-relief) for grades 5–12
+* University of Central Florida: Realizeit (34% pass-rate improvement, vendor-commissioned)
+* Rutgers Canvas (2025): Khanmigo Teacher Tools integration
+________________
+
+
+18. The Meta-Learning Gap: Using the Tool to Teach the Tool
+A structural gap runs across virtually every platform in this space and is almost entirely undiscussed in the research literature: intelligent textbook systems do not use their own pedagogical machinery to teach teachers — or students — how to use them.
+This is diagnostic. If a platform claims to be able to teach anything adaptively, the first test is whether it can teach its own use. Most fail that test, and the failure reveals something real about the scope of the adaptivity.
+Why the math-centricity matters here
+The strongest evidence in this space is almost entirely in mathematics: Carnegie Learning MATHia (RAND study), ALEKS (Knowledge Space Theory), ASSISTments (IES), DreamBox (WestEd). This is not incidental. Mathematics has properties that make it tractable for adaptive systems — clear right/wrong answers, well-defined prerequisite structures, unambiguous mastery criteria, concept graphs that don't require contested interpretation. A platform that maps beautifully to algebra may have no infrastructure for teaching "what does this platform do and why" because that question is domain-agnostic, requires metacognitive reflection rather than procedural performance, and doesn't resolve to a correct answer at a specific point in time.
+If the adaptivity only works for well-structured STEM content, the platform cannot turn its own methodology on itself. That's a meaningful constraint, not a marketing problem.
+What effective platform onboarding would actually require
+Current platform onboarding typically offers: help documentation, vendor walkthrough videos, and a one-day training event. None of this is what the implementation evidence says works. What would actually move teacher adoption is onboarding built on the same principles the platform claims to apply to student learning:
+A student-view simulator. Teachers should be able to experience the platform as a student, including its failure modes. Experiencing the IDK-IDK pattern from the student side — watching yourself type non-answers until the system reveals the answer, feeling the fluency trap from the inside — produces a pedagogical insight no workshop can replicate. You cannot read your way into understanding cognitive offloading; you have to feel it.
+A configuration sandbox. A safe environment where teachers can adjust guardrails, change prompting behavior, and observe how outputs change. Most platforms treat configuration as an IT function. It should be a teacher-facing learning activity. The teacher who has experimented with what happens when hints are removed versus scaffolded versus answer-giving has built the mental model she needs to make deployment decisions. The teacher who attended the demo has not.
+An "explain this analytics screen" layer. Dashboard blindness is one of the most consistently documented barriers to instructor adoption. Teachers who don't understand what a metric means ignore it. The dashboard should include embedded explanations of what each signal means, what action it recommends, and what a false positive looks like — delivered at the moment of encounter, not in a separate documentation system.
+Subject-specific worked examples. Generic AI training ("here's how to prompt") doesn't transfer to classroom practice. The teacher needs worked examples in her actual curriculum: what good AI-assisted feedback looks like in a seventh-grade writing workshop versus AP physics versus K-2 phonics. These are different problems requiring different configurations. The platform that provides only generic onboarding is leaving the hardest part of adoption to the teacher to figure out alone.
+A spaced retrieval sequence on the platform's own concepts. If the platform uses spaced repetition to teach calculus, it should use spaced repetition to teach "what is a knowledge graph," "what does mastery-based progression mean," "why does the system give hints instead of answers." The content exists. The architecture exists. No platform has systematically applied its own learning science to its own adoption.
+What currently exists vs. what's needed
+Platform
+	Current onboarding
+	What's missing
+	Carnegie Learning MATHia
+	3-day initial PD + in-classroom coaching
+	Student-view simulator; sandbox for LiveLab experimentation; subject-specific scenario library
+	ALEKS
+	Vendor walkthrough + ALEKS Insights documentation
+	Interactive exploration of what the Knowledge Space means; simulation of a student's knowledge state evolving
+	Khanmigo
+	Free teacher tier; lesson planning tools; LTI setup guide
+	No structured course on Socratic scaffolding design; no sandbox showing IDK-IDK failure mode; no subject-specific deployment examples
+	ASSISTments
+	Free; teacher training videos; assignment report walkthrough
+	The formative assessment workflow is partially documented but not taught as an adaptive course; no simulation of what teacher analytics look like under different student behavior patterns
+	OLI / Torus
+	Academic authoring tools; documentation
+	The platform that most demands pedagogical design has the thinnest onboarding for educators new to backward design
+	Google Learn Your Way
+	Experimental; limited documentation
+	Almost no teacher-facing infrastructure at all
+	The broader principle: every intelligent textbook system should include this
+The implementation research — the RAND Europe synthesis, the Yoon 14-contact-hour threshold finding, the two-year ASSISTments implementation evidence, the Michigan Virtual Khanmigo pilot findings — is unanimous that teacher capacity is the binding constraint. Platforms routinely respond to this by funding external PD providers. That is backwards. The platform that requires external training to use is a platform that has externalized its hardest design problem.
+A more defensible design principle: every platform should be able to teach its own use to the standard required for effective deployment, using its own pedagogical methodology. If a platform can't do this, that's a design gap, not a training gap. The distinction matters because design gaps are the platform's responsibility; training gaps get handed to districts that are already under-resourced for professional development.
+The failure to close this gap is one reason the implementation failure rate is as high as it is. A platform that drops into a district as a configured system, expecting teachers to build competency through osmosis and vendor walkthroughs, is repeating the pattern that produced the Glimpse K12 finding: two-thirds of EdTech licenses sit unused, not because teachers are resistant to better tools, but because the tools were never designed to be learnable.
+________________
+
+
+19. Summary Assessment
+The intelligent textbook space is real, maturing, and producing genuine (if variable) learning improvements. The strongest evidence is concentrated in K–12 math with long deployment histories and independent evaluation — Carnegie Learning MATHia (RAND), ASSISTments (IES), DreamBox (WestEd). The LLM-powered generation is promising but largely pre-evidence on durable learning outcomes.
+The most important critical frame: 28 of 69 higher-education adaptive learning studies found no significant academic performance impact. The algorithm is rarely the limiting factor. Implementation, instructor adoption, assessment alignment, and whether students actually engage consistently matter at least as much.
+The most important recent finding: Human + AI tutoring outperforms AI alone (Tutor CoPilot, 2024). The near-term highest-value deployment is not autonomous student-facing AI but AI tools that make human instructors and tutors more effective.
+The most important empirical result for design: Same model, different wrapper, opposite durable learning outcomes (Bastani 2025). Any evaluation that doesn't ask "what commitments does the wrapper make?" is incomplete.
+The defining architectural question: Does the system have a trustworthy domain model, or is it just a chatbot? Does it measure genuine learning or engagement proxies? Does it optimize against a delayed retrieval signal or against session completion? These questions distinguish systems that will produce learning from systems that will produce dashboards.
+________________
+
+
+Sources: peer-reviewed literature (LAK 2025, IEEE TKDE, IJAIED, PeerJ Computer Science, Scientific Reports, JEDM, Nature, PMC, arXiv, PNAS 2025), IES/What Works Clearinghouse, EdSurge product reviews, Ithaka S+R analysis, WestEd evaluation, RAND study summaries, Stanford 2025 GenAI paradox research, OECD 2026, vendor documentation, Brown (2026) "How to Build an Intelligent Textbook" (Bear Brown LLC). Claims marked as vendor-reported or vendor-commissioned throughout.

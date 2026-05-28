@@ -1,0 +1,447 @@
+﻿Medhavy 1.5 — Feature Roadmap
+What we're building, what already exists, and why each feature earns its place Internal document for engineering and product alignment
+________________
+
+
+TL;DR Medhavy 1.5 adds three learning modes alongside the existing AI tutor: Quiz Me (spaced flashcard retrieval using the FSRS algorithm to build durable memory), Case Study (professor-written clinical scenarios with graduated AI scaffolding to develop reasoning under ambiguity), and Glimmer (open-ended generative assignments with AI pre-grading that build original, principle-level thinking). The four modes together cover the full cognitive sequence — acquire, retain, apply, generate — that neither a textbook nor a general AI tutor covers alone. The signal data these modes produce also trains Medhavy 2.0's contextual bandit, which will learn to recommend the right mode per student per concept at each re-entry point.
+________________
+
+
+How to read this document
+Medhavy is built on a specific claim: that different kinds of learning require different kinds of help, and that the right help at the right moment produces meaningfully better outcomes than any single mode of instruction. Each feature in 1.5 corresponds to a distinct cognitive operation — acquiring a representation, making it durable, applying it under ambiguity, generating something new with it. The research behind each is not decorative. It is the reason the feature exists in the form it does and not some other form.
+This document covers:
+* What already exists — the Ask AI mode, the context-aware chatbot that ships with the current Cancer Biology and Physics Vol. 1 textbooks
+* What 1.5 adds — Quiz Me, Case Study, and Glimmer
+* Why each feature is designed the way it is — the research rationale, including the failure modes each design choice is trying to avoid
+* How the four modes fit together — the cognitive logic that makes the combination more than the sum of its parts
+The Medhavy 2.0 architecture — specifically the contextual bandit that will learn to select between modes per student per concept — is described in an appendix. Understanding what each mode does and why is a prerequisite for understanding what 2.0 is optimizing.
+________________
+
+
+The platform as it exists today
+Ask AI — the context-aware AI tutor
+What it is. Every page of every Medhavy textbook has a chat panel. Students ask questions; the AI answers. Two things distinguish the Medhavy tutor from a general-purpose AI tool. First, it is RAG-grounded — it retrieves relevant passages from the current textbook and anchors its answers in that content. It cannot fabricate facts the textbook does not contain. Second, it is context-aware — it knows which chapter and section the student is reading when they ask, and it maintains a short-term memory of what the student has asked in the current session and a long-term learner profile across sessions.
+The Cancer Biology textbook runs a Mixture-of-Experts routing layer that classifies each question and routes it to one of six expert personas — mechanism, diagnostics, treatment, definitions, navigation, and general — before calling GPT-4o-mini. The Physics Vol. 1 textbook extends this with a physics widget tool layer: when a student asks a quantitative question, the AI can generate an inline physics plot or chart directly in the chat response.
+The research case. The most important finding in the AI tutoring literature is also the most counterintuitive: an AI tutor designed to be helpful can actively harm learning. Bastani et al. (2025, PNAS) ran a randomized controlled trial with approximately 1,000 high school students. Students with access to unguarded GPT-4 during practice sessions scored 48% higher than the control group during the practice period — and 17 percentage points lower on a subsequent exam without AI access. The students who used the AI most fluently during practice had offloaded the cognitive work that practice is supposed to build. Their performance during practice was the AI's performance, not theirs.
+The same study ran a second condition: GPT-4 with teacher-designed guardrails that refused to give answers and instead provided structured hints. That group showed no harm — their exam scores were statistically indistinguishable from the no-AI control.
+This is the design constraint that governs Ask AI. The tutor is not optimized to make the student feel helped. It is designed to make the student think. It asks clarifying questions before answering. It offers graduated explanations when a student is stuck rather than providing the final answer. It routes mechanism questions to a persona that explains the causal process, not the conclusion. The RAG grounding is not just an accuracy feature — it is a guardrail against the fluency trap, because the tutor can only answer from the textbook, which means the student is always being directed back to material they are supposed to be building a relationship with, not bypassing.
+The context-awareness serves the same function. A student who has been asking about apoptosis for fifteen minutes and then asks "wait, what is the mitochondria again?" gets a different response than a student asking the same question cold. The tutor knows where the student is and what they have been working through, which means its Socratic moves are calibrated to actual gaps rather than generic pedagogy.
+What it does not do. Ask AI does not make retrieved knowledge durable. It does not force the student to apply knowledge under ambiguity. It does not ask the student to generate anything novel. These are the jobs of the three modes being added in 1.5.
+________________
+
+
+What 1.5 adds
+The single Ask AI button becomes four. The interface presents: Ask AI, Quiz Me, Case Study, Glimmer. Each mode is appropriate for a different moment in a student's relationship with a concept. The four together constitute a complete learning environment; none alone is sufficient.
+Quiz Me — spaced retrieval practice
+What it is. Quiz Me is a flashcard-register spaced repetition system scheduled by FSRS (Free Spaced Repetition Scheduler), the open-source algorithm now default in Anki. Items are generated from the concept node map that the professor builds during the Tic TOC curriculum design session. When a student opens Quiz Me for a concept, the system presents a set of items — drawn from the current concept node, recent related nodes, and prerequisite nodes where mastery is below threshold — and the student attempts retrieval, rates their recall (Again / Hard / Good / Easy), and the algorithm schedules the next review based on a predicted retrievability model.
+The interface is designed explicitly as a flashcard session, not a quiz. There is no score at the end of a session. There is a completion event — "Done for today" when the due-count reaches zero. Tomorrow's count is already scheduled.
+The research case. The testing effect is the most reliably replicated finding in cognitive psychology. Roediger and Karpicke (2006) showed that students who retrieved information from memory performed substantially better on a one-week delayed test than students who spent the same time re-reading — even though the re-readers showed higher performance immediately after the study session. Adesope, Trevisan, and Sundararajan's 2017 meta-analysis of 188 experiments found a pooled effect of g = 0.51 for practice tests versus re-studying, and g = 0.93 versus no activity. These are among the largest and most consistent effects in the educational psychology literature.
+The spacing principle adds further gains independent of retrieval. Cepeda et al.'s 2006 meta-analysis of 317 experiments established that distributing practice across time produces more durable retention than massing it, and Cepeda et al. (2008) showed that the optimal inter-study interval scales with the retention horizon — a student who needs to retain a concept for a fourteen-week semester should review it at a different interval than a student reviewing for a next-day exam. FSRS implements this scaling. Unlike SM-2 (the previous standard in Anki), FSRS represents each item with three latent variables — Difficulty, Stability, and Retrievability — and trains its scheduling parameters on hundreds of millions of review logs, producing approximately 20-30% fewer reviews for the same target retention rate.
+In medical education specifically, Kerfoot and colleagues ran a series of randomized controlled trials of spaced retrieval practice delivered to urology residents and medical students. Their 2010 Annals of Surgery trial showed that spaced education generated transfer — improved performance on novel diagnostic skill items, not just the practiced items — with effects persisting to long-term follow-up. Medical students in cohort studies who used Anki extensively showed substantially better course exam performance than those who did not, with mature-card counts explaining over a third of the variance in scores in one cohort study.
+The design choices that matter most and why.
+The decision to use a flashcard register rather than a quiz register is not aesthetic. Habit research (Wood, 2019; Lally et al., 2010) establishes that daily voluntary use of a study tool requires a habit loop: a consistent cue, a low-friction action, and a satisfying completion event. The Zeigarnik effect — the cognitive pressure created by an unfinished open task — is the mechanism behind the due-count counter. A visible count of cards due today creates an open task the brain wants to close. This is why the due-count is displayed on the home screen, in the chapter navigation, and as a badge on the app icon. When the count reaches zero, the session is done. The closure event is the reward. A quiz register that ends with a score produces assessment anxiety and study-session pacing rather than daily maintenance behavior.
+The interleaving of prerequisite items alongside current-concept items is grounded in Rohrer and Taylor's (2007) finding that interleaved practice produced 74% accuracy on delayed tests versus 49% for blocked practice — despite the blocked group performing better during the practice sessions themselves. The mechanism is discrimination learning: interleaving forces the student to identify which concept or tool the current item requires, which is exactly the cognitive operation clinical reasoning and problem-solving demand. Including 20-30% prerequisite items in every session also serves a diagnostic function: when a student consistently fails prerequisite items, the system has evidence that the current concept's difficulties are upstream, not local.
+The priority score — priority = α × prerequisite_depth + β × importance_tier + γ × (1 - fsrs_retrievability) + δ × frequency_tier — is the answer to the failure mode where pure recall-based scheduling under-trains foundational concepts. A student who reviews consistently can master a rare biochemical pathway while losing access to a foundational clinical concept, simply because the foundational concept's FSRS score looks fine while the rare pathway keeps failing. The importance and frequency tiers, set by the professor at Tic TOC time, inject domain knowledge into the scheduling algorithm that recall data alone cannot capture. The aviation pedagogy principle governs high-importance concepts specifically: regardless of FSRS predictions, any concept node tagged importance_tier = 'high' is reviewed at least every 14 days. Rare-but-critical content — anaphylaxis recognition, sepsis criteria, the conditions where a standard management algorithm does not apply — gets mandatory scheduling rather than recall-dependent scheduling.
+The gate — Quiz Me for section N is locked until the student has engaged with section N for at least three minutes or has scrolled to the end — addresses Bastani's finding directly. Retrieval practice requires something to retrieve. A student who attempts Quiz Me before reading the section will either guess randomly (producing noise in the FSRS model that will degrade future scheduling) or succeed through surface heuristics (which the algorithm reads as mastery and downschedules, leaving real gaps undetected). The gate is not a restriction. It is a quality control measure for the signal the system is generating.
+Backlog management. When a student falls behind and the due-count exceeds 50, the system surfaces a Quick Catch-Up mode covering the 15 highest-priority items only. Presenting a 60-minute backlog session to a student who has missed a week produces abandonment, not recovery. The Quick Catch-Up is the recovery path.
+________________
+
+
+Case Study — clinical reasoning under ambiguity
+What it is. Case Study presents a pre-written, professor-approved clinical or domain scenario anchored to the concept node the student is currently working on. The scenario is genuinely ambiguous — it does not have a single correct answer telegraphed in the setup. The AI facilitates discussion using a graduated assistance ladder, moving from broad evidential questions ("What in the case points one direction or another?") to partial scaffolding ("Here is one reasoning chain a clinician might use — what would you push back on?") to synthesis ("Here is the consensus reading — now reconstruct the reasoning that produced it"). The AI never gives the answer. When a student asks for it directly, the response is consistent: "I can't do that — the reasoning is the point. Let's try a different angle."
+Cases are authored by the professor and approved before any student sees them. AI-generated cases are not permitted in 1.5.
+The research case. Case-Based Learning has a substantial evidence base in health professional education. Thistlethwaite et al.'s 2012 BEME systematic review of 104 studies across medical, dental, nursing, and pharmacy programs found consistent evidence that CBL produces student satisfaction and self-reported clinical reasoning gains, with modest evidence of advantages on skill-application tasks. The Dochy et al. (2003) meta-analysis of problem-based learning found a consistent trade-off: PBL produced a modest negative effect on knowledge breadth (approximately -0.22 SD versus lecture) and a substantial positive effect on skills application (approximately +0.46 SD). CBL and PBL are not the same — CBL assumes preparation, uses faculty-curated cases, and operates at shorter time scales — but the trade-off is similar. Case-based work consistently produces better application and worse recall than direct instruction, which is exactly the right trade given that Quiz Me handles the recall side of the equation.
+The design of the graduated assistance ladder follows Koedinger and Aleven's assistance dilemma framework (2007), the most important empirical principle governing when to help and when to hold back in an intelligent tutoring context. Their finding: there is an optimal amount of assistance for any given learner state. Too little, and the student fails and disengages. Too much, and the student offloads rather than learns. The optimum is curvilinear and depends on prior knowledge. The ladder operationalizes this: the system starts at the minimum effective level of scaffolding and escalates only when the student demonstrates genuine engagement at the current level, not simply when time has passed.
+The mastery-based adjustment — students below 0.6 mastery on the concept node start at Level 1 and proceed slowly; students above 0.8 start at Level 3 — implements Kalyuga et al.'s (2003) expertise reversal effect: instructional supports that help novices hurt experts. A scaffolded hint that is necessary for a struggling student is patronizing and wasteful for a proficient one. The Case Study facilitation calibrates its starting point based on what the Quiz Me and Ask AI signals say about where the student actually is.
+Why cases must be pre-written and professor-approved. The prohibition on AI-generated cases is not a temporary conservatism. It reflects a specific risk that is documented in the medical LLM literature. Singhal et al.'s evaluation of Med-PaLM (2023, Nature) found that even a model achieving 86% accuracy on USMLE-style questions — the best available at time of publication — produced wrong answers in roughly one in seven cases, delivered with the same fluent confidence as correct ones. A case scenario that contains a plausible-sounding but incorrect clinical claim — a wrong first-line treatment, an outdated staging criterion, a fabricated drug interaction — does not fail loudly. It fails silently, propagating as a student misconception that may persist through clinical training. Pre-written, faculty-reviewed cases have bounded failure modes: the review process catches errors, and the review standard (similar to AAMC MedEdPORTAL's peer review criteria) is established practice in medical education. AI-generated cases have unbounded failure modes, and the cost of a wrong answer in clinical content is asymmetric.
+What the session logs capture. Case Study sessions are logged at a granularity that serves the 2.0 bandit's training data: which assistance level the student reached, how many AI turns preceded each escalation, whether the student disengaged before three minutes, and the AI-assessed reasoning quality of the student's final response (poor / developing / proficient). These signals distinguish "the student found this case too hard" from "the student found this case unengaging" from "the student worked through this productively" — three outcomes that warrant different next-mode selections from the bandit.
+________________
+
+
+Glimmer — generative creative assignment
+What it is. Glimmer is a creative, non-trivial assignment anchored to a specific concept node. There is no correct answer. The student produces something that did not exist before: a proposed clinical protocol, a mechanism explanation applied to a novel context, a critique of an existing approach, a design for an intervention. The assignment is graded on five dimensions: WHY (is the problem framing specific and contextual, not generic?), Usefulness (is there a real application pathway?), Mechanism (are the causal steps specified, not just the outcome?), Defensibility (can the student argue for this against alternatives?), and Specificity (are measurements, quantities, and concrete details present?).
+Before the instructor grades the submission, the AI pre-grading reviewer reads it, identifies the weakest dimension, and asks the student one targeted interrogation question about it. Not "be more specific" — a precise question about the specific gap: "You claim that X will produce Y, but you don't explain the mechanism by which this occurs. Walk me through the specific causal steps between X and Y." The student responds. If the response meets threshold on defensibility and specificity, the submission is released to the instructor. If not, the AI asks one follow-up question — a maximum of two rounds of AI interrogation before instructor review regardless.
+Eight to twelve Glimmers across a course compose into a term project the student does not know they are building until weeks ten and eleven, when the system reveals that all prior submissions are now a portfolio and a synthesis assignment unlocks.
+The research case. The Glimmer is an ill-structured problem in the Jonassen (1997, 2000) sense: it has no single correct solution, no agreed evaluation criteria, and requires the student to specify the problem before solving it. The evidence base for ill-structured problem-solving instruction — particularly Belland, Walker, Kim and Lefler's 2017 meta-analysis of computer-based scaffolding for STEM cognitive outcomes (g = 0.46, 144 studies) — establishes that scaffolded ill-structured work produces meaningful cognitive gains when the scaffolding is contextualized, fades appropriately as competence grows, and addresses conceptual rather than purely procedural support. The Glimmer's rubric is the scaffolding. The AI pre-grading reviewer is the contextualized, targeted feedback mechanism that the scaffolding-fading literature identifies as the high-effect intervention: not "here is what is wrong" but "here is one specific question about the weakest part of your reasoning — answer it."
+The AI reviewer's design follows the Graham, Hebert, and Harris (2015) meta-analysis of formative assessment in writing, which found that questioning-style feedback — asking the writer questions about their work rather than telling them what is wrong — produced effect sizes of approximately d = 0.40 to 0.50 on revision quality. Hattie and Timperley's (2007) landmark review of feedback establishes that process-level and self-regulation-level feedback produce the largest effects, while task-level feedback (here is the right answer) produces small effects and self-level feedback (you are doing well / poorly) produces near-zero or negative effects. The AI reviewer operates entirely at the process and self-regulation levels: "walk me through your causal reasoning" is a self-regulation prompt; "what observation would change your recommendation" is a process prompt. The AI never produces task-level feedback.
+The emergent term project design is grounded in writing-process pedagogy (Murray, 1972; Elbow, 1973; Flower and Hayes, 1981): the final form of a substantial piece of work emerges from accumulation, and writers discover what they think by producing what they do not yet think. The pedagogical argument is that a student who knows they are building a term project optimizes for the grade on the project. A student who experiences each Glimmer as an interesting low-stakes weekly exercise optimizes for the exercise. The connective tissue — the synthesis that emerges in weeks ten and eleven — is more authentic when it is genuinely discovered rather than planned.
+The five-dimension rubric maps onto the AAC&U VALUE rubrics for Critical Thinking and Inquiry and Analysis — dimensions that cannot be satisfied by quotation or length, only by demonstration of reasoning quality. This is the key property the rubric needs: a student cannot score well on Mechanism by writing more, only by specifying more precisely. Defensibility cannot be faked by hedging — hedging is the opposite of a defensible claim. Specificity catches the expert-novice gap that Chi, Feltovich, and Glaser (1981) documented: novices categorize problems by surface features; experts by deep principles. A specific Glimmer response is one that has reorganized surface features into principled application. A non-specific one has not.
+The anxiety failure mode and how it is mitigated. Pekrun's (2006) control-value theory of achievement emotions predicts a specific failure mode for open-ended creative assignments: students who cannot see the destination (low perceived control) and care about their grade (high value) land in the anxiety quadrant, not the engagement quadrant. This is not a theoretical concern — Jonassen (2011) documents that ill-structured problems consistently produce higher reported anxiety than well-structured ones, with the gap largest for low-prior-knowledge learners. The USMLE-trained medical student population that Medhavy primarily serves has spent two or more years optimizing for closed-problem recognition tasks. Their first encounter with a Glimmer will frequently be experienced as evidence they cannot do the work.
+Three mitigations are built into the design. First, early-semester Glimmers are heavily anchored to specific observations or cases from the textbook — the student is not operating in fully open space until week five or later. Second, the AI pre-grading reviewer's first response always acknowledges something the student did well before asking the interrogation question. Control is restored incrementally, not all at once. Third, the Glimmer surfaces in the interface as "Glimmer available" rather than "Glimmer overdue" — the framing is opportunity, not obligation.
+The scaffolding-fading literature (Puntambekar and Hübscher, 2005; van de Pol, Volman, and Beishuizen, 2010) establishes that the early weeks of an ill-structured assignment should function as backwards-faded worked examples: week one presents a Glimmer with the framing pre-supplied, asking only that the student fill in mechanism and specificity; week two supplies the framing partially; week three is the first fully open Glimmer. This mirrors Renkl and Atkinson's (2003) backwards-faded worked-example sequence for cognitive skill acquisition. Whether Medhavy implements this fully in 1.5 or approximates it is a design decision — but the principle governs how the first three weekly Glimmer assignments should be structured.
+________________
+
+
+How the four modes fit together
+The four modes are not interchangeable alternatives. They correspond to four distinct cognitive operations that learning research has established as necessary, sequential, and mutually insufficient.
+Ask AI is for acquiring a representation. A student who does not yet have a schema for a concept needs explanation, elaboration, and the ability to ask clarifying questions. Ask AI serves this function. It is the entry point. Without a representation, there is nothing to retrieve, apply, or generate.
+Quiz Me is for making the representation durable. A student who has a representation — who understood the lecture, read the chapter, got an explanation from Ask AI — has a fragile encoding. Retrieval practice, spaced over time, converts fragile encodings into robust ones. This is the mechanism that produces the kind of knowledge that survives an exam without a textbook, a clinical rotation without a reference, a board certification without time to review.
+Case Study is for applying the representation under ambiguity. A student who can retrieve a concept reliably has not necessarily learned to deploy it in a real situation. Clinical cases and domain scenarios present the concept in a context where the right application is not obvious, where competing interpretations are legitimate, and where the reasoning process is the learning outcome rather than the correct answer. This is the cognitive operation that produces flexible, transferable knowledge rather than pattern-matched recall.
+Glimmer is for generating something new from the representation. A student who can retrieve a concept and apply it to cases presented to them has not necessarily developed the capacity to use the concept as a tool for original thinking. Generative work — proposing, designing, specifying, defending — forces the student to reorganize their knowledge around principles rather than surface features. This is the operation that produces the expertise-level knowledge structure Chi and colleagues documented in expert physicists and clinicians: not more facts, but facts organized around deep principles that transfer to novel situations.
+The Carnegie Foundation's studies of medical education (Cooke, Irby, and O'Brien, 2010) and engineering education (Sheppard, Macatangay, Colby, and Sullivan, 2008) reached the same diagnosis independently: professional education trains students for well-structured-problem performance while professional practice requires ill-structured-problem judgment. The four-mode architecture is Medhavy's answer to that gap — not by replacing the curriculum, but by ensuring that the full cognitive sequence is available alongside it.
+________________
+
+
+Appendix — Medhavy 2.0: the contextual bandit
+The four modes described above generate signal data. In 1.5, the platform presents all four modes and lets the student choose. In 2.0, a contextual bandit learns which mode to surface at the natural re-entry point after each session — not by forcing the student's choice, but by making the right offer at the right moment.
+The bandit is a class of reinforcement learning algorithm (Thompson Sampling is the proposed implementation) that, given a feature vector describing the student's current state on a concept node, selects the mode most likely to produce durable learning at this moment for this student. The feature vector includes FSRS retrievability, prerequisite mastery scores, concept importance tier, recency of Case Study and Glimmer engagement, and Glimmer rubric history.
+The bandit cannot exist without 1.5's signal layer. Every case study escalation level, every Glimmer interrogation cycle, every Quiz Me card rating — these are the training data for the bandit's mode-selection policy. Without clean, complete, consistently-structured signals from 1.5, 2.0 learns from noise.
+The reward signal — what the bandit is optimizing for — is delayed retrieval accuracy: seven days after the bandit selects a mode for concept C, a new Quiz Me item on concept C is offered. The student's accuracy on that item is the reward. This directly measures what the platform is for.
+The 2.0 architecture, reward design decisions, and kickoff requirements are documented separately in the Medhavy 2.0 Strategic Roadmap.
+________________
+
+
+Key research citations
+Adesope, Olusola O., Dominic A. Trevisan, and Narayankripa Sundararajan. 2017. "Rethinking the Use of Tests: A Meta-Analysis of Practice Testing." Review of Educational Research 87(3): 659–701.
+Bastani, Hamsa, Osbert Bastani, et al. 2025. "Generative AI Can Harm Learning." PNAS 122(26): e2422633122.
+Belland, Brian R., Andrew E. Walker, Nam Ju Kim, and Mason Lefler. 2017. "Synthesizing Results From Empirical Research on Computer-Based Scaffolding in STEM Education: A Meta-Analysis." Review of Educational Research 87(2): 309–344.
+Cepeda, Nicholas J., Harold Pashler, Edward Vul, John T. Wixted, and Doug Rohrer. 2006. "Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis." Psychological Bulletin 132(3): 354–380.
+Chi, Michelene T. H., Paul J. Feltovich, and Robert Glaser. 1981. "Categorization and Representation of Physics Problems by Experts and Novices." Cognitive Science 5(2): 121–152.
+Cooke, Molly, David M. Irby, and Bridget C. O'Brien. 2010. Educating Physicians: A Call for Reform of Medical School and Residency. Jossey-Bass / Carnegie Foundation.
+Dochy, Filip, Mien Segers, Piet Van den Bossche, and David Gijbels. 2003. "Effects of Problem-Based Learning: A Meta-Analysis." Learning and Instruction 13(5): 533–568.
+Graham, Steve, Michael Hebert, and Karen R. Harris. 2015. "Formative Assessment and Writing: A Meta-Analysis." Elementary School Journal 115(4): 523–547.
+Hattie, John, and Helen Timperley. 2007. "The Power of Feedback." Review of Educational Research 77(1): 81–112.
+Jonassen, David H. 1997. "Instructional Design Models for Well-Structured and Ill-Structured Problem-Solving Learning Outcomes." Educational Technology Research and Development 45(1): 65–94.
+Kalyuga, Slava, Paul Ayres, Paul Chandler, and John Sweller. 2003. "The Expertise Reversal Effect." Educational Psychologist 38(1): 23–31.
+Kerfoot, B. Price, Yulei Fu, Harley Baker, et al. 2010. "Online Spaced Education Generates Transfer and Improves Long-Term Retention of Diagnostic Skills." Annals of Surgery 252(2): 350–359.
+Koedinger, Kenneth R., and Vincent Aleven. 2007. "Exploring the Assistance Dilemma in Experiments with Cognitive Tutors." Educational Psychology Review 19(3): 239–264.
+Pekrun, Reinhard. 2006. "The Control-Value Theory of Achievement Emotions." Educational Psychology Review 18(4): 315–341.
+Renkl, Alexander, and Robert K. Atkinson. 2003. "Structuring the Transition From Example Study to Problem Solving in Cognitive Skill Acquisition." Educational Psychologist 38(1): 15–22.
+Roediger, Henry L., III, and Jeffrey D. Karpicke. 2006. "Test-Enhanced Learning." Psychological Science 17(3): 249–255.
+Rohrer, Doug, and Kelli Taylor. 2007. "The Shuffling of Mathematics Problems Improves Learning." Instructional Science 35(6): 481–498.
+Sheppard, Sheri D., Kelly Macatangay, Anne Colby, and William M. Sullivan. 2008. Educating Engineers: Designing for the Future of the Field. Jossey-Bass / Carnegie Foundation.
+Singhal, Karan, et al. 2023. "Large Language Models Encode Clinical Knowledge." Nature 620: 172–180.
+Thistlethwaite, Jill E., Diana Davies, et al. 2012. "The Effectiveness of Case-Based Learning in Health Professional Education. BEME Guide No. 23." Medical Teacher 34(6): e421–e444.
+van de Pol, Janneke, Monique Volman, and Jos Beishuizen. 2010. "Scaffolding in Teacher–Student Interaction: A Decade of Research." Educational Psychology Review 22(3): 271–296.
+Appendix B — Evidence-Mapped Intervention Library
+What Medhavy tests, why each intervention earned its place, and what it cannot test
+________________
+
+
+How to read this appendix
+The four modes in Medhavy 1.5 are not arbitrary design choices. Each implements a specific set of pedagogical interventions with replicated empirical support. This appendix makes that mapping explicit.
+Every intervention in the library meets three criteria. First, a replicated effect size from meta-analytic evidence — not a single study. Second, a clean implementation as a platform policy that can be varied independently and logged precisely. Third, a measurable outcome in GLP terms — a friction trace that distinguishes genuine learning from performance.
+Interventions that fail any of these criteria are not in the library. The library is deliberately bounded. An infinite intervention space is an untestable one.
+Each intervention is tagged by the knowledge type it primarily operates on, using Anderson and Krathwohl's two-dimensional revision of Bloom — not as a hierarchy but as a specification of where the evidence actually applies.
+Factual-Declarative — arbitrary associations between labels and referents. Drug names, anatomical structures, definitions, physical constants. Spacing effects are strongest here.
+Conceptual — principles, mechanisms, causal structures, theoretical frameworks. Transfer effects are the primary diagnostic.
+Procedural — skills, algorithms, clinical reasoning sequences, methods. Application under ambiguity is the test.
+Generative — original production, design, critique, synthesis. Artifact quality is the weakest signal here. Friction traces are the primary evidence.
+One additional constraint governs the library. Each intervention must be testable at optimal stakes — real enough to activate genuine engagement, low enough that the learning system stays open. High-stakes conditions produce threat responses that collapse working memory and destroy the friction signal. Gamified low-stakes conditions remove consequence entirely and destroy it differently. The interventions below are designed for the middle ground: epistemic stakes, not existential ones.
+________________
+
+
+GROUP 1 — RETRIEVAL Primary instrument: Quiz Me Knowledge type: Factual-Declarative
+________________
+
+
+Spaced retrieval practice Effect size: d≈0.65 (Cepeda et al. 2006, meta-analysis of 317 experiments); g=0.51 vs re-studying, g=0.93 vs no activity (Adesope et al. 2017, 188 experiments) Medical education specific: Kerfoot et al. 2010, Annals of Surgery RCT — spaced education generated transfer to novel diagnostic items with effects persisting to long-term follow-up
+Policy: FSRS scheduling distributes retrieval across time at the optimal interval for the student's retention horizon. Comparison condition: massed review of the same items in a single session.
+GLP outcome: Y₆ Retrieval Strength Decay Signature. Genuine learning shows the spacing benefit — better performance at long delay than massed practice despite lower immediate performance. Borrowed certainty shows monotonic decay with no spacing benefit because there is no storage strength to retrieve.
+Implementation note: Already live in Quiz Me. FSRS is the spacing mechanism. The experiment requires a massed review condition which is the absence of FSRS scheduling on a randomized subset of concept nodes.
+Knowledge type caveat: Strongest for Factual-Declarative. Weaker for Conceptual knowledge where schema formation matters more than retrieval timing. The effect is real but the mechanism is different — spacing consolidates declarative substrate but does not build reasoning structure. Case Study and Glimmer are the right instruments for Conceptual and Procedural knowledge respectively.
+________________
+
+
+Interleaved vs blocked practice Effect size: d≈0.40+ (Rohrer and Taylor 2007 — interleaved practice produced 74% accuracy on delayed tests vs 49% for blocked practice despite blocked group performing better during practice sessions)
+Policy: Quiz Me item selection mixes concept nodes within a session versus presenting all items from a single concept node before moving to the next.
+GLP outcome: Y₃ Cross-Context Transfer. Interleaving forces discrimination learning — the student must identify which concept the current item requires, which is the cognitive operation clinical reasoning demands. Y₃ far transfer should be higher for interleaved conditions because the student has practiced the discrimination, not just the retrieval.
+Implementation note: Already a parameter in Quiz Me item selection. The 20-30% prerequisite item inclusion already implements partial interleaving. The experiment is full interleaving vs full blocking vs the current mixed default.
+Knowledge type caveat: The mechanism is discrimination learning, not retrieval consolidation. This means interleaving is most valuable when concept nodes are similar enough to be confused — pharmacological drug classes, related pathophysiological mechanisms — and less valuable when nodes are conceptually distant.
+________________
+
+
+Prediction before retrieval Effect size: Operationalized from self-assessment literature d≈1.33 (Hattie) — treated cautiously as a proxy for metacognitive calibration rather than a direct effect
+Policy: Student predicts their Quiz Me performance — how many of today's items do you expect to get right — before the session begins. Prediction is logged. Gap between prediction and actual performance is the calibration measure.
+GLP outcome: Y₄ Uncertainty Calibration. Genuine learning through effortful retrieval produces calibrated uncertainty — the student learns not just what is correct but what they know and don't know. Borrowed certainty produces systematic overconfidence — inherited AI confidence without the knowledge base that would justify it. The prediction gap is the direct measure of calibration quality.
+Implementation note: One UI addition before the Quiz Me session begins. Low friction to implement. The prediction is not graded. The gap is surfaced to the student after the session as a calibration signal, not as a performance judgment.
+Anxiety note: Prediction before retrieval can produce anxiety if framed as a performance test. The framing matters. "What's your best guess about today?" is different from "predict your score." The Pekrun control-value principle applies — perceived control must be preserved.
+________________
+
+
+GROUP 2 — EXPLANATION Primary instrument: Ask AI Knowledge type: Factual-Declarative and Conceptual
+________________
+
+
+Feedback specificity Effect size: d≈0.72 (Hattie and Timperley 2007 — the most replicated finding in instructional feedback literature)
+Hattie and Timperley specify four feedback levels. Task level — here is the correct answer. Process level — here is where your reasoning went wrong. Self-regulation level — here is a question that will help you monitor your own understanding. Self level — you are doing well or poorly. Process and self-regulation level feedback produce the largest effects. Task level produces small effects. Self level produces near-zero or negative effects.
+Policy: Ask AI operates at process and self-regulation levels only. Task level feedback — the direct answer — is withheld. Self level feedback is prohibited. The policy contrast is: high specificity feedback references the exact criterion violated and asks a process-level question vs low specificity feedback offers a generic correction.
+GLP outcome: Y₂ Error Trajectory Coherence. High specificity feedback should produce coherent error evolution — errors following conceptually meaningful paths as the mental model updates. Generic feedback produces random error patterns with respect to conceptual adjacency because the student has not received information that would update the model systematically.
+Implementation note: The guardrail design already implements this. The experiment requires a comparison condition — Ask AI in explanation mode delivering task-level feedback — which is the unguarded GPT-4 condition Bastani already ran. Medhavy can replicate and extend Bastani using GLP outcome measures rather than exam scores alone.
+________________
+
+
+Teacher clarity Effect size: d≈0.75 (Hattie Visible Learning; Fisher and Frey)
+Clarity encompasses stating learning intentions explicitly, specifying success criteria in student-accessible language, organizing content logically, and signaling what the student should be able to do at the end of the session.
+Policy: Ask AI states the learning intention and success criteria explicitly at the start of each session versus beginning without explicit framing. The manipulation is one sentence added or omitted at session opening.
+GLP outcome: Y₁ Temporal Engagement Pattern. When success criteria are explicit, time-on-task should correlate with item difficulty — students spend longer on genuinely harder material because they know what they are working toward. Without explicit criteria, time-on-task correlates with output length rather than conceptual challenge.
+Y₄ Uncertainty Calibration is a secondary outcome. Explicit criteria give students a reference point for self-assessment. Students with clear criteria should show smaller calibration gaps than students without them.
+Implementation note: Clean binary. Requires no architectural change. The intervention is a system prompt addition that either includes or omits the clarity framing at session start.
+________________
+
+
+Socratic questioning vs direct instruction Effect size: d≈0.82 for dialogic teaching (Hattie); the Bastani RCT provides the most relevant recent evidence
+Policy: Ask AI in Socratic guardrail mode — asks questions that require the student to reason before explaining — vs Ask AI in explanation mode — explains directly when asked. The Bastani unguarded GPT-4 condition is the direct instruction arm.
+GLP outcome: Y₃ Cross-Context Transfer is the primary signal. The Socratic condition should produce better far transfer because it forces schema formation rather than passive reception. Y₄ Uncertainty Calibration is secondary — Socratic engagement should produce better-calibrated uncertainty because the student has been required to commit to positions before receiving feedback.
+Implementation note: The most important experiment Ask AI can run. Bastani provided the direct instruction arm and the outcome measure was exam performance. Medhavy can replicate with GLP outcomes and extend to transfer measures that exam performance cannot capture. The hypothesis is that the Socratic advantage appears specifically in Y₃ far transfer — implicating schema formation as the mechanism rather than engagement or motivation.
+Knowledge type note: Socratic questioning is most valuable for Conceptual knowledge. For Factual-Declarative knowledge — what is the name of this receptor — it is patronizing and inefficient. The mode should detect knowledge type and apply the appropriate policy.
+________________
+
+
+Worked examples Effect size: d≈0.57 (Sweller cognitive load theory; Renkl and Atkinson 2003)
+The worked example effect is strongest for novices encountering new procedural and conceptual knowledge. The expertise reversal effect — Kalyuga et al. 2003 — predicts that worked examples help novices and slow down experts who are ready for independent problem-solving.
+Policy: Show a solved analogous example before the student attempts the problem vs go straight to the problem. The analogy must be structurally isomorphic — same causal structure, different surface features — not a near-identical example that allows surface matching.
+GLP outcome: Y₃ Cross-Context Transfer. The near-to-far transfer gap is the diagnostic. A student who learned from a genuine worked example — one that required mapping the deep structure — should show smaller near-to-far transfer gap than a student who learned from a near-identical example or no example. Large transfer gap indicates surface representation without schema formation.
+Implementation note: Requires expert tagging of worked example quality — structural isomorphism vs surface similarity. This is a curriculum design decision, not an engineering problem. The concept node map is the right place for this tag.
+Expertise reversal note: This intervention must be stratified by prior knowledge persona. The same worked example that helps a novice may actively impede an advanced student who needs to retrieve and construct rather than observe and map. The bandit in 2.0 should learn this interaction rather than applying worked examples uniformly.
+________________
+
+
+Problem before content Effect size: PBL literature d≈0.46 for skills application (Dochy et al. 2003); no single Hattie entry because the sequencing effect is not represented in flat rankings
+This intervention is not in Hattie. It is in the library because the evidence base is strong, the mechanism is theoretically motivated, and it is testable in Medhavy in a way it has not been tested elsewhere.
+The claim: a student who encounters a problem before acquiring the relevant knowledge develops operative knowledge — facts organized around a problem structure they solve — rather than inert knowledge — facts stored without a context that activates them. Whitehead 1929 named the distinction. Chi et al. 1981 documented it in expert-novice comparisons. The PBL literature operationalized it at the curriculum level. Medhavy can test it at the concept node level with continuous prior knowledge measurement.
+Policy: Case Study encounter precedes Quiz Me and Ask AI on the same concept node vs Quiz Me and Ask AI precede Case Study. The student encounters the clinical need — I have a patient presenting with X, what are my options and why — before they have acquired the declarative knowledge that answers it.
+GLP outcome: Y₃ far transfer at seven days is the primary outcome. The prediction is that problem-first produces better far transfer even when immediate Quiz Me accuracy is lower — the desirable difficulty finding applied to sequencing rather than timing. Y₂ error trajectory coherence is secondary — problem-first students should show more coherent error evolution because their errors are organized around a problem structure rather than distributed randomly across a declarative space.
+Implementation note: This is the most important experiment in the library and the one most unique to Medhavy's architecture. No prior platform has tested problem-first vs content-first sequencing at the concept node level with continuous prior knowledge measurement and GLP outcome measures. The experiment requires randomizing sequencing policy across concept nodes within students — some nodes get problem-first, matched nodes get content-first — with Y₃ transfer at seven days as the outcome.
+________________
+
+
+GROUP 3 — REASONING Primary instrument: Case Study Knowledge type: Procedural and Conceptual
+________________
+
+
+Elaborative interrogation Effect size: d≈0.42 (Dunlosky et al. 2013 meta-analysis of learning techniques)
+Asking why does this work rather than what is the answer forces the student to connect new information to existing knowledge structures. The mechanism is generative processing — the student must retrieve and integrate, not passively receive.
+Policy: Case Study facilitation asks why questions before what questions. Why does this presentation suggest this diagnosis rather than the alternative? Why does this mechanism predict this clinical finding? The what question — what is the diagnosis — is never asked directly.
+GLP outcome: Y₂ Error Trajectory Coherence. Elaborative interrogation should produce coherent error evolution because the student is being forced to expose and update their causal model at each step. Y₃ transfer is secondary — why-based reasoning should transfer better than what-based recall because it is organized around mechanism rather than surface feature.
+Implementation note: Already implicit in Case Study design. The graduated assistance ladder starts with evidential questions — what in the case points one direction or another — which are elaborative interrogation at the clinical reasoning level. Needs explicit policy specification to be testable as a distinct intervention.
+________________
+
+
+Metacognitive prompting Effect size: d≈0.60 (Hattie metacognitive strategies)
+Requiring the student to articulate their reasoning before receiving scaffolding forces self-monitoring — the metacognitive operation that distinguishes students who learn from feedback from students who receive feedback without updating their model.
+Policy: Case Study requires the student to state their current reasoning and confidence before each escalation level is offered. Not as a gatekeeping mechanism but as a self-monitoring prompt. What do I currently think and how confident am I before I receive the next scaffold?
+GLP outcome: Y₄ Uncertainty Calibration is the primary outcome. Y₇ Scaffolding Response Curve is secondary — students prompted to self-monitor before receiving scaffolding should show stronger ZPD response because they have identified their own gap before the scaffold arrives.
+Implementation note: One prompt addition before each escalation level. The student's stated reasoning before the scaffold and their reasoning after constitute a friction trace pair — the delta is direct evidence of genuine updating vs passive reception.
+________________
+
+
+Graduated scaffolding — assistance dilemma Effect size: Koedinger and Aleven 2007 — curvilinear relationship between assistance and learning; no single d because the effect is interaction-dependent
+This is the design principle behind the Case Study ladder rather than a simple A/B intervention. Too little assistance produces failure and disengagement. Too much produces offloading. The optimum depends on prior knowledge and shifts as learning progresses.
+Policy: Assistance level calibrated to mastery score on the concept node. Students below 0.6 mastery start at Level 1. Students above 0.8 start at Level 3. Escalation requires demonstrated engagement at current level, not time elapsed.
+GLP outcome: Y₇ Scaffolding Response Curve is the direct measure. Genuine partial understanding shows a strong ZPD response — partial hint nearly as useful as full hint. Borrowed certainty shows no ZPD — only full hint produces improvement. The escalation log is the friction trace.
+Implementation note: Already implemented in Case Study design. The experiment is calibrated scaffolding vs uniform scaffolding — all students start at the same level regardless of mastery score — with Y₇ as the outcome measure. The expertise reversal prediction is that calibrated scaffolding produces better outcomes for both novices and advanced students than uniform scaffolding set at any fixed level.
+________________
+
+
+GROUP 4 — GENERATIVE Primary instrument: Glimmer Knowledge type: Generative
+________________
+
+
+Process-level vs task-level feedback Effect size: d≈0.40-0.50 for questioning-style feedback vs evaluative feedback (Graham, Hebert, and Harris 2015); Hattie and Timperley 2007 process-level feedback produces largest effects
+Policy: AI interrogation targets the reasoning process — walk me through the causal steps — vs targets the artifact quality — this section needs more detail. Process-level feedback asks the student to expose and defend their reasoning. Task-level feedback tells them what is wrong with the product.
+GLP outcome: Y₅ Social Knowledge Texture is the primary outcome. Process-level interrogation should surface genuine engagement markers — specific confusions, real-time position changes, productive uncertainty that develops during the response. Task-level feedback produces surface revision without exposure of the underlying reasoning. Y₂ Error Trajectory Coherence is secondary — process feedback should produce coherent revision direction because it targets the specific reasoning gap.
+Implementation note: Already implemented in Glimmer interrogation design. The AI reviewer operates at process and self-regulation levels. The contrast condition is task-level feedback — here is what is wrong with dimension X — which is testable as a policy variant.
+________________
+
+
+Self-assessment with criteria Effect size: d≈1.33 (Hattie self-reported grades) — treated cautiously; the underlying mechanism is calibration, not self-assessment per se
+Policy: Student rates their own Glimmer submission on the five rubric dimensions before AI interrogation begins. Self-rating is logged. Gap between student self-rating and AI assessment on the same dimensions is the calibration measure.
+GLP outcome: Y₄ Uncertainty Calibration is the direct measure. A student with genuine conceptual understanding should show a smaller gap between self-rating and AI assessment than a student who borrowed the artifact. Borrowed certainty inherits AI confidence without the reasoning structure that would justify it — systematic overconfidence on mechanism and defensibility dimensions specifically.
+Implementation note: One UI addition before interrogation begins. The self-rating is not shown to the instructor. The calibration gap is surfaced to the student after interrogation as a learning signal — here is where your self-assessment diverged from the assessment criteria and why. This is the prediction-before-retrieval mechanism applied to generative work.
+________________
+
+
+Emergent portfolio — consequence across time Effect size: Writing process pedagogy (Murray 1972, Elbow 1973, Flower and Hayes 1981) — strong theoretical basis, effect sizes in writing literature d≈0.40-0.60 for process approaches vs product approaches
+Policy: Eight to twelve Glimmers compose into a term project the student does not know they are building until weeks ten and eleven. Each individual Glimmer is low stakes. The synthesis is medium stakes. The consequence of shallow early Glimmers arrives late and is real.
+GLP outcome: Y₅ Social Knowledge Texture across the portfolio sequence. Genuine engagement shows developing texture across Glimmers — increasing specificity, more sophisticated mechanism claims, tighter causal reasoning — as the student's knowledge structure develops. Borrowed certainty shows flat or inconsistent texture because there is no developing knowledge structure to reflect.
+Implementation note: Already designed into Glimmer. The experiment is revealed portfolio vs concealed portfolio — one group knows they are building a term project from week one, the other discovers it in week ten. The prediction from writing-process pedagogy is that the concealed group produces more authentic synthesis because each individual Glimmer was optimized for the exercise rather than the project grade.
+________________
+
+
+INTERVENTIONS NOT IN THE LIBRARY
+These are excluded with explicit reasons.
+Classroom discussion (d≈0.82) — requires multiple students simultaneously. Medhavy is one-on-one. Structurally unavailable without a different product architecture.
+Peer learning and peer tutoring (d≈0.55) — same constraint. The one-on-one architecture that satisfies SUTVA also excludes peer effects. This is an explicit design trade-off.
+Teacher credibility (d≈0.90) — cannot be varied systematically in an AI context without feeling artificial. An AI that claims higher or lower credibility is performing credibility, not having it. The effect is real in human teaching contexts and unavailable here.
+Collective teacher efficacy (d≈1.29) — school-level variable. Not manipulable at the platform level.
+Prior knowledge (d≈0.94) — exogenous. Cannot be manipulated. Can be conditioned on through the persona layer — see Appendix C — but is not an intervention.
+Homework (d≈0.29 overall, but varies dramatically by age and domain) — excluded because the effect is too heterogeneous and the Simpson's paradox case — large effect secondary, null or negative primary — makes the average uninterpretable. The specific mechanisms that produce homework effects where they exist — retrieval practice, spaced distribution — are already captured in the Quiz Me interventions above.
+Learning styles — excluded because the evidence base does not support the construct. Matching instruction to self-reported learning style produces no reliable benefit. This is one of the most thoroughly debunked findings in educational psychology. The persona layer adapts to knowledge level and knowledge type, not to self-reported sensory preference.
+Growth mindset interventions (d≈0.19-0.30 in recent replications) — excluded because recent large-scale replications have substantially reduced the effect sizes from early studies. The mechanism may be real but the reliable effect size does not meet the library's inclusion criterion.
+________________
+
+
+The knowledge type constraint summarized
+No intervention works uniformly across knowledge types. Each entry above specifies where the evidence is strongest. The bandit in 2.0 should learn this interaction — not just which mode works for which student but which intervention within a mode works for which knowledge type for which student at which point in their mastery trajectory.
+The concept node map requires a knowledge type tag — Factual-Declarative, Conceptual, Procedural, Generative — for this learning to be possible. Without that tag the bandit is optimizing across a mixed signal that conflates fundamentally different cognitive operations.
+________________
+
+
+What this library is not
+It is not a claim that these interventions will replicate at the effect sizes reported. Effect sizes from meta-analyses average across contexts, ages, subject domains, and operationalizations that may differ substantially from Medhavy's implementation. The library is a structured set of hypotheses with prior evidence, not a set of guaranteed outcomes.
+It is not a complete theory of learning. The interventions are bounded by what the platform can implement, vary independently, and measure. Important aspects of learning — embodied knowledge, social cognition, wisdom developed through genuine consequence — are outside the library not because they are unimportant but because they are outside what a one-on-one digital platform can currently produce or measure.
+What the library is: the most carefully bounded, evidence-grounded, GLP-measurable set of interventions that Medhavy 1.5's architecture can test. Each one is a bet. The platform will tell us which bets were right, which were wrong, and — through the GLP friction traces — why.
+
+
+Appendix C — The Frictional Framework
+Why struggle is the signal, what genuine learning leaves behind, and how Medhavy measures it
+________________
+
+
+The problem this appendix addresses
+Every design decision in Medhavy 1.5 rests on a claim that is never fully stated in the main document: that the behavioral signatures of genuine learning are observable in platform data, that they are partially independent of artifact quality, and that they provide evidence about genuine engagement that artifact-based assessment alone cannot supply.
+This appendix states that claim explicitly, explains its theoretical basis, and shows how it connects to every mode, every intervention in Appendix B, and the bandit architecture in Medhavy 2.0.
+________________
+
+
+The decoupling problem
+For most of educational history, the artifact was proof of the process. The essay demonstrated thinking because only thinking could produce the essay. The proof demonstrated mathematical understanding because only mathematical understanding could produce the proof. The clinical note demonstrated clinical reasoning because only clinical reasoning could produce the clinical note.
+This causal chain has been broken.
+Generative AI inserts a bypass:
+Original chain: Genuine Learning → Cognitive Process → Artifact
+Bypassed chain: AI Generation → Artifact (identical)
+The artifact now has two causal pathways. One passes through genuine cognitive process. The other bypasses it entirely. As generation technology improves the artifact at the end of both pathways becomes indistinguishable.
+This is not a temporary condition. It is a permanent structural change. The forensic window — the period during which artifact analysis can reliably distinguish AI-generated from human-generated work — is closing sequentially across domains. In writing it is largely closed. In code it is closing. The arms race between generation and detection has a predictable winner.
+Any assessment infrastructure built solely on artifact analysis therefore has a shrinking evidentiary lifespan.
+________________
+
+
+The Bjorkian insight applied
+Robert and Elizabeth Bjork's foundational distinction between performance and learning is directly relevant here.
+Performance is the observable, often temporary fluctuation in behavior during or immediately after instruction. Learning is the more permanent change in knowledge and capability that supports subsequent access and transfer in novel contexts.
+The artifact measures performance. AI assistance is the limiting case — it maximizes performance while minimizing or eliminating the learning process. The Bastani finding is the empirical demonstration. Students with unguarded GPT-4 access showed 48% better practice performance and 17 percentage points worse exam performance than controls. The artifact — practice performance — was excellent. The learning — durable knowledge available without AI access — was worse than the no-AI condition.
+What needs to be measured is learning, not performance. Learning leaves traces that performance does not. These traces are not in the artifact. They are in the data that surrounds the artifact's production.
+________________
+
+
+Why genuine learning leaves traces
+Friction traces are not metaphorical. They are behavioral consequences of neurobiological events that constitute genuine learning.
+Dopamine neurons fire in response to prediction errors — discrepancies between what the learner expected and what they encountered. This phasic dopamine release facilitates long-term potentiation. BDNF expression is upregulated during moderate cognitive challenge. Dendritic spine formation increases under moderate cognitive load compared to low-load conditions.
+An AI can produce the artifact without triggering any of these events. It cannot produce the behavioral traces those events leave because the events did not occur.
+The fluency trap compounds this. The brain confuses perceptual fluency — the ease with which information is processed — with understanding. A smooth, well-structured artifact produced through borrowed certainty may be mild negative evidence of genuine learning because genuine struggle with difficult material characteristically produces roughness — places where the student lost the thread, found it again, approached the same concept from multiple angles before landing on a formulation.
+The rough, searching artifact is evidence of genuine engagement. The polished first draft with no revision history is evidence of either exceptional mastery or complete outsourcing. The friction traces distinguish them.
+________________
+
+
+The struggle principle
+The core claim of the Frictional Framework is this:
+Learning involves struggle. Struggle leaves traces. The traces are measurable. The traces are partially independent of the artifact. Therefore the traces constitute an independent evidence stream that compensates for what the artifact can no longer reliably tell us alone.
+This is not a claim that struggle is sufficient for learning. Unproductive struggle — a student rewriting the same sentence five times without changing the underlying reasoning, a student failing Quiz Me items repeatedly without updating their mental model — produces traces but not learning. The framework requires distinguishing productive struggle from unproductive struggle.
+Productive struggle is operating at the edge of current capacity with enough cognitive and emotional safety that the learning system stays open. RPE 7-8 in training terms. The nail in scrap wood, not the structural beam. Real enough that something is at stake. Safe enough that the prefrontal cortex stays online.
+Unproductive struggle is either too easy — no genuine engagement, no prediction error, no dopamine signal — or too threatening — amygdala activation, working memory collapse, defensive performance rather than genuine inquiry.
+The design implication for Medhavy is explicit throughout the main document but never named as a principle. The Quiz Me due-count creates the right stakes through the Zeigarnik effect — an open task, not a high-stakes test. The Case Study ladder holds back the answer long enough to create genuine engagement but never long enough to produce shutdown. The Glimmer surfaces as available rather than overdue. The AI interrogation acknowledges something the student did well before naming the gap. Every design choice is a stakes calibration decision — real enough, safe enough.
+________________
+
+
+The seven friction traces
+The Genuine Learning Probability framework specifies seven observable components — friction traces that genuine human cognitive engagement leaves in platform data. Each has a neurobiological basis, a behavioral signature, and a platform-level measurement implementation.
+Together they constitute the GLP score — a probabilistic, continuous measure of genuine engagement that is partially independent of artifact quality and partially independent of immediate performance.
+________________
+
+
+Y₁ — Temporal Engagement Pattern
+Genuine engagement with material of varying complexity produces characteristic time-on-task distributions. Intrinsic cognitive load — the element interactivity of the material — predicts engagement time when processing is genuine. Harder material takes longer because the student is actually processing it.
+Borrowed certainty decouples time from difficulty. The student spends time proportional to explanation length or output generation speed, not conceptual challenge. The correlation between time and difficulty approaches zero.
+Platform measurement: Quiz Me clickstream data. Time per item correlated with item difficulty rating. Ask AI session logs — time spent before submitting a question correlated with concept node complexity. Case Study turn-by-turn timestamps correlated with escalation level.
+Connection to interventions: Teacher clarity (Appendix B) directly affects Y₁. When success criteria are explicit, time-on-task tracks difficulty because the student knows what they are working toward. Without clarity the correlation breaks down.
+________________
+
+
+Y₂ — Error Trajectory Coherence
+The reward prediction error mechanism produces coherent error evolution during genuine learning. Each error is a prediction violation that updates the mental model. Because updates are cumulative, the error trajectory follows a path reflecting the concept's structure — early errors reflect initial misconceptions, later errors reflect more sophisticated partial understandings. The errors are going somewhere.
+Borrowed certainty produces random error patterns with respect to conceptual adjacency. The student has no developing mental model to produce coherent evolution. Errors are distributed randomly across the concept space because there is no structure organizing them.
+Platform measurement: Quiz Me error sequences across sessions on a concept node, coded against a misconception adjacency matrix. Case Study reasoning errors across escalation levels — do they follow a conceptually coherent path toward the correct reasoning framework?
+Connection to interventions: Feedback specificity (Appendix B) directly affects Y₂. High specificity feedback that references the exact criterion violated gives the student information that updates their model in a specific direction. Generic feedback produces random updates. Elaborative interrogation produces coherent error evolution because it forces the student to expose and update their causal model at each step.
+________________
+
+
+Y₃ — Cross-Context Transfer
+Transfer is the Bjorkian definition of learning. Schema formation through genuine cognitive engagement produces representations that generalize across surface variations. The student who genuinely understands beta blockade recognizes it as the appropriate intervention in a clinical presentation that never mentions the drug class by name.
+Borrowed certainty produces surface representations tied to the specific context of the AI explanation. The transfer gap — strong near transfer, weak far transfer — is the diagnostic. Large positive transfer gap indicates pattern matching on surface features without underlying schema formation.
+Platform measurement: Deliberately designed Quiz Me items with near and far transfer variants for the same concept node. Case Study performance on novel scenarios with different surface features than the original case. Glimmer mechanism scores on problems that require applying a concept to a context not covered in the textbook.
+Connection to interventions: This is the primary outcome measure for the most important experiment in the library — problem before content sequencing. The prediction is that encountering the clinical need before the declarative knowledge produces operative knowledge with stronger far transfer than content-first sequencing. Worked examples, interleaving, and Socratic questioning all have their primary evidence in Y₃.
+________________
+
+
+Y₄ — Uncertainty Calibration
+Genuine learning through effortful retrieval produces calibrated uncertainty. The student learns not just what is correct but what they know and do not know. They develop accurate self-models of their own competence — the metacognitive capacity that clinical reasoning requires.
+Borrowed certainty produces systematic overconfidence. The student inherits the AI's confidence distribution without the knowledge base that justifies it. High expressed confidence, low actual performance. The calibration gap is the measure.
+Platform measurement: Prediction before Quiz Me session — student estimates performance, actual performance is compared. Self-assessment before Glimmer interrogation — student rates own work on rubric dimensions, AI assessment is compared. Case Study confidence ratings before escalation — student states confidence in current reasoning before next scaffold is offered.
+Connection to interventions: Prediction before retrieval directly targets Y₄ and is the simplest intervention in the library to implement. Teacher clarity affects Y₄ because explicit success criteria give students a reference point for self-assessment. Metacognitive prompting in Case Study targets Y₄ by requiring the student to commit to a position before receiving feedback.
+The clinical significance of Y₄ is particularly high in medical education. An overconfident clinician who does not know what they do not know is a patient safety risk. Calibration is not a soft skill. It is a competency.
+________________
+
+
+Y₅ — Social Knowledge Texture
+Genuine encounter with material leaves a characteristic texture in discursive contexts — specific confusions the student can articulate, particular connections to prior knowledge that emerged during engagement, questions that arose from genuine struggle with the material, real-time position changes when challenged. This texture cannot be manufactured without having had the experience of genuinely encountering the material.
+Borrowed certainty produces generic statements, rehearsed positions, and no real-time development. The student can reproduce the AI's explanation but cannot engage with challenges to it because there is no underlying knowledge structure to draw on.
+Platform measurement: Glimmer interrogation response analysis — does the response show specific confusions, real-time development, productive uncertainty? Case Study discussion turns — does the student's reasoning evolve genuinely during the case or arrive pre-formed? Ask AI session analysis — do follow-up questions reflect genuine confusion arising from engagement or formulaic prompting?
+Connection to interventions: Process-level vs task-level feedback directly targets Y₅. Process interrogation — walk me through your causal reasoning — surfaces genuine texture or its absence. Task-level feedback — this section needs improvement — produces surface revision without exposing the underlying reasoning. Y₅ is the most diagnostically powerful friction trace for the Glimmer mode because genuine generative work cannot avoid leaving texture that borrowed work cannot replicate.
+________________
+
+
+Y₆ — Retrieval Strength Decay Signature
+The spacing effect is the benchmark of genuine learning. Storage strength — how thoroughly a memory is encoded and integrated — produces the characteristic benefit of spaced retrieval practice. Borrowed certainty has no storage strength to retrieve. Performance decays monotonically and the spacing benefit is absent.
+At the individual level the decay curve shape is diagnostic independently of the experimental design. A student who genuinely learned a concept shows better performance at long delay than a student who borrowed it, even when immediate performance was equivalent. The curves diverge over time.
+Platform measurement: FSRS retrievability curves across concept nodes. Quiz Me performance at immediate, short delay, and long delay for the same items. The spacing effect measured within student across randomized concept nodes — some nodes get spaced scheduling, matched nodes get massed review.
+Connection to interventions: Spaced retrieval practice in Appendix B directly produces and measures Y₆. This is the cleanest GLP signal in the library because FSRS already models the decay curve and the spacing benefit is the most reliably replicated finding in cognitive psychology. Y₆ is also the primary evidence that Quiz Me is measuring genuine learning rather than performance — a student who only borrowed knowledge will show FSRS decay curves that match the borrowed-certainty prediction regardless of their Quiz Me accuracy in the first session.
+________________
+
+
+Y₇ — Scaffolding Response Curve
+The Zone of Proximal Development is a structural property of a genuinely developing mental model. A student with genuine partial understanding has a ZPD — a region of near-competence that targeted scaffolding can activate. A partial hint nearly as effective as a full hint is diagnostic of genuine partial understanding — the student had most of what they needed, the hint activated what was already developing.
+Borrowed certainty has no ZPD because there is no developing model for scaffolding to connect to. Only a full hint — essentially the answer — produces improvement. Partial hints produce no benefit because there is nothing to activate.
+Platform measurement: Case Study escalation logs — how much scaffolding was required before genuine engagement appeared? The ratio of partial hint benefit to full hint benefit is the Y₇ score. Ask AI hint-request patterns — does the student use partial hints productively or request full explanations immediately?
+Connection to interventions: The graduated scaffolding intervention in Appendix B directly targets and measures Y₇. The assistance dilemma — Koedinger and Aleven — predicts the curvilinear relationship between assistance and learning that Y₇ operationalizes. Metacognitive prompting affects Y₇ because students who self-monitor before receiving scaffolding have identified their own gap and are therefore better positioned to use a partial hint productively.
+________________
+
+
+How the seven traces relate to the four modes
+Each mode generates a different primary friction trace. The combination is what makes the GLP score robust.
+Ask AI generates Y₁ temporal engagement pattern and Y₂ error trajectory coherence as its primary signals. The guardrail design is not just a pedagogical choice — it is a signal quality decision. An unguarded AI that answers directly produces no Y₁ signal because time does not track difficulty, and no Y₂ signal because errors do not evolve coherently without genuine feedback.
+Quiz Me generates Y₄ uncertainty calibration and Y₆ retrieval strength decay signature as its primary signals. FSRS is not just a scheduling algorithm — it is a Y₆ measurement instrument. The prediction-before-retrieval addition generates Y₄ directly. These are the two friction traces most sensitive to the difference between genuine retrieval and surface performance.
+Case Study generates Y₇ scaffolding response curve and Y₅ social knowledge texture as its primary signals. The escalation log is the Y₇ instrument. The discussion turns are the Y₅ instrument. The no-answer policy is not just pedagogical discipline — it is a Y₇ quality control decision. A case that gives the answer on request produces no ZPD signal because the student never has to activate their developing model.
+Glimmer generates Y₃ cross-context transfer and Y₅ social knowledge texture as its primary signals. The interrogation response is the richest single friction trace in the platform — it requires the student to defend their reasoning against a targeted challenge, which produces either genuine texture or its unmistakable absence. The rubric dimensions — mechanism, defensibility, specificity — are operationalizations of Y₃ and Y₅ in a generative context.
+________________
+
+
+How the traces relate to the intervention library
+Each intervention in Appendix B has a primary GLP outcome. The table below makes the full mapping explicit.
+Spaced retrieval → Y₆ primary, Y₄ secondary Interleaved practice → Y₃ primary Prediction before retrieval → Y₄ primary Feedback specificity → Y₂ primary, Y₄ secondary Teacher clarity → Y₁ primary, Y₄ secondary Socratic vs direct instruction → Y₃ primary, Y₄ secondary Worked examples → Y₃ primary, Y₇ secondary Problem before content → Y₃ primary, Y₂ secondary Elaborative interrogation → Y₂ primary, Y₃ secondary Metacognitive prompting → Y₄ primary, Y₇ secondary Graduated scaffolding → Y₇ primary Process vs task feedback → Y₅ primary, Y₂ secondary Self-assessment with criteria → Y₄ primary Emergent portfolio → Y₅ primary across time
+This mapping has a practical implication for Medhavy 2.0. The bandit does not need to choose between interventions blindly. Each intervention has a predicted GLP signature. When the observed signature diverges from the prediction — when spaced retrieval is not producing Y₆ benefit for a specific student on a specific concept node — that divergence is itself a signal. It says something about the nature of that student's engagement with that content that the bandit should learn from.
+________________
+
+
+The arms race problem and why this framework is different
+For artifact-based AI detection the arms race objection is decisive. Generation technology improves continuously. Detection is always calibrated to past outputs. The window closes.
+For process-based measurement the objection is substantially weaker for two reasons.
+First, manufacturing convincing friction traces across all seven components simultaneously without performing the underlying cognitive work is essentially equivalent in cost to performing that work. A student who fakes a coherent Y₂ error trajectory must understand the conceptual adjacency structure of the domain well enough to produce coherent errors. A student who fakes Y₇ scaffolding response must understand what partial knowledge looks like for this concept. A student who fakes Y₅ social knowledge texture must have the texture of genuine engagement with the material. Manufacturing all seven simultaneously approaches the cognitive cost of genuine engagement.
+Second and more importantly the framework is not trying to detect AI use. It is trying to measure genuine learning directly. A student who manufactures all seven friction traces has learned the material. At that point the gaming has become indistinguishable from learning in the only sense that matters. The framework has not been defeated. It has been satisfied.
+This is the fundamental difference between the Frictional Framework and AI detection. Detection asks whether a human produced this artifact. The Frictional Framework asks whether genuine learning occurred. These are different questions. The second question has a better answer.
+________________
+
+
+The instructor as meta-model
+The GLP framework produces a formally specified score. It does not produce a grade. The instructor receives the GLP score alongside the artifact quality score and combines them into an overall assessment judgment in whatever proportion their professional judgment warrants.
+The appropriate weighting depends on the learning objectives, the cognitive tier being developed, the stakes of the assessment, and the context. A high-stakes summative assessment late in a course may weight artifact quality heavily because the learning window has closed and the artifact is the best available evidence of what the student can do independently. A formative assessment early in a course may weight GLP heavily because what matters is whether genuine engagement is occurring, not whether the artifact is polished.
+This is not a weakness of the framework. It is its design. The GLP score is a second evidence stream. The instructor is the meta-model that combines evidence streams. No automated system should make that combination on behalf of the instructor. What the platform provides is evidence the instructor did not previously have access to. What the instructor does with it is a professional judgment that belongs to the educator.
+________________
+
+
+What the Frictional Framework does not claim
+It does not claim that artifacts are worthless. The artifact has not become zero evidence. It has become insufficient as the sole evidence.
+It does not claim that all struggle is productive. Unproductive struggle — failing repeatedly without updating — produces friction traces that look different from productive struggle and should be identified as a signal for intervention, not evidence of learning.
+It does not claim that the GLP score replaces the instructor's judgment. It claims the GLP score gives the instructor evidence they did not previously have.
+It does not claim that the seven components are equally informative across all contexts. The tier calibration — which components are most diagnostic for which cognitive operations — is specified in the GLP framework and reflected in the mode-to-trace mapping above.
+It does not claim that process observation is always more informative than artifact observation. It claims the process adds independent information. Not always more. Independent.
+________________
+
+
+The connection to Medhavy 2.0
+The bandit in Medhavy 2.0 optimizes on delayed retrieval accuracy — Quiz Me performance seven days after a mode selection. This is a GLP Y₆ measure. The bandit is therefore already optimizing on a friction trace, not an artifact.
+The full GLP score vector — all seven components — is the richer training signal the bandit needs to learn the interactions that matter. Which intervention produces genuine Y₃ transfer for a novice on a Factual-Declarative node versus a Conceptual node. Which mode produces Y₅ texture for an advanced student who is bored by Case Study but engaged by Glimmer. Which combination of Y₁ and Y₄ signals predicts that a student is in the fluency trap before their exam performance reveals it.
+The bandit cannot learn these interactions from artifact quality scores or from delayed retrieval alone. It needs the full friction trace vector. Medhavy 1.5's instrumentation — every escalation log, every interrogation cycle, every prediction-before-retrieval pair, every FSRS decay curve — is the data infrastructure that makes a GLP-informed bandit possible.
+Without 1.5's signal layer, 2.0 learns from noise.
+With it, 2.0 learns what genuine learning looks like for each student on each concept at each point in their development — and can make the right offer at the right moment because it has seen the friction traces that distinguish genuine engagement from borrowed performance at a granularity no prior platform has achieved.
+That is what the Frictional Framework is for.
