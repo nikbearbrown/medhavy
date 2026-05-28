@@ -1,4 +1,4 @@
-# Research: Chapter 05 — Case Study and Glimmer: The Two Modes Nobody Explains
+# Research: Chapters 05 & 06 — Case Study and Glimmer: The Two Modes Nobody Explains
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader learns what Case Study and Glimmer are, why they exist as separate modes, and what cognitive operation each one serves that Ask AI and Quiz Me cannot.
@@ -21,7 +21,7 @@
 
 ### Key empirical cases
 
-- **Hmelo-Silver, C. E. (2004). "Problem-Based Learning: What and How Do Students Learn?" *Educational Psychology Review* 16(3): 235-266.** Best meta-review of PBL outcomes. PBL underperforms direct instruction on immediate factual recall, outperforms it on delayed transfer and application. Aligns with the Bjork performance/learning distinction (relevant to Chapter 6 crossover).
+- **Hmelo-Silver, C. E. (2004). "Problem-Based Learning: What and How Do Students Learn?" *Educational Psychology Review* 16(3): 235-266.** Best meta-review of PBL outcomes. PBL underperforms direct instruction on immediate factual recall, outperforms it on delayed transfer and application. Aligns with the Bjork performance/learning distinction (relevant to Chapter 7 crossover).
 - **Harvard Medical School "Pathways" curriculum (2015 onward).** Replaced the traditional two-year preclinical lecture sequence with case-based small-group learning. Publicly documented redesign.
 - **USMLE Step 2 CK and Step 3 clinical vignettes.** The gold-standard "ill-structured problem in a four-paragraph case" format. Every US medical student encounters these. Useful reference frame for what a faculty-reviewed clinical case looks like.
 - **Norman, G., & Schmidt, H. (1992). "The Psychological Basis of Problem-Based Learning: A Review of the Evidence." *Academic Medicine* 67(9): 557-565.** The mechanism: activation of prior knowledge by a case stem improves encoding of new material.

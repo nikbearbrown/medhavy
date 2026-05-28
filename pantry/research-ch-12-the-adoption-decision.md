@@ -1,4 +1,4 @@
-# Research: Chapter 11 — The Adoption Decision
+# Research: Chapter 12 — The Adoption Decision
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader produces their justified adoption recommendation — for or against, with specific reasoning — and knows what success looks like if the answer is yes.
@@ -67,9 +67,9 @@ The chapter should run all five through the decision tool in fast succession, sh
 
 ## 4. The Book's Thesis Connection
 
-Chapter 11 is the chapter that delivers what the book promised in its title: the reader can answer "Is the loop worth it?" for her own deployment.
+Chapter 12 is the chapter that delivers what the book promised in its title: the reader can answer "Is the loop worth it?" for her own deployment.
 
-The thesis-relevant work is the **integration** step. Chapters 1–8 built the conceptual machinery (modes, signals, loop). Chapter 9 named the conditions under which the machinery does not apply. Chapter 10 specified the institutional cost of running the machinery. Chapter 11's job is to bring all of this into a single justified recommendation that the reader can defend in a budget meeting.
+The thesis-relevant work is the **integration** step. Chapters 1–9 built the conceptual machinery (modes, signals, loop). Chapter 10 named the conditions under which the machinery does not apply. Chapter 11 specified the institutional cost of running the machinery. Chapter 12's job is to bring all of this into a single justified recommendation that the reader can defend in a budget meeting.
 
 The chapter must also enforce the book's anti-vendor positioning. The reader has been told eight chapters' worth of why Medhavy is theoretically interesting and three chapters' worth of when it is wrong. The final chapter must close the loop on the book's central commitment: "this book tells you exactly when it isn't" (back-cover copy from the TIKTOC).
 

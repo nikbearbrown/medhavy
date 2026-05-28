@@ -1,4 +1,4 @@
-# Chapter 6 — What Canvas Measures and What It Misses
+# Chapter 7 — What Canvas Measures and What It Misses
 
 **One-line capability:** The reader learns the specific gap between
 engagement analytics and learning evidence — and why that gap is the
@@ -291,7 +291,7 @@ processing. Whether their errors followed coherent patterns that
 update with feedback. Whether they could recall the material at
 delay, in a new context, after a partial hint.
 
-Those are different measurements. Chapter 7 names them. The
+Those are different measurements. Chapter 8 names them. The
 Frictional Framework — Medhavy's term for the seven behavioral signals
 that distinguish genuine learning from borrowed certainty — is the
 chapter that follows this one. [Humanitarians AI internal framework;
@@ -406,7 +406,7 @@ delay and in a new context, whether a partial hint unlocked a
 partial understanding. These are not new ideas in cognitive
 psychology. They have been documented, separately, for decades. What
 Medhavy did was name a specific set of seven such signals and build
-a measurement layer around them. Chapter 7 introduces the seven
+a measurement layer around them. Chapter 8 introduces the seven
 signals in plain language, one at a time, and shows which mode
 produces which signal.
 

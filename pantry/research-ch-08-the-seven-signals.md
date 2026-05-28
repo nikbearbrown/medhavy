@@ -1,4 +1,4 @@
-# Research: Chapter 07 — The Seven Signals: What Genuine Learning Looks Like
+# Research: Chapter 8 — The Seven Signals: What Genuine Learning Looks Like
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader learns the Frictional Framework's seven signals in plain language — what each one is, what it measures, and which mode produces it.
@@ -62,7 +62,7 @@ The seven signals (Y1–Y7), the Frictional Framework, and the GLP score are **p
 
 ### What is settled
 
-The neurobiological argument that learning produces durable, measurable changes in the brain — and that those changes have behavioral signatures — is uncontroversial. The specific signatures (consolidation, retrieval-strength decay, transfer) are well-mapped in cognitive psychology. The argument that *engagement* is not the same as *learning* is the inverse of Chapter 6's claim and is settled.
+The neurobiological argument that learning produces durable, measurable changes in the brain — and that those changes have behavioral signatures — is uncontroversial. The specific signatures (consolidation, retrieval-strength decay, transfer) are well-mapped in cognitive psychology. The argument that *engagement* is not the same as *learning* is the inverse of Chapter 7's claim and is settled.
 
 That genuine learners show different patterns from cheating or offloading learners is established for specific behaviors: timing patterns (Sweller), error coherence (Brown & Burton), calibration accuracy (Dunlosky), and retrieval at delay (Bjork, Roediger). These are not new findings.
 
@@ -94,7 +94,7 @@ The exact operationalization of each signal (e.g., what counts as "coherent erro
 
 ## 4. The Book's Thesis Connection
 
-This is the chapter where the loop's second step — "measure whether it helped" — gets its concrete content. The reader has been told in Ch 6 that engagement evidence is not learning evidence. Chapter 7 says: here is what learning evidence looks like, in seven specific forms, each connected to a mode.
+This is the chapter where the loop's second step — "measure whether it helped" — gets its concrete content. The reader has been told in Ch 6 that engagement evidence is not learning evidence. Chapter 8 says: here is what learning evidence looks like, in seven specific forms, each connected to a mode.
 
 The thesis-specific work:
 
@@ -118,7 +118,7 @@ The reader needs to leave this chapter with three things: (1) the names of the s
 
 ## 6. Pedagogical Delivery Research
 
-Chapter 7 introduces seven new concepts at once. The pedagogical risk is that the seven signals become a list to memorize rather than a coherent framework. Three moves help:
+Chapter 8 introduces seven new concepts at once. The pedagogical risk is that the seven signals become a list to memorize rather than a coherent framework. Three moves help:
 
 - **One signal at a time, with an example in each paragraph.** TIKTOC calls for one paragraph per signal. Each paragraph should follow the structure: name (plain-language) → mechanism (one sentence) → behavioral example (concrete, health-sciences-grounded) → which mode produces it. Repeat seven times. The structure is the pedagogy.
 - **Cluster the signals into functional groups for retention.** Y1 (Temporal Engagement) and Y4 (Uncertainty Calibration) cluster as "in-the-moment" signals. Y2 (Error Trajectory) and Y7 (Scaffolding Response) cluster as "developmental" signals. Y3 (Cross-Context Transfer) and Y6 (Retrieval Strength Decay) cluster as "durability" signals. Y5 (Social Knowledge Texture) is the "dialogue" signal. Grouping aids retention. Not every reader will remember all seven; every reader can remember three clusters.

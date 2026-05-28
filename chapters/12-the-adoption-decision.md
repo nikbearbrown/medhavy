@@ -1,4 +1,4 @@
-# Chapter 11 — The Adoption Decision
+# Chapter 12 — The Adoption Decision
 
 **One-line capability:** The reader produces their justified adoption recommendation — for or against, with specific reasoning — and knows what success looks like if the answer is yes.
 
@@ -12,7 +12,7 @@ The temptation in a final chapter is to summarize the book. This chapter does so
 
 The chapter is organized as the path through that artifact. The decision tool comes first. The four conditions that surround it come after — what success looks like, what failure looks like, what the honest case for no looks like, and how to talk to the budget committee. The closing returns the reader to the book's thesis.
 
-A note on how experienced decision-makers actually decide. The decision scientist Gerd Gigerenzer spent his career studying expert judgment under uncertainty — emergency room physicians, military commanders, investors making calls without complete information. His finding, repeated across many domains, was that experts do not weigh many options against many criteria. They recognize the situation as a familiar pattern and check whether one well-chosen course of action holds up under inspection. The three-question test from Chapter 9 is exactly that kind of recognition aid. Once the pattern is named, the decision tends to fall out. The chapter's job is not to engineer a perfect optimization. It is to give the reader a structure to check her own recognition against, so she can defend it to a committee that has not done the recognition work.
+A note on how experienced decision-makers actually decide. The decision scientist Gerd Gigerenzer spent his career studying expert judgment under uncertainty — emergency room physicians, military commanders, investors making calls without complete information. His finding, repeated across many domains, was that experts do not weigh many options against many criteria. They recognize the situation as a familiar pattern and check whether one well-chosen course of action holds up under inspection. The three-question test from Chapter 10 is exactly that kind of recognition aid. Once the pattern is named, the decision tends to fall out. The chapter's job is not to engineer a perfect optimization. It is to give the reader a structure to check her own recognition against, so she can defend it to a committee that has not done the recognition work.
 
 ---
 
@@ -22,7 +22,7 @@ A note on how experienced decision-makers actually decide. The decision scientis
 
 The decision framework is everything the book has built, brought into one artifact the reader can fill in and put in front of a committee.
 
-The reader has the three questions from Chapter 9. She has the mode-to-need matching from Chapters 3 through 5 — Ask AI for acquisition, Quiz Me for durable retention, Case Study for application under ambiguity, Glimmer for generative work. She has the institutional requirements from Chapter 10 — concept map, faculty review of cases, willingness to act with a named owner and budgeted time. She has the timeline from Chapter 10 — ten to twelve weeks from decision to first data, paced by institutional review rather than by IT.
+The reader has the three questions from Chapter 10. She has the mode-to-need matching from Chapters 3 through 6 — Ask AI for acquisition, Quiz Me for durable retention, Case Study for application under ambiguity, Glimmer for generative work. She has the institutional requirements from Chapter 11 — concept map, faculty review of cases, willingness to act with a named owner and budgeted time. She has the timeline from Chapter 11 — ten to twelve weeks from decision to first data, paced by institutional review rather than by IT.
 
 The artifact assembles those four into a single document the reader writes herself. The format is hybrid — structured prose with fixed fields, plus an optional side-by-side comparison table for readers who are weighing more than one deployment. The format is deliberate. A pure table implies more deterministic decision-making than the situation warrants. A pure flowchart hides the nuance. A pure prose memo is hard to scan in a committee meeting. The hybrid lets the reader think in prose and the committee scan in fields.
 
@@ -96,7 +96,7 @@ The Carnegie Mellon Open Learning Initiative remains the best public example of 
 
 There are three documented failure modes for adaptive measurement platforms in higher education. Each one fails Q1, Q2, or Q3 respectively, but in a form that was missed at adoption.
 
-**Failure mode 1 — Wrong deployment context.** The institution adopted Medhavy in a deployment that, run honestly through the three-question test, should have stayed on AI+1 on Kindle. The dashboard sits unused not because anyone is incompetent but because the instructor is already adapting in real time and the system is producing a slower, more expensive copy of what she already knew. This is the nursing-fundamentals case from Chapter 9, adopted anyway because the budget existed and the proposal looked compelling. The honest signal that this failure is happening: by end of term one, the instructor cannot name three specific decisions she made based on the dashboard that she would not have made without it. The fix is non-renewal, not iteration.
+**Failure mode 1 — Wrong deployment context.** The institution adopted Medhavy in a deployment that, run honestly through the three-question test, should have stayed on AI+1 on Kindle. The dashboard sits unused not because anyone is incompetent but because the instructor is already adapting in real time and the system is producing a slower, more expensive copy of what she already knew. This is the nursing-fundamentals case from Chapter 10, adopted anyway because the budget existed and the proposal looked compelling. The honest signal that this failure is happening: by end of term one, the instructor cannot name three specific decisions she made based on the dashboard that she would not have made without it. The fix is non-renewal, not iteration.
 
 **Failure mode 2 — Insufficient curriculum design.** The institution adopted Medhavy and treated the concept map as a fifteen-minute upload of the syllabus. The bandit cannot adapt because the concept map is too coarse. Every concept is just "chapter six." The system flags students as struggling but cannot pinpoint where because the map does not have the resolution. Vendors sometimes encourage this pattern by offering "suggest 15 chapters and we'll generate the map for you." The output is unusable. The fix is to staff the curriculum design layer properly — three sessions of three hours, plus revisions, plus faculty review of generated artifacts — or, if the institution cannot staff it, to accept that the loop will not close and to non-renew.
 
@@ -152,7 +152,7 @@ The three sentences are top-down — what Minto's writing on executive communica
 
 ## Worked example — Maria's recommendation
 
-The following is a justified adoption recommendation written in the voice of the book's primary reader — Maria, the curriculum director at a mid-size health sciences program. Her deployment is the pharmacology service course from Chapters 9 and 10. The recommendation is what she will hand the budget committee.
+The following is a justified adoption recommendation written in the voice of the book's primary reader — Maria, the curriculum director at a mid-size health sciences program. Her deployment is the pharmacology service course from Chapters 10 and 11. The recommendation is what she will hand the budget committee.
 
 ---
 
@@ -225,7 +225,7 @@ If your recommendation is against adoption, name the specific conditions under w
 
 A reader who has worked through this chapter may reasonably ask under what conditions the decision framework itself would shift.
 
-Two conditions. First, if the GLP signal evidence base were to accumulate across many deployments to a point where it became settled that the seven friction signals produce robust learning gains over a wide range of institutional contexts, the Q1 scale threshold from Chapter 9 might soften enough that smaller deployments could justify adoption. The framework would still require Q3 (willingness to act) as a hard condition, but the Q1 threshold would shift down. There is theoretical support for the signal evidence; there is not yet enough deployment evidence to settle this question one way or another. Second, if institutional procurement processes for AI-enabled tools became standardized enough that the eight-to-sixteen-week parallel review track from Chapter 10 compressed to four weeks, the timeline considerations in Field 4 would change. Neither has happened yet. Either could, and if either does, the framework gets revised. The reader who finishes this book should be willing to revise her own recommendation when the evidence changes.
+Two conditions. First, if the GLP signal evidence base were to accumulate across many deployments to a point where it became settled that the seven friction signals produce robust learning gains over a wide range of institutional contexts, the Q1 scale threshold from Chapter 10 might soften enough that smaller deployments could justify adoption. The framework would still require Q3 (willingness to act) as a hard condition, but the Q1 threshold would shift down. There is theoretical support for the signal evidence; there is not yet enough deployment evidence to settle this question one way or another. Second, if institutional procurement processes for AI-enabled tools became standardized enough that the eight-to-sixteen-week parallel review track from Chapter 11 compressed to four weeks, the timeline considerations in Field 4 would change. Neither has happened yet. Either could, and if either does, the framework gets revised. The reader who finishes this book should be willing to revise her own recommendation when the evidence changes.
 
 ---
 

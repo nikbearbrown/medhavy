@@ -79,7 +79,7 @@ Ask AI is the *first* mode in the four-mode sequence and the most architecturall
 
 If the reader cannot tell these apart by the end of the chapter, the rest of the book does not work — because she will keep conflating Medhavy with "a chatbot bolted onto a PDF" (TIKTOC misconception #1).
 
-The connection to the loop: Ask AI is the *intervention* at the acquisition stage — "presenting differently" means presenting via Socratic question rather than via explanation. Whether this *helps* a particular student on a particular concept is the question Medhavy's measurement layer answers in Chapter 7. The bandit's decision in Chapter 8 is whether to deploy Ask AI again for this student on this concept, or move to Quiz Me, or escalate to Case Study.
+The connection to the loop: Ask AI is the *intervention* at the acquisition stage — "presenting differently" means presenting via Socratic question rather than via explanation. Whether this *helps* a particular student on a particular concept is the question Medhavy's measurement layer answers in Chapter 8. The bandit's decision in Chapter 9 is whether to deploy Ask AI again for this student on this concept, or move to Quiz Me, or escalate to Case Study.
 
 For the three-condition test: Ask AI's value is highest where the *first* condition is most active — where different learners need to encounter the same concept from different entry points. A class of 30 with one instructor can run informal Ask AI manually. A program of 300 across five sections cannot.
 
@@ -126,7 +126,7 @@ For the three-condition test: Ask AI's value is highest where the *first* condit
 |---|---|
 | "Beta blockade refers to the pharmacologic antagonism of beta-adrenergic receptors. Beta-1 receptors, predominantly in cardiac tissue, mediate increased heart rate and contractility..." (continues for 400 words) | "What did you observe about heart rate when sympathetic activity dropped in the prerequisite chapter? What do you think would happen if we blocked the receptors that drive that effect?" |
 | What the student does: reads, nods, moves on. | What the student does: retrieves, articulates, sometimes wrong, learns. |
-| Dashboard metric: high time-on-page. | Dashboard metric: low time-on-page; high friction signal (Chapter 7). |
+| Dashboard metric: high time-on-page. | Dashboard metric: low time-on-page; high friction signal (Chapter 8). |
 
 **Display required:** This two-column response comparison is load-bearing. Also recommend a small **mode-fit matrix** showing where Ask AI is appropriate (acquisition, articulation under uncertainty) and where it is not (recall of well-understood material, application under clinical ambiguity, generative work).
 
@@ -135,7 +135,7 @@ For the three-condition test: Ask AI's value is highest where the *first* condit
 ## 8. Open Questions and Research Gaps
 
 - **Ask AI as a Humanitarians AI proprietary term.** Outside-of-Medhavy primary sources for "Ask AI" specifically will not exist. The chapter must cite the Medhavy manuscript as the primary source for the term and place the architecture (RAG + Socratic prompts + hints-not-answers guardrail) in the broader literature lineage.
-- **Frictional Framework / GLP** — proprietary; Section 4 references the framework but the full detail is in Chapter 7.
+- **Frictional Framework / GLP** — proprietary; Section 4 references the framework but the full detail is in Chapter 8.
 - **Empirical evidence specific to Ask AI deployments at scale.** Limited. Chapter should present the design argument as well-grounded in *components* (RAG, Socratic, assistance dilemma) without overclaiming on aggregate outcome evidence.
 - **Whether students develop "Ask AI literacy"** over a semester (learn to engage productively with Socratic questioning, rather than going around it). Open.
 - **Cross-domain transfer.** Most evidence for Socratic-style tutoring is in math and physics. Health-sciences-specific evidence is thinner. Worth flagging.

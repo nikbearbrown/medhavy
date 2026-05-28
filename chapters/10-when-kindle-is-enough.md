@@ -1,4 +1,4 @@
-# Chapter 9 — When Kindle Is Enough
+# Chapter 10 — When Kindle Is Enough
 
 **One-line capability:** The reader gets the complexity threshold test — three questions that determine whether their deployment warrants Medhavy, or whether AI+1 on Kindle is the complete answer.
 
@@ -173,4 +173,4 @@ Two conditions. First, if it turned out that the cost of running Medhavy at a sm
 
 ## Bridge
 
-If the answer is yes, what does adding Medhavy to Canvas actually involve? Chapter 10 walks through the technical integration in plain language, the institutional approval process that runs in parallel, and the curricular work that takes the longest and matters the most.
+If the answer is yes, what does adding Medhavy to Canvas actually involve? Chapter 11 walks through the technical integration in plain language, the institutional approval process that runs in parallel, and the curricular work that takes the longest and matters the most.

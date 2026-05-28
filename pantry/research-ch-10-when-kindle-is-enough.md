@@ -1,4 +1,4 @@
-# Research: Chapter 09 — When Kindle Is Enough
+# Research: Chapter 10 — When Kindle Is Enough
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader gets the complexity threshold test — three questions that determine whether their deployment warrants Medhavy or whether AI+1 on Kindle is the complete answer.
@@ -61,13 +61,13 @@
 
 ## 4. The Book's Thesis Connection
 
-Chapter 9 is the chapter that earns the book's credibility. The thesis claims Medhavy is overhead unless three conditions hold; the test of that claim is whether the book is willing to name — specifically, by deployment type — the cases where the simpler stack wins.
+Chapter 10 is the chapter that earns the book's credibility. The thesis claims Medhavy is overhead unless three conditions hold; the test of that claim is whether the book is willing to name — specifically, by deployment type — the cases where the simpler stack wins.
 
 The connection works on three levels:
 
 **First, it operationalizes the "three conditions" thesis** by turning it into a falsifiable test the reader applies to her actual deployment. The chapter's job is not to argue that the conditions are good or bad; it is to give the reader an honest way to check her own situation. A reader who runs the test and lands at "no" must trust the test enough to say so out loud at a budget meeting. That trust is built only if the test sometimes says no in named, specific cases.
 
-**Second, it inoculates against the failure mode the book itself could cause.** A book about Medhavy, written by people associated with Medhavy, that always concludes "yes, adopt" would be vendor literature. The whole point of the decision-support frame is that the reader is making a real decision with real consequences, and the book has to be the kind of advisor who occasionally says "don't buy this." Chapter 9 is that advisor speaking aloud.
+**Second, it inoculates against the failure mode the book itself could cause.** A book about Medhavy, written by people associated with Medhavy, that always concludes "yes, adopt" would be vendor literature. The whole point of the decision-support frame is that the reader is making a real decision with real consequences, and the book has to be the kind of advisor who occasionally says "don't buy this." Chapter 10 is that advisor speaking aloud.
 
 **Third, it positions Medhavy correctly in the edtech historical record.** Watters and Cuban document a century of teaching-machine rhetoric that oversold and underdelivered. Medhavy will only escape that pattern if its adopters are pre-filtered for the conditions where the loop can actually close. The book that helps that pre-filtering happen does Medhavy a favor — even when it tells some readers not to buy.
 

@@ -1,4 +1,4 @@
-# Research: Chapter 08 — The Loop: Present, Measure, Adapt
+# Research: Chapter 9 — The Loop: Present, Measure, Adapt
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader learns what the contextual bandit is in plain language, what "adapt" actually means in practice, and why Canvas cannot close the loop Medhavy closes.
@@ -94,7 +94,7 @@ The thesis-specific work:
 
 1. **The loop in concrete terms.** Present (intervention chosen from evidence-based menu) → Measure (seven signals on that intervention's effect) → Adapt (bandit updates policy for this student-concept pair) → Repeat. The reader has now seen the present (Ch 3–5), the measure (Ch 6–7), and gets the adapt here. The integration is the chapter's argument.
 2. **What "present differently" actually means.** TIKTOC is clear: not just different explanations, but different pedagogical approaches (Socratic vs. didactic, problem-first vs. concept-first, retrieval practice vs. generative assignment) — each with its own evidence base. The chapter must distinguish "cosmetic variation in wording" from "structurally different cognitive operations." The latter is what the bandit chooses among.
-3. **The third condition for adoption.** TIKTOC's three-condition test: (1) present differently at scale, (2) need to know whether variation is helping, (3) willing to act on what measurement reveals. Chapter 8 carries the weight of condition (3). The institution must be willing to let an algorithm adjust per-student per-concept treatment based on signal evidence. Some institutions are not. The chapter should name this honestly.
+3. **The third condition for adoption.** TIKTOC's three-condition test: (1) present differently at scale, (2) need to know whether variation is helping, (3) willing to act on what measurement reveals. Chapter 9 carries the weight of condition (3). The institution must be willing to let an algorithm adjust per-student per-concept treatment based on signal evidence. Some institutions are not. The chapter should name this honestly.
 4. **The honest limits.** Cold start is real. The first six sessions are exploratory; some students will get suboptimal interventions during this window. Faculty override is necessary. The reward signal (delayed retrieval at seven days) is a bet, not a proven specification. The bandit's policy is not transparent in the conventional sense — it is auditable but not deterministically explainable. Each of these is honest and must be on the page.
 
 The chapter must not oversell. The bandit is not magic; it is a particular algorithm with known properties and known limits. The reader is being asked to invest in a measurement-and-adaptation infrastructure that will produce its value over months and years, not immediately. The TIKTOC worked example (eight weeks of one concept, bandit policy converging by week 8) is the right pacing argument.
@@ -115,7 +115,7 @@ The transfer to Act Three (Ch 9–11): once the reader understands the loop, the
 
 ## 6. Pedagogical Delivery Research
 
-Chapter 8 is the most technically demanding chapter for a non-technical reader. The risk is that "contextual bandit" sounds like a black box. Three pedagogical moves help:
+Chapter 9 is the most technically demanding chapter for a non-technical reader. The risk is that "contextual bandit" sounds like a black box. Three pedagogical moves help:
 
 - **The slot-machine analogy, used carefully.** Sutton & Barto's framing — a row of slot machines with unknown payouts; you have limited pulls; how do you balance trying new machines (explore) with playing the best one you've found (exploit)? — is the right entry point. But it must be made specific to learning: the "machines" are interventions; the "payouts" are learning signals; the "player" is the algorithm; the "pulls" are sessions with a student.
 - **One concept, one student, eight weeks.** TIKTOC's worked example. This is the chapter's central pedagogical device. A timeline showing the bandit's policy evolving for one student-concept pair will do more than three pages of algorithmic description. The reader can see the loop close.

@@ -1,4 +1,4 @@
-# Research: Chapter 10 — Adding Medhavy to Canvas: What Actually Changes
+# Research: Chapter 11 — Adding Medhavy to Canvas: What Actually Changes
 ## Medhavy: Is the Loop Worth It?
 
 **Chapter one-line:** The reader learns what LTI integration means in plain language, what changes for students, instructors, and the institution, and what the institution needs to provide.
@@ -66,7 +66,7 @@
 
 ## 4. The Book's Thesis Connection
 
-The thesis claim is that Medhavy earns its cost only under three conditions. Chapter 10 makes the cost visible. Without Ch 10, the reader can be sold on the loop in principle and underestimate the institutional commitment in practice.
+The thesis claim is that Medhavy earns its cost only under three conditions. Chapter 11 makes the cost visible. Without Ch 10, the reader can be sold on the loop in principle and underestimate the institutional commitment in practice.
 
 The chapter's thesis-relevant work is to expose the **non-software** part of the cost: faculty time on concept maps, case scenarios, and ongoing review. The license fee is the smallest line. The largest line is faculty hours, and the second-largest is the willingness-to-act commitment, which has no line item at all but is the gating condition.
 

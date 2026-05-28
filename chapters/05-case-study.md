@@ -1,8 +1,9 @@
-# Chapter 5 — Case Study and Glimmer: The Two Modes Nobody Explains
+# Chapter 5 — Case Study: The Mode for Judgment Under Ambiguity
 
-**One-line capability:** The reader learns what Case Study and Glimmer
-are, why they exist as separate modes, and what cognitive operation each
-one serves that Ask AI and Quiz Me cannot.
+**One-line capability:** The reader learns what Case Study is, what
+cognitive operation it serves that Ask AI and Quiz Me cannot, and what
+institutional commitments are required to deploy it without producing
+plausible-confident-wrong reasoning at scale.
 
 ---
 
@@ -37,16 +38,17 @@ Development*, 45(1), 1997). The instructional design implications are
 different. The cognitive operations are different. You cannot get the
 second by drilling more of the first.
 
-Case Study and Glimmer are Medhavy's two answers to this gap. They are
-not enhancements to Ask AI and Quiz Me. They are different modes —
+Case Study is the first of Medhavy's two answers to this gap. (The
+second, Glimmer, is the subject of Chapter 6.) Case Study and Glimmer
+are not enhancements to Ask AI and Quiz Me. They are different modes —
 different cognitive operations — that exist precisely because the first
 two modes cannot do what these two do. Ask AI gets the student to a
 first understanding. Quiz Me makes that understanding durable. Then the
-student needs to deploy it when the situation is unclear, and to produce
-something original and defend it. Those are the two modes nobody on the
-vendor call ever explained to you.
+student needs to deploy it when the situation is unclear. That is what
+Case Study trains. Producing something original and defending it is a
+further step, and that is Glimmer.
 
-This chapter explains them.
+This chapter explains Case Study.
 
 ---
 
@@ -78,7 +80,7 @@ gave the empirical picture: problem-based learning underperforms direct
 instruction on immediate factual recall and outperforms it on delayed
 transfer and application (Hmelo-Silver, *Educational Psychology Review*,
 16(3), 2004). The pattern matches Bjork's larger finding — which
-Chapter 6 returns to — that immediate performance and durable learning
+Chapter 7 returns to — that immediate performance and durable learning
 are not the same thing.
 
 Case Study is Medhavy's operationalization of this body of work at scale.
@@ -101,7 +103,9 @@ can do six months later when the situation is unclear and a patient is
 waiting. That is the measurement that matters and that is the measurement
 the boards do not give you.]
 
-### Why pre-written and faculty-reviewed
+---
+
+## Why pre-written and faculty-reviewed
 
 Why not let the AI generate the case scenario on demand? It would be
 cheaper. It would scale instantly. It would feel modern.
@@ -131,9 +135,20 @@ the discussion within the reviewed scenario. The AI does not invent the
 clinical facts. This is a process commitment, not a feature toggle.
 A program that wants to deploy Case Study has to commit to the faculty
 review pipeline. That commitment is part of what you are buying when
-you buy Medhavy. Chapter 10 makes the timeline concrete.
+you buy Medhavy. Chapter 11 makes the timeline concrete.
 
-### The graduated assistance ladder
+The review is not a single pass. The faculty member authors or selects
+the scenario, then specifies the Socratic-laddering rules: which question
+the AI opens with, which hints it offers if the student stalls, which
+considerations it surfaces if the student misses them. Without this
+specification, the AI defaults to its own facilitation pattern, which
+may or may not match the pedagogical intent of the case. The faculty
+member is not handing over the case to the AI; she is configuring the
+AI's role inside the case.
+
+---
+
+## The graduated assistance ladder
 
 Inside a single Case Study session, the AI does not start by asking the
 hardest question. It starts broadly — "what do you notice about this
@@ -153,14 +168,15 @@ the moment (Koedinger and Aleven, *Educational Psychology Review*, 19,
 The graduated ladder is Medhavy's response to this dilemma at scale.
 A skilled human tutor solves the assistance dilemma in real time by
 reading the room. Medhavy's ladder is an attempt to do the same thing
-in software, using the seven signals (Chapter 7) to detect when the
+in software, using the seven signals (Chapter 8) to detect when the
 student needs more support and when more support would be harmful.
-
 [Humanitarians AI internal framework — the specific ladder structure
 and hint-escalation rules are proprietary. The underlying assistance-
 dilemma mechanism is Koedinger and Aleven's.]
 
-### When Case Study is the right mode
+---
+
+## When Case Study is the right mode
 
 When the student can already retrieve the concept under timed conditions
 but cannot decide whether to deploy it when the situation is unclear.
@@ -184,7 +200,9 @@ patient septic? What do you do in the next ten minutes? The well-
 structured form of this question is on the boards. The ill-structured
 form is the floor.
 
-### When Case Study is not the right mode
+---
+
+## When Case Study is not the right mode
 
 When the student does not have the underlying mechanism. A Case Study
 deployed before the prerequisite Quiz Me material is consolidated
@@ -205,156 +223,11 @@ post-novice work. Before that, the student is on Ask AI and Quiz Me.
 
 ---
 
-## Glimmer — what it is
+## Worked example — Ask AI to Quiz Me to Case Study
 
-A Glimmer in Medhavy is a generative, open-ended assignment. The
-student produces something that did not exist before — a clinical
-protocol, a deprescribing plan, a public-health surveillance design.
-There is no single correct answer. The grade is on the reasoning, not
-on the output. [Humanitarians AI internal framework — Medhavy
-proprietary mode design]
-
-This is the cognitive operation at the top of Bloom's revised taxonomy:
-Create. The assignment type — generative, defended, original — has been
-a mainstay of professional education for a century. The dissertation,
-the design project, the case write-up. What is new is the architecture
-around it: AI as pre-grading reviewer, five specific dimensions of
-defense, and a destination the student does not know about until the
-term is almost over.
-
-### The five dimensions
-
-Glimmer evaluates the student's reasoning along five dimensions. These
-are Medhavy's framing; the underlying components draw on adjacent
-literature on argumentation (Stephen Toulmin, *The Uses of Argument*,
-1958), feedback (John Hattie and Helen Timperley, *Review of Educational
-Research*, 77(1), 2007), and process-level evaluation of reasoning.
-The integration is Medhavy's. [Humanitarians AI internal framework —
-the five-dimension rubric is proprietary; the underlying argumentation
-and feedback literature is not.]
-
-The five dimensions, in plain language:
-
-- **WHY.** Did the student frame the problem before solving it? A
-  deprescribing plan that opens with "the patient is on too many drugs"
-  has not framed anything. A plan that opens with "this patient's
-  primary clinical risk is a fall, the primary contributor to fall
-  risk is the combination of A, B, and C, and the deprescribing
-  priority follows from that risk hierarchy" has framed the problem.
-  WHY resists offloading because the framing is domain-specific and
-  current LLMs produce generic framing absent explicit human direction.
-
-- **Usefulness.** Would this output be useful to a real practitioner?
-  A theoretically defensible plan that ignores the realities of the
-  outpatient clinic is not useful. A plan that names the realities and
-  works within them is. Usefulness resists offloading because real-
-  world utility judgment requires familiarity with the practice context.
-
-- **Mechanism.** Did the student explain the causal steps? Not "we
-  reduced the diuretic dose" but "we reduced the diuretic dose because
-  the patient's volume status had stabilized after the change in
-  blood pressure medication, which we expect to reduce the workload
-  on the remaining kidney function via the following mechanism."
-  Mechanism resists offloading because mechanistic causal explanation
-  in a specific clinical context is something current LLMs do
-  unevenly — fluent but often hollow.
-
-- **Defensibility.** Can the student defend the choice against the
-  reasonable counter-argument? If the obvious objection is "but this
-  patient was previously on warfarin for a reason," does the plan
-  address that reason? Defensibility resists offloading because
-  anticipating counter-arguments requires the student to hold both
-  the position and the objection in mind simultaneously.
-
-- **Specificity.** Did the student commit to specifics? Not "monitor
-  closely" but "obtain a CBC and BMP at one week and again at three
-  weeks; specific values that would trigger a change are X and Y."
-  Specificity resists offloading because vague answers from an LLM
-  are easy; concrete, defensible specifics in this clinical context
-  are not.
-
-Each dimension is designed to require something a current LLM is
-weaker at than a fluent paragraph: domain-grounded framing, contextual
-utility, mechanistic causal explanation, anticipation of counter-
-argument, concrete commitment. None of these is a trick. They are the
-features of clinical reasoning that the dissertation defense has been
-testing for a hundred years.
-
-### The AI pre-grading reviewer
-
-After a student submits a Glimmer, the AI asks one targeted question
-about the weakest of the five dimensions. Not a comprehensive critique.
-One question.
-
-This is on purpose. John Hattie and Helen Timperley's 2007 synthesis
-of effective feedback distinguished four levels: task, process, self-
-regulation, and self. The strongest learning effects came from
-process-level feedback — feedback about the reasoning, not the output.
-Comprehensive feedback at the task level (annotated paragraphs, line
-edits) produced weaker learning gains than a single well-aimed question
-at the process level (Hattie and Timperley, *Review of Educational
-Research*, 77(1), 2007).
-
-The AI pre-grading reviewer is the process-level feedback move at
-scale. It is not a substitute for faculty grading; faculty still grade
-the final Glimmer. It is a layer that gets the student to revise their
-reasoning before they hand it in. The first version of the deprescribing
-plan goes to the AI reviewer, which asks: "You explained why you
-removed the second antihypertensive, but the patient was started on it
-for a reason. What would you tell the prescribing physician?" The
-student revises. The faculty member sees the revised version.
-
-### The emergent term project
-
-The first Glimmer in week three of the course looks like an
-isolated assignment. The second, in week six, looks like a slightly
-larger assignment in the same domain. By week ten the student is told,
-plainly: the Glimmers you have been doing build into a term portfolio,
-and the integrated portfolio is the final assessment.
-
-The students did not know this in week three. Medhavy's design choice.
-The pedagogical bet: announced portfolios produce student-strategic
-output (what does the rubric want?), while emergent portfolios produce
-work the student took seriously for its own sake at each step. The
-direct empirical literature on this exact design is thin; the closest
-adjacent work is on hidden-purpose effects on intrinsic motivation in
-the self-determination theory tradition [verify — Deci and Ryan,
-*Self-Determination Theory*, 2017]. Medhavy is making a pedagogical
-bet that has theoretical support but not direct evidence.
-[Humanitarians AI internal framework — the emergent term project
-design is proprietary.]
-
-### When Glimmer is not the right mode
-
-When the student does not yet have proficiency in the domain. Patricia
-Alexander's Model of Domain Learning describes three stages —
-acclimation, competence, proficiency — and the cognitive operations
-appropriate to each [verify — Alexander, *Educational Researcher*,
-2003, on Model of Domain Learning]. A generative open-ended assignment
-in week three of pharmacology, when the student has just barely
-acquired vocabulary, does not produce learning. It produces anxiety.
-The student knows they do not know enough; the assignment confirms it;
-the next assignment feels worse.
-
-Medhavy's response is backwards-faded scaffolding, adapted from
-Alexander Renkl and Robert Atkinson's faded worked-example research
-in algebra (Renkl and Atkinson, *Educational Psychologist*, 38(1),
-2003). Early in the domain, the Glimmer comes with most of the
-structure provided — only the final step is the student's. As the
-student progresses, the structure fades. By proficiency stage, the
-Glimmer is fully open. The phase gate prevents premature deployment.
-The fade is also a Medhavy design choice; the worked-example research
-gives theoretical support, but the adaptation from algebra to clinical
-reasoning is itself an extrapolation. [Humanitarians AI internal
-framework — the backwards-faded scaffolding for clinical Glimmer is
-proprietary.]
-
----
-
-## Worked example — the same student, four stages
-
-Beta blockade in pharmacology. One student. Four stages of the
-four-mode sequence.
+Beta blockade in pharmacology. One student. Three stages of the
+four-mode sequence. (The fourth stage — Glimmer — is taken up at the
+end of Chapter 6.)
 
 **Stage 1 — Ask AI.** The student is a second-year pharmacy student
 who has heard the term *beta blocker* in cardiology lecture but does
@@ -386,18 +259,10 @@ trade-off and commits to a recommendation. She defends the
 recommendation. The AI surfaces one consideration she did not name.
 She revises. The work is judgment under ambiguity, not recall.
 
-**Stage 4 — Glimmer.** Design a clinical protocol for initiating
-beta blockade in patients with concurrent COPD and reduced ejection
-fraction, including monitoring parameters, escalation criteria, and
-de-escalation triggers. Defend every decision against the obvious
-counter-argument. The student produces a protocol. The AI pre-grading
-reviewer asks one targeted question — her Specificity is weak; the
-monitoring intervals are vague. She revises. The faculty member
-grades the revised version. The protocol joins her term portfolio,
-which she will recognize in week ten as her integrated assessment.
-
-Four modes. Four cognitive operations. Acquire → retain → apply →
-generate. The sequence is the spine of what Medhavy does.
+Three modes. Three cognitive operations. Acquire → retain → apply. The
+sequence is the spine of what Medhavy does up to and including the
+mode this chapter is about. Chapter 6 takes the same student into the
+fourth mode.
 
 ---
 
@@ -409,14 +274,6 @@ and surfaces the student's reasoning. The faculty review happens on
 the scenario itself, before the student ever sees it. The AI's role
 is during the case, asking questions and offering graduated hints,
 not at the end producing a score.
-
-**"Glimmer is a fancy essay rubric."** It is an open-ended assignment
-with an AI pre-grading reviewer and a five-dimension feedback
-architecture. The rubric is not the innovation; the process-level
-single-question feedback move is. A rubric grades the artifact. Glimmer
-grades the reasoning visible through the artifact, and the AI reviewer
-gets the student to improve the reasoning before the artifact is
-graded.
 
 **"We already do case-based learning. Why would we need Case Study?"**
 You do, and you may not need Case Study for the deployment you are
@@ -435,66 +292,60 @@ control; it is a safety control. Programs that deploy AI-generated
 cases without faculty review are accepting a risk that current AAMC
 and parallel guidance documents say not to accept.
 
-**"Glimmer can replace the dissertation defense."** No. Glimmer is a
-process-level, AI-pre-graded, term-scale assignment. The dissertation
-defense is a high-stakes oral evaluation in front of human experts.
-Glimmer produces a portfolio that contributes to evaluation; it does
-not replace the evaluation.
-
 ---
 
 ## What would change my mind
 
 If a multi-site randomized study showed that students completing
-Glimmer assignments performed no better on delayed transfer
-assessments — six months out, in clinical reasoning scenarios they
-had not seen — than students completing conventional essay
-assignments, the chapter's central claim about Glimmer's cognitive
-operation would need substantial revision. The five-dimension
-framework's defense is that it targets cognitive operations
-distinguishable from those a conventional essay rubric targets.
-Direct empirical confirmation of that distinguishability does not
-yet exist. A null result on delayed transfer would be a strong
-counter-finding.
+faculty-reviewed Case Study sessions performed no better on delayed
+transfer assessments — six months out, in clinical reasoning scenarios
+they had not seen — than students completing AI-generated case
+scenarios without faculty review, the safety-engineering argument
+would still hold but the pedagogical argument would weaken
+substantially. The chapter's claim is that faculty review protects
+against a class of failure that empirical evidence cannot yet
+quantify, and that the cost of that protection is justified by the
+asymmetry between the harms of plausible-confident-wrong reasoning
+and the cost of an extra faculty pass. A null delayed-transfer result
+would not eliminate the safety argument; it would force a much
+harder conversation about whether the faculty-review cost is
+proportionate.
 
 ---
 
 ## Still puzzling
 
-- The emergent term project is theoretically motivated by intrinsic
-  motivation research, but the specific design — students discover
-  the portfolio in week ten — has no direct empirical study. Does it
-  produce more authentic work than an announced portfolio? Plausible.
-  Unproven.
-
-- Backwards-faded scaffolding has solid empirical support in algebra
-  (Renkl and Atkinson) but the adaptation to clinical reasoning is
-  Medhavy's extrapolation. Does the fade structure generalize? It is
-  reasonable to expect so. It is not yet measured.
-
-- The five Glimmer dimensions resist current LLM offloading. They will
-  not resist forever. As models improve at mechanistic causal
-  explanation and counter-argument anticipation, the five dimensions
-  will erode as anti-offload defenses. What replaces them when that
-  happens?
-
 - The faculty-review gate is a safety commitment. What does it cost
   the institution in faculty time, and what is the break-even point
   at which the gate is too expensive to maintain at the depth required?
+  Chapter 11 estimates the timeline. The cost-benefit at scale is not
+  yet measured.
+- The graduated assistance ladder depends on the seven signals
+  (Chapter 8) being calibrated to the discipline. Cardiology hint
+  density that works for second-year pharmacy students may
+  systematically over- or under-scaffold for second-year nursing
+  students at the same retention level. The signals are designed to
+  be discipline-portable; whether they are remains an open empirical
+  question.
+- The prerequisite gate prevents premature Case Study deployment, but
+  the threshold for "consolidated enough" is itself a design choice.
+  Set too low, students arrive at Case Study guessing. Set too high,
+  the integration of recall and judgment is delayed. The right
+  threshold is probably concept-specific.
 
 ---
 
 ## Bridge
 
-The four modes cover the full cognitive sequence — acquire, retain,
-apply, generate. The question is whether your institution needs all
-four, and whether you can tell whether they are working. That
-requires measurement. Canvas measures engagement: clicks, time on
-page, completion, scores. It does not measure learning. Chapter 6 is
-about that gap. It is the hardest chapter in this book to write
-without sounding like a vendor pitch, because you have spent a career
-treating engagement as a learning proxy and you were not wrong to do
-so. The tool was not built for the question you now need it to answer.
+Case Study covers judgment under ambiguity — the student can already
+retrieve the concept, and now learns to decide whether to deploy it
+when the situation is unclear. The next mode is different in kind.
+Glimmer asks the student to produce something original — a protocol,
+a plan, a design — and defend it along five specific dimensions. The
+cognitive operation is generation, not application. The architecture
+around the assignment — AI as pre-grading reviewer, the five-dimension
+defense, the emergent term project — is what makes it possible at
+scale. Chapter 6 is about that.
 
 ---
 
@@ -503,24 +354,23 @@ so. The tool was not built for the question you now need it to answer.
 1. **(Understand)** For one concept in your curriculum, describe in
    one paragraph what a student who has completed Ask AI and Quiz Me
    on that concept can reliably do. Then describe what they still
-   cannot do. For each of the two gaps you name, identify whether
-   Case Study or Glimmer addresses it, and why.
-
+   cannot do that Case Study would address. Identify the specific
+   form of ambiguity in the gap — competing constraints, missing
+   information, multiple defensible paths — and name which one Case
+   Study would train.
 2. **(Apply — to your own deployment)** Identify one faculty member
    in your program who has the domain expertise to write and review
    Case Study scenarios for a high-priority learning objective.
    Estimate the time required, per scenario, for them to author the
    case and complete the Socratic-laddering review (where the
-   scenario's hint sequence is specified). Estimate the format
-   they would need to produce. Write a one-paragraph proposal you
-   could send them.
-
+   scenario's hint sequence is specified). Estimate the format they
+   would need to produce. Write a one-paragraph proposal you could
+   send them.
 3. **(Evaluate)** In your deployment, what percentage of your
    learning objectives require students to apply knowledge under
    ambiguity without a single correct answer? Those are Case Study
-   candidates. What percentage require students to produce something
-   original and defend it? Those are Glimmer candidates. Write the
-   two percentages and a one-paragraph defense of each estimate.
-   If the combined percentage is under twenty, you have evidence
-   that your deployment may not need these two modes. If it is
-   over fifty, you have evidence that it might.
+   candidates. Write the percentage and a one-paragraph defense of
+   the estimate. If the figure is under ten, you have evidence that
+   Case Study may not yet be the right Medhavy commitment for your
+   program. If it is over thirty, the prerequisite-gate plumbing
+   becomes the operational question — see Chapter 11.

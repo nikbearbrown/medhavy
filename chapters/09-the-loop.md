@@ -1,4 +1,4 @@
-# Chapter 8 — The Loop: Present, Measure, Adapt
+# Chapter 9 — The Loop: Present, Measure, Adapt
 
 **One-line capability:** The reader learns what the contextual bandit
 is in plain language, what *adapt* actually means in practice, and why
@@ -34,7 +34,7 @@ to close:
    operation. The four modes from Act One are the units of variation.
 
 2. **Measure whether it helped.** Not engagement metrics. The seven
-   signals from Chapter 7. The behavioral traces that distinguish
+   signals from Chapter 8. The behavioral traces that distinguish
    genuine learning from borrowed certainty.
 
 3. **Adapt.** The contextual bandit updates its policy for this
@@ -154,7 +154,7 @@ it systematic and traceable.]
 
 For a learning system, the translation is direct. The *machines* are
 interventions — modes, within-mode variants, intervention difficulty
-levels. The *payouts* are the seven signals from Chapter 7,
+levels. The *payouts* are the seven signals from Chapter 8,
 aggregated into the GLP score and ultimately into the reward signal
 the bandit optimizes. The *player* is the algorithm. The *pulls* are
 the sessions the student spends with the system. The *unknown payout
@@ -239,7 +239,7 @@ The TIKTOC chapter spec calls for a single eight-week trace of the
 bandit's policy evolution for one concept and one student. Here it
 is. The student is in a pharmacology course; the concept is
 *beta-blockade clinical decision-making* — the same concept used as
-the worked example in Chapter 5.
+the worked example in Chapters 5 and 6.
 
 | Week | What the bandit has seen so far                              | What the bandit tried this week     | Signals captured                                      | Policy update                                        |
 |------|---------------------------------------------------------------|-------------------------------------|-------------------------------------------------------|------------------------------------------------------|
@@ -304,7 +304,7 @@ saying as cleanly as possible.
   loop's closure requires measurement and policy in the same system.
 
 - **Canvas's metrics measure engagement; Medhavy's signals measure
-  cognitive process traces.** Chapter 6's argument. Engagement metrics
+  cognitive process traces.** Chapter 7's argument. Engagement metrics
   cannot be the bandit's reward signal because they are decoupled
   from durable learning.
 
@@ -366,13 +366,13 @@ but not proven. An institution adopting Medhavy is adopting this risk
 explicitly.
 
 **The institution has to be willing to act.** This is TIKTOC's third
-adoption condition and the load-bearing one for Chapter 9. A bandit
+adoption condition and the load-bearing one for Chapter 10. A bandit
 that produces a clear policy signal — *this student is benefiting
 from Case Study; this student needs more Quiz Me first* — is
 worthless if the institution cannot or will not let the policy run.
 Medhavy without the willingness to act on what the loop reveals is
 expensive Canvas analytics. The reader needs to be honest with
-themselves about this *before* the adoption decision. Chapter 9 is
+themselves about this *before* the adoption decision. Chapter 10 is
 the test.
 
 ---
@@ -473,7 +473,7 @@ Acquire, retain, apply, generate. Time, error, transfer, calibration,
 texture, decay, scaffolding. Present differently, measure whether it
 helped, adapt. The architecture is on the page. The question is no
 longer *what is Medhavy*. The question is *does my deployment need
-it*. Chapter 9 is the discipline that says: not always, and here is
+it*. Chapter 10 is the discipline that says: not always, and here is
 how to know.
 
 ---
@@ -492,7 +492,7 @@ how to know.
 
 2. **(Apply — application to your deployment)** For one high-stakes
    concept in your curriculum — the same concept you named in
-   Chapter 7's Exercise 2 — describe what the loop would need to
+   Chapter 8's Exercise 2 — describe what the loop would need to
    measure to determine whether students are *genuinely* learning
    the concept versus producing performance that decouples from
    learning. Name the two or three of the seven signals that would

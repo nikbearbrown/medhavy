@@ -88,7 +88,7 @@ The next three chapters explain what the loop does when the answer is yes. Medha
 
 ## LLM Exercises
 
-1. **(Evaluate, applied to your own deployment)** Describe your primary deployment in three sentences: how many students, how many sections, how many instructors, what scale of program. Then run the three questions. Record your honest answers. If any answer is uncertain, write one sentence on what evidence would resolve it. Keep the answers — you will return to them in Chapter 9 and Chapter 11.
+1. **(Evaluate, applied to your own deployment)** Describe your primary deployment in three sentences: how many students, how many sections, how many instructors, what scale of program. Then run the three questions. Record your honest answers. If any answer is uncertain, write one sentence on what evidence would resolve it. Keep the answers — you will return to them in Chapter 10 and Chapter 12.
 
 2. **(Apply)** For a deployment where all three answers are yes, name one specific piece of information the loop would produce that your current Canvas dashboard cannot. Not a category of information — a specific concrete piece. (Example: "Whether the students who scored 78 on the dosage calculation quiz in week 6 are likely to retain that knowledge for the board exam in 14 months.") The exercise is testing whether you can describe the value proposition in operational terms.
 

@@ -76,7 +76,7 @@ The chapter installs the three-question sufficiency test, which is the load-bear
 2. **Does someone need to know whether the variation is helping?**
 3. **Is the institution willing to act on what the measurement reveals?**
 
-Every subsequent chapter is calibrated against this test. The four-mode chapters (3–5) explain *what* the loop presents differently. Chapters 6–8 explain *how* the loop measures whether it helped. Chapters 9–11 walk the reader through *applying* the three-question test to her own deployment.
+Every subsequent chapter is calibrated against this test. The four-mode chapters (3–5) explain *what* the loop presents differently. Chapters 7–9 explain *how* the loop measures whether it helped. Chapters 10–12 walk the reader through *applying* the three-question test to her own deployment.
 
 The chapter's most important job: making the case for the simpler stack *as the right answer* in most deployments — without making Medhavy sound optional in the deployments where it is right. This is the credibility hinge. If the reader finishes Chapter 2 thinking "the author would tell me not to buy this if I shouldn't," she will trust the rest of the book. If she finishes thinking "this is a setup to sell me Medhavy," she will not.
 

@@ -1,4 +1,4 @@
-# Chapter 7 — The Seven Signals: What Genuine Learning Looks Like
+# Chapter 8 — The Seven Signals: What Genuine Learning Looks Like
 
 **One-line capability:** The reader learns the Frictional Framework's
 seven signals in plain language — what each one is, what it measures,
@@ -8,7 +8,7 @@ and which mode produces it.
 
 ## Learning leaves traces
 
-Chapter 6 closed with a category: behavioral traces of cognitive
+Chapter 7 closed with a category: behavioral traces of cognitive
 engagement. This chapter is about what those traces actually look like
 and how they distinguish a student who learned something from a student
 who produced something that looked like learning.
@@ -338,13 +338,13 @@ interactions accumulate. Early in the term, the score is noisy. By
 mid-term, the constituent signals have stabilized enough that the
 composite is interpretable. The cold-start period — when the score
 is too noisy to act on — is real and is one of the honest limits of
-the system. Chapter 8 covers this in the bandit context.
+the system. Chapter 9 covers this in the bandit context.
 
 ---
 
 ## Worked example — two students through seven signals
 
-Return to the two students from Chapter 6. Same Canvas analytics:
+Return to the two students from Chapter 7. Same Canvas analytics:
 forty-seven minutes on the module, one hundred and forty-ish clicks,
 one hundred percent completion, eighty-eight percent on the quiz,
 submitted assignment of similar surface quality. Canvas could not
@@ -394,7 +394,7 @@ not. Engagement metrics measure interaction with the platform.
 The seven signals measure traces of cognitive process: how time
 distributes across difficulty, whether errors update, whether
 knowledge transfers, whether confidence calibrates. The difference is
-the difference Chapter 6 names — engagement evidence versus learning
+the difference Chapter 7 names — engagement evidence versus learning
 evidence. Better click counts will not produce Y3.
 
 **"The GLP score is the new gradebook."** It is not. The GLP score is
@@ -466,7 +466,7 @@ need to be rebuilt on different grounds.
 - The cold-start period for the GLP score is real. How long it is in
   practice, for a given concept, depends on student volume and
   signal strength. The book promises *first six sessions* as the
-  exploratory window in Chapter 8. Whether this is the right length
+  exploratory window in Chapter 9. Whether this is the right length
   empirically is unknown.
 
 ---
@@ -477,7 +477,7 @@ The seven signals are what Medhavy measures. Measurement on its own
 does not change anything. What changes things is what the system does
 with the measurement: presents differently, sees the signal, adapts
 the presentation, repeats. That is the loop. The contextual bandit is
-the algorithm that runs the loop. Chapter 8 explains it in plain
+the algorithm that runs the loop. Chapter 9 explains it in plain
 language, walks through what the bandit does over eight weeks for one
 concept and one student, and names the honest limits.
 

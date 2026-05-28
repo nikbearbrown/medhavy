@@ -20,7 +20,7 @@
 5. Three-Act Learning Arc
 6. Prerequisite Map
 7. Learning Outcomes by Chapter
-8. Chapter-by-Chapter TOC
+9. Chapter-by-Chapter TOC
 9. Chapter Anatomy Template
 10. Hard Topics, Contested Claims, Aging Risk
 11. Open Questions
@@ -214,7 +214,7 @@ Medhavy measures that Canvas cannot and why that measurement matters
 honest conditions under which Medhavy does and does not earn its cost
 (Act Three).
 
-## Act One — What Are These Four Things? (Chapters 1–5)
+## Act One — What Are These Four Things? (Chapters 1–6)
 
 Starting state: Reader has heard Ask AI, Quiz Me, Case Study, Glimmer.
 Does not know what any of them are. Cannot tell them apart from a
@@ -235,7 +235,7 @@ reader who finishes Chapter 1 understands why "the AI is doing the
 work" is the failure, and why Medhavy's four modes are each designed
 to prevent a specific form of that failure.
 
-## Act Two — What Does Medhavy Measure That Canvas Doesn't? (Chapters 6–8)
+## Act Two — What Does Medhavy Measure That Canvas Doesn't? (Chapters 7–9)
 
 Starting state: Reader understands the four modes. Still does not
 understand why measurement is the value proposition.
@@ -246,12 +246,12 @@ Frictional Framework provides). Understands the seven friction signals
 in plain language. Understands why the loop — present differently,
 measure whether it helped, adapt — cannot be closed by Canvas alone.
 
-Hardest moment: Chapter 6. The reader has spent a professional career
+Hardest moment: Chapter 7. The reader has spent a professional career
 treating engagement as a proxy for learning. The book must correct
 this without insulting them. The Bastani finding carries most of this
 weight if presented correctly.
 
-## Act Three — Is the Loop Worth It for My Deployment? (Chapters 9–11)
+## Act Three — Is the Loop Worth It for My Deployment? (Chapters 10–12)
 
 Starting state: Reader understands the modes and the measurement.
 Now needs the decision framework.
@@ -262,7 +262,7 @@ Ending state: Reader can answer the three adoption questions:
 (3) Am I willing to act on what the measurement reveals?
 If all three yes: Medhavy earns its cost. If any no: simpler stack.
 
-Transfer test: The reader who finishes Chapter 11 can sit in a
+Transfer test: The reader who finishes Chapter 12 can sit in a
 budget meeting and explain — in plain language, without jargon —
 what Medhavy does that Canvas doesn't, when it's worth adding,
 and when it isn't.
@@ -280,8 +280,8 @@ and when it isn't.
 | Research literacy | No | Evidence always translated, never cited raw |
 | Understanding of AI+1 framework | No | Chapter 2 explains what AI+1 is |
 | Understanding of Irreducibly Human | No | Introduced in Chapter 2, used throughout |
-| Knowledge of Frictional Framework / GLP | No | Chapter 6 introduces from scratch |
-| LTI or technical integration knowledge | No | Chapter 10 addresses without technical depth |
+| Knowledge of Frictional Framework / GLP | No | Chapter 7 introduces from scratch |
+| LTI or technical integration knowledge | No | Chapter 11 addresses without technical depth |
 
 **Front-loading decision:** No prerequisites chapter. Every concept
 introduced at first use in plain language. The reader does not need
@@ -311,7 +311,7 @@ to understand the research — they need to understand the decision.
 
 ---
 
-## ACT ONE — WHAT ARE THESE FOUR THINGS? (Chapters 1–5)
+## ACT ONE — WHAT ARE THESE FOUR THINGS? (Chapters 1–6)
 
 ---
 
@@ -558,11 +558,12 @@ is ambiguous and the right answer is not obvious. That is Case Study's job.
 
 ---
 
-### CHAPTER 5 — Case Study and Glimmer: The Two Modes Nobody Explains
+### CHAPTER 5 — Case Study: The Mode for Judgment Under Ambiguity
 
-**One-line:** The reader learns what Case Study and Glimmer are,
-why they exist as separate modes, and what cognitive operation each
-one serves that Ask AI and Quiz Me cannot.
+**One-line:** The reader learns what Case Study is, what cognitive
+operation it serves that Ask AI and Quiz Me cannot, and what
+institutional commitments are required to deploy it without producing
+plausible-confident-wrong reasoning at scale.
 
 **Opening:**
 Professional education trains students for well-structured-problem
@@ -571,11 +572,11 @@ judgment. This is not a new observation. The Carnegie Foundation
 documented it in medical education in 2010 and engineering education
 in 2008. The gap has not closed.
 
-Case Study and Glimmer are Medhavy's answer to that gap. They are
-not enhancements to the other two modes. They are different cognitive
-operations entirely.
+Case Study is the first of Medhavy's two answers to that gap. It is
+not an enhancement to Ask AI or Quiz Me. It is a different cognitive
+operation entirely: judgment under ambiguity.
 
-**Core content blocks — Case Study:**
+**Core content blocks:**
 1. What Case Study is — a pre-written, faculty-reviewed clinical or
    domain scenario presented after the student has demonstrated
    understanding of underlying concepts; the AI facilitates discussion,
@@ -583,7 +584,7 @@ operations entirely.
 2. Why pre-written and faculty-reviewed — the prohibition on
    AI-generated cases; why a plausible-sounding wrong clinical claim
    in a case scenario is a patient safety risk; why the faculty review
-   gate is not optional
+   gate is a safety control, not a quality control
 3. The graduated assistance ladder — why the case starts with broad
    evidential questions and escalates only when the student demonstrates
    engagement; the assistance dilemma in plain language: too much help
@@ -592,62 +593,121 @@ operations entirely.
    the student who can retrieve a concept but cannot deploy it when
    the situation is unclear; the cognitive operation that produces
    flexible, transferable knowledge
+5. When Case Study is not the right mode — the prerequisite gate;
+   why a Case Study deployed before the underlying Quiz Me material
+   is consolidated produces guessing, not reasoning
 
-**Core content blocks — Glimmer:**
+**Worked example:**
+A second-year pharmacy student walks through three stages of the
+four-mode sequence on beta blockade. After Chapter 3 (Ask AI): can
+explain what beta blockade is. After Chapter 4 (Quiz Me): can
+recall the mechanism reliably under timed conditions. After Case
+Study (a sixty-four-year-old man with COPD, heart failure with
+reduced ejection fraction, and a resting heart rate of fifty-two):
+can defend a recommendation under ambiguity and revise it when the
+AI surfaces a consideration she has not named. Stage 4 (Glimmer)
+picks up in Chapter 6.
+
+**Exercises (3):**
+1. (Understand) For one concept in your curriculum, describe in one
+   paragraph what a student who has completed Ask AI and Quiz Me can
+   reliably do. Then describe what they still cannot do that Case
+   Study would address. Name the specific form of ambiguity in the
+   gap.
+2. (Apply) Identify one faculty member in your program who has the
+   domain expertise to write and review Case Study scenarios for a
+   high-priority learning objective. Estimate the time required, per
+   scenario, for them to author the case and complete the
+   Socratic-laddering review.
+3. (Evaluate) In your deployment, what percentage of your learning
+   objectives require students to apply knowledge under ambiguity
+   without a single correct answer? Those are Case Study candidates.
+
+**Bridge:** Case Study covers judgment under ambiguity — the student
+can already retrieve the concept and now learns to decide whether to
+deploy it when the situation is unclear. The next mode is different
+in kind. Glimmer asks the student to produce something original and
+defend it. Chapter 6.
+
+---
+
+### CHAPTER 6 — Glimmer: The Mode for Defended Generation
+
+**One-line:** The reader learns what Glimmer is, what cognitive
+operation it serves that the other three modes cannot, and how the
+five-dimension defense and AI pre-grading reviewer make generative
+assessment possible at scale without producing a class of students
+who outsource their thinking.
+
+**Opening:**
+Chapter 5 introduced the gap that Case Study addresses: the boards
+measure recall; practice requires judgment under ambiguity. Glimmer
+addresses the same gap from a different angle. Where Case Study
+trains the student to decide what to do when the situation is unclear,
+Glimmer trains the student to *produce* something — a protocol, a
+plan, a design — that did not exist before, and to defend it. The
+cognitive operation is generation, not application. It sits at the
+top of Bloom's revised taxonomy: Create.
+
+**Core content blocks:**
 1. What Glimmer is — a generative, open-ended assignment where the
    student produces something that did not exist before; no single
    correct answer; graded on reasoning quality, not output
 2. The five dimensions — WHY (problem framing), Usefulness,
-   Mechanism (causal steps), Defensibility, Specificity; why
-   each dimension is designed to resist AI offloading
+   Mechanism (causal steps), Defensibility, Specificity; why each
+   dimension is designed to resist AI offloading
 3. The AI pre-grading reviewer — why it asks one targeted question
    about the weakest dimension rather than providing comprehensive
    feedback; the distinction between process-level and task-level
-   feedback
+   feedback; why "one targeted question" breaks the most expensive
+   faculty habit
 4. The emergent term project — why students don't know they're
    building a portfolio until week 10; why hiding the destination
-   produces more authentic work than announcing it
-5. When Glimmer is NOT the right mode — for students without
-   sufficient prior knowledge, it produces anxiety, not learning;
-   the backwards-faded scaffolding solution; the phase gate that
-   prevents premature deployment
+   produces more authentic work than announcing it; the honest
+   admission that this is a pedagogical bet with theoretical support
+   but thin direct evidence
+5. When Glimmer is NOT the right mode — Alexander's Model of Domain
+   Learning; for students without sufficient prior knowledge, Glimmer
+   produces anxiety, not learning; backwards-faded scaffolding adapted
+   from Renkl and Atkinson; the phase gate that prevents premature
+   deployment
 
 **Worked example:**
-The same student at three stages. After Chapter 3 (Ask AI): can
-explain what beta blockade is. After Chapter 4 (Quiz Me): can
-recall the mechanism reliably under timed conditions. After Case
-Study: can decide whether beta blockade is appropriate for a
-patient who presents with ambiguous symptoms. After Glimmer:
-can design a clinical protocol for beta blockade in a novel
-patient context and defend every decision.
+The same pharmacy student from Chapter 5, now at Stage 4. Assignment:
+*Design a clinical protocol for initiating beta blockade in patients
+with concurrent COPD and reduced ejection fraction, including
+monitoring parameters, escalation criteria, and de-escalation triggers.
+Defend every decision against the obvious counter-argument.* She
+produces a four-page protocol. The AI pre-grading reviewer flags
+Specificity weakness — the monitoring intervals are vague — and asks
+one targeted question. She revises. The faculty member grades the
+revised version. The protocol joins her term portfolio.
 
 **Exercises (3):**
-1. (Understand) For a concept in your curriculum, describe what
-   a student who has only completed Ask AI and Quiz Me can do.
-   Then describe what they still cannot do. Name which mode
-   addresses each gap.
-2. (Apply) Identify one faculty member in your program who could
-   write and review Case Study scenarios for their area of expertise.
-   What would the review process require from them in time and
-   format?
-3. (Evaluate) In your deployment, what percentage of learning
+1. (Understand) For one Glimmer-style assignment in your curriculum,
+   write a sample student artifact one paragraph long. Then write the
+   one targeted question an AI pre-grading reviewer would ask about
+   its weakest dimension. Name the dimension.
+2. (Apply) Pick a learning objective in your program that currently
+   ends in a written assignment graded on the artifact. Rewrite the
+   assignment so the grade is on the reasoning, using the five
+   dimensions.
+3. (Evaluate) In your deployment, what percentage of your learning
    objectives require students to produce something original and
-   defend it? Those are Glimmer candidates. What percentage require
-   application under ambiguity without a single right answer?
-   Those are Case Study candidates.
+   defend it? Those are Glimmer candidates. Then identify one specific
+   risk and one specific benefit of the emergent term-project design
+   in your program's culture.
 
 **Bridge:** The four modes cover the full cognitive sequence —
 acquire, retain, apply, generate. The question is whether your
-institution needs all four, and whether you can tell whether
-they're working. That requires measurement. Chapter 6.
+institution needs all four, and whether you can tell whether they're
+working. That requires measurement. Chapter 7.
+
+## ACT TWO — WHAT DOES MEDHAVY MEASURE THAT CANVAS DOESN'T? (Chapters 7–9)
 
 ---
 
-## ACT TWO — WHAT DOES MEDHAVY MEASURE THAT CANVAS DOESN'T? (Chapters 6–8)
-
----
-
-### CHAPTER 6 — What Canvas Measures and What It Misses
+### CHAPTER 7 — What Canvas Measures and What It Misses
 
 **One-line:** The reader learns the specific gap between engagement
 analytics and learning evidence — and why that gap is the adoption
@@ -681,7 +741,7 @@ category.
 4. What learning evidence actually requires — behavioral traces
    of genuine cognitive engagement; why these are different from
    performance metrics; introduction to the Frictional Framework
-   concept (full detail in Chapter 7)
+   concept (full detail in Chapter 8)
 
 **Worked example:**
 Two students, same Canvas analytics. Both logged 47 minutes on the
@@ -703,11 +763,11 @@ shows what Medhavy's measurement layer sees that Canvas does not.
    if it were based on learning evidence?
 
 **Bridge:** If engagement analytics are insufficient, what does
-learning evidence look like? Chapter 7 introduces the seven signals.
+learning evidence look like? Chapter 8 introduces the seven signals.
 
 ---
 
-### CHAPTER 7 — The Seven Signals: What Genuine Learning Looks Like
+### CHAPTER 8 — The Seven Signals: What Genuine Learning Looks Like
 
 **One-line:** The reader learns the Frictional Framework's seven
 signals in plain language — what each one is, what it measures,
@@ -757,7 +817,7 @@ measures them. Medhavy measures them.
    judgment
 
 **Worked example:**
-The two-student scenario from Chapter 6, now shown through the
+The two-student scenario from Chapter 7, now shown through the
 seven signals. Student A (genuine learner) and Student B (AI-assisted)
 produce identical Canvas analytics and identical assignments. The
 seven-signal comparison shows where they diverge and which signals
@@ -776,11 +836,11 @@ are most diagnostic for each mode.
    adding Medhavy? Which cannot be observed without Medhavy?
 
 **Bridge:** The seven signals are what Medhavy measures. The loop
-is what Medhavy does with that measurement. Chapter 8.
+is what Medhavy does with that measurement. Chapter 9.
 
 ---
 
-### CHAPTER 8 — The Loop: Present, Measure, Adapt
+### CHAPTER 9 — The Loop: Present, Measure, Adapt
 
 **One-line:** The reader learns what the contextual bandit is in
 plain language, what "adapt" actually means in practice, and why
@@ -842,15 +902,15 @@ human tutor would do if they had infinite patience and perfect memory.
    currently possible without Medhavy?
 
 **Bridge:** You now have the full picture: four modes, seven signals,
-one loop. The question is whether your deployment needs it. Chapter 9.
+one loop. The question is whether your deployment needs it. Chapter 10.
 
 ---
 
-## ACT THREE — IS THE LOOP WORTH IT FOR MY DEPLOYMENT? (Chapters 9–11)
+## ACT THREE — IS THE LOOP WORTH IT FOR MY DEPLOYMENT? (Chapters 10–12)
 
 ---
 
-### CHAPTER 9 — When Kindle Is Enough
+### CHAPTER 10 — When Kindle Is Enough
 
 **One-line:** The reader gets the complexity threshold test — three
 questions that determine whether their deployment warrants Medhavy
@@ -902,11 +962,11 @@ the examples are done.
    answers were uncertain.
 
 **Bridge:** If the answer is yes, what does adding Medhavy to
-Canvas actually involve? Chapter 10.
+Canvas actually involve? Chapter 11.
 
 ---
 
-### CHAPTER 10 — Adding Medhavy to Canvas: What Actually Changes
+### CHAPTER 11 — Adding Medhavy to Canvas: What Actually Changes
 
 **One-line:** The reader learns what LTI integration means in
 plain language, what changes for students, instructors, and the
@@ -963,11 +1023,11 @@ sees in week 8 that she could not see before.
    need?
 
 **Bridge:** You have the framework. You have the implementation
-picture. Chapter 11 is the decision.
+picture. Chapter 12 is the decision.
 
 ---
 
-### CHAPTER 11 — The Adoption Decision
+### CHAPTER 12 — The Adoption Decision
 
 **One-line:** The reader produces their justified adoption
 recommendation — for or against, with specific reasoning — and
@@ -1060,14 +1120,14 @@ translated into plain language before it is used.
 
 ## Hard chapters
 
-**Chapter 6 (What Canvas Measures):** The reader has spent a
+**Chapter 7 (What Canvas Measures):** The reader has spent a
 career using Canvas analytics as a proxy for learning. The chapter
 must correct a deeply held professional habit without insulting the
 reader. The Bastani finding is the load-bearing evidence — it must
 be presented accurately and accessibly. Risk: if this chapter reads
 as anti-Canvas or anti-technology, it will alienate the primary reader.
 
-**Chapter 9 (When Kindle Is Enough):** The hardest chapter to write
+**Chapter 10 (When Kindle Is Enough):** The hardest chapter to write
 honestly, because it argues against the book's own subject. Must
 make the genuine case that a simpler stack is correct for many
 deployments. Risk: if this chapter reads as a hedge or a disclaimer,
@@ -1099,19 +1159,19 @@ confident recommendation for the simpler path when appropriate.
 
 | # | Question | Stakes | Deadline | Owner |
 |---|---------|--------|----------|-------|
-| 1 | Bastani finding presentation — how much detail is right for a non-research reader? Full study description or translated finding only? | Chapter 1 and 6 tone | Before Ch 1 draft | Author |
-| 2 | Chapter 9 (When Kindle Is Enough) — is this chapter honest enough to recommend against Medhavy in plain language, including naming specific deployment types where it is wrong? | Book credibility | Before Ch 9 draft | Author |
-| 3 | The "willing to act" condition — what does this actually require from an institution? Need concrete examples of institutions that had the data and didn't act. | Chapter 8 and 9 specificity | Before Ch 8 draft | Author |
+| 1 | Bastani finding presentation — how much detail is right for a non-research reader? Full study description or translated finding only? | Chapter 1 and 7 tone | Before Ch 1 draft | Author |
+| 2 | Chapter 10 (When Kindle Is Enough) — is this chapter honest enough to recommend against Medhavy in plain language, including naming specific deployment types where it is wrong? | Book credibility | Before Ch 9 draft | Author |
+| 3 | The "willing to act" condition — what does this actually require from an institution? Need concrete examples of institutions that had the data and didn't act. | Chapter 9 and 10 specificity | Before Ch 8 draft | Author |
 | 4 | Brutalist slides — is this explained enough for a reader who has never encountered it? Does it need its own section in Chapter 2? | Chapter 2 completeness | Before Ch 2 draft | Author |
-| 5 | GLP score — what does the reader actually see in the instructor dashboard? Need a realistic mock dashboard description or screenshot for Chapter 7. | Chapter 7 concreteness | Before Ch 7 draft | Author |
-| 6 | The adoption decision in Chapter 11 — is the one-page decision tool a table, a flowchart, or prose? What format serves the primary reader best? | Chapter 11 utility | Before Ch 11 draft | Author |
+| 5 | GLP score — what does the reader actually see in the instructor dashboard? Need a realistic mock dashboard description or screenshot for Chapter 8. | Chapter 8 concreteness | Before Ch 7 draft | Author |
+| 6 | The adoption decision in Chapter 12 — is the one-page decision tool a table, a flowchart, or prose? What format serves the primary reader best? | Chapter 12 utility | Before Ch 11 draft | Author |
 
 ---
 
 *Full TIKTOC.md v1.0 — compiled from all phase outputs*
 *All phases complete: Vision (i1–i4), Learning Architecture (l1–l4),*
 *Chapter Architecture (c1), Build (g1)*
-*Primary structural risk: Chapter 9 (When Kindle Is Enough) must*
+*Primary structural risk: Chapter 10 (When Kindle Is Enough) must*
 *genuinely argue against the book's subject — this is the chapter*
 *that earns the book's credibility*
 *Primary reader test: a curriculum director with no research background*
