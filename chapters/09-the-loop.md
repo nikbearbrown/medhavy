@@ -112,7 +112,7 @@ The bandit's policy is auditable but not natively explainable. A faculty member 
 
 Equity of adaptation is a genuine open question. A bandit that adapts to a student's early signal signature can entrench disadvantage if the early signals are noisy — particularly for students whose engagement patterns differ from the population the priors were trained on.
 
-The institution has to be willing to act on what the loop reveals. A bandit that produces a clear policy signal is worthless if the institution cannot or will not let the policy run. Medhavy without the institutional commitment to act on signal is expensive Canvas analytics. Be honest with yourself about this before the adoption decision. Chapter 10 is the test.
+The institution has to be willing to act on what the loop reveals. A bandit that produces a clear policy signal is worthless if the institution cannot or will not let the policy run. Medhavy without the institutional commitment to act on signal is expensive Canvas analytics. Be honest with yourself about this before the adoption decision. Chapter 11 is the test.
 
 ---
 

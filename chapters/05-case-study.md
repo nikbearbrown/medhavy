@@ -128,7 +128,7 @@ It is not a replacement for faculty-run case discussions. If a program already r
 
 And it is not a decision that the program can revisit after deployment if the faculty review pipeline turns out to be too expensive to maintain. The review commitment is not optional at a later stage. Either the pipeline exists and is funded, or the cases are not faculty-reviewed, and a program running unreviewed AI-generated clinical scenarios in safety-critical domains is accepting a risk that no major guidance document currently recommends accepting. The commitment is binary: you build the pipeline before you deploy, or you do not deploy Case Study.
 
-Chapter 11 makes the timeline and the cost concrete.
+Chapter 12 makes the timeline and the cost concrete.
 
 ---
 
@@ -136,4 +136,4 @@ Chapter 11 makes the timeline and the cost concrete.
 
 1. **(Understand)** For one concept in your curriculum, describe in one paragraph what a student who has completed Ask AI and Quiz Me on that concept can reliably do. Then describe what they still cannot do that Case Study would address. Identify the specific form of ambiguity in the gap — competing constraints, missing information, multiple defensible paths — and name which one Case Study would train.
 2. **(Apply — to your own deployment)** Identify one faculty member in your program who has the domain expertise to write and review Case Study scenarios for a high-priority learning objective. Estimate the time required, per scenario, for them to author the case and complete the Socratic-laddering review (where the scenario's hint sequence is specified). Estimate the format they would need to produce. Write a one-paragraph proposal you could send them.
-3. **(Evaluate)** In your deployment, what percentage of your learning objectives require students to apply knowledge under ambiguity without a single correct answer? Those are Case Study candidates. Write the percentage and a one-paragraph defense of the estimate. If the figure is under ten, you have evidence that Case Study may not yet be the right Medhavy commitment for your program. If it is over thirty, the prerequisite-gate plumbing becomes the operational question — see Chapter 11.
+3. **(Evaluate)** In your deployment, what percentage of your learning objectives require students to apply knowledge under ambiguity without a single correct answer? Those are Case Study candidates. Write the percentage and a one-paragraph defense of the estimate. If the figure is under ten, you have evidence that Case Study may not yet be the right Medhavy commitment for your program. If it is over thirty, the prerequisite-gate plumbing becomes the operational question — see Chapter 12.

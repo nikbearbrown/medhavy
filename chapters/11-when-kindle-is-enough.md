@@ -1,4 +1,4 @@
-# Chapter 10 — When Kindle Is Enough
+# Chapter 11 — When Kindle Is Enough
 
 *The most expensive mistake in educational technology is solving the wrong problem correctly.*
 

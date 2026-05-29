@@ -1,10 +1,10 @@
-# Chapter 12 — The Adoption Decision
+# Chapter 13 — The Adoption Decision
 
 *This chapter does not make the decision for you. It gives you the structure to make it yourself and the language to explain it to a budget committee.*
 
 ---
 
-Gerd Gigerenzer spent his career studying how experts actually decide under uncertainty — emergency room physicians, military commanders, investors with incomplete information. His finding, replicated across domains, was that experts do not weigh many options against many criteria. They recognize the situation as a familiar pattern and check whether one well-chosen course of action holds up under scrutiny. The three-question test from Chapter 10 is exactly that kind of recognition aid. Once you have named the pattern — scale, accountability, willingness — the decision tends to fall out. What remains is the artifact: the one-page document that goes to the budget committee, which requires you to write your recognition down in a form someone else can evaluate.
+Gerd Gigerenzer spent his career studying how experts actually decide under uncertainty — emergency room physicians, military commanders, investors with incomplete information. His finding, replicated across domains, was that experts do not weigh many options against many criteria. They recognize the situation as a familiar pattern and check whether one well-chosen course of action holds up under scrutiny. The three-question test from Chapter 11 is exactly that kind of recognition aid. Once you have named the pattern — scale, accountability, willingness — the decision tends to fall out. What remains is the artifact: the one-page document that goes to the budget committee, which requires you to write your recognition down in a form someone else can evaluate.
 
 That artifact is this chapter.
 
@@ -152,9 +152,9 @@ That is the artifact. One page. The committee can scan it in three minutes. It i
 
 ## What would change my mind
 
-If the GLP signal evidence base were to accumulate across many deployments to a point where the seven friction signals produced robust learning gains across a wide range of institutional contexts, the Q1 scale threshold from Chapter 10 would soften. Smaller deployments — forty students, one instructor, modest heterogeneity — could plausibly justify adoption. Q3 would remain a hard requirement regardless. But the Q1 threshold would shift, and the deployment types I listed above as honest no cases would need revisiting.
+If the GLP signal evidence base were to accumulate across many deployments to a point where the seven friction signals produced robust learning gains across a wide range of institutional contexts, the Q1 scale threshold from Chapter 11 would soften. Smaller deployments — forty students, one instructor, modest heterogeneity — could plausibly justify adoption. Q3 would remain a hard requirement regardless. But the Q1 threshold would shift, and the deployment types I listed above as honest no cases would need revisiting.
 
-If institutional procurement processes for AI-enabled tools became standardized enough that the eight-to-sixteen-week parallel review track from Chapter 11 compressed to four weeks, the timeline considerations in Field 4 would change — specifically, the pacing of first-term success criteria and the cold-start period for the GLP score.
+If institutional procurement processes for AI-enabled tools became standardized enough that the eight-to-sixteen-week parallel review track from Chapter 12 compressed to four weeks, the timeline considerations in Field 4 would change — specifically, the pacing of first-term success criteria and the cold-start period for the GLP score.
 
 Neither has happened. Either could, and if either does, the framework gets revised. The reader who finishes this book should be as willing to revise her own recommendation when the evidence changes as she was to make it in the first place.
 
