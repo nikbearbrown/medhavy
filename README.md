@@ -1,35 +1,38 @@
 # Medhavy
 
-**Publisher:** Humanitarians AI  
-**Edition:** 2026  
-**License:** CC BY 4.0 for text; AI+1 marks and cover design are trademarks of Humanitarians AI.
+**Author:** Humanitarians AI Incorporated  
+**Publisher:** Humanitarians AI Incorporated, a 501(c)(3) nonprofit organization  
+**Edition:** 2026
 
 ## Overview
 
-Medhavy is part of the AI+1 series from Humanitarians AI. The book asks what a Medhavy practitioner can do with AI while preserving the human judgment, accountability, and domain expertise that the tool cannot supply.
-
-The book's front matter explains the copyright, CC BY 4.0 license, distribution model, AI and errata disclosure, and the Humanitarians AI publishing context. The introduction frames the reader's path through the chapters: where AI helps, where it fails, and how to keep the boundary between execution and judgment visible.
+The first sign of trouble is usually not failure. It is fluency. The draft looks clean. The answer sounds reasonable. The chart has labels. The code runs. The plan has phases. The explanation has the rhythm of expertise. Nothing in the surface announces that a human still has work to do. This book is about the gap between a polished artifact and a trustworthy one. The central argument of **Medhavy** is that readers need a working method for the part of the work that cannot be delegated: the judgment that...
 
 ## Table of Contents
 
-- [Chapter 1 — What is Medhavy?](chapters/01-what-is-medhavy.md)
-- [Chapter 2 — What Is an Intelligent Textbook?](chapters/02-what-is-an-intelligent-textbook.md)
-- [Chapter 3 — When Anki Is Enough](chapters/03-when-anki-is-enough.md)
-- [Chapter 4 — The Evidence Base](chapters/04-the-evidence-base.md)
-- [Chapter 5 — The Four Layers](chapters/05-the-four-layers.md)
-- [Chapter 6 — The Measurement Layer](chapters/06-the-measurement-layer.md)
-- [Chapter 7 — The Four Modes](chapters/07-the-four-modes.md)
-- [Chapter 8 — The Adaptive Engine](chapters/08-the-adaptive-engine.md)
-- [Chapter 9 — The Curriculum Design Layer](chapters/09-the-curriculum-design-layer.md)
-- [Chapter 10 — The Content Layer](chapters/10-the-content-layer.md)
-- [Chapter 11 — The Economics of Intelligent Textbooks](chapters/11-the-economics.md)
-- [Chapter 12 — What the Platform Does Not Know Yet](chapters/12-what-the-platform-does-not-know-yet.md)
-- [Chapter 13 — The Design Conversation](chapters/13-the-design-conversation.md)
+- [Front Matter](chapters/00-frontmatter.md)
+- [Introduction](chapters/00-introduction.md)
+- [Chapter 1 — The Failure That Looks Like Success](chapters/01-the-failure-that-looks-like-success.md)
+- [Chapter 2 — AI+1 Is a Better Textbook. Is That Enough?](chapters/02-ai-plus-one-better-textbook.md)
+- [Chapter 3 — Ask AI: When the Student Needs to Think, Not Receive](chapters/03-ask-ai.md)
+- [Chapter 4 — Quiz Me: Making Knowledge Stick](chapters/04-quiz-me.md)
+- [Chapter 5 — Case Study: The Mode for Judgment Under Ambiguity](chapters/05-case-study.md)
+- [Chapter 6 — Glimmer: The Mode for Defended Generation](chapters/06-glimmer.md)
+- [Chapter 7 — What Canvas Measures and What It Misses](chapters/07-what-canvas-measures.md)
+- [Chapter 8 — The Seven Signals: What Genuine Learning Looks Like](chapters/08-the-seven-signals.md)
+- [Chapter 9 — The Loop: Present, Measure, Adapt](chapters/09-the-loop.md)
+- [Chapter 10 — Frictional: Measuring the Learning Struggle](chapters/10-frictional-measuring-the-learning-struggle.md)
+- [Chapter 11 — When Kindle Is Enough](chapters/11-when-kindle-is-enough.md)
+- [Chapter 12 — Adding Medhavy to Canvas: What Actually Changes](chapters/12-adding-medhavy-to-canvas.md)
+- [Chapter 13 — The Adoption Decision](chapters/13-the-adoption-decision.md)
+- [Back Matter](chapters/99-back-matter.md)
 
 ## Copyright and License
 
-Copyright © 2026 Humanitarians AI. The text is licensed under CC BY 4.0. See [LICENSE.md](LICENSE.md) for full terms, including trademark restrictions for AI+1 marks and cover design.
+Copyright © 2026 Humanitarians AI Incorporated. All rights reserved.
 
-## Errata
+See [LICENSE.md](LICENSE.md) for permissions and restrictions.
 
-Errata, corrections, and suspected mistakes may be submitted through [humanitarians.ai](https://www.humanitarians.ai/).
+## Medhavy / Medhavi Integration
+
+This book is intended for Kindle, online reading, and integration with Medhavy, an AI-powered intelligent textbook system. The static manuscript provides the durable text; Medhavy can provide adaptive practice, glossary support, study paths, and feedback loops.
